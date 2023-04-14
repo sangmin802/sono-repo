@@ -1,14 +1,16 @@
-import { useEffect } from "react";
-import { Button } from "ui";
+import { useEffect } from 'react';
+import { Button } from 'ui';
 
 export default function Web() {
-  const test = "asdfasdfasdfasdfaasdfasdfasdfasdfaasdfasdfasdfasdfaasdfasdfasdfasdfaasdfasdfasdfasdfaasdfasdfasdfasdfaasdfasdfasdfasdfaasdfasdfasdfasdfa";
-
-
-  return (
-    <div>
-      <h1>Web</h1>
-      <Button />
-    </div>
-  );
+	return (
+		<div>
+			<h1
+				className=""
+				onClick={() => null}
+			>
+				Web
+			</h1>
+			<Button />
+		</div>
+	);
 }
