@@ -15,10 +15,11 @@
     "ui": "*"
   },
   "devDependencies": {
+    "@sono-repo/eslint-config-next": "workspace:*",
     "@types/node": "^17.0.12",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
-    "eslint-config-custom": "*",
+    "prettier": "^2.8.7",
     "tsconfig": "*",
     "typescript": "^5.0.4"
   }
