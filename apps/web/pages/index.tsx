@@ -1,7 +1,7 @@
 import { Button } from "ui";
 
 export default function Web() {
-  const test = 'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹ'
+  const test = "asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹ";
 
   return (
     <div>
