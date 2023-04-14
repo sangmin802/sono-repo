@@ -9,11 +9,12 @@
   },
   "devDependencies": {
     "@sono-repo/eslint-config-next": "workspace:*",
+    "@sono-repo/prettier-config": "workspace:*",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "eslint": "^8.38.0",
     "eslint-config-next": "^13.3.0",
-    "prettier": "^2.5.1",
+    "prettier": "^2.8.7",
     "turbo": "latest",
     "typescript": "^5.0.4"
   },
