@@ -1,4 +1,5 @@
 {
+  "name": "sono-repo",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -7,12 +8,15 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-custom": "*",
+    "@sono-repo/eslint-config-next": "workspace:*",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "eslint": "^8.38.0",
+    "eslint-config-next": "^13.3.0",
     "prettier": "^2.5.1",
-    "turbo": "latest"
+    "turbo": "latest",
+    "typescript": "^5.0.4"
   },
-  "name": "sono-repo",
   "packageManager": "yarn@3.5.0",
   "workspaces": [
     "apps/*",
