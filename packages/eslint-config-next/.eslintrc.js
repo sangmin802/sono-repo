@@ -1,16 +1,22 @@
 /** @type { import("eslint").Linter.Config} */
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-  },
-  env: {
-    node: true
-  },
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'next/core-web-vitals'],
-  plugins: ['@typescript-eslint'],
-  rules: {
-    "max-len": ["error", { code: 120 }],
-  },
+	parser: '@typescript-eslint/parser',
+	parserOptions: {
+		ecmaVersion: 'latest',
+		sourceType: 'module',
+	},
+	env: {
+		node: true,
+	},
+	plugins: ['@typescript-eslint', 'prettier'],
+	extends: [
+		'eslint:recommended',
+		'plugin:@typescript-eslint/recommended',
+		'next/core-web-vitals',
+		'plugin:prettier/recommended',
+	],
+	rules: {
+		'prettier/prettier': ['error', { endOfLine: 'auto' }],
+		'max-len': ['error', { code: 120 }],
+	},
 };
