@@ -1,10 +1,13 @@
 {
   "name": "@sono-repo/prettier-config",
   "version": "0.0.0",
-  "main": ".prettierrc.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "exports": {
+    "./config": "./.prettierrc.js",
+    "./tailwind-config": "./.tailwind-prettierrc.js"
   },
   "devDependencies": {
     "prettier": "^2.8.7",

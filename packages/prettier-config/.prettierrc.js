@@ -8,4 +8,5 @@ module.exports = {
 	printWidth: 80,
 	arrowParens: "always",
 	singleAttributePerLine: true,
+  pluginSearchDirs: false,
 }
