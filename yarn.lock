@@ -284,7 +284,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sono-repo/eslint-config-next@workspace:*, @sono-repo/eslint-config-next@workspace:^, @sono-repo/eslint-config-next@workspace:packages/eslint-config-next":
+"@sono-repo/eslint-config-next@workspace:*, @sono-repo/eslint-config-next@workspace:packages/eslint-config-next":
   version: 0.0.0-use.local
   resolution: "@sono-repo/eslint-config-next@workspace:packages/eslint-config-next"
   dependencies:
@@ -359,13 +359,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^17.0.12":
-  version: 17.0.45
-  resolution: "@types/node@npm:17.0.45"
-  checksum: aa04366b9103b7d6cfd6b2ef64182e0eaa7d4462c3f817618486ea0422984c51fc69fd0d436eae6c9e696ddfdbec9ccaa27a917f7c2e8c75c5d57827fe3d95e8
-  languageName: node
-  linkType: hard
-
 "@types/node@npm:^18.15.11":
   version: 18.15.11
   resolution: "@types/node@npm:18.15.11"
@@ -380,7 +373,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.11, @types/react-dom@npm:^18.0.7":
+"@types/react-dom@npm:^18.0.11":
   version: 18.0.11
   resolution: "@types/react-dom@npm:18.0.11"
   dependencies:
@@ -389,7 +382,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.0.22, @types/react@npm:^18.0.35":
+"@types/react@npm:*, @types/react@npm:^18.0.35":
   version: 18.0.35
   resolution: "@types/react@npm:18.0.35"
   dependencies:
@@ -2926,7 +2919,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@latest, next@npm:^13.3.0":
+"next@npm:^13.3.0":
   version: 13.3.0
   resolution: "next@npm:13.3.0"
   dependencies:
@@ -4305,26 +4298,6 @@ turbo@latest:
   checksum: 474acf1146cb2701fe3b074892217553dfcf9a031280919ba1b8d651a068c9b15d863b7303cb15bd00a862b498e6cf4ad7b4a08fb134edd5a6f7641681cb54a2
   languageName: node
   linkType: hard
-
-"web@workspace:apps/web":
-  version: 0.0.0-use.local
-  resolution: "web@workspace:apps/web"
-  dependencies:
-    "@sono-repo/eslint-config-next": "workspace:^"
-    "@sono-repo/prettier-config": "workspace:*"
-    "@sono-repo/tsconfig": "workspace:*"
-    "@sono-repo/ui": "workspace:*"
-    "@types/node": ^17.0.12
-    "@types/react": ^18.0.22
-    "@types/react-dom": ^18.0.7
-    next: latest
-    prettier: ^2.8.7
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    tailwindcss: ^3.3.1
-    typescript: ^5.0.4
-  languageName: unknown
-  linkType: soft
 
 "which-boxed-primitive@npm:^1.0.2":
   version: 1.0.2
