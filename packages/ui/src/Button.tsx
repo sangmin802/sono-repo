@@ -1,7 +1,7 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react';
 
-export const Button: FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
-	...props
-}) => {
-	return <button {...props}>button</button>;
+export const Button: FC<
+	PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
+> = ({ children, ...props }) => {
+	return <button {...props}>{children}</button>;
 };
