@@ -12,10 +12,7 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
 			<head />
-			<body>
-				<div className="bg-green-500">영역</div>
-				{children}
-			</body>
+			<body>{children}</body>
 		</html>
 	);
 }
