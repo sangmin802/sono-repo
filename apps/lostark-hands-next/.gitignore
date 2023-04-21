@@ -56,6 +56,6 @@ lerna-debug.log*
 *.sw?
 
 # next-pwa
-/public/sw.js
+/public/sw.*
 /public/workbox-*
 /public/worker-*
