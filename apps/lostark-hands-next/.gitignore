@@ -55,11 +55,7 @@ lerna-debug.log*
 *.sln
 *.sw?
 
-# yarn berry - zero install
-.yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+# next-pwa
+/public/sw.js
+/public/workbox-*
+/public/worker-*
