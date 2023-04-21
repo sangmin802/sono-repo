@@ -1,10 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires */
+/**
+ * next13 appDir 호환 가능한 next-pwa
+ * @link https://github.com/DuCanhGH/next-pwa
+ */
 const withPWA = require('@ducanh2912/next-pwa').default({
-	dest: 'public',
-	/** Next13 / PWA bad-precaching-response issue
-	 * @link https://github.com/shadowwalker/next-pwa/issues/424
-	 */
-	buildExcludes: [/app-build-manifest.json$/]
+	dest: 'public'
 });
 
 /**
