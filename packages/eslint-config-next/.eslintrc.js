@@ -8,7 +8,7 @@ module.exports = {
 	env: {
 		node: true
 	},
-	plugins: ['@typescript-eslint', 'prettier'],
+	plugins: ['@typescript-eslint', 'prettier', 'simple-import-sort'],
 	extends: [
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
@@ -17,6 +17,37 @@ module.exports = {
 	],
 	rules: {
 		'prettier/prettier': ['error', { endOfLine: 'auto' }],
-		'max-len': ['error', { code: 120 }]
+		'max-len': ['error', { code: 120 }],
+		'simple-import-sort/imports': [
+			'warn',
+			{
+				groups: [
+					// Packages `react` related packages come first.
+					['^react', '^@?\\w'],
+					// services
+					['@/*/services'],
+					// hooks
+					['@/*/hooks'],
+					// utils
+					['@/*/utils'],
+					// components
+					['@/*/components'],
+					// layouts
+					['@/*/layouts'],
+					// context
+					['@/*/contexts'],
+					// constant
+					['@/*/constants'],
+					// types
+					['@/*/types'],
+					// router
+					['@/*/router'],
+					// assets
+					['@/*/assets'],
+					// Style imports.
+					['(!^@)(^.+)\\.(css)$']
+				]
+			}
+		]
 	}
 };
