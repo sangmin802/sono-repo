@@ -1,3 +1,3 @@
 module.exports = {
-  ...require('@sono-repo/prettier-config'),
+  ...require('@sono-repo/prettier-config/config'),
 }

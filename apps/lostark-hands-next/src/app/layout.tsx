@@ -1,11 +1,8 @@
-import './globals.css';
-import Head from './head';
+import { ReactNode } from 'react';
 
-export default function RootLayout({
-	children
-}: {
-	children: React.ReactNode;
-}) {
+import Head from '@/app/head';
+
+export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html lang="en">
 			{/*
