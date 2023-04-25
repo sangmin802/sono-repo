@@ -1,4 +1,5 @@
 // styles
 import './styles.css';
 
-export * from './Button';
+export { default as Button } from './component/button';
+export { default as Input } from './component/input';

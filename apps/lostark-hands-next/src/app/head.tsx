@@ -1,4 +1,6 @@
-export default function Head() {
+import { FC } from 'react';
+
+const Head: FC = () => {
 	return (
 		<>
 			<title>Lostark Hands Next</title>
@@ -36,4 +38,6 @@ export default function Head() {
 			/>
 		</>
 	);
-}
+};
+
+export default Head;

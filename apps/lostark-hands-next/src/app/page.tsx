@@ -1,11 +1,13 @@
-import { Button } from '@sono-repo/ui';
+import { FC } from 'react';
 
-export default function Home() {
+import ZodTest from '@/component/test/zod-test';
+
+const Home: FC = () => {
 	return (
 		<main>
-			<Button className="rounded-[6px] bg-test px-[10px] py-[5px] text-white">
-				Test Button
-			</Button>
+			<ZodTest />
 		</main>
 	);
-}
+};
+
+export default Home;

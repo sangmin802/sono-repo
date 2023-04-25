@@ -24,6 +24,8 @@ module.exports = {
 				groups: [
 					// Packages `react` related packages come first.
 					['^react', '^@?\\w'],
+					// monorepo package.json
+					['@sono-repo/*'],
 					// services
 					['@/*/services'],
 					// hooks

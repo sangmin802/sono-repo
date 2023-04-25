@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 
 import Head from '@/app/head';
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+const Layout: FC = ({ children }: { children: ReactNode }) => {
 	return (
 		<html lang="en">
 			{/*
@@ -13,4 +13,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 			<body>{children}</body>
 		</html>
 	);
-}
+};
+
+export default Layout;
