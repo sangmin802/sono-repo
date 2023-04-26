@@ -1,9 +1,9 @@
 'use client';
 
-import { ChangeEvent, FC, useState } from 'react';
+import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { z } from 'zod';
 
-import { Input } from '@sono-repo/ui';
+import { Button, Input } from '@sono-repo/ui';
 
 const emailRule = z
 	.string()
@@ -22,26 +22,36 @@ const ZodTest: FC = () => {
 	const [email, setEmail] = useState<z.infer<typeof emailRule>>('');
 	const [error, setError] = useState(initError);
 
+	/** 주소 입력 */
 	const handleChangeAddress = (e: ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;
-		const result = emailRule.safeParse(value);
+
+		setEmail(value);
+	};
+
+	/** 제출 */
+	const handleSubmit = (e: FormEvent) => {
+		e.preventDefault();
+
+		const result = emailRule.safeParse(email);
 
 		if (!result.success) {
 			setError({ status: true, message: result.error.format()._errors[0] });
 		} else {
 			setError(initError);
 		}
-
-		setEmail(value);
 	};
 
 	return (
 		<>
-			<Input
-				placeholder="email"
-				value={email}
-				onChange={handleChangeAddress}
-			/>
+			<form onSubmit={handleSubmit}>
+				<Input
+					placeholder="email"
+					value={email}
+					onChange={handleChangeAddress}
+				/>
+				<Button>Check</Button>
+			</form>
 			<div>{error.status && error.message}</div>
 		</>
 	);
