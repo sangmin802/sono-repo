@@ -27,25 +27,27 @@ module.exports = {
 					// monorepo package.json
 					['@sono-repo/*'],
 					// services
-					['@/*/services'],
+					['@/app'],
+					// services
+					['@/*/service'],
 					// hooks
-					['@/*/hooks'],
+					['@/*/hook'],
 					// utils
-					['@/*/utils'],
+					['@/*/util'],
 					// components
-					['@/*/components'],
+					['@/*/component'],
 					// layouts
-					['@/*/layouts'],
+					['@/*/layout'],
 					// context
-					['@/*/contexts'],
+					['@/*/context'],
 					// constant
-					['@/*/constants'],
+					['@/*/constant'],
 					// types
-					['@/*/types'],
+					['@/*/type'],
 					// router
 					['@/*/router'],
 					// assets
-					['@/*/assets'],
+					['@/*/asset'],
 					// Style imports.
 					['(!^@)(^.+)\\.(css)$']
 				]

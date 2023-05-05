@@ -17,3 +17,9 @@ module.exports = withPWA({
 	},
 	transpilePackages: ['@sono-repo/ui']
 });
+// module.exports = {
+// 	experimental: {
+// 		appDir: true
+// 	},
+// 	transpilePackages: ['@sono-repo/ui']
+// };
