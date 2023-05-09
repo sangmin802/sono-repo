@@ -16,7 +16,7 @@ const UpdateHistory: FC = async () => {
 			date: Date,
 			link: Link
 		}))
-		.splice(0, 3);
+		.splice(0, 10);
 
 	return <MessagePostList list={updateList} />;
 };
