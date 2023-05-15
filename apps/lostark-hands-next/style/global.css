@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
+
+@tailwind base;
+@layer base {
+  * {
+    @apply text-white;
+    @apply font-['Hi_Melody'];
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+}

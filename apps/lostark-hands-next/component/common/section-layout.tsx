@@ -1,14 +1,20 @@
 import { FC, ReactNode } from 'react';
+import cn from 'classnames';
 
 interface ISectionLayoutProps {
+	className?: string;
 	title: string;
 	children: ReactNode;
 }
 
-const SectionLayout: FC<ISectionLayoutProps> = ({ title, children }) => {
+const SectionLayout: FC<ISectionLayoutProps> = ({
+	className,
+	title,
+	children
+}) => {
 	return (
-		<section>
-			<div>{title}</div>
+		<section className={cn('px-[16px] py-[20px]', className)}>
+			<div className="mb-[10px] text-[22px] font-bold">{title}</div>
 			<div>{children}</div>
 		</section>
 	);
