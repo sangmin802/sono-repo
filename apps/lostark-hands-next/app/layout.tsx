@@ -1,8 +1,8 @@
 import { FC, ReactNode } from 'react';
 
-import '@sono-repo/ui/styles.css';
-
 import Head from '@/app/head';
+
+import '@/style/global.css';
 
 const Layout: FC = ({ children }: { children: ReactNode }) => {
 	return (
@@ -13,7 +13,7 @@ const Layout: FC = ({ children }: { children: ReactNode }) => {
       */}
 			<Head />
 			<body className="bg-neutral-900">
-				<main className="w-full lg:mx-auto lg:w-[1024px]">{children}</main>
+				<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
 			</body>
 		</html>
 	);

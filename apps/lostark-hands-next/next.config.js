@@ -14,4 +14,8 @@ const withPWA = require('@ducanh2912/next-pwa').default({
  */
 // module.exports = withPWA();
 
-module.exports = {};
+module.exports = {
+	images: {
+		domains: ['cdn-lostark.game.onstove.com']
+	}
+};
