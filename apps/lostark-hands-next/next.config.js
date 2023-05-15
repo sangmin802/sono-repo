@@ -10,16 +10,8 @@ const withPWA = require('@ducanh2912/next-pwa').default({
 /**
  * @type {import('next').NextConfig}
  * @link https://beta.nextjs.org/docs/api-reference/next-config
+ * 13.4부터 appDir이 기본
  */
-module.exports = withPWA({
-	experimental: {
-		appDir: true
-	},
-	transpilePackages: ['@sono-repo/ui']
-});
-// module.exports = {
-// 	experimental: {
-// 		appDir: true
-// 	},
-// 	transpilePackages: ['@sono-repo/ui']
-// };
+// module.exports = withPWA();
+
+module.exports = {};
