@@ -1,8 +1,7 @@
 import { FC, Suspense } from 'react';
 
-import UpdateHistory from '@/app/update-history';
-
 import SectionLayout from '@/component/common/section-layout';
+import UpdateHistory from '@/component/news/update-history';
 
 const Page: FC = () => {
 	return (
