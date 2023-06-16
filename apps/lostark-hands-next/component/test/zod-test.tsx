@@ -1,6 +1,7 @@
 'use client';
 
-import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import type { ChangeEvent, FC, FormEvent } from 'react';
+import { useState } from 'react';
 import { z } from 'zod';
 
 import { Button, Input } from '@sono-repo/ui';

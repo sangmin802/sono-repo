@@ -1,4 +1,4 @@
-import { INotice } from '@/service/news/types';
+import type { INotice } from '@/service/news/types';
 
 export const getNoticeApi = async (): Promise<INotice[]> => {
 	try {

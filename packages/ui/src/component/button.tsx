@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react';
+import type { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react';
 
 const Button: FC<
 	PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>

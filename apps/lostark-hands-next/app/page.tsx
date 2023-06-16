@@ -1,4 +1,5 @@
-import { FC, Suspense } from 'react';
+import type { FC } from 'react';
+import { Suspense } from 'react';
 
 import SectionLayout from '@/component/common/section-layout';
 import UpdateHistory from '@/component/news/update-history';
