@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes } from 'react';
+import type { FC, InputHTMLAttributes } from 'react';
 import cn from 'classnames';
 
 const Input: FC<InputHTMLAttributes<HTMLInputElement>> = ({

@@ -18,12 +18,12 @@ module.exports = {
 	rules: {
 		'prettier/prettier': ['error', { endOfLine: 'auto' }],
 		'max-len': ['error', { code: 120 }],
+		'@typescript-eslint/consistent-type-imports': 'error',
 		'simple-import-sort/imports': [
 			'warn',
 			{
 				groups: [
-					// Packages `react` related packages come first.
-					['^react', '^@?\\w'],
+					['^react', '^react', '^@?\\w'],
 					// monorepo package.json
 					['@sono-repo/*'],
 					// services

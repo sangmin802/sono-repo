@@ -1,5 +1,5 @@
 'use client';
-import { FC } from 'react';
+import type { FC } from 'react';
 
 interface IMessagePostListProps {
 	list: { title: string; date: string; link: string; type: string }[];
