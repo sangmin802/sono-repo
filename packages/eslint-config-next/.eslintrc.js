@@ -18,7 +18,12 @@ module.exports = {
 	rules: {
 		'prettier/prettier': ['error', { endOfLine: 'auto' }],
 		'max-len': ['error', { code: 120 }],
-		'@typescript-eslint/consistent-type-imports': 'error',
+		'@typescript-eslint/consistent-type-imports': [
+			'error',
+			{
+				fixStyle: 'inline-type-imports'
+			}
+		],
 		'simple-import-sort/imports': [
 			'warn',
 			{
