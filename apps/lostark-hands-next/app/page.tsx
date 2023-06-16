@@ -1,22 +1,11 @@
 import type { FC } from 'react';
-import { Suspense } from 'react';
 
-import SectionLayout from '@/component/common/section-layout';
-import UpdateHistory from '@/component/news/update-history';
-
+/**
+ * 이벤트, 업데이트 영역별로 독립적인 로딩 에러를 갖고싶은데, 그럴려면 그 route 가 생성되어야하는것 같음..
+ * 그냥 서버사이드에서 데이터를 받아오고 이에 따른 error.tsx, loading.tsx가 적용되게 하려면 그냥 이 page 에서 다 해줘야 하나..
+ */
 const Page: FC = () => {
-	return (
-		<div className="lg:flex">
-			<SectionLayout
-				className="rounded-[4px] bg-neutral-800 md:w-[300px]"
-				title="업데이트 내역"
-			>
-				<Suspense fallback={<>loading</>}>
-					<UpdateHistory />
-				</Suspense>
-			</SectionLayout>
-		</div>
-	);
+	return <div className="lg:flex"></div>;
 };
 
 export default Page;
