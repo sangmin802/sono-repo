@@ -40,7 +40,7 @@ module.exports = {
 					// utils
 					['@/*/util'],
 					// components
-					['@/*/component'],
+					['@/*/.*component'],
 					// layouts
 					['@/*/layout'],
 					// context

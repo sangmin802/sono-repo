@@ -1,6 +1,4 @@
-import type { FC } from 'react';
-
-const Head: FC = () => {
+const Head = () => {
 	return (
 		<>
 			<title>Lostark Hands Next</title>

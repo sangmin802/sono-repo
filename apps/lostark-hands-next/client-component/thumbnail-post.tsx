@@ -1,6 +1,5 @@
 'use client';
 
-import { type FC } from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
 
@@ -12,13 +11,13 @@ interface ITumbnailPostProps {
 	date: string;
 }
 
-const ThumbnailPost: FC<ITumbnailPostProps> = ({
+const ThumbnailPost = ({
 	className,
 	title,
 	thumbnail,
 	url,
 	date
-}) => {
+}: ITumbnailPostProps) => {
 	const handleClickThumbnail = () => {
 		window.open(url);
 	};

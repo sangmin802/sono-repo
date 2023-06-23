@@ -1,12 +1,10 @@
 'use client';
 
-import { type FC } from 'react';
-
 interface IErrorProps {
 	reset: () => void;
 }
 
-const Error: FC<IErrorProps> = ({ reset }) => {
+const Error = ({ reset }: IErrorProps) => {
 	return (
 		<div>
 			<div>Error!</div>
