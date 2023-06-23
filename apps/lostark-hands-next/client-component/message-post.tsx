@@ -1,6 +1,5 @@
 'use client';
 
-import type { FC } from 'react';
 import cn from 'classnames';
 
 interface IMessagePostProps {
@@ -9,7 +8,7 @@ interface IMessagePostProps {
 	url: string;
 }
 
-const MessagePost: FC<IMessagePostProps> = ({ className, title, url }) => {
+const MessagePost = ({ className, title, url }: IMessagePostProps) => {
 	const handleClickPost = () => {
 		window.open(url);
 	};

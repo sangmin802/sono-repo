@@ -1,10 +1,10 @@
-import type { FC, ReactNode } from 'react';
+import type { PropsWithChildren } from 'react';
 
 import Head from '@/app/head';
 
 import '@/style/global.css';
 
-const Layout: FC = ({ children }: { children: ReactNode }) => {
+const Layout = ({ children }: PropsWithChildren) => {
 	return (
 		<html lang="en">
 			{/*
