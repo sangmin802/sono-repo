@@ -1,6 +1,5 @@
 ## 📌 Work details
 - 
 
-<br />
 ## 📌 Notes
 - 
