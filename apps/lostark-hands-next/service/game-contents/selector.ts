@@ -1,3 +1,5 @@
+import { getDateDiff } from '@sono-repo/util/date';
+
 import { type ICalendar } from '@/service/game-contents/type';
 
 /**
@@ -18,7 +20,10 @@ export const calendarListSelector = (list: ICalendar[]) =>
 			name: ContentsName,
 			icon: ContentsIcon,
 			badge: `${MinItemLevel}`,
-			time: StartTimes,
+			time: StartTimes.filter(
+				(startTime) =>
+					getDateDiff(new Date(startTime), new Date(), 'minutes').minutes > 0
+			),
 			desc: Location,
 			rewardItems: RewardItems.map(({ Name, Icon, Grade, StartTimes }) => ({
 				name: Name,

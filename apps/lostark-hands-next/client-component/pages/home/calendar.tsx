@@ -1,14 +1,14 @@
 'use client';
 
-import { type ComponentProps } from 'react';
-
 import { type calendarListSelector } from '@/service/game-contents/selector';
 
 import SectionLayout from '@/client-component/section-layout';
 import TimerGrid from '@/client-component/timer-grid';
 
 type TInitData = ReturnType<typeof calendarListSelector>;
-type TRewardList = TInitData[0]['rewardItems'];
+type TCalendarItem = TInitData[0] & {
+	type: string;
+};
 
 interface ICalendarProps {
 	initData: TInitData;
@@ -16,42 +16,33 @@ interface ICalendarProps {
 
 const Calendar = async ({ initData }: ICalendarProps) => {
 	const calendarGroupList = Array.from(
-		initData.reduce(
-			(prev, cur) => {
-				prev.set(cur.type, [
-					...(prev.get(cur.type) ?? []),
-					{
-						...cur,
-						renderProps: cur.type === '모험 섬' ? cur.rewardItems : undefined
-					}
-				]);
+		initData.reduce((prev, cur) => {
+			prev.set(cur.type, [
+				...(prev.get(cur.type) ?? []),
+				{
+					...cur
+				}
+			]);
 
-				return prev;
-			},
-			new Map<
-				string,
-				(ComponentProps<typeof TimerGrid>['timerList'][0] & {
-					type: string;
-					renderProps?: TRewardList;
-				})[]
-			>()
-		)
+			return prev;
+		}, new Map<string, TCalendarItem[]>())
 	);
 
 	return (
-		<div>
+		<>
 			{calendarGroupList.map(([title, contentList]) => (
 				<SectionLayout
 					key={title}
 					title={title}
 				>
-					<TimerGrid<{ rewardList: TRewardList }>
+					<TimerGrid<TCalendarItem>
 						timerList={contentList}
+						emptyFallback={() => <div>오늘은 컨텐츠가 없어요.</div>}
 						// render={Test}
 					/>
 				</SectionLayout>
 			))}
-		</div>
+		</>
 	);
 };
 

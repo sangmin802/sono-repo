@@ -1,0 +1,22 @@
+{
+  "name": "@sono-repo/util",
+  "version": "0.0.0",
+  "description": "",
+  "exports": {
+    "./date": "./date.ts",
+    "./number": "./number.ts"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@sono-repo/tsconfig": "workspace:^",
+    "@types/luxon": "^3.3.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "luxon": "^3.3.0"
+  }
+}

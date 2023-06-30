@@ -17,5 +17,6 @@ const withPWA = require('@ducanh2912/next-pwa').default({
 module.exports = {
 	images: {
 		domains: ['cdn-lostark.game.onstove.com']
-	}
+	},
+	transpilePackages: ['@sono-repo/ui', '@sono-repo/util']
 };
