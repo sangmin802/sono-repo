@@ -2,6 +2,9 @@ import type { PropsWithChildren } from 'react';
 
 import Head from '@/app/head';
 
+import Modal from '@/client-component/modal';
+import ModalProvider from '@/client-component/modal/provider';
+
 import '@/style/global.css';
 
 const Layout = ({ children }: PropsWithChildren) => {
@@ -13,7 +16,10 @@ const Layout = ({ children }: PropsWithChildren) => {
       */}
 			<Head />
 			<body className="bg-neutral-900">
-				<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
+				<ModalProvider>
+					<Modal />
+					<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
+				</ModalProvider>
 			</body>
 		</html>
 	);

@@ -5,6 +5,7 @@
   * {
     @apply text-white;
     @apply font-['Hi_Melody'];
+    @apply text-[14px];
   }
 }
 

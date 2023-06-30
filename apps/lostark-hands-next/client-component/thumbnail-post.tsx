@@ -25,7 +25,7 @@ const ThumbnailPost = ({
 	return (
 		<div
 			className={cn(
-				'cursor-pointer [&_div]:text-gray-300 [&_div]:hover:text-white',
+				'cursor-pointer [&_div]:text-gray-300 [&_div]:hover:font-bold [&_div]:hover:text-white',
 				className
 			)}
 			onClick={handleClickThumbnail}
