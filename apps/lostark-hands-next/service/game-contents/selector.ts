@@ -1,5 +1,6 @@
 import { getDateDiff } from '@sono-repo/util/date';
 
+import type { IRewardItem } from '@/service/game-contents/type';
 import { type ICalendar } from '@/service/game-contents/type';
 
 /**
@@ -35,15 +36,7 @@ export const calendarListSelector = (list: ICalendar[]) =>
 					});
 					return prevMap;
 				},
-				new Map<
-					string,
-					{
-						name: string;
-						icon: string;
-						grade: string;
-						startTimes: Set<string>;
-					}
-				>()
+				new Map<string, IRewardItem>()
 			)
 		})
 	);

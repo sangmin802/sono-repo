@@ -48,7 +48,7 @@ const CalendarSection = ({ title, list }: ICalendarSectionProps) => {
 	return (
 		<SectionLayout title={title}>
 			{filteredTimerList.length ? (
-				<div className="grid grid-cols-2 gap-[8px] lg:grid-cols-8">
+				<div className="grid grid-cols-2 gap-[8px] sm:grid-cols-4 lg:grid-cols-7">
 					{filteredTimerList.map((item, idx) => (
 						<CalendarCard
 							key={`${item.name}-${idx}`}

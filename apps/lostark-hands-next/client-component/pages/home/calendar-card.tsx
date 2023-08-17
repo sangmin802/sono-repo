@@ -25,15 +25,28 @@ const CalendarCard = ({
 	const time = useTimer(new Date(item.time[0]).getTime(), onResetTime);
 
 	const handleOpenRewardModal = () => {
+		const validRewardList = Array.from(item.rewardItems)
+			.flatMap(([, val]) => val)
+			.filter(
+				({ startTimes }) => !startTimes.size || startTimes.has(targetTime)
+			);
+
 		onOpenModal({
 			name: 'calendarRewardModal',
-			props: { time: targetTime, list: item.rewardItems }
+			props: {
+				title: item.name,
+				list: validRewardList
+			}
 		});
 	};
-
 	return (
 		<div
-			className="min-w-0 cursor-pointer overflow-hidden rounded-[4px] border border-white"
+			className={cn(
+				'min-w-0 cursor-pointer overflow-hidden rounded-[4px]',
+				time && time < 1000 * 60 * 10
+					? 'border-[2px] border-orange-400'
+					: 'border border-white'
+			)}
 			onClick={handleOpenRewardModal}
 		>
 			<div className="truncate bg-gray-700 px-[8px] text-center">
@@ -60,22 +73,6 @@ const CalendarCard = ({
 					<div>{time ? getTime(time) : '-'}</div>
 				</div>
 			</div>
-			{/* <div className="flex">
-				{items.map(
-					([name, { startTimes, icon }]) =>
-						(!startTimes.size || startTimes.has(targetTime)) && (
-							<div key={name}>
-								<Image
-									className="h-[30px] w-[30px]"
-									src={icon}
-									alt="name"
-									width={120}
-									height={120}
-								/>
-							</div>
-						)
-				)}
-			</div> */}
 			<div className="truncate bg-gray-700 px-[8px] text-center">
 				{item.desc}
 			</div>

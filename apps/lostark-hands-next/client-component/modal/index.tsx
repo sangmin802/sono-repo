@@ -29,15 +29,10 @@ const Modal = () => {
 		<>
 			{open && ModalComponent && (
 				<div
-					className="fixed inset-0 flex items-center justify-center bg-black/70"
+					className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70"
 					onClick={onCloseModal}
 				>
-					<div
-						className="h-fit w-fit overflow-y-auto bg-neutral-900"
-						onClick={(e) => e.stopPropagation()}
-					>
-						<ModalComponent />
-					</div>
+					<ModalComponent />
 				</div>
 			)}
 		</>

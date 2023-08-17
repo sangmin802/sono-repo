@@ -1,11 +1,17 @@
-import type { TCalendarItem } from '@/client-component/pages/home/types';
+import type { IRewardItem } from '@/service/game-contents/type';
 
 export interface IModalItemProps {
-	calendarRewardModal: { time: string; list: TCalendarItem['rewardItems'] };
+	calendarRewardModal: {
+		title: string;
+		list: IRewardItem[];
+	};
 }
 
 export type TModalItem = {
-	[key in keyof IModalItemProps]: { name: key; props: IModalItemProps[key] };
+	[key in keyof IModalItemProps]: {
+		name: key;
+		props: IModalItemProps[key];
+	};
 }[keyof IModalItemProps];
 
 export interface IModalStateContext {
