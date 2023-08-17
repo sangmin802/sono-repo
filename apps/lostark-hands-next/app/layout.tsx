@@ -2,6 +2,9 @@ import type { PropsWithChildren } from 'react';
 
 import Head from '@/app/head';
 
+import Modal from '@/client-component/modal';
+import ModalProvider from '@/client-component/modal/provider';
+
 import '@/style/global.css';
 
 const Layout = ({ children }: PropsWithChildren) => {
@@ -12,8 +15,11 @@ const Layout = ({ children }: PropsWithChildren) => {
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
 			<Head />
-			<body className="bg-neutral-900">
-				<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
+			<body className="hide-scrollbar bg-neutral-900">
+				<ModalProvider>
+					<Modal />
+					<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
+				</ModalProvider>
 			</body>
 		</html>
 	);

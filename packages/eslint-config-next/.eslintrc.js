@@ -21,7 +21,13 @@ module.exports = {
 		'@typescript-eslint/consistent-type-imports': [
 			'error',
 			{
-				fixStyle: 'inline-type-imports'
+				fixStyle: 'separate-type-imports'
+			}
+		],
+		'import/no-anonymous-default-export': [
+			'warn',
+			{
+				allowObject: true
 			}
 		],
 		'simple-import-sort/imports': [

@@ -1,3 +1,6 @@
+import { getDateDiff } from '@sono-repo/util/date';
+
+import type { IRewardItem } from '@/service/game-contents/type';
 import { type ICalendar } from '@/service/game-contents/type';
 
 /**
@@ -18,13 +21,22 @@ export const calendarListSelector = (list: ICalendar[]) =>
 			name: ContentsName,
 			icon: ContentsIcon,
 			badge: `${MinItemLevel}`,
-			time: StartTimes,
+			time: StartTimes.filter(
+				(startTime) =>
+					getDateDiff(new Date(startTime), new Date(), 'minutes').minutes > 0
+			),
 			desc: Location,
-			rewardItems: RewardItems.map(({ Name, Icon, Grade, StartTimes }) => ({
-				name: Name,
-				icon: Icon,
-				grade: Grade,
-				startTimes: StartTimes
-			}))
+			rewardItems: RewardItems.reduce(
+				(prevMap, { Name, Icon, Grade, StartTimes }) => {
+					prevMap.set(Name, {
+						name: Name,
+						icon: Icon,
+						grade: Grade,
+						startTimes: new Set(StartTimes)
+					});
+					return prevMap;
+				},
+				new Map<string, IRewardItem>()
+			)
 		})
 	);

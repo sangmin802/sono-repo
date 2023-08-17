@@ -1,9 +1,9 @@
-import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 const Button = ({
 	children,
 	...props
-}: PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>) => {
+}: ButtonHTMLAttributes<HTMLButtonElement> & { children: ReactNode }) => {
 	return <button {...props}>{children}</button>;
 };
 

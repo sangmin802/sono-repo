@@ -1,0 +1,5 @@
+{
+  "extends": "@sono-repo/tsconfig/nextjs.json",
+  "include": ["**/*"],
+  "exclude": ["node_modules"]
+}

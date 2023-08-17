@@ -1,3 +1,5 @@
+import type { TGrade } from '@/type';
+
 /** 캘린더 모험 섬 */
 export interface ICalendar {
 	CategoryName: string;
@@ -10,8 +12,15 @@ export interface ICalendar {
 		{
 			Name: string;
 			Icon: string;
-			Grade: string;
+			Grade: TGrade;
 			StartTimes: string[];
 		}
 	];
+}
+
+export interface IRewardItem {
+	name: string;
+	icon: string;
+	grade: TGrade;
+	startTimes: Set<string>;
 }

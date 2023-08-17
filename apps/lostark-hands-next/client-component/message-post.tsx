@@ -17,7 +17,7 @@ const MessagePost = ({ className, title, url }: IMessagePostProps) => {
 		<div className={cn('flex items-center', className)}>
 			<span className="mr-[4px] text-[8px]">📌</span>
 			<span
-				className="cursor-pointer truncate text-gray-300 hover:text-white"
+				className="cursor-pointer truncate text-gray-300 hover:font-bold hover:text-white"
 				onClick={handleClickPost}
 			>
 				{title}
