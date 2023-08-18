@@ -7,10 +7,8 @@ const Input = ({
 }: InputHTMLAttributes<HTMLInputElement>) => {
 	return (
 		<input
-			className={cn(
-				'outline-none border border-gray-200 rounded-[4px] p-[4px] focus:border-gray-600',
-				className
-			)}
+			className={cn('outline-none rounded-[6px] p-[4px] text-black', className)}
+			spellCheck="false"
 			{...props}
 		/>
 	);

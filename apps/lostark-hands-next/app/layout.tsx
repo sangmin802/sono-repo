@@ -4,6 +4,7 @@ import Head from '@/app/head';
 
 import Modal from '@/client-component/modal';
 import ModalProvider from '@/client-component/modal/provider';
+import Header from '@/client-component/pages/header';
 
 import '@/style/global.css';
 
@@ -18,6 +19,7 @@ const Layout = ({ children }: PropsWithChildren) => {
 			<body className="hide-scrollbar bg-neutral-900">
 				<ModalProvider>
 					<Modal />
+					<Header />
 					<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
 				</ModalProvider>
 			</body>
