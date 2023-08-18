@@ -36,7 +36,7 @@ const Header = () => {
 			<div ref={ioRef} />
 			<header
 				className={cn(
-					'sticky top-0 bg-neutral-900 p-[16px] transition duration-[.3s] ease-out',
+					'sticky top-0 z-[90] bg-neutral-900 p-[16px] transition duration-[.3s] ease-out',
 					{
 						'shadow-[2px_0_16px_rgba(0,0,0,.8)]': isScrolled
 					}
