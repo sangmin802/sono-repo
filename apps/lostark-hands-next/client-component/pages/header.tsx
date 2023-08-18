@@ -1,4 +1,5 @@
 'use client';
+import type { FormEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
@@ -14,8 +15,16 @@ const Header = () => {
 	const ioRef = useRef(null);
 	const [isScrolled, setIsScrolled] = useState(false);
 
+	const [searchQuery, setSearchQuery] = useState('');
+
 	const handleMoveHome = () => {
 		router.push('/');
+	};
+
+	const handleMoveUserInfo = (e: FormEvent) => {
+		e.preventDefault();
+
+		router.push(`/user-info/${searchQuery}`);
 	};
 
 	useEffect(() => {
@@ -58,10 +67,14 @@ const Header = () => {
 							로아 핸즈
 						</div>
 					</div>
-					<div className="flex w-[280px] items-center border-b border-white">
+					<form
+						className="flex w-[280px] items-center border-b border-white"
+						onSubmit={handleMoveUserInfo}
+					>
 						<Input
 							className="w-[260px] bg-transparent font-semibold text-white"
 							placeholder="유저명을 검색해주세요."
+							onChange={setSearchQuery}
 						/>
 						<Image
 							className="inline-block cursor-pointer"
@@ -70,7 +83,7 @@ const Header = () => {
 							src={searchIcon}
 							alt="searchIcon"
 						/>
-					</div>
+					</form>
 				</div>
 			</header>
 		</>
