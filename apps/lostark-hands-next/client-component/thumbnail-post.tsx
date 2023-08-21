@@ -38,8 +38,8 @@ const ThumbnailPost = ({
 				height={357}
 			/>
 			<div className="mt-[12px]">
-				<div>{title}</div>
-				<div>{date}</div>
+				<div className="truncate">{title}</div>
+				<div className="truncate">{date}</div>
 			</div>
 		</div>
 	);

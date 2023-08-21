@@ -1,4 +1,4 @@
-import type { IArmoriesInfo } from '@/service/armories/types';
+import type { IArmoriesInfo, IArmoryProfile } from '@/service/armories/types';
 import axiosInstance from '@/service/axios';
 
 import type { ToIndexSignatureRecursive } from '@/type';
@@ -15,4 +15,20 @@ export const getArmoriesInfoApi = async <ReturnType>(
 			...resolve,
 			data: selector ? selector(resolve.data) : resolve.data
 		}))
+	).data;
+
+/**
+ * @description get profile info
+ */
+export const getProfileInfoApi = async <ReturnType>(
+	name: string,
+	selector?: (data: ToIndexSignatureRecursive<IArmoryProfile>) => ReturnType
+): Promise<typeof selector extends undefined ? IArmoryProfile : ReturnType> =>
+	(
+		await axiosInstance
+			.get(`armories/characters/${name}/profiles`)
+			.then((resolve) => ({
+				...resolve,
+				data: selector ? selector(resolve.data) : resolve.data
+			}))
 	).data;

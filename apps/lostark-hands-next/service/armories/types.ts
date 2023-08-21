@@ -130,7 +130,7 @@ interface ICollectiblePoint {
 	MaxPoint: number;
 }
 
-interface IArmoryProfile {
+export interface IArmoryProfile {
 	CharacterImage: string;
 	ExpeditionLevel: number;
 	PvpGradeName: string;

@@ -45,7 +45,7 @@ const Header = () => {
 			<div ref={ioRef} />
 			<header
 				className={cn(
-					'sticky top-0 z-[90] bg-neutral-900 p-[16px] transition duration-[.3s] ease-out',
+					'sticky top-0 z-[90] bg-main-10 p-[16px] transition duration-[.3s] ease-out',
 					{
 						'shadow-[2px_0_16px_rgba(0,0,0,.8)]': isScrolled
 					}
@@ -63,7 +63,7 @@ const Header = () => {
 							height={100}
 							alt="logo"
 						/>
-						<div className="hidden text-[28px] font-bold sm:block">
+						<div className="hidden text-[28px] font-bold leading-[36px] sm:block">
 							로아 핸즈
 						</div>
 					</div>

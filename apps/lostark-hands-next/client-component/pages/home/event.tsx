@@ -11,8 +11,11 @@ interface IEventProps {
 
 const Event = ({ initData }: IEventProps) => {
 	return (
-		<SectionLayout title="이벤트">
-			<div className="grid grid-cols-3 gap-[12px]">
+		<SectionLayout
+			className="py-[20px]"
+			title="이벤트"
+		>
+			<div className="grid grid-cols-2 gap-[12px] lg:grid-cols-3">
 				{initData.map((item, idx) => (
 					<ThumbnailPost
 						key={idx}
