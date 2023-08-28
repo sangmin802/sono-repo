@@ -46,7 +46,10 @@ const CalendarSection = ({ title, list }: ICalendarSectionProps) => {
 	);
 
 	return (
-		<SectionLayout title={title}>
+		<SectionLayout
+			className="py-[20px]"
+			title={title}
+		>
 			{filteredTimerList.length ? (
 				<div className="grid grid-cols-2 gap-[8px] sm:grid-cols-4 lg:grid-cols-7">
 					{filteredTimerList.map((item, idx) => (

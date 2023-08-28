@@ -15,13 +15,13 @@ const CalendarRewardModal = ({
 	return (
 		<ModalLayout
 			title={title}
-			footerProps={{ cancel: { show: false } }}
+			footerProps={{ cancel: { show: true } }}
 		>
 			<div className="grid grid-cols-2 gap-[8px] lg:grid-cols-3">
 				{list.map(({ icon, name, grade }, idx) => (
 					<div
 						key={idx}
-						className="relative flex items-center rounded-[6px] bg-neutral-800 p-[6px]"
+						className="relative flex items-center rounded-[6px] bg-main-30 p-[6px]"
 					>
 						<Image
 							className={cn(

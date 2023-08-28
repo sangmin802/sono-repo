@@ -32,10 +32,10 @@ export type ToFirstLower<A> = A extends `${infer F}${infer S}`
 		: A
 	: A;
 
-export type ToCamelKey<T> = {
-	[K in keyof T as ToFirstLower<K>]: T[K] extends TPrimitives
-		? T[K]
-		: T[K] extends (infer A)[]
-		? ToCamelKey<A>[]
-		: ToCamelKey<T[K]>;
-};
+export type ToCamelKey<T> = T extends TPrimitives
+	? T
+	: T extends (infer A)[]
+	? ToCamelKey<A>[]
+	: {
+			[K in keyof T as ToFirstLower<K>]: ToCamelKey<T[K]>;
+	  };

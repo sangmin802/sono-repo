@@ -63,7 +63,7 @@ const ModalLayout = ({
 		<div
 			className={cn(
 				'flex flex-col',
-				'h-full w-full rounded-[6px] bg-neutral-900 p-[16px]',
+				'h-full w-full rounded-[6px] bg-main-10 p-[16px]',
 				'lg:h-auto lg:max-h-[660px] lg:w-[560px]',
 				'shadow-[2px_2px_8px_rgba(0,0,0,0.32)]',
 				className
@@ -75,13 +75,13 @@ const ModalLayout = ({
 			<div className="flex items-center justify-center space-x-[8px] pt-[12px] lg:justify-end">
 				{showCancel && (
 					<Button
-						className={cn('bg-neutral-800', buttonStyle, cancelClassName)}
+						className={cn('bg-main-20', buttonStyle, cancelClassName)}
 						{...cancelProps}
 					/>
 				)}
 				{showConfirm && (
 					<Button
-						className={cn('bg-neutral-600', buttonStyle, confirmClassName)}
+						className={cn('bg-main-40', buttonStyle, confirmClassName)}
 						{...confirmProps}
 					/>
 				)}

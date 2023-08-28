@@ -29,7 +29,7 @@ const Notice = ({ initData }: INoticeProps) => {
 	);
 
 	return (
-		<div className="flex">
+		<div className="flex space-x-[16px] py-[20px]">
 			{noticeList.map(([key, postList]) => (
 				<SectionLayout
 					key={key}

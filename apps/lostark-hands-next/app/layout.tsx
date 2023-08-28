@@ -16,11 +16,11 @@ const Layout = ({ children }: PropsWithChildren) => {
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
 			<Head />
-			<body className="hide-scrollbar bg-neutral-900">
+			<body className="hide-scrollbar bg-main-10">
 				<ModalProvider>
 					<Modal />
 					<Header />
-					<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
+					<main className="px-[16px] lg:mx-auto lg:w-[1024px]">{children}</main>
 				</ModalProvider>
 			</body>
 		</html>

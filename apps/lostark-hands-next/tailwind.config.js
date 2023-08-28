@@ -13,7 +13,14 @@ module.exports = {
 				ancient: 'linear-gradient(135deg, #3d3325, #dcc999)',
 				esther: 'linear-gradient(135deg, #0c2e2c, #2faba8)'
 			},
+			// The higher the number, the brighter the color
 			colors: {
+				main: {
+					10: '#14181d',
+					20: '#1b2028',
+					30: '#262e39',
+					40: '#455264'
+				},
 				normal: '#929292',
 				advanced: '#304911',
 				rare: '#6666FF',
