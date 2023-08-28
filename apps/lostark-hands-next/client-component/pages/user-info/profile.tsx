@@ -75,7 +75,8 @@ const Profile = ({ data }: IProfileProps) => {
 			</div>
 			<Image
 				className={cn(
-					'pointer-events-none absolute left-[50%] z-[1] w-[360px] translate-x-[-50%] select-none bg-main-10'
+					'absolute left-[50%] z-[1] translate-x-[-50%]',
+					'pointer-events-none w-[360px] select-none bg-main-10'
 				)}
 				width={600}
 				height={900}
