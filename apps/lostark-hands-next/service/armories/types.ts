@@ -1,12 +1,12 @@
 import type { ToIndexSignature } from '@/type';
 
-interface IStat {
+export interface IStat {
 	Type: string;
 	Value: string;
 	Tooltip: string[];
 }
 
-interface ITendency {
+export interface ITendency {
 	Type: string;
 	Point: number;
 	MaxPoint: number;

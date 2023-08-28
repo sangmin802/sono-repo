@@ -9,6 +9,7 @@ type TButtonProps = Partial<ComponentProps<typeof Button> & { show: boolean }>;
 
 interface IModalLayout {
 	className?: string;
+	containerClassName?: string;
 	title?: string;
 	footerProps?: Partial<Record<'cancel' | 'confirm', TButtonProps>>;
 	children: ReactNode;
@@ -34,6 +35,7 @@ const buttonStyle =
 
 const ModalLayout = ({
 	className,
+	containerClassName,
 	title,
 	children,
 	footerProps
@@ -71,7 +73,14 @@ const ModalLayout = ({
 			onClick={(e) => e.stopPropagation()}
 		>
 			<div className="pb-[28px] text-[20px] font-bold">{title}</div>
-			<div className="hide-scrollbar grow overflow-y-auto">{children}</div>
+			<div
+				className={cn(
+					'hide-scrollbar grow overflow-y-auto',
+					containerClassName
+				)}
+			>
+				{children}
+			</div>
 			<div className="flex items-center justify-center space-x-[8px] pt-[12px] lg:justify-end">
 				{showCancel && (
 					<Button
