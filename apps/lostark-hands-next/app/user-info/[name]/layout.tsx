@@ -5,6 +5,7 @@ import { getProfileInfoApi } from '@/service/armories';
 import { pascalToCamel } from '@/util/selector';
 
 import Profile from '@/client-component/pages/user-info/profile';
+import TabList from '@/client-component/pages/user-info/tab-list';
 
 /**
  * Layouts can fetch data.
@@ -26,10 +27,8 @@ const Layout = async ({
 
 	return (
 		<div>
-			<div>
-				<Profile data={profile} />
-			</div>
-
+			<Profile data={profile} />
+			<TabList />
 			{children}
 		</div>
 	);
