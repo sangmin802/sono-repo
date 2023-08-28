@@ -1,5 +1,3 @@
-import type { ToIndexSignature } from '@/type';
-
 export interface IStat {
 	Type: string;
 	Value: string;
@@ -180,7 +178,7 @@ interface IArmorySkill {
 	Tooltip: string;
 }
 
-interface IArmoryEngraving {
+export interface IArmoryEngraving {
 	Engravings: IEngraving;
 	Effects: IEffect;
 }
@@ -212,7 +210,7 @@ interface ICollectible {
 
 export interface IArmoriesInfo {
 	ArmoryAvatars: IArmoryAvatar[];
-	ArmoryCard: ToIndexSignature<IArmoryCard>;
+	ArmoryCard: IArmoryCard;
 	ArmoryEngraving: IArmoryEngraving;
 	ArmoryEquipment: IArmoryEquipment[];
 	ArmoryGem: IArmoryGem;
