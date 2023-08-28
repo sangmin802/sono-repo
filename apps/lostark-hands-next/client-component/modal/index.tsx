@@ -16,6 +16,8 @@ const Modal = () => {
 		switch (modalItem?.name) {
 			case 'calendarRewardModal':
 				return <Dynamic.CALENDAR_REWARD_MODAL {...modalItem.props} />;
+			case 'statsModal':
+				return <Dynamic.STATS_MODAL {...modalItem.props} />;
 			default:
 				return null;
 		}

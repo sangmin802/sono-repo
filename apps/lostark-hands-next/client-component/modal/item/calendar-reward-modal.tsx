@@ -15,7 +15,7 @@ const CalendarRewardModal = ({
 	return (
 		<ModalLayout
 			title={title}
-			footerProps={{ cancel: { show: true } }}
+			footerProps={{ cancel: { show: false } }}
 		>
 			<div className="grid grid-cols-2 gap-[8px] lg:grid-cols-3">
 				{list.map(({ icon, name, grade }, idx) => (
