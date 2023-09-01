@@ -29,7 +29,7 @@ const Notice = ({ initData }: INoticeProps) => {
 	);
 
 	return (
-		<div className="flex space-x-[16px] py-[20px]">
+		<div className="grid grid-cols-1 gap-[16px] py-[20px] sm:grid-cols-3">
 			{noticeList.map(([key, postList]) => (
 				<SectionLayout
 					key={key}

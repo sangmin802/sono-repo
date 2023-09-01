@@ -1,4 +1,7 @@
-import type { IArmoryProfile } from '@/service/armories/types';
+import type {
+	IArmoryEngraving,
+	IArmoryProfile
+} from '@/service/armories/types';
 
 import type { ToIndexSignatureRecursive } from '@/type';
 
@@ -19,3 +22,31 @@ export const profileTooltipSelector = (
 		)
 	}))
 });
+
+export const engraveSelector = ({
+	Effects,
+	Engravings
+}: ToIndexSignatureRecursive<IArmoryEngraving>) => {
+	const sortedEffects = Effects.sort((a) =>
+		Engravings.some(({ Name }) => a.Name.includes(Name)) ? -1 : 0
+	);
+
+	const mappedEffects = sortedEffects.map((effect) => {
+		const targetEngrave = Engravings.find(({ Name }) =>
+			effect.Name.includes(Name)
+		)?.Tooltip;
+
+		if (!targetEngrave) return effect;
+
+		const json = JSON.parse(targetEngrave);
+		const regex = /\b(?:3|6|9|12)\b/g;
+		const [Point] = json.Element_002.value.match(regex);
+
+		return { ...effect, Point };
+	});
+
+	return {
+		Effects: mappedEffects,
+		Engravings
+	};
+};

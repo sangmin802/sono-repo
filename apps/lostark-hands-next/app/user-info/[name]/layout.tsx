@@ -28,8 +28,10 @@ const Layout = async ({
 	return (
 		<div>
 			<Profile data={profile} />
-			<TabList />
-			{children}
+			<div className="p-[16px]">
+				<TabList />
+				{children}
+			</div>
 		</div>
 	);
 };
