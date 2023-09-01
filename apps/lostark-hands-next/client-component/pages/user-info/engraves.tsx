@@ -1,6 +1,5 @@
 'use client';
 
-import cn from 'classnames';
 import Image from 'next/image';
 
 import type { IEffect } from '@/service/armories/types';
