@@ -34,9 +34,10 @@ interface IEngraving {
 	Tooltip: string;
 }
 
-interface IEffect {
+export interface IEffect {
 	Name: string;
 	Description: string;
+	Point?: string;
 }
 
 interface ICard {
@@ -179,8 +180,8 @@ interface IArmorySkill {
 }
 
 export interface IArmoryEngraving {
-	Engravings: IEngraving;
-	Effects: IEffect;
+	Engravings: IEngraving[];
+	Effects: IEffect[];
 }
 
 interface IArmoryCard {

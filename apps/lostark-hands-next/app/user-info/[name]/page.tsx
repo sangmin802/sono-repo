@@ -1,5 +1,8 @@
 import { getEngravesInfoApi, getProfileInfoApi } from '@/service/armories';
-import { profileTooltipSelector } from '@/service/armories/selector';
+import {
+	engraveSelector,
+	profileTooltipSelector
+} from '@/service/armories/selector';
 
 import { pascalToCamel } from '@/util/selector';
 
@@ -12,7 +15,7 @@ const Page = async ({ params: { name } }: { params: { name: string } }) => {
 		getProfileInfoApi(name, (data) =>
 			pascalToCamel(profileTooltipSelector(data))
 		),
-		getEngravesInfoApi(name, pascalToCamel)
+		getEngravesInfoApi(name, (data) => pascalToCamel(engraveSelector(data)))
 	]);
 
 	return (
@@ -24,7 +27,7 @@ const Page = async ({ params: { name } }: { params: { name: string } }) => {
 					healty={stats[6]}
 				/>
 				<Tendencies data={tendencies} />
-				<Engraves data={engraves} />
+				<Engraves data={engraves.effects} />
 			</div>
 			<div></div>
 		</div>

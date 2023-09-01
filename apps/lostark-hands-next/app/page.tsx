@@ -16,7 +16,7 @@ const Page = async () => {
 	]);
 
 	return (
-		<div>
+		<div className="px-[16px]">
 			<Notice initData={[...noticeData, ...storeData]} />
 			<Event initData={eventData} />
 			<Calendar initData={calendarData} />

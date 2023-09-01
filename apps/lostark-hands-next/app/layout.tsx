@@ -20,7 +20,7 @@ const Layout = ({ children }: PropsWithChildren) => {
 				<ModalProvider>
 					<Modal />
 					<Header />
-					<main className="px-[16px] lg:mx-auto lg:w-[1024px]">{children}</main>
+					<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
 				</ModalProvider>
 			</body>
 		</html>
