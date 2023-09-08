@@ -6,11 +6,12 @@
     "access": "public"
   },
   "exports": {
-    "./config": "./.prettierrc.js",
-    "./tailwind-config": "./.tailwind-prettierrc.js"
+    "./config": "./.prettierrc.js"
   },
   "devDependencies": {
-    "prettier": "^2.8.7",
-    "prettier-plugin-tailwindcss": "^0.2.7"
+    "prettier": "^2.8.7"
+  },
+  "scripts": {
+    "setting": "yarn install"
   }
 }

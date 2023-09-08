@@ -8,7 +8,6 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@sono-repo/eslint-config-next": "workspace:*",
     "@sono-repo/prettier-config": "workspace:*",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
