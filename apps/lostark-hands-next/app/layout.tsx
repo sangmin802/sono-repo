@@ -15,7 +15,7 @@ const Layout = ({ children }: PropsWithChildren) => {
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
-			<Head />
+			{/* <Head /> */}
 			<body className="hide-scrollbar bg-main-10">
 				<ModalProvider>
 					<Modal />

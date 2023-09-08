@@ -1,5 +1,5 @@
 module.exports = {
-	extends: ['@sono-repo/next'],
+	extends: ['sono-repo'],
 	settings: {
 		next: {
 			rootDir: ['apps/*/']

@@ -3,7 +3,7 @@
   "extends": "../../packages/tsconfig/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "module": "esnext"
+    "module": "ESNext"
   },
   "include": [
     "next-env.d.ts",
