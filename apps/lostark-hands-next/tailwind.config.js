@@ -3,9 +3,6 @@ module.exports = {
 	presets: [require('@sono-repo/ui/config')],
 	theme: {
 		extend: {
-			borderWidth: {
-				test: '7px'
-			},
 			backgroundImage: {
 				normal: 'linear-gradient(135deg, #232323, #575757)',
 				advanced: 'linear-gradient(135deg, #18220b, #304911)',

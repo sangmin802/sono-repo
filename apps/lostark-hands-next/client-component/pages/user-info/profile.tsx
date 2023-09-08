@@ -34,7 +34,7 @@ const Profile = ({ data }: IProfileProps) => {
 			<div className="absolute z-[4] ">
 				<div className="space-y-[16px] px-[16px]">
 					<div className="flex space-x-[8px]">
-						<Label>{serverName}</Label>
+						{serverName && <Label>{serverName}</Label>}
 						<Label>{characterClassName}</Label>
 					</div>
 					<div className="flex items-baseline">
@@ -51,12 +51,12 @@ const Profile = ({ data }: IProfileProps) => {
 						<div className="flex items-center">
 							<Label>영지</Label>
 							<div className="ml-[4px] text-[16px]">
-								Lv{townLevel} / {townName}
+								Lv{townLevel ?? '-'} / {townName}
 							</div>
 						</div>
 						<div className="flex items-center">
 							<Label>pvp</Label>
-							<div className="ml-[4px] text-[16px]">{pvpGradeName}</div>
+							<div className="ml-[4px] text-[16px]">{pvpGradeName ?? '-'}</div>
 						</div>
 					</div>
 					<div className="flex space-x-[20px] [&_div]:text-[18px] [&_div]:font-bold">
@@ -75,20 +75,22 @@ const Profile = ({ data }: IProfileProps) => {
 					</div>
 				</div>
 			</div>
-			<Image
-				className={cn(
-					'absolute right-[-100px] z-[1] w-[360px] sm:right-0',
-					'pointer-events-none select-none bg-main-10'
-				)}
-				width={600}
-				height={900}
-				src={characterImage}
-				alt={characterName}
-			/>
+			{characterImage && (
+				<Image
+					className={cn(
+						'absolute right-[-100px] z-[1] w-[360px] sm:right-0',
+						'pointer-events-none select-none bg-main-10'
+					)}
+					width={600}
+					height={900}
+					src={characterImage}
+					alt={characterName}
+				/>
+			)}
 			<div
 				className={cn(
 					'absolute right-[-100px] z-[2] h-[300px] w-[360px] sm:right-0',
-					'shadow-[inset_20px_0px_32px_26px_#14181d]'
+					'shadow-[inset_20px_8px_32px_26px_#14181d]'
 				)}
 			/>
 			<div

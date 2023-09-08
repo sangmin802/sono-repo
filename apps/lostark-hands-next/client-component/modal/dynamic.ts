@@ -8,5 +8,8 @@ export default {
 	),
 	STATS_MODAL: dynamic<IModalItemProps['statsModal']>(
 		() => import('@/client-component/modal/item/stats-modal')
+	),
+	EQUIPMENT_MODAL: dynamic<IModalItemProps['equipmentModal']>(
+		() => import('@/client-component/modal/item/equipment-modal')
 	)
 };

@@ -1,3 +1,6 @@
+import type { TGrade } from '@/type';
+import type { TElementUnionArray } from '@/type/element-json';
+
 export interface IStat {
 	Type: string;
 	Value: string;
@@ -130,7 +133,7 @@ interface ICollectiblePoint {
 }
 
 export interface IArmoryProfile {
-	CharacterImage: string;
+	CharacterImage?: string;
 	ExpeditionLevel: number;
 	PvpGradeName: string;
 	TownLevel: number | null;
@@ -150,12 +153,17 @@ export interface IArmoryProfile {
 	ItemMaxLevel: string;
 }
 
-interface IArmoryEquipment {
+export interface IArmoryEquipment {
 	Type: string;
 	Name: string;
 	Icon: string;
-	Grade: string;
+	Grade: TGrade;
 	Tooltip: string;
+}
+
+export interface IParsedArmoryEquipment
+	extends Omit<IArmoryEquipment, 'Tooltip'> {
+	Tooltip?: TElementUnionArray;
 }
 
 interface IArmoryAvatar {
@@ -180,8 +188,8 @@ interface IArmorySkill {
 }
 
 export interface IArmoryEngraving {
-	Engravings: IEngraving[];
-	Effects: IEffect[];
+	Engravings: IEngraving[] | null;
+	Effects: IEffect[] | null;
 }
 
 interface IArmoryCard {
@@ -212,8 +220,8 @@ interface ICollectible {
 export interface IArmoriesInfo {
 	ArmoryAvatars: IArmoryAvatar[];
 	ArmoryCard: IArmoryCard;
-	ArmoryEngraving: IArmoryEngraving;
-	ArmoryEquipment: IArmoryEquipment[];
+	ArmoryEngraving: IArmoryEngraving | null;
+	ArmoryEquipment: IArmoryEquipment[] | null;
 	ArmoryGem: IArmoryGem;
 	ArmoryProfile: IArmoryProfile;
 	ArmorySkills: IArmorySkill[];
