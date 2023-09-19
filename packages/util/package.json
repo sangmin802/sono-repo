@@ -4,7 +4,8 @@
   "description": "",
   "exports": {
     "./date": "./date.ts",
-    "./number": "./number.ts"
+    "./number": "./number.ts",
+    "./convert": "./convert.ts"
   },
   "scripts": {
     "setting": "yarn install",

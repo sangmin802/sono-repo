@@ -18,6 +18,8 @@ const Modal = () => {
 				return <Dynamic.CALENDAR_REWARD_MODAL {...modalItem.props} />;
 			case 'statsModal':
 				return <Dynamic.STATS_MODAL {...modalItem.props} />;
+			case 'equipmentModal':
+				return <Dynamic.EQUIPMENT_MODAL {...modalItem.props} />;
 			default:
 				return null;
 		}

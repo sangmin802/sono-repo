@@ -25,7 +25,7 @@ const CalendarRewardModal = ({
 					>
 						<Image
 							className={cn(
-								'border-white-100 h-[40px] w-[40px] rounded-[6px] border',
+								'h-[40px] w-[40px] rounded-[6px] border border-white',
 								GRADE_BG_COLOR[grade]
 							)}
 							width={500}
