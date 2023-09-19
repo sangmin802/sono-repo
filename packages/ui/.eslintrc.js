@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
 	root: true,
 	ignorePatterns: ['public/*'],
-	extends: ['sono-repo/tailwindcss'],
+	extends: ['sono-repo/tailwindcss', 'plugin:storybook/recommended'],
 	settings: {
 		tailwindcss: {
 			/**
