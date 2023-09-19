@@ -1665,6 +1665,7 @@ __metadata:
     autoprefixer: ^10.4.14
     classnames: ^2.3.2
     eslint: ^8.38.0
+    eslint-config-sono-repo: "workspace:^"
     postcss: ^8.4.22
     react: ^18.2.0
     tailwindcss: ^3.3.3

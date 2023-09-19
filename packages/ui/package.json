@@ -8,6 +8,7 @@
     "ui-bin": "./bin/intro.js"
   },
   "scripts": {
+    "storybook": "yarn storybook dev -p 9009",
     "lint": "eslint \"**/*.ts*\"",
     "setting": "yarn install"
   },
@@ -26,6 +27,7 @@
     "@types/react-dom": "^18.0.11",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.38.0",
+    "eslint-config-sono-repo": "workspace:^",
     "postcss": "^8.4.22",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.4"
