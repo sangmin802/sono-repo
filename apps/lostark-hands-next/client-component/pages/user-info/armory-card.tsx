@@ -4,6 +4,8 @@ import type { ReactElement } from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
 
+import { Chip } from '@sono-repo/ui';
+
 import { GRADE_BG_COLOR } from '@/constant';
 
 import type { TGrade } from '@/type';
@@ -35,14 +37,12 @@ const ArmoryCard = ({
 				)}
 			>
 				{armoryType && (
-					<div
-						className={cn(
-							'absolute bottom-[1px] right-[1px] max-w-[48px] rounded-[4px] px-[4px]',
-							'truncate bg-gray-950/80 text-end text-[12px]'
-						)}
+					<Chip
+						className="absolute bottom-[1px] right-[1px] max-w-[48px] truncate"
+						type="transparent"
 					>
 						{armoryType}
-					</div>
+					</Chip>
 				)}
 				{image && (
 					<Image

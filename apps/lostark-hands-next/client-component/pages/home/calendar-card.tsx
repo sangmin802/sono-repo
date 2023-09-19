@@ -3,6 +3,7 @@
 import cn from 'classnames';
 import Image from 'next/image';
 
+import { Chip } from '@sono-repo/ui';
 import { convertDateFormat, getTime } from '@sono-repo/util/date';
 
 import useTimer from '@/hook/use-timer';
@@ -54,13 +55,12 @@ const CalendarCard = ({
 			</div>
 			<div className="flex">
 				<div className="relative mr-[8px] h-[60px] w-[60px] shrink-0">
-					<div
-						className={cn(
-							'absolute bottom-[4px] right-[4px] rounded-[4px] bg-gray-950/80 px-[4px] text-[12px]'
-						)}
+					<Chip
+						className="absolute bottom-[4px] right-[4px]"
+						type="transparent"
 					>
 						Lv {item.badge}
-					</div>
+					</Chip>
 					<Image
 						src={item.icon}
 						width={120}
