@@ -4,7 +4,6 @@ const path = require('path');
 /** @type { import("eslint").Linter.Config } */
 module.exports = {
 	root: true,
-	ignorePatterns: ['public/*'],
 	extends: ['sono-repo/tailwindcss', 'plugin:storybook/recommended'],
 	settings: {
 		tailwindcss: {
