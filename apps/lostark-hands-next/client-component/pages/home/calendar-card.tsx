@@ -40,6 +40,7 @@ const CalendarCard = ({
 			}
 		});
 	};
+
 	return (
 		<div
 			className={cn(
@@ -56,7 +57,7 @@ const CalendarCard = ({
 			<div className="flex">
 				<div className="relative mr-[8px] h-[60px] w-[60px] shrink-0">
 					<Chip
-						className="absolute bottom-[4px] right-[4px]"
+						className="absolute bottom-[1px] right-[1px]"
 						type="transparent"
 					>
 						Lv {item.badge}

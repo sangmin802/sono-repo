@@ -2,6 +2,7 @@
 
 import type { IStat } from '@/service/armories/types';
 
+import DangerousHTML from '@/client-component/dangerous-html';
 import Label from '@/client-component/label';
 
 import type { ToCamelKey } from '@/type';
@@ -27,10 +28,9 @@ const StatsModal = ({ stats }: IStatsModalProps) => {
 					</div>
 					<div className="mt-[6px] pl-[4px]">
 						{tooltip.map((content, idx) => (
-							<div
-								className="[&_font]:font-bold [&_font]:text-orange-400"
+							<DangerousHTML
 								key={idx}
-								dangerouslySetInnerHTML={{ __html: content }}
+								html={content}
 							/>
 						))}
 					</div>

@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 enum TChipType {
 	'primary' = 'bg-purple-500',
+	'info' = 'bg-gray-700',
 	'transparent' = 'bg-gray-950/50'
 }
 

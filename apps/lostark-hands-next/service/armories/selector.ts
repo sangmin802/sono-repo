@@ -6,38 +6,18 @@ import type {
 	ITendency
 } from '@/service/armories/types';
 
-import type { ToIndexSignatureRecursive } from '@/type';
+import { CDN_URL } from '@/constant';
+import {
+	ACC_PARTS,
+	BASIC_STATS,
+	BASIC_TENDENCIES,
+	EMO_IMAGE_URL,
+	EQUIP_PARTS,
+	EXCLUDE_TOOLTIP_TEXT
+} from '@/constant/armory';
 
-const excludeTooltipText = [
-	'카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.',
-	'캐릭터의 최대 생명력을 나타냅니다.',
-	'적에게 주는 피해를 계산할 때 기준이 되는 값입니다.'
-];
-
-const basicStats = [
-	'치명',
-	'특화',
-	'신속',
-	'제압',
-	'인내',
-	'숙련',
-	'최대 생명력',
-	'공격력'
-];
-const basicTendencies = ['지성', '담력', '매력', '친절'];
-
-const equipParts = ['무기', '투구', '상의', '하의', '장갑', '어깨'];
-const accParts = [
-	'목걸이',
-	'귀걸이',
-	'귀걸이',
-	'반지',
-	'반지',
-	'어빌리티 스톤',
-	'팔찌',
-	'나침반',
-	'부적'
-];
+import type { IObj, ToIndexSignatureRecursive } from '@/type';
+import type { TElementUnionArray } from '@/type/element-json';
 
 export const profileTooltipSelector = ({
 	stats,
@@ -46,7 +26,7 @@ export const profileTooltipSelector = ({
 	stats?: IStat[];
 	tendencies?: ITendency[];
 }>) => ({
-	stats: basicStats.map((name) => ({
+	stats: BASIC_STATS.map((name) => ({
 		Type: name,
 		Value: `0`,
 		Tooltip: ['-'],
@@ -54,12 +34,12 @@ export const profileTooltipSelector = ({
 			?.map((stat) => ({
 				...stat,
 				Tooltip: stat.Tooltip.filter((val) =>
-					excludeTooltipText.every((text) => !val.includes(text))
+					EXCLUDE_TOOLTIP_TEXT.every((text) => !val.includes(text))
 				)
 			}))
 			.find(({ Type }) => Type === name)
 	})),
-	tendencies: basicTendencies.map((name) => ({
+	tendencies: BASIC_TENDENCIES.map((name) => ({
 		Type: name,
 		Point: 0,
 		MaxPoint: 0,
@@ -93,12 +73,37 @@ export const engraveSelector = ({
 	return mappedEffects;
 };
 
+const changeImageUrl = <T extends IObj>(item: T): T => {
+	return Object.entries(item).reduce((prev, [key, val]) => {
+		const isObject = typeof val === 'object' && val;
+
+		if (typeof val === 'string') {
+			return {
+				...prev,
+				[key]: Object.keys(EMO_IMAGE_URL).reduce(
+					(prev, cur) =>
+						EMO_IMAGE_URL[cur]
+							? prev.replaceAll(cur, `${CDN_URL}${EMO_IMAGE_URL[cur]}`)
+							: prev,
+					val
+				)
+			};
+		}
+
+		// object
+		if (isObject && !Array.isArray(val))
+			return { ...prev, [key]: changeImageUrl(val) };
+
+		return { ...prev, [key]: val };
+	}, Object());
+};
+
 export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
-	[...equipParts, ...accParts].reduce<
+	[...EQUIP_PARTS, ...ACC_PARTS].reduce<
 		ToIndexSignatureRecursive<Record<'equip' | 'acc', IParsedArmoryEquipment[]>>
 	>(
 		(prev, cur) => {
-			const key = equipParts.includes(cur) ? 'equip' : 'acc';
+			const key = EQUIP_PARTS.includes(cur) ? 'equip' : 'acc';
 			const targetItem = data?.find(({ Type }) => Type === cur);
 
 			if (!targetItem) {
@@ -113,7 +118,17 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 
 				prev[key].push({
 					...rest,
-					Tooltip: Object.values(JSON.parse(jsonToolip))
+					Tooltip: (
+						Object.values(JSON.parse(jsonToolip)) satisfies TElementUnionArray
+					).map((item) => {
+						if (
+							item.type !== 'IndentStringGroup' &&
+							item.type !== 'ItemPartBox'
+						)
+							return item;
+
+						return changeImageUrl(item);
+					})
 				});
 			}
 

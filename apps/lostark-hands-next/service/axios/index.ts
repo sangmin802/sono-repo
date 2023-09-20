@@ -3,17 +3,16 @@ import axios, {
 	type InternalAxiosRequestConfig
 } from 'axios';
 
+import { API_KEY, API_URL } from '@/constant';
+
 const axiosInstance = axios.create({
-	baseURL: process.env.NEXT_PUBLIC_API_URL as string
+	baseURL: API_URL as string
 });
 
 axiosInstance.interceptors.request.use(
 	(config: InternalAxiosRequestConfig) => {
 		config.headers.set('accept', 'application/json');
-		config.headers.set(
-			'authorization',
-			`bearer ${process.env.NEXT_PUBLIC_API_KEY}`
-		);
+		config.headers.set('authorization', `bearer ${API_KEY}`);
 
 		return config;
 	},

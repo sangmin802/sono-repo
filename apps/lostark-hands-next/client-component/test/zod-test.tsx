@@ -1,6 +1,6 @@
 'use client';
 
-import type { ChangeEvent, FC, FormEvent } from 'react';
+import type { FormEvent } from 'react';
 import { useState } from 'react';
 import { z } from 'zod';
 
@@ -24,9 +24,7 @@ const ZodTest = () => {
 	const [error, setError] = useState(initError);
 
 	/** 주소 입력 */
-	const handleChangeAddress = (e: ChangeEvent<HTMLInputElement>) => {
-		const value = e.target.value;
-
+	const handleChangeAddress = (value: string) => {
 		setEmail(value);
 	};
 
