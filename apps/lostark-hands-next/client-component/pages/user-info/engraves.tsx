@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import type { IEffect } from '@/service/armories/types';
 
+import { CDN_URL } from '@/constant';
 import ENGRAVE_IMGAE from '@/constant/engrave';
 
 import type { ToCamelKey } from '@/type';
@@ -33,7 +34,7 @@ const Engraves = ({ data }: IEngravesProps) => {
 						<div className="relative">
 							<Image
 								className="rounded-[6px]"
-								src={`https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/${
+								src={`${CDN_URL}/EFUI_IconAtlas/${
 									ENGRAVE_IMGAE[name.split(' Lv')[0]]
 								}`}
 								width={36}

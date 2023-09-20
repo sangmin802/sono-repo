@@ -2,7 +2,7 @@ import type { IParsedArmoryEquipment, IStat } from '@/service/armories/types';
 import type { IRewardItem } from '@/service/game-contents/type';
 
 import type { ToCamelKey } from '@/type';
-import type { TElementUnion } from '@/type/element-json';
+import type { TElement } from '@/type/element-json';
 
 export interface IModalItemProps {
 	calendarRewardModal: {
@@ -14,7 +14,7 @@ export interface IModalItemProps {
 	};
 	equipmentModal: {
 		item: ToCamelKey<IParsedArmoryEquipment>;
-		itemTitle: TElementUnion['ItemTitle'];
+		itemTitle: TElement['ItemTitle'];
 	};
 }
 

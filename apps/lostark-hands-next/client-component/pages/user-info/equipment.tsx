@@ -1,20 +1,20 @@
 'use client';
 
-import cn from 'classnames';
-
-import { removeHtmlTag } from '@sono-repo/util/convert';
-
 import type { IParsedArmoryEquipment } from '@/service/armories/types';
+
+import { getIndentContent } from '@/util/armory';
 
 import Label from '@/client-component/label';
 import { useModalDispatch } from '@/client-component/modal/provider';
 import type { TModalItem } from '@/client-component/modal/types';
-import ArmoryCard from '@/client-component/pages/user-info/armory-card';
-
-import { GRADE_TEXT_COLOR } from '@/constant';
+import Elixir from '@/client-component/pages/user-info/elixir';
+import ItemThumbnail from '@/client-component/pages/user-info/item-thumbnail';
+import ItemTitle from '@/client-component/pages/user-info/item-title';
+import QualityChip from '@/client-component/pages/user-info/quality-chip';
+import Transcendence from '@/client-component/pages/user-info/transcendence';
 
 import type { ToCamelKey } from '@/type';
-import type { TElementUnion } from '@/type/element-json';
+import type { TElement } from '@/type/element-json';
 
 type TItem = ToCamelKey<IParsedArmoryEquipment>;
 
@@ -25,7 +25,7 @@ interface IEquipmentProps {
 /**
  * EquipmentCard
  * @description 장비카드
- * use in {@link Equipment}
+ * used in {@link Equipment}
  */
 const Card = ({
 	onOpenModal,
@@ -34,8 +34,11 @@ const Card = ({
 	const { type, grade, icon, name, tooltip } = item;
 
 	const itemTitle = tooltip?.find(({ type }) => type === 'ItemTitle') as
-		| TElementUnion['ItemTitle']
+		| TElement['ItemTitle']
 		| undefined;
+
+	const elixir = getIndentContent('엘릭서 효과', tooltip);
+	const transcendence = getIndentContent('초월', tooltip);
 
 	const handleOpenModal = () => {
 		if (!itemTitle) return;
@@ -44,28 +47,37 @@ const Card = ({
 	};
 
 	return (
-		<ArmoryCard
-			grade={grade}
-			image={icon}
-			armoryType={type}
+		<div
+			className="flex cursor-pointer space-x-[6px]"
 			onClick={handleOpenModal}
 		>
-			{itemTitle && (
-				<>
-					<div className="flex items-center space-x-[4px]">
-						<div className="text-[12px] font-bold">
-							{removeHtmlTag(itemTitle.value.leftStr2)}
+			<ItemThumbnail
+				className="h-[60px] w-[60px]"
+				grade={grade}
+				src={icon}
+				alt={name}
+				chip={type}
+			/>
+			<div className="flex flex-col justify-center">
+				{itemTitle && (
+					<>
+						<ItemTitle
+							subTitle={itemTitle.value.leftStr2}
+							afterSubTitle={
+								<QualityChip size={itemTitle.value.qualityValue} />
+							}
+							title={name}
+							grade={grade}
+						/>
+						<div className="flex space-x-[8px]">
+							{elixir && <Elixir {...elixir} />}
+							{transcendence && <Transcendence {...transcendence} />}
 						</div>
-						{itemTitle.value.qualityValue >= 0 && (
-							<div className="w-fit rounded-[4px] bg-main-40 px-[4px] text-[12px]">
-								품질 {itemTitle.value.qualityValue}
-							</div>
-						)}
-					</div>
-					<div className={cn(GRADE_TEXT_COLOR[grade], 'truncate')}>{name}</div>
-				</>
-			)}
-		</ArmoryCard>
+					</>
+				)}
+				{!itemTitle && `착용중인 ${type} 이/가 없습니다.`}
+			</div>
+		</div>
 	);
 };
 
@@ -76,7 +88,7 @@ const Equipment = ({ data: { equip, acc } }: IEquipmentProps) => {
 		<div className="space-y-[16px]">
 			<div className="rounded-[6px] bg-main-20 p-[8px]">
 				<Label className="mb-[12px] w-fit">장비</Label>
-				<div className="grid grid-cols-1 gap-[8px] md:grid-cols-2">
+				<div className="grid grid-cols-1 gap-[8px] lg:grid-cols-2">
 					{equip.map((item) => (
 						<Card
 							key={item.type}
@@ -88,7 +100,7 @@ const Equipment = ({ data: { equip, acc } }: IEquipmentProps) => {
 			</div>
 			<div className="rounded-[6px] bg-main-20 p-[8px]">
 				<Label className="mb-[12px] w-fit">장신구</Label>
-				<div className="grid grid-cols-1 gap-[8px] md:grid-cols-2">
+				<div className="grid grid-cols-1 gap-[8px] lg:grid-cols-2">
 					<div className="flex flex-col space-y-[8px]">
 						{acc.slice(0, 5).map((item, idx) => (
 							<Card

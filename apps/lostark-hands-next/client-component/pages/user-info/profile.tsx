@@ -81,6 +81,7 @@ const Profile = ({ data }: IProfileProps) => {
 						'absolute right-[-100px] z-[1] w-[360px] sm:right-0',
 						'pointer-events-none select-none bg-main-10'
 					)}
+					priority
 					width={600}
 					height={900}
 					src={characterImage}

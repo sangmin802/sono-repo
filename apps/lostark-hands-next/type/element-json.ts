@@ -1,5 +1,5 @@
 type TNumber = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
-type TElement = `${TNumber}${TNumber}${TNumber}`;
+type TElementKey = `Element_${TNumber}${TNumber}${TNumber}`;
 
 export type TElementJson = {
 	[key in
@@ -32,12 +32,12 @@ export type TElementJson = {
 		};
 	};
 	ItemPartBox: {
-		[key in TElement]: string;
+		[key in TElementKey]: string;
 	};
 	IndentStringGroup: {
-		[key in TElement]: {
+		[key in TElementKey]: {
 			contentStr: {
-				[key in TElement]: {
+				[key in TElementKey]: {
 					bPoint: boolean;
 					contentStr: string;
 				};
@@ -48,7 +48,7 @@ export type TElementJson = {
 	SetItemGroup: {
 		firstMsg: string;
 		itemData: {
-			[key in TElement]: {
+			[key in TElementKey]: {
 				label: string;
 				slotData: {
 					ioconGrade: number;
@@ -60,11 +60,11 @@ export type TElementJson = {
 	};
 };
 
-export type TElementUnion = {
+export type TElement = {
 	[key in keyof TElementJson]: {
 		type: key;
 		value: TElementJson[key];
 	};
 };
 
-export type TElementUnionArray = TElementUnion[keyof TElementJson][];
+export type TElementUnionArray = TElement[keyof TElementJson][];

@@ -5,7 +5,7 @@
   "scripts": {
     "setting": "yarn install",
     "lostark:dev": "next dev",
-    "lostark:build": "next build",
+    "lostark:build":"yarn tsc && next build",
     "start": "next start",
     "lint": "next lint"
   },

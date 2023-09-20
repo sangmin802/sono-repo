@@ -2,10 +2,17 @@
 
 @tailwind base;
 @layer base {
-  * {
+  * :not(.dangerousHTML *) {
     @apply text-white;
+  }
+
+  * {
     @apply font-['Pretendard'];
     @apply text-[14px];
+  }
+
+  .dangerousHTML font, .dangerousHTML img {
+    @apply inline;
   }
 }
 
