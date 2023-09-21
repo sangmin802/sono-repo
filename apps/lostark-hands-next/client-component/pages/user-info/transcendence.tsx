@@ -4,13 +4,10 @@ import { removeHtmlTag } from '@sono-repo/util/convert';
 
 import { CDN_URL } from '@/constant';
 
-import type { ToCamelKey } from '@/type';
 import type { TElement } from '@/type/element-json';
 
-const Transcendence = ({
-	value
-}: ToCamelKey<TElement['IndentStringGroup']>) => {
-	const [, htmlText] = value.element_000.topStr.split('[초월]');
+const Transcendence = ({ value }: TElement['IndentStringGroup']) => {
+	const [, htmlText] = value.Element_000.topStr.split('[초월]');
 	const [grade, total] = removeHtmlTag(htmlText).split('단계');
 
 	return (

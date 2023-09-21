@@ -32,10 +32,24 @@ export type ToFirstLower<A> = A extends `${infer F}${infer S}`
 		: A
 	: A;
 
+export type ToFirstUpper<A> = A extends `${infer F}${infer S}`
+	? F extends Lowercase<F>
+		? `${Uppercase<F>}${S}`
+		: A
+	: A;
+
 export type ToCamelKey<T> = T extends TPrimitives
 	? T
 	: T extends (infer A)[]
 	? ToCamelKey<A>[]
 	: {
 			[K in keyof T as ToFirstLower<K>]: ToCamelKey<T[K]>;
+	  };
+
+export type ToPascalKey<T> = T extends TPrimitives
+	? T
+	: T extends (infer A)[]
+	? ToPascalKey<A>[]
+	: {
+			[K in keyof T as ToFirstUpper<K>]: ToPascalKey<T[K]>;
 	  };

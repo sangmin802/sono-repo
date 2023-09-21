@@ -8,13 +8,9 @@ import ItemThumbnail from '@/client-component/pages/user-info/item-thumbnail';
 import ItemTitle from '@/client-component/pages/user-info/item-title';
 import QualityChip from '@/client-component/pages/user-info/quality-chip';
 
-import type { ToCamelKey } from '@/type';
 import type { TElement } from '@/type/element-json';
 
-const mappedContent = (
-	item: ToCamelKey<TElement[keyof TElement]>,
-	idx: number
-) => {
+const mappedContent = (item: TElement[keyof TElement], idx: number) => {
 	switch (item.type) {
 		case 'ItemPartBox':
 			return (

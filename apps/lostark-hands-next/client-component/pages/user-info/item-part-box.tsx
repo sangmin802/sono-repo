@@ -1,9 +1,8 @@
 import DangerousHTML from '@/client-component/dangerous-html';
 
-import type { ToCamelKey } from '@/type';
 import type { TElement } from '@/type/element-json';
 
-const ItemPartBox = ({ value }: ToCamelKey<TElement['ItemPartBox']>) => {
+const ItemPartBox = ({ value }: TElement['ItemPartBox']) => {
 	const arr = Object.values(value);
 
 	return (

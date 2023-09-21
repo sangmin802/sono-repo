@@ -2,13 +2,13 @@
 
 import { useMemo } from 'react';
 
-import { type noticeListSelector } from '@/service/news/selector';
+import type { INotice } from '@/service/news/types';
 
 import MessagePost from '@/client-component/message-post';
 import SectionLayout from '@/client-component/section-layout';
 
 interface INoticeProps {
-	initData: ReturnType<typeof noticeListSelector>;
+	initData: INotice[];
 }
 
 const Notice = ({ initData }: INoticeProps) => {

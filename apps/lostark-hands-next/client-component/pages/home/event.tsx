@@ -1,12 +1,12 @@
 'use client';
 
-import { type eventListSelector } from '@/service/news/selector';
+import type { IEvent } from '@/service/news/types';
 
 import SectionLayout from '@/client-component/section-layout';
 import ThumbnailPost from '@/client-component/thumbnail-post';
 
 interface IEventProps {
-	initData: ReturnType<typeof eventListSelector>;
+	initData: IEvent[];
 }
 
 const Event = ({ initData }: IEventProps) => {
@@ -19,6 +19,9 @@ const Event = ({ initData }: IEventProps) => {
 				{initData.map((item, idx) => (
 					<ThumbnailPost
 						key={idx}
+						date={`${item.startDate.split('T')[0]} ~ ${
+							item.endDate.split('T')[0]
+						}`}
 						{...item}
 					/>
 				))}

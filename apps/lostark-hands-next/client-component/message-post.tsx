@@ -5,12 +5,12 @@ import cn from 'classnames';
 interface IMessagePostProps {
 	className?: string;
 	title: string;
-	url: string;
+	link: string;
 }
 
-const MessagePost = ({ className, title, url }: IMessagePostProps) => {
+const MessagePost = ({ className, title, link }: IMessagePostProps) => {
 	const handleClickPost = () => {
-		window.open(url);
+		window.open(link);
 	};
 
 	return (

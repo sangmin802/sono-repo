@@ -1,7 +1,6 @@
 import type { IParsedArmoryEquipment, IStat } from '@/service/armories/types';
 import type { IRewardItem } from '@/service/game-contents/type';
 
-import type { ToCamelKey } from '@/type';
 import type { TElement } from '@/type/element-json';
 
 export interface IModalItemProps {
@@ -10,10 +9,10 @@ export interface IModalItemProps {
 		list: IRewardItem[];
 	};
 	statsModal: {
-		stats: ToCamelKey<IStat>[];
+		stats: IStat[];
 	};
 	equipmentModal: {
-		item: ToCamelKey<IParsedArmoryEquipment>;
+		item: IParsedArmoryEquipment;
 		itemTitle: TElement['ItemTitle'];
 	};
 }

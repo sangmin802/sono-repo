@@ -16,58 +16,58 @@ import {
 	EXCLUDE_TOOLTIP_TEXT
 } from '@/constant/armory';
 
-import type { IObj, ToIndexSignatureRecursive } from '@/type';
+import type { IObj } from '@/type';
 import type { TElementUnionArray } from '@/type/element-json';
 
 export const profileTooltipSelector = ({
 	stats,
 	tendencies
-}: ToIndexSignatureRecursive<{
+}: {
 	stats?: IStat[];
 	tendencies?: ITendency[];
-}>) => ({
+}) => ({
 	stats: BASIC_STATS.map((name) => ({
-		Type: name,
-		Value: `0`,
-		Tooltip: ['-'],
+		type: name,
+		value: `0`,
+		tooltip: ['-'],
 		...stats
 			?.map((stat) => ({
 				...stat,
-				Tooltip: stat.Tooltip.filter((val) =>
+				tooltip: stat.tooltip.filter((val) =>
 					EXCLUDE_TOOLTIP_TEXT.every((text) => !val.includes(text))
 				)
 			}))
-			.find(({ Type }) => Type === name)
+			.find(({ type }) => type === name)
 	})),
 	tendencies: BASIC_TENDENCIES.map((name) => ({
-		Type: name,
-		Point: 0,
-		MaxPoint: 0,
-		...tendencies?.find(({ Type }) => Type === name)
+		type: name,
+		point: 0,
+		maxPoint: 0,
+		...tendencies?.find(({ type }) => type === name)
 	}))
 });
 
-export const engraveSelector = ({
-	Effects,
-	Engravings
-}: ToIndexSignatureRecursive<IArmoryEngraving>) => {
-	const sortedEffects = Effects?.sort((a) =>
-		Engravings?.some(({ Name }) => a.Name.includes(Name)) ? -1 : 0
+export const engraveSelector = (args: IArmoryEngraving | null) => {
+	if (!args) return args;
+
+	const { effects, engravings } = args;
+	const sortedEffects = effects?.sort((a) =>
+		engravings?.some(({ name }) => a.name.includes(name)) ? -1 : 0
 	);
 
 	const mappedEffects =
 		sortedEffects?.map((effect) => {
-			const targetEngrave = Engravings?.find(({ Name }) =>
-				effect.Name.includes(Name)
-			)?.Tooltip;
+			const targetEngrave = engravings?.find(({ name }) =>
+				effect.name.includes(name)
+			)?.tooltip;
 
 			if (!targetEngrave) return effect;
 
 			const json = JSON.parse(targetEngrave);
 			const regex = /\b(?:3|6|9|12)\b/g;
-			const [Point] = json.Element_002.value.match(regex);
+			const [point] = json.Element_002.value.match(regex);
 
-			return { ...effect, Point: `${Point}` };
+			return { ...effect, point: `${point}` };
 		}) ?? null;
 
 	return mappedEffects;
@@ -100,25 +100,25 @@ const changeImageUrl = <T extends IObj>(item: T): T => {
 
 export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 	[...EQUIP_PARTS, ...ACC_PARTS].reduce<
-		ToIndexSignatureRecursive<Record<'equip' | 'acc', IParsedArmoryEquipment[]>>
+		Record<'equip' | 'acc', IParsedArmoryEquipment[]>
 	>(
 		(prev, cur) => {
 			const key = EQUIP_PARTS.includes(cur) ? 'equip' : 'acc';
-			const targetItem = data?.find(({ Type }) => Type === cur);
+			const targetItem = data?.find(({ type }) => type === cur);
 
 			if (!targetItem) {
 				prev[key].push({
-					Type: cur,
-					Name: '',
-					Icon: '',
-					Grade: '일반'
+					type: cur,
+					name: '',
+					icon: '',
+					grade: '일반'
 				});
 			} else {
-				const { Tooltip: jsonToolip, ...rest } = targetItem;
+				const { tooltip: jsonToolip, ...rest } = targetItem;
 
 				prev[key].push({
 					...rest,
-					Tooltip: (
+					tooltip: (
 						Object.values(JSON.parse(jsonToolip)) satisfies TElementUnionArray
 					).map((item) => {
 						if (
