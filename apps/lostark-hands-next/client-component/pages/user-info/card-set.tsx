@@ -14,9 +14,6 @@ import { CDN_URL, GRADE_TEXT_COLOR } from '@/constant';
 
 import type { TGrade } from '@/type';
 
-import awakeEmptyIcon from '@/public/icons/img_profile_awake_empty.png';
-import awakeFillIcon from '@/public/icons/img_profile_awake_fill.png';
-
 interface ICardSetProps {
 	cards: (ICard | null)[];
 	effects: ICardEffect[] | null;
@@ -112,8 +109,8 @@ const CardSet = ({ cards, effects }: ICardSetProps) => {
 													key={idx}
 													src={
 														idx <= item.awakeCount - 1
-															? awakeFillIcon
-															: awakeEmptyIcon
+															? '/icons/img_profile_awake_fill.png'
+															: '/icons/img_profile_awake_empty.png'
 													}
 													width={16}
 													height={28}

@@ -7,10 +7,6 @@ import { useRouter } from 'next/navigation';
 
 import { Input } from '@sono-repo/ui';
 
-import test from '@/public/icons/icon-128x128.png';
-// import logo from '@/public/icons/logo/logo.png';
-import searchIcon from '@/public/icons/search/ic_search_16_gray60_ver01.svg';
-
 const Header = () => {
 	const router = useRouter();
 	const ioRef = useRef(null);
@@ -59,7 +55,7 @@ const Header = () => {
 					>
 						<Image
 							className="mr-[8px] h-[36px] w-[36px]"
-							src={test}
+							src="/icons/logo/logo.png"
 							width={100}
 							height={100}
 							alt="logo"
@@ -81,7 +77,7 @@ const Header = () => {
 							className="inline-block cursor-pointer"
 							width={24}
 							height={24}
-							src={searchIcon}
+							src="/icons/search/ic_search_16_gray60_ver01.svg"
 							alt="searchIcon"
 						/>
 					</form>
