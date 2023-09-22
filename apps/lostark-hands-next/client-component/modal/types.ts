@@ -1,4 +1,8 @@
-import type { IParsedArmoryEquipment, IStat } from '@/service/armories/types';
+import type {
+	ICardEffect,
+	IParsedArmoryEquipment,
+	IStat
+} from '@/service/armories/types';
 import type { IRewardItem } from '@/service/game-contents/type';
 
 import type { TElement } from '@/type/element-json';
@@ -14,6 +18,9 @@ export interface IModalItemProps {
 	equipmentModal: {
 		item: IParsedArmoryEquipment;
 		itemTitle: TElement['ItemTitle'];
+	};
+	cardEffectModal: {
+		effects: ICardEffect[];
 	};
 }
 

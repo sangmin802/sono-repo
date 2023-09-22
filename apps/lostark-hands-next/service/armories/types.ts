@@ -43,17 +43,17 @@ export interface IEffect {
 	point?: string;
 }
 
-interface ICard {
+export interface ICard {
 	slot: number;
 	name: string;
 	icon: string;
 	awakeCount: number;
 	awakeTotal: number;
-	grade: string;
+	grade: TGrade;
 	tooltip: string;
 }
 
-interface ICardEffect {
+export interface ICardEffect {
 	index: number;
 	cardSlots: number[];
 	items: IEffect[];
@@ -192,7 +192,7 @@ export interface IArmoryEngraving {
 	effects: IEffect[] | null;
 }
 
-interface IArmoryCard {
+export interface IArmoryCard {
 	cards: ICard[];
 	effects: ICardEffect[];
 }

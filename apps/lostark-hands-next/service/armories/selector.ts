@@ -1,6 +1,8 @@
 import type {
+	IArmoryCard,
 	IArmoryEngraving,
 	IArmoryEquipment,
+	ICard,
 	IParsedArmoryEquipment,
 	IStat,
 	ITendency
@@ -19,6 +21,9 @@ import {
 import type { IObj } from '@/type';
 import type { TElementUnionArray } from '@/type/element-json';
 
+/**
+ * 프로필 데이터 가공
+ */
 export const profileTooltipSelector = ({
 	stats,
 	tendencies
@@ -47,6 +52,9 @@ export const profileTooltipSelector = ({
 	}))
 });
 
+/**
+ * 각인 데이터 가공
+ */
 export const engraveSelector = (args: IArmoryEngraving | null) => {
 	if (!args) return args;
 
@@ -98,6 +106,9 @@ const changeImageUrl = <T extends IObj>(item: T): T => {
 	}, Object());
 };
 
+/**
+ * 장비 데이터 가공
+ */
 export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 	[...EQUIP_PARTS, ...ACC_PARTS].reduce<
 		Record<'equip' | 'acc', IParsedArmoryEquipment[]>
@@ -136,3 +147,18 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 		},
 		{ equip: [], acc: [] }
 	);
+
+/**
+ * 카드 데이터 가공
+ */
+export const cardSelector = (data: IArmoryCard | null) => {
+	const cards = Array.from({ length: 6 }, (_, idx) => idx).reduce<
+		(ICard | null)[]
+	>((prev, idx) => {
+		if (data?.cards[idx]) return [...prev, data.cards[idx]];
+
+		return [...prev, null];
+	}, []);
+
+	return { cards, effects: data?.effects ?? null };
+};

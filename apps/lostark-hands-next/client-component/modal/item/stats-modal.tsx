@@ -4,10 +4,9 @@ import type { IStat } from '@/service/armories/types';
 
 import DangerousHTML from '@/client-component/dangerous-html';
 import Label from '@/client-component/label';
+import ModalLayout from '@/client-component/modal/layout';
 
 import type { ToCamelKey } from '@/type';
-
-import ModalLayout from '../layout';
 
 interface IStatsModalProps {
 	stats: ToCamelKey<IStat>[];

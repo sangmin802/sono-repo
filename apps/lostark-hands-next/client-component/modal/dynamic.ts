@@ -11,5 +11,8 @@ export default {
 	),
 	EQUIPMENT_MODAL: dynamic<IModalItemProps['equipmentModal']>(
 		() => import('@/client-component/modal/item/equipment-modal')
+	),
+	CARD_EFFECT_MODAL: dynamic<IModalItemProps['cardEffectModal']>(
+		() => import('@/client-component/modal/item/card-effect-modal')
 	)
 };

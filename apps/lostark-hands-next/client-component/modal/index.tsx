@@ -20,6 +20,8 @@ const Modal = () => {
 				return <Dynamic.STATS_MODAL {...modalItem.props} />;
 			case 'equipmentModal':
 				return <Dynamic.EQUIPMENT_MODAL {...modalItem.props} />;
+			case 'cardEffectModal':
+				return <Dynamic.CARD_EFFECT_MODAL {...modalItem.props} />;
 			default:
 				return null;
 		}
