@@ -5,7 +5,7 @@
   "scripts": {
     "setting": "yarn install",
     "lostark:dev": "next dev",
-    "lostark:build":"yarn tsc && next build",
+    "lostark:build": "yarn tsc && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -15,7 +15,7 @@
     "@sono-repo/util": "workspace:^",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
-    "next": "^13.4.11",
+    "next": "^13.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "zod": "^3.21.4"
