@@ -7,7 +7,8 @@ import { useRouter } from 'next/navigation';
 
 import { Input } from '@sono-repo/ui';
 
-import logo from '@/public/icons/logo/logo.png';
+import test from '@/public/icons/icon-128x128.png';
+// import logo from '@/public/icons/logo/logo.png';
 import searchIcon from '@/public/icons/search/ic_search_16_gray60_ver01.svg';
 
 const Header = () => {
@@ -58,7 +59,7 @@ const Header = () => {
 					>
 						<Image
 							className="mr-[8px] h-[36px] w-[36px]"
-							src={logo}
+							src={test}
 							width={100}
 							height={100}
 							alt="logo"
