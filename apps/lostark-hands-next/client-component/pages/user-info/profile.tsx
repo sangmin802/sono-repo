@@ -7,10 +7,8 @@ import type { IArmoryProfile } from '@/service/armories/types';
 
 import Label from '@/client-component/label';
 
-import type { ToCamelKey } from '@/type';
-
 interface IProfileProps {
-	data: ToCamelKey<IArmoryProfile>;
+	data: IArmoryProfile;
 }
 
 const Profile = ({ data }: IProfileProps) => {

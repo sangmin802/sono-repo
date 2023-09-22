@@ -22,7 +22,7 @@ module.exports = {
 					40: '#455264'
 				},
 				normal: '#929292',
-				advanced: '#304911',
+				advanced: '#74a33c',
 				rare: '#6666FF',
 				epic: '#c200c2',
 				legendary: '#fb923c',

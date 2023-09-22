@@ -19,7 +19,7 @@ const Chip = ({ className, type, children, ...props }: IChipProps) => {
 			className={cn(
 				className,
 				TChipType[type],
-				'w-fit rounded-[4px] px-[4px] text-[12px]'
+				'h-fit w-fit rounded-[4px] px-[4px] text-[12px]'
 			)}
 		>
 			{children}

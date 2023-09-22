@@ -1,5 +1,6 @@
 import type {
 	IArmoriesInfo,
+	IArmoryCard,
 	IArmoryEquipment,
 	IArmoryProfile
 } from '@/service/armories/types';
@@ -73,5 +74,18 @@ export const getEquipmentApi = async (
 			.then((resolve) => ({
 				...resolve,
 				data: pascalToCamelInArray(resolve.data)
+			}))
+	).data;
+
+/**
+ * @description get card info
+ */
+export const getCardApi = async (name: string): Promise<IArmoryCard | null> =>
+	(
+		await axiosInstance
+			.get<ToPascalKey<IArmoryCard> | null>(`armories/characters/${name}/cards`)
+			.then((resolve) => ({
+				...resolve,
+				data: pascalToCamel(resolve.data)
 			}))
 	).data;

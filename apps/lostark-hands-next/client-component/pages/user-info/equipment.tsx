@@ -4,12 +4,12 @@ import type { IParsedArmoryEquipment } from '@/service/armories/types';
 
 import { getIndentContent } from '@/util/armory';
 
-import Label from '@/client-component/label';
 import { useModalDispatch } from '@/client-component/modal/provider';
 import type { TModalItem } from '@/client-component/modal/types';
 import Elixir from '@/client-component/pages/user-info/elixir';
 import ItemThumbnail from '@/client-component/pages/user-info/item-thumbnail';
 import ItemTitle from '@/client-component/pages/user-info/item-title';
+import LabelLayout from '@/client-component/pages/user-info/label-layout';
 import QualityChip from '@/client-component/pages/user-info/quality-chip';
 import Transcendence from '@/client-component/pages/user-info/transcendence';
 
@@ -82,9 +82,11 @@ const Equipment = ({ data: { equip, acc } }: IEquipmentProps) => {
 	const { onOpenModal } = useModalDispatch();
 
 	return (
-		<div className="space-y-[16px]">
-			<div className="rounded-[6px] bg-main-20 p-[8px]">
-				<Label className="mb-[12px] w-fit">장비</Label>
+		<>
+			<LabelLayout
+				label="장비"
+				as="section"
+			>
 				<div className="grid grid-cols-1 gap-[8px] lg:grid-cols-2">
 					{equip.map((item) => (
 						<Card
@@ -94,9 +96,11 @@ const Equipment = ({ data: { equip, acc } }: IEquipmentProps) => {
 						/>
 					))}
 				</div>
-			</div>
-			<div className="rounded-[6px] bg-main-20 p-[8px]">
-				<Label className="mb-[12px] w-fit">장신구</Label>
+			</LabelLayout>
+			<LabelLayout
+				label="장신구"
+				as="section"
+			>
 				<div className="grid grid-cols-1 gap-[8px] lg:grid-cols-2">
 					<div className="flex flex-col space-y-[8px]">
 						{acc.slice(0, 5).map((item, idx) => (
@@ -117,8 +121,8 @@ const Equipment = ({ data: { equip, acc } }: IEquipmentProps) => {
 						))}
 					</div>
 				</div>
-			</div>
-		</div>
+			</LabelLayout>
+		</>
 	);
 };
 
