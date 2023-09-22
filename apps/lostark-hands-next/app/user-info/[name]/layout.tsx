@@ -2,8 +2,6 @@ import type { ReactElement } from 'react';
 
 import { getProfileInfoApi } from '@/service/armories';
 
-import { pascalToCamel } from '@/util/selector';
-
 import Profile from '@/client-component/pages/user-info/profile';
 import TabList from '@/client-component/pages/user-info/tab-list';
 
@@ -23,11 +21,11 @@ const Layout = async ({
 	children: ReactElement;
 	params: { name: string };
 }) => {
-	const profile = await getProfileInfoApi(name, pascalToCamel);
+	const profile = await getProfileInfoApi(name);
 
 	return (
 		<div>
-			<Profile data={profile} />
+			{profile && <Profile data={profile} />}
 			<div className="p-[16px]">
 				<TabList />
 				{children}

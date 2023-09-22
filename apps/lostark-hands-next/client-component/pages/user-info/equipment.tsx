@@ -13,13 +13,10 @@ import ItemTitle from '@/client-component/pages/user-info/item-title';
 import QualityChip from '@/client-component/pages/user-info/quality-chip';
 import Transcendence from '@/client-component/pages/user-info/transcendence';
 
-import type { ToCamelKey } from '@/type';
 import type { TElement } from '@/type/element-json';
 
-type TItem = ToCamelKey<IParsedArmoryEquipment>;
-
 interface IEquipmentProps {
-	data: Record<'equip' | 'acc', TItem[]>;
+	data: Record<'equip' | 'acc', IParsedArmoryEquipment[]>;
 }
 
 /**
@@ -30,7 +27,7 @@ interface IEquipmentProps {
 const Card = ({
 	onOpenModal,
 	...item
-}: TItem & { onOpenModal: (item: TModalItem) => void }) => {
+}: IParsedArmoryEquipment & { onOpenModal: (item: TModalItem) => void }) => {
 	const { type, grade, icon, name, tooltip } = item;
 
 	const itemTitle = tooltip?.find(({ type }) => type === 'ItemTitle') as

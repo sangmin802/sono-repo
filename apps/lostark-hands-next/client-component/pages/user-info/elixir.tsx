@@ -1,11 +1,10 @@
 import { Chip } from '@sono-repo/ui';
 import { removeHtmlTag } from '@sono-repo/util/convert';
 
-import type { ToCamelKey } from '@/type';
 import type { TElement } from '@/type/element-json';
 
-const Elixir = ({ value }: ToCamelKey<TElement['IndentStringGroup']>) => {
-	const list = Object.values(value.element_000.contentStr).map(
+const Elixir = ({ value }: TElement['IndentStringGroup']) => {
+	const list = Object.values(value.Element_000.contentStr).map(
 		({ contentStr }) => removeHtmlTag(contentStr.split('</FONT>')[1])
 	);
 

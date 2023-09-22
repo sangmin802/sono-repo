@@ -4,9 +4,7 @@ interface IErrorProps {
 	reset: () => void;
 }
 
-const Error = ({ reset, ...props }: IErrorProps) => {
-	console.log(props, '여기 오지??');
-
+const Error = ({ reset }: IErrorProps) => {
 	return (
 		<div>
 			<div>Error!</div>

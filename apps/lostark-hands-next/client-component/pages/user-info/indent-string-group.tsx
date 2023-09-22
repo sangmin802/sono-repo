@@ -1,11 +1,8 @@
 import DangerousHTML from '@/client-component/dangerous-html';
 
-import type { ToCamelKey } from '@/type';
 import type { TElement } from '@/type/element-json';
 
-const IndentStringGroup = ({
-	value
-}: ToCamelKey<TElement['IndentStringGroup']>) => {
+const IndentStringGroup = ({ value }: TElement['IndentStringGroup']) => {
 	const arr = Object.values(value ?? {});
 
 	return (

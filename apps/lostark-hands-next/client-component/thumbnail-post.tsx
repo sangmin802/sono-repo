@@ -7,7 +7,7 @@ interface ITumbnailPostProps {
 	className?: string;
 	title: string;
 	thumbnail: string;
-	url: string;
+	link: string;
 	date: string;
 }
 
@@ -15,11 +15,11 @@ const ThumbnailPost = ({
 	className,
 	title,
 	thumbnail,
-	url,
+	link,
 	date
 }: ITumbnailPostProps) => {
 	const handleClickThumbnail = () => {
-		window.open(url);
+		window.open(link);
 	};
 
 	return (

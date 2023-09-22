@@ -9,30 +9,30 @@ import { type ICalendar } from '@/service/game-contents/type';
 export const calendarListSelector = (list: ICalendar[]) =>
 	list.map(
 		({
-			CategoryName,
-			ContentsName,
-			ContentsIcon,
-			MinItemLevel,
-			StartTimes,
-			Location,
-			RewardItems
+			categoryName,
+			contentsName,
+			contentsIcon,
+			minItemLevel,
+			startTimes,
+			location,
+			rewardItems
 		}) => ({
-			type: CategoryName,
-			name: ContentsName,
-			icon: ContentsIcon,
-			badge: `${MinItemLevel}`,
-			time: StartTimes.filter(
+			type: categoryName,
+			name: contentsName,
+			icon: contentsIcon,
+			badge: `${minItemLevel}`,
+			time: startTimes.filter(
 				(startTime) =>
 					getDateDiff(new Date(startTime), new Date(), 'minutes').minutes > 0
 			),
-			desc: Location,
-			rewardItems: RewardItems.reduce(
-				(prevMap, { Name, Icon, Grade, StartTimes }) => {
-					prevMap.set(Name, {
-						name: Name,
-						icon: Icon,
-						grade: Grade,
-						startTimes: new Set(StartTimes)
+			desc: location,
+			rewardItems: rewardItems.reduce(
+				(prevMap, { name, icon, grade, startTimes }) => {
+					prevMap.set(name, {
+						name: name,
+						icon: icon,
+						grade: grade,
+						startTimes: new Set(startTimes)
 					});
 					return prevMap;
 				},

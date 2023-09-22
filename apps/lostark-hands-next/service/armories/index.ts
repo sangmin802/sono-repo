@@ -1,79 +1,77 @@
 import type {
 	IArmoriesInfo,
-	IArmoryEngraving,
 	IArmoryEquipment,
 	IArmoryProfile
 } from '@/service/armories/types';
+import type { IArmoryEngraving } from '@/service/armories/types';
 import axiosInstance from '@/service/axios';
 
-import type { ToIndexSignatureRecursive } from '@/type';
+import { pascalToCamel, pascalToCamelInArray } from '@/util/selector';
+
+import type { ToPascalKey } from '@/type';
 
 /**
  * @description get armories info
  */
-export const getArmoriesInfoApi = async <ReturnType>(
-	name: string,
-	selector?: (data: ToIndexSignatureRecursive<IArmoriesInfo>) => ReturnType
-): Promise<typeof selector extends undefined ? IArmoriesInfo : ReturnType> =>
+export const getArmoriesInfoApi = async (
+	name: string
+): Promise<IArmoriesInfo | null> =>
 	(
-		await axiosInstance.get(`armories/characters/${name}`).then((resolve) => ({
-			...resolve,
-			data: selector ? selector(resolve.data) : resolve.data
-		}))
+		await axiosInstance
+			.get<ToPascalKey<IArmoriesInfo> | null>(`armories/characters/${name}`)
+			.then((resolve) => ({
+				...resolve,
+				data: pascalToCamel(resolve.data)
+			}))
 	).data;
 
 /**
  * @description get profile info
  */
-export const getProfileInfoApi = async <ReturnType>(
-	name: string,
-	selector?: (data: ToIndexSignatureRecursive<IArmoryProfile>) => ReturnType
-): Promise<typeof selector extends undefined ? IArmoryProfile : ReturnType> =>
+export const getProfileInfoApi = async (
+	name: string
+): Promise<IArmoryProfile | null> =>
 	(
 		await axiosInstance
-			.get(`armories/characters/${name}/profiles`)
+			.get<ToPascalKey<IArmoryProfile> | null>(
+				`armories/characters/${name}/profiles`
+			)
 			.then((resolve) => ({
 				...resolve,
-				data: selector ? selector(resolve.data) : resolve.data
+				data: pascalToCamel(resolve.data)
 			}))
 	).data;
 
 /**
  * @description get engraves info
  */
-export const getEngravesInfoApi = async <ReturnType>(
-	name: string,
-	selector?: (
-		data: ToIndexSignatureRecursive<IArmoryEngraving> | null
-	) => ReturnType
-): Promise<
-	typeof selector extends undefined ? IArmoryEngraving | null : ReturnType
-> =>
+export const getEngravesInfoApi = async (
+	name: string
+): Promise<IArmoryEngraving | null> =>
 	(
 		await axiosInstance
-			.get(`armories/characters/${name}/engravings`)
+			.get<ToPascalKey<IArmoryEngraving> | null>(
+				`armories/characters/${name}/engravings`
+			)
 			.then((resolve) => ({
 				...resolve,
-				data: selector ? selector(resolve.data) : resolve.data
+				data: pascalToCamel(resolve.data)
 			}))
 	).data;
 
 /**
  * @description get equipment info
  */
-export const getEquipmentApi = async <ReturnType>(
-	name: string,
-	selector?: (
-		data: ToIndexSignatureRecursive<IArmoryEquipment>[] | null
-	) => ReturnType
-): Promise<
-	typeof selector extends undefined ? IArmoryEquipment[] | null : ReturnType
-> =>
+export const getEquipmentApi = async (
+	name: string
+): Promise<IArmoryEquipment[] | null> =>
 	(
 		await axiosInstance
-			.get(`armories/characters/${name}/equipment`)
+			.get<ToPascalKey<IArmoryEquipment>[] | null>(
+				`armories/characters/${name}/equipment`
+			)
 			.then((resolve) => ({
 				...resolve,
-				data: selector ? selector(resolve.data) : resolve.data
+				data: pascalToCamelInArray(resolve.data)
 			}))
 	).data;
