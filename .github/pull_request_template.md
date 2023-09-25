@@ -1,9 +1,0 @@
-## 📌 Work details
-- 
-
-
-
-## 📌 Notes
-- 
-
-
