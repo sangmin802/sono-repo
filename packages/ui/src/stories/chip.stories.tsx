@@ -8,24 +8,25 @@ type TCustonChipProps = ComponentProps<typeof Chip> & { fontColor?: string };
 type Story = StoryObj<TCustonChipProps>;
 
 /**
- * ### Chip / Badge Component
+ * ### Chip Component
  */
 const meta = {
 	title: 'DesignSystem/Component/Chip',
 	argTypes: {
 		fontColor: {
 			control: 'color',
-			description: '`Storybook` 내부에서 칩 컨텐츠의 폰트 색상 변경 테스트 속성'
+			description:
+				'`Storybook` 내부에서 Chip 컨텐츠의 폰트 색상 변경 테스트 속성'
 		},
 		className: {
-			description: 'tailwindcss 기준 칩 스타일'
+			description: 'tailwindcss 기준 Chip 스타일'
 		},
 		type: {
 			control: 'radio',
-			description: '칩 타입',
+			description: 'Chip 타입',
 			options: ['primary', 'transparent']
 		},
-		children: { description: '칩 컨텐츠' }
+		children: { description: 'Chip 컨텐츠' }
 	},
 	args: {
 		fontColor: '#ffffff',
