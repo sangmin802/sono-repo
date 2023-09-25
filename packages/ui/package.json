@@ -9,7 +9,7 @@
   },
   "scripts": {
     "storybook:dev": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "storybook:build": "storybook build",
     "lint": "eslint \"**/*.ts*\"",
     "setting": "yarn install"
   },
