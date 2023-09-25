@@ -5,7 +5,10 @@
     "setting": {
       "dependsOn": ["^setting"]
     },
-    "storybook": {},
+    "storybook:dev": {},
+    "storybook:build": {
+      "dependsOn": ["build-storybook"]
+    },
     "lostark:dev": {},
     "lostark:build": {
       "outputs": [".next/**", "!.next/cache/**"]

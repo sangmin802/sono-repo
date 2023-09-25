@@ -8,10 +8,10 @@
     "ui-bin": "./bin/intro.js"
   },
   "scripts": {
-    "storybook": "storybook dev -p 6006",
+    "storybook:dev": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "lint": "eslint \"**/*.ts*\"",
-    "setting": "yarn install",
-    "build-storybook": "storybook build"
+    "setting": "yarn install"
   },
   "exports": {
     ".": "./src/index.ts",
@@ -35,6 +35,7 @@
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
     "autoprefixer": "^10.4.14",
+    "chromatic": "^7.2.0",
     "eslint": "^8.38.0",
     "eslint-config-sono-repo": "workspace:^",
     "eslint-plugin-storybook": "^0.6.13",
@@ -47,5 +48,7 @@
   },
   "volta": {
     "node": "18.16.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "@sono-repo/ui@0.0.0"
 }
