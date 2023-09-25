@@ -18,9 +18,6 @@ const meta = {
 			description:
 				'`Storybook` 내부에서 Chip 컨텐츠의 폰트 색상 변경 테스트 속성'
 		},
-		className: {
-			description: 'tailwindcss 기준 Chip 스타일'
-		},
 		type: {
 			control: 'radio',
 			description: 'Chip 타입',
@@ -30,7 +27,6 @@ const meta = {
 	},
 	args: {
 		fontColor: '#ffffff',
-		className: '',
 		type: 'transparent',
 		children: 'Chip'
 	},

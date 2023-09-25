@@ -12,11 +12,6 @@ type Story = StoryObj<TCustonInputProps>;
  */
 const meta = {
 	title: 'DesignSystem/Component/Input',
-	argTypes: {
-		className: {
-			description: 'tailwindcss 기준 input 스타일'
-		}
-	},
 	tags: ['autodocs'],
 	component: Input,
 	render: ({ ...args }) => <Input {...args} />
