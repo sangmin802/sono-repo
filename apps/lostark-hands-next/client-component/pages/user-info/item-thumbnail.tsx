@@ -15,7 +15,7 @@ type TConditionalProps =
 
 interface IItemThumbnailProps {
 	className?: string;
-	chip?: string;
+	chip?: string | number;
 	grade?: TGrade;
 }
 
@@ -36,7 +36,7 @@ const ItemThumbnail = ({
 		>
 			{chip && (
 				<Chip
-					className="absolute bottom-[1px] right-[1px] max-w-[48px] truncate"
+					className="absolute bottom-[2px] right-[2px] max-w-[48px] truncate"
 					type="transparent"
 				>
 					{chip}

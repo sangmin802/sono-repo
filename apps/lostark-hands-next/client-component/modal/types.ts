@@ -1,11 +1,10 @@
-import type {
-	ICardEffect,
-	IParsedArmoryEquipment,
-	IStat
-} from '@/service/armories/types';
+import type { ReactNode } from 'react';
+
+import type { ICardEffect, IStat } from '@/service/armories/types';
 import type { IRewardItem } from '@/service/game-contents/type';
 
-import type { TElement } from '@/type/element-json';
+import type { TGrade } from '@/type';
+import type { TElementUnionArray } from '@/type/element-json';
 
 export interface IModalItemProps {
 	calendarRewardModal: {
@@ -15,9 +14,14 @@ export interface IModalItemProps {
 	statsModal: {
 		stats: IStat[];
 	};
-	equipmentModal: {
-		item: IParsedArmoryEquipment;
-		itemTitle: TElement['ItemTitle'];
+	armoryTooltipModal: {
+		name: string;
+		subTitle: string;
+		afterSubTitle?: ReactNode;
+		icon: string;
+		chip?: string | number;
+		grade?: TGrade;
+		tooltip?: TElementUnionArray;
 	};
 	cardEffectModal: {
 		effects: ICardEffect[];

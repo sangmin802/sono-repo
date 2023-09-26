@@ -43,88 +43,84 @@ const CardSet = ({ cards, effects }: ICardSetProps) => {
 		<LabelLayout
 			label="카드"
 			as="section"
-		>
-			<>
-				<div className="mb-[8px] flex flex-col space-y-[4px] sm:flex-row sm:space-x-[4px] sm:space-y-0">
-					{!effects?.length && '활성화중인 카드효과가 없습니다'}
-					{effects?.map((item, idx) => (
-						<Chip
-							key={idx}
-							type="info"
-						>
-							{item.items[item.items.length - 1].name}
-						</Chip>
-					))}
-				</div>
-				<div
-					className="grid cursor-pointer grid-cols-3 gap-[8px] md:grid-cols-6"
-					onClick={handleOpenCardEffectModal}
+			afterLabel={effects?.map((item, idx) => (
+				<Chip
+					key={idx}
+					type="info"
 				>
-					{cards.map((item, idx) => (
-						<div
-							className={cn('relative w-full bg-main-10 pb-[146%]', {
-								['border border-main-40 rounded-[6px]']: !item
-							})}
-							key={idx}
-						>
-							{item && (
-								<>
-									<div className="absolute inset-0">
-										<Image
-											className="absolute inset-0 scale-[1.04]"
-											src={`${CDN_URL}/2018/obt/assets/images/m/profile/bg_profile_card${
-												cardOutline[item.grade]
-											}.png`}
-											width={300}
-											height={438}
-											alt={item.grade}
-										/>
-										<Chip
-											className={cn(
-												'absolute inset-x-[8px] top-[10px] w-fit max-w-[90%]',
-												'text-center font-bold',
-												GRADE_TEXT_COLOR[item.grade]
-											)}
-											type="transparent"
-										>
-											{item.name}
-										</Chip>
-										<Image
-											width={300}
-											height={438}
-											src={item.icon}
-											alt={item.name}
-										/>
-										<div
-											className={cn(
-												'absolute bottom-[4px] left-[50%] flex translate-x-[-60%] space-x-[4px]'
-											)}
-										>
-											{Array.from(
-												{ length: item.awakeTotal },
-												(_, idx) => idx
-											).map((idx) => (
-												<Image
-													className="h-[21px] w-[12px]"
-													key={idx}
-													src={
-														idx <= item.awakeCount - 1
-															? '/icons/img_profile_awake_fill.png'
-															: '/icons/img_profile_awake_empty.png'
-													}
-													width={16}
-													height={28}
-													alt="awake"
-												/>
-											))}
-										</div>
+					{item.items[item.items.length - 1].name}
+				</Chip>
+			))}
+		>
+			<div
+				className="grid cursor-pointer grid-cols-3 gap-[8px] md:grid-cols-6"
+				onClick={handleOpenCardEffectModal}
+			>
+				{cards.map((item, idx) => (
+					<div
+						className={cn('relative w-full bg-main-10 pb-[146%]', {
+							['border border-main-40 rounded-[6px]']: !item
+						})}
+						key={idx}
+					>
+						{item && (
+							<>
+								<div className="absolute inset-0">
+									<Image
+										className="absolute inset-0 scale-[1.04]"
+										src={`${CDN_URL}/2018/obt/assets/images/m/profile/bg_profile_card${
+											cardOutline[item.grade]
+										}.png`}
+										width={300}
+										height={438}
+										alt={item.grade}
+									/>
+									<Chip
+										className={cn(
+											'absolute inset-x-[8px] top-[10px] w-fit max-w-[90%]',
+											'text-center font-bold',
+											GRADE_TEXT_COLOR[item.grade]
+										)}
+										type="transparent"
+									>
+										{item.name}
+									</Chip>
+									<Image
+										width={300}
+										height={438}
+										src={item.icon}
+										alt={item.name}
+									/>
+									<div
+										className={cn(
+											'absolute bottom-[4px] flex h-[12%] w-full justify-center',
+											'space-x-[4px]'
+										)}
+									>
+										{Array.from(
+											{ length: item.awakeTotal },
+											(_, idx) => idx
+										).map((idx) => (
+											<Image
+												className="h-full w-[10%]"
+												key={idx}
+												src={
+													idx <= item.awakeCount - 1
+														? '/icons/img_profile_awake_fill.png'
+														: '/icons/img_profile_awake_empty.png'
+												}
+												width={16}
+												height={28}
+												alt="awake"
+											/>
+										))}
 									</div>
-								</>
-							)}
-						</div>
-					))}
-				</div>
-			</>
+								</div>
+							</>
+						)}
+					</div>
+				))}
+			</div>
 		</LabelLayout>
 	);
 };

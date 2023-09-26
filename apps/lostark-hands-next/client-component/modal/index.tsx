@@ -18,8 +18,8 @@ const Modal = () => {
 				return <Dynamic.CALENDAR_REWARD_MODAL {...modalItem.props} />;
 			case 'statsModal':
 				return <Dynamic.STATS_MODAL {...modalItem.props} />;
-			case 'equipmentModal':
-				return <Dynamic.EQUIPMENT_MODAL {...modalItem.props} />;
+			case 'armoryTooltipModal':
+				return <Dynamic.ARMORY_TOOLTIP_MODAL {...modalItem.props} />;
 			case 'cardEffectModal':
 				return <Dynamic.CARD_EFFECT_MODAL {...modalItem.props} />;
 			default:

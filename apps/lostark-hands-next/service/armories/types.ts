@@ -26,7 +26,7 @@ interface ISkillTripod {
 interface ISkillRune {
 	name: string;
 	icon: string;
-	grade: string;
+	grade: TGrade;
 	tooltip: string;
 }
 
@@ -176,13 +176,13 @@ interface IArmoryAvatar {
 	tooltip: string;
 }
 
-interface IArmorySkill {
+export interface IArmorySkill {
 	name: string;
 	icon: string;
 	level: number;
 	type: string;
 	isAwakening: boolean;
-	tripods: ISkillTripod;
+	tripods: ISkillTripod[];
 	rune: ISkillRune;
 	tooltip: string;
 }

@@ -9,8 +9,8 @@ export default {
 	STATS_MODAL: dynamic<IModalItemProps['statsModal']>(
 		() => import('@/client-component/modal/item/stats-modal')
 	),
-	EQUIPMENT_MODAL: dynamic<IModalItemProps['equipmentModal']>(
-		() => import('@/client-component/modal/item/equipment-modal')
+	ARMORY_TOOLTIP_MODAL: dynamic<IModalItemProps['armoryTooltipModal']>(
+		() => import('@/client-component/modal/item/armory-tooltip-modal')
 	),
 	CARD_EFFECT_MODAL: dynamic<IModalItemProps['cardEffectModal']>(
 		() => import('@/client-component/modal/item/card-effect-modal')
