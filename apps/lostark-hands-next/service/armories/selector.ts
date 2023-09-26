@@ -2,6 +2,7 @@ import type {
 	IArmoryCard,
 	IArmoryEngraving,
 	IArmoryEquipment,
+	IArmorySkill,
 	ICard,
 	IParsedArmoryEquipment,
 	IStat,
@@ -161,4 +162,22 @@ export const cardSelector = (data: IArmoryCard | null) => {
 	}, []);
 
 	return { cards, effects: data?.effects ?? null };
+};
+
+/**
+ * 스킬 데이터 가공
+ */
+export const skillSelector = (data: IArmorySkill[] | null) => {
+	if (!data) return null;
+	const selectedSkill = data.filter(
+		({ level, isAwakening }) => level >= 4 && !isAwakening
+	);
+
+	return selectedSkill.map((skill) => ({
+		...skill,
+		tooltip: Object.values(
+			JSON.parse(skill.tooltip)
+		) satisfies TElementUnionArray,
+		tripods: skill.tripods.filter(({ isSelected }) => isSelected)
+	}));
 };

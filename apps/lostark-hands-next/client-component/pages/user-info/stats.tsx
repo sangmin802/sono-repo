@@ -17,6 +17,8 @@ const Stats = ({ stats, power, healty }: IStatsProps) => {
 	const { onOpenModal } = useModalDispatch();
 
 	const handleOpenModal = () => {
+		if (!Number(power.value) || !Number(healty.value)) return;
+
 		onOpenModal({
 			name: 'statsModal',
 			props: {

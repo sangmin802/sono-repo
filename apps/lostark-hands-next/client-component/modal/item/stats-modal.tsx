@@ -1,4 +1,4 @@
-'use-client';
+'use client';
 
 import type { IStat } from '@/service/armories/types';
 

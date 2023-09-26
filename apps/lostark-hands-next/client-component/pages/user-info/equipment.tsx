@@ -40,7 +40,14 @@ const Card = ({
 	const handleOpenModal = () => {
 		if (!itemTitle) return;
 
-		onOpenModal({ name: 'equipmentModal', props: { item, itemTitle } });
+		onOpenModal({
+			name: 'armoryTooltipModal',
+			props: {
+				...item,
+				subTitle: itemTitle.value.leftStr2,
+				afterSubTitle: <QualityChip size={itemTitle.value.qualityValue} />
+			}
+		});
 	};
 
 	return (

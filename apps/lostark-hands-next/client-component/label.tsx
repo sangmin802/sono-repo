@@ -1,11 +1,11 @@
-'use-client';
+'use client';
 
-import type { ReactElement } from 'react';
+import type { ReactNode } from 'react';
 import cn from 'classnames';
 
 interface ILabelProps {
 	className?: string;
-	children: string | ReactElement;
+	children: ReactNode;
 }
 
 const Label = ({ className, children }: ILabelProps) => {

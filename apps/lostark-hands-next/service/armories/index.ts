@@ -2,7 +2,8 @@ import type {
 	IArmoriesInfo,
 	IArmoryCard,
 	IArmoryEquipment,
-	IArmoryProfile
+	IArmoryProfile,
+	IArmorySkill
 } from '@/service/armories/types';
 import type { IArmoryEngraving } from '@/service/armories/types';
 import axiosInstance from '@/service/axios';
@@ -87,5 +88,22 @@ export const getCardApi = async (name: string): Promise<IArmoryCard | null> =>
 			.then((resolve) => ({
 				...resolve,
 				data: pascalToCamel(resolve.data)
+			}))
+	).data;
+
+/**
+ * @description get skill info
+ */
+export const getSkillApi = async (
+	name: string
+): Promise<IArmorySkill[] | null> =>
+	(
+		await axiosInstance
+			.get<ToPascalKey<IArmorySkill>[] | null>(
+				`armories/characters/${name}/combat-skills`
+			)
+			.then((resolve) => ({
+				...resolve,
+				data: pascalToCamelInArray(resolve.data)
 			}))
 	).data;

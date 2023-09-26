@@ -1,7 +1,7 @@
 type TNumber = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 type TElementKey = `Element_${TNumber}${TNumber}${TNumber}`;
 
-export type TElementJson = {
+type TElementJson = {
 	[key in
 		| 'NameTagBox'
 		| 'SingleTextBox'
@@ -55,6 +55,18 @@ export type TElementJson = {
 					iconPath: string;
 					imagePath: string;
 				};
+			};
+		};
+	};
+	TripodSkillCustom: {
+		[key in TElementKey]: {
+			desc: string;
+			lock: boolean;
+			name: string;
+			tier: string;
+			slotData: {
+				iconGrade: number;
+				iconPath: string;
 			};
 		};
 	};

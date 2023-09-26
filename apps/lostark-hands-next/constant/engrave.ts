@@ -42,7 +42,7 @@ const ENGRAVE_IMGAE: Record<string, string> = {
 	'진화의 유산': 'Ability/Ability_217.png',
 	'아르데타인의 기술': 'Ability/Ability_216.png',
 	// 건슬링어
-	피스케이커: 'Ability/Ability_225.png',
+	피스메이커: 'Ability/Ability_225.png',
 	'사냥의 시간': 'Ability/Ability_228.png',
 	// 바드
 	'절실한 구원': 'Ability/Ability_276.png',
