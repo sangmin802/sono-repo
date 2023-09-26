@@ -1,13 +1,13 @@
 const ENGRAVE_IMGAE: Record<string, string> = {
 	// 버서커
-	광기: 'Buff/Buff_173.png',
-	'광전사의 비기': 'Buff/Buff_138.png',
+	광기: 'Ability/Ability_270.png',
+	'광전사의 비기': 'Ability/Ability_269.png',
 	// 디스트로이어
-	'분노의 망치': 'Ability/Ability_224.png',
-	'중력 수련': 'Buff/Buff_42.png',
+	'분노의 망치': 'Achieve/achieve_08_49.png',
+	'중력 수련': 'Ability/Ability_268.png',
 	// 워로드
-	'고독한 기사': 'Buff/Buff_13.png',
-	'전투 태세': 'Buff/Buff_19.png',
+	'고독한 기사': 'Ability/Ability_267.png',
+	'전투 태세': 'Ability/Ability_266.png',
 	// 홀리나이트
 	'축복의 오라': 'Ability/Ability_215.png',
 	심판자: 'Ability/Ability_214.png',
@@ -36,7 +36,7 @@ const ENGRAVE_IMGAE: Record<string, string> = {
 	'죽음의 습격': 'Buff/Buff_245.png',
 	'두 번째 동료': 'Buff/Buff_77.png',
 	// 블래스터
-	'화력 강화': 'Buff/Buff_171.png',
+	'화력 강화': 'Ability/Ability_271.png',
 	'포격 강화': 'GL_Skill/GL_Skill_01_26.png',
 	// 스카우터
 	'진화의 유산': 'Ability/Ability_217.png',
@@ -45,13 +45,13 @@ const ENGRAVE_IMGAE: Record<string, string> = {
 	피스케이커: 'Ability/Ability_225.png',
 	'사냥의 시간': 'Ability/Ability_228.png',
 	// 바드
-	'절실한 구원': 'Buff/Buff_135.png',
-	'진실된 용맹': 'Buff/Buff_220.png',
+	'절실한 구원': 'Ability/Ability_276.png',
+	'진실된 용맹': 'Ability/Ability_275.png',
 	// 아르카나
-	'황후의 은총': 'Buff/Buff_1.png',
-	'황제의 칙령': 'Buff/Buff_236.png',
+	'황후의 은총': 'Ability/Ability_272.png',
+	'황제의 칙령': 'Ability/Ability_273.png',
 	// 서머너
-	'넘치는 교감': 'Buff/Buff_21.png',
+	'넘치는 교감': 'Ability/Ability_274.png',
 	'상급 소환사': 'Buff/Buff_78.png',
 	// 소서리스
 	점화: 'Ability/Ability_240.png',

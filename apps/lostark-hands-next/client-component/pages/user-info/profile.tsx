@@ -74,24 +74,27 @@ const Profile = ({ data }: IProfileProps) => {
 				</div>
 			</div>
 			{characterImage && (
-				<Image
+				<div
 					className={cn(
 						'absolute right-[-100px] z-[1] w-[360px] sm:right-0',
 						'pointer-events-none select-none bg-main-10'
 					)}
-					priority
-					width={600}
-					height={900}
-					src={characterImage}
-					alt={characterName}
-				/>
+				>
+					<Image
+						priority
+						width={600}
+						height={900}
+						src={characterImage}
+						alt={characterName}
+					/>
+					<div
+						className={cn(
+							'absolute left-0 top-0 z-[2] h-[300px] w-[10%]',
+							'bg-gradient-to-r from-main-10 from-20% to-transparent'
+						)}
+					/>
+				</div>
 			)}
-			<div
-				className={cn(
-					'absolute right-[-100px] z-[2] h-[300px] w-[360px] sm:right-0',
-					'shadow-[inset_20px_8px_32px_26px_#14181d]'
-				)}
-			/>
 			<div
 				className={cn(
 					'absolute bottom-0 right-[-100px] z-[3] h-[10%] w-[360px] sm:right-0',
