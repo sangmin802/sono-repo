@@ -21,10 +21,11 @@ export const calendarListSelector = (list: ICalendar[]) =>
 			name: contentsName,
 			icon: contentsIcon,
 			badge: `${minItemLevel}`,
-			time: startTimes.filter(
-				(startTime) =>
-					getDateDiff(new Date(startTime), new Date(), 'minutes').minutes > 0
-			),
+			time:
+				startTimes?.filter(
+					(startTime) =>
+						getDateDiff(new Date(startTime), new Date(), 'minutes').minutes > 0
+				) ?? [],
 			desc: location,
 			rewardItems: rewardItems.reduce(
 				(prevMap, { name, icon, grade, startTimes }) => {
