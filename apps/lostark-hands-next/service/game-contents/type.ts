@@ -6,7 +6,7 @@ export interface ICalendar {
 	contentsName: string;
 	contentsIcon: string;
 	minItemLevel: number;
-	startTimes: string[];
+	startTimes: string[] | null;
 	location: string;
 	rewardItems: {
 		name: string;
