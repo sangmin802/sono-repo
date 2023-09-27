@@ -23,7 +23,11 @@ const CalendarCard = ({
 	onOpenModal
 }: ICalendarCardProps) => {
 	const targetTime = item.time[0];
-	const time = useTimer(new Date(item.time[0]).getTime(), onResetTime);
+	const time = useTimer({
+		endTime: new Date(item.time[0]).getTime(),
+		resetKey: item,
+		onCallback: onResetTime
+	});
 
 	const handleOpenRewardModal = () => {
 		const validRewardList = Array.from(item.rewardItems)
