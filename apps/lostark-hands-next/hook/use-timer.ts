@@ -1,21 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 /**
  * Returns the time remaining per second based on the entered end time
- * @param endTime: number (getTime)
+ * @param endTime number (getTime)
+ * @param resetKey: resetKey
  * @param onCallback must be memoized
  */
-const useTimer = (endTime: number, onCallback?: () => void) => {
+const useTimer = ({
+	endTime,
+	resetKey,
+	onCallback
+}: {
+	endTime: number;
+	resetKey?: unknown;
+	onCallback?: () => void;
+}) => {
 	const [restTime, setRestTime] = useState<number>();
+	const frame = useRef(0);
 
 	useEffect(() => {
-		let time = new Date().getTime();
+		let time = Math.floor(new Date().getTime() / 1000) * 1000;
 
 		// raf event
 		const event = () => {
-			const now = new Date().getTime();
+			const now = Math.floor(new Date().getTime() / 1000) * 1000;
 
-			if (now >= endTime) {
+			if (now >= Math.floor(endTime / 1000) * 1000) {
 				onCallback?.();
 				return;
 			}
@@ -25,18 +35,18 @@ const useTimer = (endTime: number, onCallback?: () => void) => {
 				time = now;
 			}
 
-			requestAnimationFrame(event);
+			frame.current = requestAnimationFrame(event);
 		};
 
-		const frame = requestAnimationFrame(event);
+		frame.current = requestAnimationFrame(event);
 
 		// set init state
-		setRestTime(endTime - new Date().getTime());
+		setRestTime(endTime - time);
 
 		return () => {
-			cancelAnimationFrame(frame);
+			cancelAnimationFrame(frame.current);
 		};
-	}, [endTime, onCallback]);
+	}, [endTime, resetKey, onCallback]);
 
 	return restTime;
 };

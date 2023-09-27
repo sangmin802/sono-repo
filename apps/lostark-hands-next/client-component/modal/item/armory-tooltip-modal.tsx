@@ -58,8 +58,6 @@ const ArmoryTooltipModal = ({
 }: IModalItemProps['armoryTooltipModal']) => {
 	const contents = Object.values(tooltip ?? {});
 
-	console.log(contents);
-
 	return (
 		<ModalLayout footerProps={{ cancel: { show: false } }}>
 			<div className="mb-[18px] flex space-x-[8px]">

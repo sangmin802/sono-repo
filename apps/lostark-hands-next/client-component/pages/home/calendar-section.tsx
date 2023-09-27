@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { getDateDiff, getTimeUnit } from '@sono-repo/util/date';
 
@@ -31,19 +31,15 @@ const CalendarSection = ({ title, list }: ICalendarSectionProps) => {
 		);
 	}, []);
 
-	const filteredTimerList = useMemo(
-		() =>
-			timerList
-				.filter(
-					({ time: [firstTime] }) =>
-						getTimeUnit(new Date(), 'day') ===
-						getTimeUnit(new Date(firstTime), 'day')
-				)
-				.sort(({ time: [aTime] }, { time: [bTime] }) =>
-					new Date(bTime).getTime() > new Date(aTime).getTime() ? -1 : 0
-				),
-		[timerList]
-	);
+	const filteredTimerList = timerList
+		.filter(
+			({ time: [firstTime] }) =>
+				getTimeUnit(new Date(), 'day') ===
+				getTimeUnit(new Date(firstTime), 'day')
+		)
+		.sort(({ time: [aTime] }, { time: [bTime] }) =>
+			new Date(bTime).getTime() > new Date(aTime).getTime() ? -1 : 0
+		);
 
 	return (
 		<SectionLayout
