@@ -1,5 +1,4 @@
 import { getCalendarApi } from '@/service/game-contents';
-import { calendarListSelector } from '@/service/game-contents/selector';
 import { getEventApi, getNoticeApi } from '@/service/news';
 
 import Calendar from '@/client-component/pages/home/calendar';
@@ -18,7 +17,7 @@ const Page = async () => {
 		<div className="px-[16px]">
 			<Notice initData={[...(noticeData ?? []), ...(storeData ?? [])]} />
 			<Event initData={eventData ?? []} />
-			<Calendar initData={calendarListSelector(calendarData ?? [])} />
+			<Calendar initData={calendarData} />
 		</div>
 	);
 };

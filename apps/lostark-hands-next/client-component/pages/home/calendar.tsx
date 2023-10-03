@@ -1,18 +1,18 @@
 'use client';
 
+import { calendarListSelector } from '@/service/game-contents/selector';
+import type { ICalendar } from '@/service/game-contents/type';
+
 import CalendarSection from '@/client-component/pages/home/calendar-section';
-import type {
-	TCalendarItem,
-	TInitData
-} from '@/client-component/pages/home/types';
+import type { TCalendarItem } from '@/client-component/pages/home/types';
 
 interface ICalendarProps {
-	initData: TInitData;
+	initData: ICalendar[] | null;
 }
 
-const Calendar = async ({ initData }: ICalendarProps) => {
+const Calendar = ({ initData }: ICalendarProps) => {
 	const calendarGroupList = Array.from(
-		initData.reduce((prev, cur) => {
+		calendarListSelector(initData ?? []).reduce((prev, cur) => {
 			prev.set(cur.type, [
 				...(prev.get(cur.type) ?? []),
 				{
