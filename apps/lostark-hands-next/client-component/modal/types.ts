@@ -26,6 +26,14 @@ export interface IModalItemProps {
 	cardEffectModal: {
 		effects: ICardEffect[];
 	};
+	armoryTooltipListModal: {
+		list: {
+			icon: string;
+			name: string;
+			grade?: TGrade;
+			tooltip: TElementUnionArray;
+		}[];
+	};
 }
 
 export type TModalItem = {

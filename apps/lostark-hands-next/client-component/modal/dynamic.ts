@@ -14,5 +14,8 @@ export default {
 	),
 	CARD_EFFECT_MODAL: dynamic<IModalItemProps['cardEffectModal']>(
 		() => import('@/client-component/modal/item/card-effect-modal')
+	),
+	ARMORY_TOOLTIP_LIST_MODAL: dynamic<IModalItemProps['armoryTooltipListModal']>(
+		() => import('@/client-component/modal/item/armory-tooltip-list-modal')
 	)
 };

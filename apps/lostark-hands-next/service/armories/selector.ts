@@ -2,9 +2,11 @@ import type {
 	IArmoryCard,
 	IArmoryEngraving,
 	IArmoryEquipment,
+	IArmoryGem,
 	IArmorySkill,
 	ICard,
 	IParsedArmoryEquipment,
+	IParsedGem,
 	IStat,
 	ITendency
 } from '@/service/armories/types';
@@ -180,4 +182,17 @@ export const skillSelector = (data: IArmorySkill[] | null) => {
 		) satisfies TElementUnionArray,
 		tripods: skill.tripods.filter(({ isSelected }) => isSelected)
 	}));
+};
+
+export const gemSelector = (
+	data: IArmoryGem | null
+): Array<IParsedGem> | null => {
+	if (!data) return null;
+
+	return data.gems
+		.map((item) => ({
+			...item,
+			tooltip: Object.values(JSON.parse(item.tooltip)) as TElementUnionArray
+		}))
+		.sort((a, b) => b.level - a.level);
 };

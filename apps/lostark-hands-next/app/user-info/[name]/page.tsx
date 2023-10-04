@@ -2,6 +2,7 @@ import {
 	getCardApi,
 	getEngravesInfoApi,
 	getEquipmentApi,
+	getGemApi,
 	getProfileInfoApi,
 	getSkillApi
 } from '@/service/armories';
@@ -9,6 +10,7 @@ import {
 	cardSelector,
 	engraveSelector,
 	equipmentSelector,
+	gemSelector,
 	profileTooltipSelector,
 	skillSelector
 } from '@/service/armories/selector';
@@ -17,23 +19,26 @@ import CardSet from '@/client-component/pages/user-info/card-set';
 import CombatSkill from '@/client-component/pages/user-info/combat-skill';
 import Engraves from '@/client-component/pages/user-info/engraves';
 import Equipment from '@/client-component/pages/user-info/equipment';
+import Gem from '@/client-component/pages/user-info/gem';
 import Stats from '@/client-component/pages/user-info/stats';
 import Tendencies from '@/client-component/pages/user-info/tendencies';
 
 const Page = async ({ params: { name } }: { params: { name: string } }) => {
-	const [profile, effects, equipment, card, skill] = await Promise.all([
+	const [profile, engrave, equipment, card, skill, gem] = await Promise.all([
 		getProfileInfoApi(name),
 		getEngravesInfoApi(name),
 		getEquipmentApi(name),
 		getCardApi(name),
-		getSkillApi(name)
+		getSkillApi(name),
+		getGemApi(name)
 	]);
 
 	const { stats, tendencies } = profileTooltipSelector({ ...profile });
-	const filteredEffects = engraveSelector(effects) ?? undefined;
+	const filteredEffects = engraveSelector(engrave) ?? undefined;
 	const filteredEquipment = equipmentSelector(equipment);
 	const filteredCard = cardSelector(card);
 	const filteredSkill = skillSelector(skill);
+	const filteredGem = gemSelector(gem);
 
 	return (
 		<div className="space-y-[16px] sm:flex sm:space-x-[16px] sm:space-y-0">
@@ -49,6 +54,7 @@ const Page = async ({ params: { name } }: { params: { name: string } }) => {
 			<div className="w-full space-y-[16px] sm:w-auto sm:grow">
 				<Equipment data={filteredEquipment} />
 				<CardSet {...filteredCard} />
+				<Gem data={filteredGem} />
 				<CombatSkill data={filteredSkill} />
 			</div>
 		</div>
