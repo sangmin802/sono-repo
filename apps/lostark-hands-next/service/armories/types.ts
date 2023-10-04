@@ -59,13 +59,17 @@ export interface ICardEffect {
 	items: IEffect[];
 }
 
-interface IGem {
+export interface IGem {
 	slot: number;
 	name: string;
 	icon: string;
 	level: number;
-	grade: string;
+	grade: TGrade;
 	tooltip: string;
+}
+
+export interface IParsedGem extends Omit<IGem, 'tooltip'> {
+	tooltip: TElementUnionArray;
 }
 
 interface IGemEffect {
@@ -183,7 +187,7 @@ export interface IArmorySkill {
 	type: string;
 	isAwakening: boolean;
 	tripods: ISkillTripod[];
-	rune: ISkillRune;
+	rune: ISkillRune | null;
 	tooltip: string;
 }
 
@@ -197,9 +201,9 @@ export interface IArmoryCard {
 	effects: ICardEffect[];
 }
 
-interface IArmoryGem {
-	gems: IGem;
-	effects: IGemEffect;
+export interface IArmoryGem {
+	gems: IGem[];
+	effects: IGemEffect[];
 }
 
 interface IColosseumInfo {

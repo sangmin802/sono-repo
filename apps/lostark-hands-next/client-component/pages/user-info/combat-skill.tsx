@@ -20,32 +20,34 @@ interface ICombatSkillProps {
 	data: TData;
 }
 
+/**
+ * @description 스킬 중 카운터, 파괴 수치만 계산하여 데이터 간소화
+ */
+const minifySkill = (data: TData) =>
+	data?.reduce<number[]>(
+		(prev, cur) => {
+			const newArr = [...prev];
+			const target = cur.tooltip.filter(
+				({ type }) => type === 'SingleTextBox'
+			) as TElement['SingleTextBox'][];
+
+			target.forEach(({ value }) => {
+				const destoryLevel = /부위 파괴 : 레벨 (\d+)/;
+				const match = value.match(destoryLevel);
+
+				const counterLevel = value.includes('카운터 : 가능');
+
+				if (match) newArr[0] += parseInt(match[1]);
+				if (counterLevel) newArr[1] += 1;
+			});
+
+			return newArr;
+		},
+		[0, 0]
+	);
+
 const CombatSkill = ({ data }: ICombatSkillProps) => {
 	const { onOpenModal } = useModalDispatch();
-
-	const [destory, counter] = data
-		? data.reduce<number[]>(
-				(prev, cur) => {
-					const newArr = [...prev];
-					const target = cur.tooltip.filter(
-						({ type }) => type === 'SingleTextBox'
-					) as TElement['SingleTextBox'][];
-
-					target.forEach(({ value }) => {
-						const destoryLevel = /부위 파괴 : 레벨 (\d+)/;
-						const match = value.match(destoryLevel);
-
-						const counterLevel = value.includes('카운터 : 가능');
-
-						if (match) newArr[0] += parseInt(match[1]);
-						if (counterLevel) newArr[1] += 1;
-					});
-
-					return newArr;
-				},
-				[0, 0]
-		  )
-		: [0, 0];
 
 	const handleOpenSkillModal = (item: Exclude<TData, null>[0]) => () => {
 		onOpenModal({
@@ -57,6 +59,8 @@ const CombatSkill = ({ data }: ICombatSkillProps) => {
 			}
 		});
 	};
+
+	const [destory, counter] = minifySkill(data) ?? [0, 0];
 
 	return (
 		<LabelLayout
@@ -81,9 +85,11 @@ const CombatSkill = ({ data }: ICombatSkillProps) => {
 					>
 						<div className="flex items-center space-x-[4px]">
 							<div>{item.name}</div>
-							<div className={cn(GRADE_TEXT_COLOR[item.rune.grade])}>
-								{item.rune.name}
-							</div>
+							{item.rune && (
+								<div className={cn(GRADE_TEXT_COLOR[item.rune.grade])}>
+									{item.rune.name}
+								</div>
+							)}
 						</div>
 						<div className="flex items-center space-x-[12px]">
 							<ItemThumbnail

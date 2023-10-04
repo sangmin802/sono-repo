@@ -2,6 +2,7 @@ import type {
 	IArmoriesInfo,
 	IArmoryCard,
 	IArmoryEquipment,
+	IArmoryGem,
 	IArmoryProfile,
 	IArmorySkill
 } from '@/service/armories/types';
@@ -105,5 +106,18 @@ export const getSkillApi = async (
 			.then((resolve) => ({
 				...resolve,
 				data: pascalToCamelInArray(resolve.data)
+			}))
+	).data;
+
+/**
+ * @description get gem info
+ */
+export const getGemApi = async (name: string): Promise<IArmoryGem | null> =>
+	(
+		await axiosInstance
+			.get<ToPascalKey<IArmoryGem> | null>(`armories/characters/${name}/gems`)
+			.then((resolve) => ({
+				...resolve,
+				data: pascalToCamel(resolve.data)
 			}))
 	).data;

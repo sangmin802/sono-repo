@@ -72,11 +72,12 @@ const ModalLayout = ({
 			)}
 			onClick={(e) => e.stopPropagation()}
 		>
-			<div className="pb-[28px] text-[20px] font-bold">{title}</div>
+			{title && <div className="pb-[28px] text-[20px] font-bold">{title}</div>}
 			<div
 				className={cn(
 					'hide-scrollbar grow overflow-y-auto',
-					containerClassName
+					containerClassName,
+					{ 'pt-[28px]': !title }
 				)}
 			>
 				{children}
