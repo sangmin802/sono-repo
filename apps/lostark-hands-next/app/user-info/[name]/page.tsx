@@ -35,7 +35,7 @@ const Page = async ({ params: { name } }: { params: { name: string } }) => {
 
 	const { stats, tendencies } = profileTooltipSelector({ ...profile });
 	const filteredEffects = engraveSelector(engrave) ?? undefined;
-	const filteredEquipment = equipmentSelector(equipment);
+	const { equip, acc } = equipmentSelector(equipment);
 	const filteredCard = cardSelector(card);
 	const filteredSkill = skillSelector(skill);
 	const filteredGem = gemSelector(gem);
@@ -52,7 +52,7 @@ const Page = async ({ params: { name } }: { params: { name: string } }) => {
 				<Engraves data={filteredEffects} />
 			</div>
 			<div className="w-full space-y-[16px] sm:w-auto sm:grow">
-				<Equipment data={filteredEquipment} />
+				<Equipment data={{ equip, acc }} />
 				<CardSet {...filteredCard} />
 				<Gem data={filteredGem} />
 				<CombatSkill data={filteredSkill} />

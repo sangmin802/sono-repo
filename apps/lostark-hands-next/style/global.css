@@ -9,6 +9,7 @@
   * {
     @apply font-['Pretendard'];
     @apply text-[14px];
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   .dangerousHTML font, .dangerousHTML img {

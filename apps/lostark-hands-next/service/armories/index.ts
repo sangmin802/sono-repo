@@ -4,7 +4,8 @@ import type {
 	IArmoryEquipment,
 	IArmoryGem,
 	IArmoryProfile,
-	IArmorySkill
+	IArmorySkill,
+	ICollectible
 } from '@/service/armories/types';
 import type { IArmoryEngraving } from '@/service/armories/types';
 import axiosInstance from '@/service/axios';
@@ -119,5 +120,22 @@ export const getGemApi = async (name: string): Promise<IArmoryGem | null> =>
 			.then((resolve) => ({
 				...resolve,
 				data: pascalToCamel(resolve.data)
+			}))
+	).data;
+
+/**
+ * @description get collectible info
+ */
+export const getCollectibleApi = async (
+	name: string
+): Promise<ICollectible[]> =>
+	(
+		await axiosInstance
+			.get<ToPascalKey<ICollectible>[]>(
+				`armories/characters/${name}/collectibles`
+			)
+			.then((resolve) => ({
+				...resolve,
+				data: pascalToCamelInArray(resolve.data) ?? []
 			}))
 	).data;

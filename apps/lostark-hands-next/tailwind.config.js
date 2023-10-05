@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	presets: [require('@sono-repo/ui/config')],
@@ -11,7 +13,8 @@ module.exports = {
 				legendary: 'linear-gradient(135deg, #362003, #9e5f04)',
 				relic: 'linear-gradient(135deg, #341a09, #a24006)',
 				ancient: 'linear-gradient(135deg, #3d3325, #dcc999)',
-				esther: 'linear-gradient(135deg, #0c2e2c, #2faba8)'
+				esther: 'linear-gradient(135deg, #0c2e2c, #2faba8)',
+				collection: `url(${process.env.NEXT_PUBLIC_CDN_URL}/2018/obt/assets/images/pc/sprite/sprite_profile.png)`
 			},
 			// The higher the number, the brighter the color
 			colors: {
