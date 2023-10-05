@@ -7,19 +7,19 @@ import { GRADE_TEXT_COLOR } from '@/constant';
 
 import type { TGrade } from '@/type';
 
-interface IItemTitleProps {
+interface IItemDescProps {
 	subTitle: string;
-	afterSubTitle: ReactNode;
+	afterSubTitle?: ReactNode;
 	title: string;
 	grade?: TGrade;
 }
 
-const ItemTitle = ({
+const ItemDesc = ({
 	subTitle,
 	afterSubTitle,
 	title,
 	grade
-}: IItemTitleProps) => {
+}: IItemDescProps) => {
 	return (
 		<div className="flex flex-col justify-center">
 			<div className="flex items-center space-x-[4px]">
@@ -37,4 +37,4 @@ const ItemTitle = ({
 	);
 };
 
-export default ItemTitle;
+export default ItemDesc;

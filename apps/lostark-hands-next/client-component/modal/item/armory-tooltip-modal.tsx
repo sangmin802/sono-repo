@@ -3,8 +3,8 @@
 import ModalLayout from '@/client-component/modal/layout';
 import type { IModalItemProps } from '@/client-component/modal/types';
 import ArmoryTooltip from '@/client-component/pages/user-info/armory-tooltip';
+import ItemDesc from '@/client-component/pages/user-info/item-desc';
 import ItemThumbnail from '@/client-component/pages/user-info/item-thumbnail';
-import ItemTitle from '@/client-component/pages/user-info/item-title';
 
 const ArmoryTooltipModal = ({
 	name,
@@ -27,7 +27,7 @@ const ArmoryTooltipModal = ({
 					grade={grade}
 					chip={chip}
 				/>
-				<ItemTitle
+				<ItemDesc
 					subTitle={subTitle}
 					afterSubTitle={afterSubTitle}
 					title={name}

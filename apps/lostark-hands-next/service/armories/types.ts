@@ -130,7 +130,7 @@ interface IColosseum {
 	coOpBattle: IAggregation;
 }
 
-interface ICollectiblePoint {
+export interface ICollectiblePoint {
 	pointName: string;
 	point: number;
 	maxPoint: number;
@@ -213,8 +213,19 @@ interface IColosseumInfo {
 	colosseums: IColosseum;
 }
 
-interface ICollectible {
-	type: string;
+export type TCollectibleType =
+	| '거인의 심장'
+	| '섬의 마음'
+	| '모코코 씨앗'
+	| '위대한 미술품'
+	| '항해 모험물'
+	| '세계수의 잎'
+	| '이그네아의 징표'
+	| '오르페우스의 별'
+	| '기억의 오르골';
+
+export interface ICollectible {
+	type: TCollectibleType;
 	icon: string;
 	point: number;
 	maxPoint: number;

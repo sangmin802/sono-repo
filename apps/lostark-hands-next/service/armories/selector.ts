@@ -16,6 +16,7 @@ import {
 	ACC_PARTS,
 	BASIC_STATS,
 	BASIC_TENDENCIES,
+	COLLECT_PARTS,
 	EMO_IMAGE_URL,
 	EQUIP_PARTS,
 	EXCLUDE_TOOLTIP_TEXT
@@ -113,11 +114,15 @@ const changeImageUrl = <T extends IObj>(item: T): T => {
  * 장비 데이터 가공
  */
 export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
-	[...EQUIP_PARTS, ...ACC_PARTS].reduce<
-		Record<'equip' | 'acc', IParsedArmoryEquipment[]>
+	[...EQUIP_PARTS, ...ACC_PARTS, ...COLLECT_PARTS].reduce<
+		Record<'equip' | 'acc' | 'col', IParsedArmoryEquipment[]>
 	>(
 		(prev, cur) => {
-			const key = EQUIP_PARTS.includes(cur) ? 'equip' : 'acc';
+			const key = EQUIP_PARTS.includes(cur)
+				? 'equip'
+				: ACC_PARTS.includes(cur)
+				? 'acc'
+				: 'col';
 			const targetItem = data?.find(({ type }) => type === cur);
 
 			if (!targetItem) {
@@ -148,7 +153,7 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 
 			return prev;
 		},
-		{ equip: [], acc: [] }
+		{ equip: [], acc: [], col: [] }
 	);
 
 /**
@@ -184,9 +189,7 @@ export const skillSelector = (data: IArmorySkill[] | null) => {
 	}));
 };
 
-export const gemSelector = (
-	data: IArmoryGem | null
-): Array<IParsedGem> | null => {
+export const gemSelector = (data: IArmoryGem | null): IParsedGem[] | null => {
 	if (!data) return null;
 
 	return data.gems

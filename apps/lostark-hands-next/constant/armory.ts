@@ -24,10 +24,9 @@ export const ACC_PARTS = [
 	'반지',
 	'반지',
 	'어빌리티 스톤',
-	'팔찌',
-	'나침반',
-	'부적'
+	'팔찌'
 ];
+export const COLLECT_PARTS = ['나침반', '부적'];
 
 export const EMO_IMAGE_URL: Record<string, string> = {
 	emoticon_Transcendence_Grade:
