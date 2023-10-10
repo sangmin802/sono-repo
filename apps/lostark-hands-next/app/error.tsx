@@ -1,14 +1,31 @@
 'use client';
 
+import Image from 'next/image';
+
+import { Button } from '@sono-repo/ui';
+
 interface IErrorProps {
 	reset: () => void;
 }
 
 const Error = ({ reset }: IErrorProps) => {
 	return (
-		<div>
-			<div>Error!</div>
-			<button onClick={reset}>retry</button>
+		<div className="pt-[20vh] text-center">
+			<Image
+				className="mb-[32px] inline-block"
+				src="/icons/emoticon_4.png"
+				alt="모코코만큼 화난다"
+				width={160}
+				height={160}
+			/>
+			<div>로스트아크 서비스 점검 중 입니다.</div>
+			<div>점검 종료 후 재시도해주세요.</div>
+			<Button
+				className="mt-[20px]"
+				onClick={reset}
+			>
+				재시도
+			</Button>
 		</div>
 	);
 };
