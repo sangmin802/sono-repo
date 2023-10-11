@@ -17,6 +17,7 @@ export const BASIC_STATS = [
 export const BASIC_TENDENCIES = ['지성', '담력', '매력', '친절'];
 
 export const EQUIP_PARTS = ['무기', '투구', '상의', '하의', '장갑', '어깨'];
+
 export const ACC_PARTS = [
 	'목걸이',
 	'귀걸이',
@@ -27,6 +28,19 @@ export const ACC_PARTS = [
 	'팔찌'
 ];
 export const COLLECT_PARTS = ['나침반', '부적'];
+
+export const AVATAR_PARTS = [
+	'무기 아바타',
+	'머리 아바타',
+	'상의 아바타',
+	'하의 아바타',
+	'얼굴1 아바타',
+	'얼굴2 아바타',
+	/**
+	 * 놀랍게도 이게 이동효과 아바타 타입
+	 */
+	''
+];
 
 export const EMO_IMAGE_URL: Record<string, string> = {
 	emoticon_Transcendence_Grade:

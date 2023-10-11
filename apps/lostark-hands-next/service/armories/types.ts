@@ -165,20 +165,19 @@ export interface IArmoryEquipment {
 	tooltip: string;
 }
 
-export interface IParsedArmoryEquipment
-	extends Omit<IArmoryEquipment, 'tooltip'> {
-	tooltip?: TElementUnionArray;
-}
-
-interface IArmoryAvatar {
+export interface IArmoryAvatar {
 	type: string;
 	name: string;
 	icon: string;
-	grade: string;
+	grade: TGrade;
 	isSet: boolean;
 	isInner: boolean;
 	tooltip: string;
 }
+
+export type TParsedArmory<T> = Omit<T, 'tooltip'> & {
+	tooltip?: TElementUnionArray;
+};
 
 export interface IArmorySkill {
 	name: string;

@@ -1,13 +1,13 @@
 'use client';
 
-import type { IParsedArmoryEquipment } from '@/service/armories/types';
+import type { IArmoryEquipment, TParsedArmory } from '@/service/armories/types';
 
 import { useModalDispatch } from '@/client-component/modal/provider';
 import ArmoryCard from '@/client-component/pages/user-info/armory-card';
 import LabelLayout from '@/client-component/pages/user-info/label-layout';
 
 interface ICollectionMedalProps {
-	data: IParsedArmoryEquipment[];
+	data: TParsedArmory<IArmoryEquipment>[];
 }
 
 const CollectionMedal = ({ data }: ICollectionMedalProps) => {

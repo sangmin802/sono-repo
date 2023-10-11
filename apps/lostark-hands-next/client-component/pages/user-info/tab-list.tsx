@@ -5,14 +5,17 @@ import { useParams, usePathname, useRouter } from 'next/navigation';
 
 const tabList = [
 	{ name: '전투', path: '' },
-	{ name: '수집품', path: '/collection' }
+	{ name: '수집품', path: '/collection' },
+	{ name: '아바타', path: '/avatar' }
 ];
 
 const TabList = () => {
 	const router = useRouter();
 	const { name: userName } = useParams();
 	const pathName = usePathname();
+
 	const basePath = `/user-info/${userName}`;
+
 	const [, extraPath] = pathName.split(basePath);
 
 	return (

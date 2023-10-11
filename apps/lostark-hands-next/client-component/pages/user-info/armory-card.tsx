@@ -1,6 +1,6 @@
 'use client';
 
-import type { IParsedArmoryEquipment } from '@/service/armories/types';
+import cn from 'classnames';
 
 import { getIndentContent } from '@/util/armory';
 
@@ -11,13 +11,24 @@ import ItemThumbnail from '@/client-component/pages/user-info/item-thumbnail';
 import QualityChip from '@/client-component/pages/user-info/quality-chip';
 import Transcendence from '@/client-component/pages/user-info/transcendence';
 
-import type { TElement } from '@/type/element-json';
+import type { TGrade } from '@/type';
+import type { TElement, TElementUnionArray } from '@/type/element-json';
 
-interface IArmoryCardProps extends IParsedArmoryEquipment {
-	onOpenModal: (item: TModalItem) => void;
+interface IArmoryCardProps {
+	type: string;
+	name: string;
+	icon: string;
+	grade: TGrade;
+	showChip?: boolean;
+	tooltip?: TElementUnionArray;
+	onOpenModal?: (item: TModalItem) => void;
 }
 
-const ArmoryCard = ({ onOpenModal, ...item }: IArmoryCardProps) => {
+const ArmoryCard = ({
+	onOpenModal,
+	showChip = true,
+	...item
+}: IArmoryCardProps) => {
 	const { type, grade, icon, name, tooltip } = item;
 
 	const itemTitle = tooltip?.find(({ type }) => type === 'ItemTitle') as
@@ -30,7 +41,7 @@ const ArmoryCard = ({ onOpenModal, ...item }: IArmoryCardProps) => {
 	const handleOpenModal = () => {
 		if (!itemTitle) return;
 
-		onOpenModal({
+		onOpenModal?.({
 			name: 'armoryTooltipModal',
 			props: {
 				...item,
@@ -42,7 +53,7 @@ const ArmoryCard = ({ onOpenModal, ...item }: IArmoryCardProps) => {
 
 	return (
 		<div
-			className="flex cursor-pointer space-x-[6px]"
+			className={cn('flex space-x-[6px]', { 'cursor-pointer': !!onOpenModal })}
 			onClick={handleOpenModal}
 		>
 			<ItemThumbnail
@@ -50,9 +61,9 @@ const ArmoryCard = ({ onOpenModal, ...item }: IArmoryCardProps) => {
 				grade={grade}
 				src={icon}
 				alt={name}
-				chip={type}
+				chip={showChip ? type : undefined}
 			/>
-			<div className="flex flex-col justify-center">
+			<div className="flex min-w-0 grow flex-col justify-center">
 				{itemTitle && (
 					<>
 						<ItemDesc
