@@ -8,10 +8,7 @@ import type { IModalItemProps } from '@/client-component/modal/types';
 
 import { GRADE_BG_COLOR, GRADE_TEXT_COLOR } from '@/constant';
 
-const CalendarRewardModal = ({
-	title,
-	list
-}: IModalItemProps['calendarRewardModal']) => {
+const ItemListModal = ({ title, list }: IModalItemProps['itemListModal']) => {
 	return (
 		<ModalLayout
 			title={title}
@@ -48,4 +45,4 @@ const CalendarRewardModal = ({
 	);
 };
 
-export default CalendarRewardModal;
+export default ItemListModal;

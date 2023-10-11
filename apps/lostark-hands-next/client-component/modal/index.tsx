@@ -14,14 +14,12 @@ const Modal = () => {
 
 	const ModalComponent = useCallback(() => {
 		switch (modalItem?.name) {
-			case 'calendarRewardModal':
-				return <Dynamic.CALENDAR_REWARD_MODAL {...modalItem.props} />;
-			case 'statsModal':
-				return <Dynamic.STATS_MODAL {...modalItem.props} />;
+			case 'itemListModal':
+				return <Dynamic.ITEM_LIST_MODAL {...modalItem.props} />;
+			case 'descListModal':
+				return <Dynamic.DESC_LIST_MODAL {...modalItem.props} />;
 			case 'armoryTooltipModal':
 				return <Dynamic.ARMORY_TOOLTIP_MODAL {...modalItem.props} />;
-			case 'cardEffectModal':
-				return <Dynamic.CARD_EFFECT_MODAL {...modalItem.props} />;
 			case 'armoryTooltipListModal':
 				return <Dynamic.ARMORY_TOOLTIP_LIST_MODAL {...modalItem.props} />;
 			default:
@@ -34,16 +32,15 @@ const Modal = () => {
 	}, [open]);
 
 	return (
-		<>
-			{open && ModalComponent && (
-				<div
-					className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70"
-					onClick={onCloseModal}
-				>
-					<ModalComponent />
-				</div>
-			)}
-		</>
+		open &&
+		ModalComponent && (
+			<div
+				className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70"
+				onClick={onCloseModal}
+			>
+				<ModalComponent />
+			</div>
+		)
 	);
 };
 

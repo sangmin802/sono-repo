@@ -1,18 +1,16 @@
 import type { ReactNode } from 'react';
 
-import type { ICardEffect, IStat } from '@/service/armories/types';
-import type { IRewardItem } from '@/service/game-contents/type';
-
 import type { TGrade } from '@/type';
 import type { TElementUnionArray } from '@/type/element-json';
 
 export interface IModalItemProps {
-	calendarRewardModal: {
+	itemListModal: {
 		title: string;
-		list: IRewardItem[];
+		list: { name: string; icon: string; grade: TGrade }[];
 	};
-	statsModal: {
-		stats: IStat[];
+	descListModal: {
+		title?: string;
+		list: { title: string; afterTitle?: string; desc: string }[];
 	};
 	armoryTooltipModal: {
 		name: string;
@@ -22,9 +20,6 @@ export interface IModalItemProps {
 		chip?: string | number;
 		grade?: TGrade;
 		tooltip?: TElementUnionArray;
-	};
-	cardEffectModal: {
-		effects: ICardEffect[];
 	};
 	armoryTooltipListModal: {
 		list: {

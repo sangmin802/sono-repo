@@ -1,5 +1,5 @@
 import axiosInstance from '@/service/axios';
-import { type ICalendar } from '@/service/game-contents/type';
+import { type ICalendar } from '@/service/game-contents/types';
 
 import { pascalToCamelInArray } from '@/util/selector';
 

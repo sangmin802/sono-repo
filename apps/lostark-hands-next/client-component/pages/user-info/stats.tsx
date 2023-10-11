@@ -20,9 +20,14 @@ const Stats = ({ stats, power, healty }: IStatsProps) => {
 		if (!Number(power.value) || !Number(healty.value)) return;
 
 		onOpenModal({
-			name: 'statsModal',
+			name: 'descListModal',
 			props: {
-				stats: [power, healty, ...stats]
+				title: '능력치',
+				list: [power, healty, ...stats].map(({ type, value, tooltip }) => ({
+					title: type,
+					afterTitle: value,
+					desc: tooltip.join()
+				}))
 			}
 		});
 	};
