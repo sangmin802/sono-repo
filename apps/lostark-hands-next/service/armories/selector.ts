@@ -1,19 +1,21 @@
 import type {
+	IArmoryAvatar,
 	IArmoryCard,
 	IArmoryEngraving,
 	IArmoryEquipment,
 	IArmoryGem,
 	IArmorySkill,
 	ICard,
-	IParsedArmoryEquipment,
 	IParsedGem,
 	IStat,
-	ITendency
+	ITendency,
+	TParsedArmory
 } from '@/service/armories/types';
 
 import { CDN_URL } from '@/constant';
 import {
 	ACC_PARTS,
+	AVATAR_PARTS,
 	BASIC_STATS,
 	BASIC_TENDENCIES,
 	COLLECT_PARTS,
@@ -115,7 +117,7 @@ const changeImageUrl = <T extends IObj>(item: T): T => {
  */
 export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 	[...EQUIP_PARTS, ...ACC_PARTS, ...COLLECT_PARTS].reduce<
-		Record<'equip' | 'acc' | 'col', IParsedArmoryEquipment[]>
+		Record<'equip' | 'acc' | 'col', TParsedArmory<IArmoryEquipment>[]>
 	>(
 		(prev, cur) => {
 			const key = EQUIP_PARTS.includes(cur)
@@ -199,3 +201,31 @@ export const gemSelector = (data: IArmoryGem | null): IParsedGem[] | null => {
 		}))
 		.sort((a, b) => b.level - a.level);
 };
+
+export const avatarSelector = (data: IArmoryAvatar[]) =>
+	AVATAR_PARTS.reduce<TParsedArmory<IArmoryAvatar>[][]>((prev, cur) => {
+		const targetData = data
+			.filter(({ type }) => type === cur)
+			.map((item) => ({
+				...item,
+				isInner: !item.tooltip.includes('덧입기 슬롯에 착용 중'),
+				tooltip: Object.values(JSON.parse(item.tooltip)) as TElementUnionArray
+			}));
+
+		prev.push(
+			targetData.length
+				? targetData
+				: [
+						{
+							grade: '일반',
+							icon: '',
+							isInner: true,
+							isSet: false,
+							name: '',
+							type: cur
+						}
+				  ]
+		);
+
+		return prev;
+	}, []);

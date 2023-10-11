@@ -1,5 +1,6 @@
 import type {
 	IArmoriesInfo,
+	IArmoryAvatar,
 	IArmoryCard,
 	IArmoryEquipment,
 	IArmoryGem,
@@ -134,6 +135,16 @@ export const getCollectibleApi = async (
 			.get<ToPascalKey<ICollectible>[]>(
 				`armories/characters/${name}/collectibles`
 			)
+			.then((resolve) => ({
+				...resolve,
+				data: pascalToCamelInArray(resolve.data) ?? []
+			}))
+	).data;
+
+export const getAvatarApi = async (name: string): Promise<IArmoryAvatar[]> =>
+	(
+		await axiosInstance
+			.get<ToPascalKey<IArmoryAvatar>[]>(`armories/characters/${name}/avatars`)
 			.then((resolve) => ({
 				...resolve,
 				data: pascalToCamelInArray(resolve.data) ?? []

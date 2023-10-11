@@ -27,7 +27,7 @@ const ItemDesc = ({
 				{afterSubTitle}
 			</div>
 			<div
-				className={cn({
+				className={cn('line-clamp-2', {
 					[GRADE_TEXT_COLOR[grade as TGrade]]: grade
 				})}
 			>

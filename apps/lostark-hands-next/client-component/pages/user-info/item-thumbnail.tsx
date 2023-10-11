@@ -9,14 +9,12 @@ import { GRADE_BG_COLOR } from '@/constant';
 
 import type { TGrade } from '@/type';
 
-type TConditionalProps =
-	| { src: string; alt: string }
-	| Partial<{ src: undefined; alt: undefined }>;
-
 interface IItemThumbnailProps {
 	className?: string;
 	chip?: string | number;
 	grade?: TGrade;
+	src: string;
+	alt: string;
 }
 
 const ItemThumbnail = ({
@@ -25,7 +23,7 @@ const ItemThumbnail = ({
 	alt,
 	chip,
 	grade
-}: IItemThumbnailProps & TConditionalProps) => {
+}: IItemThumbnailProps) => {
 	return (
 		<div
 			className={cn(
