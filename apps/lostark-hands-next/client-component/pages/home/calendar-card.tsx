@@ -37,7 +37,7 @@ const CalendarCard = ({
 			);
 
 		onOpenModal({
-			name: 'calendarRewardModal',
+			name: 'itemListModal',
 			props: {
 				title: item.name,
 				list: validRewardList

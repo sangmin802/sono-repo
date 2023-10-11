@@ -1,7 +1,7 @@
 import { getDateDiff } from '@sono-repo/util/date';
 
-import type { IRewardItem } from '@/service/game-contents/type';
-import { type ICalendar } from '@/service/game-contents/type';
+import type { IRewardItem } from '@/service/game-contents/types';
+import { type ICalendar } from '@/service/game-contents/types';
 
 /**
  * @description convert CalendarList to client form

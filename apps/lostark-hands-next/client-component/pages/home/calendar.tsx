@@ -1,7 +1,7 @@
 'use client';
 
 import { calendarListSelector } from '@/service/game-contents/selector';
-import type { ICalendar } from '@/service/game-contents/type';
+import type { ICalendar } from '@/service/game-contents/types';
 
 import CalendarSection from '@/client-component/pages/home/calendar-section';
 import type { TCalendarItem } from '@/client-component/pages/home/types';

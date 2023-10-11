@@ -36,7 +36,15 @@ const CardSet = ({ cards, effects }: ICardSetProps) => {
 	const handleOpenCardEffectModal = () => {
 		if (!effects) return;
 
-		onOpenModal({ name: 'cardEffectModal', props: { effects } });
+		onOpenModal({
+			name: 'descListModal',
+			props: {
+				title: '카드 세트 효과',
+				list: effects
+					.flatMap(({ items }) => items)
+					.map(({ name, description }) => ({ title: name, desc: description }))
+			}
+		});
 	};
 
 	return (
