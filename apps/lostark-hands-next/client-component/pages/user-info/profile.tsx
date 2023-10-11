@@ -28,8 +28,8 @@ const Profile = ({ data }: IProfileProps) => {
 	} = data;
 
 	return (
-		<div className="relative h-[300px] overflow-hidden">
-			<div className="absolute z-[4] ">
+		<div className="relative h-[360px] overflow-hidden">
+			<div className="absolute z-[4] flex h-full flex-col justify-center">
 				<div className="space-y-[16px] px-[16px]">
 					<div className="flex space-x-[8px]">
 						{serverName && <Label>{serverName}</Label>}
