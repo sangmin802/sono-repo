@@ -6,6 +6,7 @@
     "setting": "yarn install",
     "lostark:dev": "next dev",
     "lostark:build": "yarn tsc && next build",
+    "lostark:start": "yarn run lostark:build && next start",
     "start": "next start",
     "lint": "next lint"
   },

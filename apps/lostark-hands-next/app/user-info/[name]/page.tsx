@@ -23,6 +23,12 @@ import Gem from '@/client-component/pages/user-info/gem';
 import Stats from '@/client-component/pages/user-info/stats';
 import Tendencies from '@/client-component/pages/user-info/tendencies';
 
+/**
+ * cache time 5min
+ * {@link https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#revalidate}
+ */
+export const revalidate = 300;
+
 const Page = async ({ params: { name } }: { params: { name: string } }) => {
 	const [profile, engrave, equipment, card, skill, gem] = await Promise.all([
 		getProfileInfoApi(name),
