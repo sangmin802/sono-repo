@@ -5,6 +5,12 @@ import Calendar from '@/client-component/pages/home/calendar';
 import Event from '@/client-component/pages/home/event';
 import Notice from '@/client-component/pages/home/notice';
 
+/**
+ * cache time 5min
+ * {@link https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#revalidate}
+ */
+export const revalidate = 300;
+
 const Page = async () => {
 	const [noticeData, storeData, eventData, calendarData] = await Promise.all([
 		getNoticeApi('공지'),

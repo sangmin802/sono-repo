@@ -4,6 +4,12 @@ import { equipmentSelector } from '@/service/armories/selector';
 import Collection from '@/client-component/pages/user-info/collection';
 import CollectionMedal from '@/client-component/pages/user-info/collection-medal';
 
+/**
+ * cache time 5min
+ * {@link https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#revalidate}
+ */
+export const revalidate = 300;
+
 const Page = async ({ params: { name } }: { params: { name: string } }) => {
 	const [equipment, collection] = await Promise.all([
 		getEquipmentApi(name),
