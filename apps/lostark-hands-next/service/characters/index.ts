@@ -6,9 +6,9 @@ import { pascalToCamelInArray } from '@/util/selector';
 import type { ToPascalKey } from '@/type';
 
 /**
- * @description get characters info
+ * @description get silblings info
  */
-export const getCharactersInfoApi = async (
+export const getSilblingsInfoApi = async (
 	name: string
 ): Promise<ICharacterInfo[] | null> =>
 	(

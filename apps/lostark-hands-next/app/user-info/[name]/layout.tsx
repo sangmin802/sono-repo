@@ -11,7 +11,6 @@ import TabList from '@/client-component/pages/user-info/tab-list';
  * However, you can fetch the same data in a route more than once,
  * and React will automatically dedupe the requests without affecting performance.
  * @see{@link https://nextjs.org/docs/app/building-your-application/caching#request-memoization}
- * @param param0
  * @returns
  */
 const Layout = async ({

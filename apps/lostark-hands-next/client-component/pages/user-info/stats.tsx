@@ -44,7 +44,7 @@ const Stats = ({ stats, power, healty }: IStatsProps) => {
 				</div>
 				<div className="space-y-[4px] text-center">
 					<Label>{healty.type}</Label>
-					<div>{power.value}</div>
+					<div>{healty.value}</div>
 				</div>
 			</div>
 			<div className="mt-[12px] grid grid-cols-2 gap-[6px]">
