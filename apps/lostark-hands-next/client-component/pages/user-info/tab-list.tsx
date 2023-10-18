@@ -6,7 +6,8 @@ import { useParams, usePathname, useRouter } from 'next/navigation';
 const tabList = [
 	{ name: '전투', path: '' },
 	{ name: '수집품', path: '/collection' },
-	{ name: '아바타', path: '/avatar' }
+	{ name: '아바타', path: '/avatar' },
+	{ name: '캐릭터', path: '/silblings' }
 ];
 
 const TabList = () => {

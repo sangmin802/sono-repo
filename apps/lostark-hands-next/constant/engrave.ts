@@ -56,7 +56,7 @@ const ENGRAVE_IMGAE: Record<string, string> = {
 	// 소서리스
 	점화: 'Ability/Ability_240.png',
 	환류: 'Ability/Ability_241.png',
-	//리퍼
+	// 리퍼
 	'달의 소리': 'Ability/Ability_223.png',
 	갈증: 'Ability/Ability_222.png',
 	// 블레이드
