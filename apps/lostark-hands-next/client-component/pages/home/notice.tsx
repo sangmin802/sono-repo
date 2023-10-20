@@ -4,8 +4,8 @@ import { useMemo } from 'react';
 
 import type { INotice } from '@/service/news/types';
 
+import LabelLayout from '@/client-component/label-layout';
 import MessagePost from '@/client-component/message-post';
-import SectionLayout from '@/client-component/section-layout';
 
 interface INoticeProps {
 	initData: INotice[];
@@ -29,12 +29,12 @@ const Notice = ({ initData }: INoticeProps) => {
 	);
 
 	return (
-		<div className="grid grid-cols-1 gap-[16px] py-[20px] sm:grid-cols-3">
+		<div className="grid grid-cols-1 gap-[16px] sm:grid-cols-3">
 			{noticeList.map(([key, postList]) => (
-				<SectionLayout
+				<LabelLayout
 					key={key}
 					className="min-w-0 grow basis-0"
-					title={key}
+					label={key}
 				>
 					<div className="space-y-[4px]">
 						{postList.slice(0, 10).map((item, idx) => (
@@ -44,7 +44,7 @@ const Notice = ({ initData }: INoticeProps) => {
 							/>
 						))}
 					</div>
-				</SectionLayout>
+				</LabelLayout>
 			))}
 		</div>
 	);

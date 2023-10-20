@@ -4,10 +4,10 @@ import cn from 'classnames';
 
 import { getIndentContent } from '@/util/armory';
 
+import ItemThumbnail from '@/client-component/item-thumbnail';
 import type { TModalItem } from '@/client-component/modal/types';
 import Elixir from '@/client-component/pages/user-info/elixir';
 import ItemDesc from '@/client-component/pages/user-info/item-desc';
-import ItemThumbnail from '@/client-component/pages/user-info/item-thumbnail';
 import QualityChip from '@/client-component/pages/user-info/quality-chip';
 import Transcendence from '@/client-component/pages/user-info/transcendence';
 

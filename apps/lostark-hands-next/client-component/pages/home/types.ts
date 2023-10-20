@@ -1,7 +1,8 @@
-import { type calendarListSelector } from '@/service/game-contents/selector';
+import type { convertCalendarData } from '@/util/calendar';
 
-export type TInitData = ReturnType<typeof calendarListSelector>;
+export type TCalendarItem = ReturnType<typeof convertCalendarData>[0];
 
-export type TCalendarItem = TInitData[0] & {
-	type: string;
-};
+export interface ICalenderContetProps {
+	title: string;
+	list: TCalendarItem[];
+}

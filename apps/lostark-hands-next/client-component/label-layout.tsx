@@ -1,26 +1,33 @@
 'use client';
 
-import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
+import type {
+	ComponentProps,
+	ComponentPropsWithoutRef,
+	ElementType,
+	ReactNode
+} from 'react';
 import cn from 'classnames';
 
-type LabelLayoutProps<T extends ElementType> = {
+import DataEmptyFunnel from '@/client-component/data-empty-funnel';
+
+type TLabelLayoutProps<T extends ElementType> = {
 	label: string;
 	className?: string;
 	afterLabel?: ReactNode;
-	empty?: Partial<{ status: boolean; message: string }>;
+	empty?: ComponentProps<typeof DataEmptyFunnel>['data'];
 	as?: T;
 	children: ReactNode;
 } & ComponentPropsWithoutRef<T>;
 
 const LabelLayout = <T extends ElementType>({
-	label,
 	className,
+	label,
 	afterLabel,
 	empty,
 	as,
 	children,
 	...props
-}: LabelLayoutProps<T>) => {
+}: TLabelLayoutProps<T>) => {
 	const Tag = as ?? 'div';
 
 	return (
@@ -32,7 +39,12 @@ const LabelLayout = <T extends ElementType>({
 				<div className="w-fit text-[16px] font-bold">{label}</div>
 				{afterLabel}
 			</div>
-			{empty?.status ? empty?.message : children}
+			<DataEmptyFunnel
+				as="fragment"
+				data={empty ? empty : { status: false }}
+			>
+				{children}
+			</DataEmptyFunnel>
 		</Tag>
 	);
 };

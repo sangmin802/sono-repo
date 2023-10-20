@@ -11,14 +11,16 @@ const useTimer = ({
 	resetKey,
 	onCallback
 }: {
-	endTime: number;
+	endTime?: number;
 	resetKey?: unknown;
-	onCallback?: () => void;
+	onCallback: () => void;
 }) => {
 	const [restTime, setRestTime] = useState<number>();
 	const frame = useRef(0);
 
 	useEffect(() => {
+		if (!endTime) return;
+
 		let time = Math.floor(new Date().getTime() / 1000) * 1000;
 
 		// raf event
@@ -36,8 +38,13 @@ const useTimer = ({
 			}
 
 			frame.current = requestAnimationFrame(event);
+
+			if (document.hidden) {
+				console.log('비활성화');
+			}
 		};
 
+		// start raf
 		frame.current = requestAnimationFrame(event);
 
 		// set init state
@@ -47,6 +54,14 @@ const useTimer = ({
 			cancelAnimationFrame(frame.current);
 		};
 	}, [endTime, resetKey, onCallback]);
+
+	useEffect(() => {
+		window.addEventListener('focus', onCallback);
+
+		return () => {
+			window.removeEventListener('focus', onCallback);
+		};
+	}, [onCallback]);
 
 	return restTime;
 };

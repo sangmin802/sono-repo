@@ -7,8 +7,8 @@ import { Chip } from '@sono-repo/ui';
 
 import type { ICard, ICardEffect } from '@/service/armories/types';
 
+import LabelLayout from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
-import LabelLayout from '@/client-component/pages/user-info/label-layout';
 
 import { CDN_URL, GRADE_TEXT_COLOR } from '@/constant';
 

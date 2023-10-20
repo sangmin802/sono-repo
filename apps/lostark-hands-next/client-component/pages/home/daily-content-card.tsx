@@ -8,39 +8,35 @@ import { convertDateFormat, getTime } from '@sono-repo/util/date';
 
 import useTimer from '@/hook/use-timer';
 
+import { getValidRewardList } from '@/util/calendar';
+
 import type { TModalItem } from '@/client-component/modal/types';
 import type { TCalendarItem } from '@/client-component/pages/home/types';
 
-interface ICalendarCardProps {
+interface IDailyContentCardProps {
 	item: TCalendarItem;
 	onResetTime: () => void;
 	onOpenModal: (item: TModalItem) => void;
 }
 
-const CalendarCard = ({
+const DailyContentCard = ({
 	item,
 	onResetTime,
 	onOpenModal
-}: ICalendarCardProps) => {
+}: IDailyContentCardProps) => {
 	const targetTime = item.time[0];
 	const time = useTimer({
-		endTime: new Date(item.time[0]).getTime(),
+		endTime: new Date(targetTime).getTime(),
 		resetKey: item,
 		onCallback: onResetTime
 	});
 
 	const handleOpenRewardModal = () => {
-		const validRewardList = Array.from(item.rewardItems)
-			.flatMap(([, val]) => val)
-			.filter(
-				({ startTimes }) => !startTimes.size || startTimes.has(targetTime)
-			);
-
 		onOpenModal({
 			name: 'itemListModal',
 			props: {
 				title: item.name,
-				list: validRewardList
+				list: getValidRewardList(item.rewardItems, targetTime)
 			}
 		});
 	};
@@ -48,7 +44,7 @@ const CalendarCard = ({
 	return (
 		<div
 			className={cn(
-				'min-w-0 cursor-pointer overflow-hidden rounded-[4px]',
+				'min-w-0 cursor-pointer overflow-hidden rounded-[4px] [&_div]:text-[12px]',
 				time && time < 1000 * 60 * 10
 					? 'border-[2px] border-orange-400'
 					: 'border border-white'
@@ -74,8 +70,14 @@ const CalendarCard = ({
 					/>
 				</div>
 				<div className="flex w-full flex-col items-center justify-center">
-					<div className="text-orange-400">{convertDateFormat(targetTime)}</div>
-					<div>{time ? getTime(time) : '-'}</div>
+					<div className="text-white">{convertDateFormat(targetTime)}</div>
+					<div
+						className={cn(
+							time && time < 1000 * 60 * 10 ? 'text-white' : 'text-gray-400'
+						)}
+					>
+						{time ? getTime(time) : '-'}
+					</div>
 				</div>
 			</div>
 			<div className="truncate bg-gray-700 px-[8px] text-center">
@@ -85,4 +87,4 @@ const CalendarCard = ({
 	);
 };
 
-export default CalendarCard;
+export default DailyContentCard;

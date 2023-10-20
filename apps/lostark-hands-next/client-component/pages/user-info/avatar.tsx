@@ -2,8 +2,8 @@
 
 import type { IArmoryAvatar, TParsedArmory } from '@/service/armories/types';
 
+import LabelLayout from '@/client-component/label-layout';
 import ArmoryCard from '@/client-component/pages/user-info/armory-card';
-import LabelLayout from '@/client-component/pages/user-info/label-layout';
 
 interface IAvatarProps {
 	data: TParsedArmory<IArmoryAvatar>[][];
