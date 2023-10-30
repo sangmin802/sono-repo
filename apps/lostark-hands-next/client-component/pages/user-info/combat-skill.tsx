@@ -6,9 +6,9 @@ import { Chip } from '@sono-repo/ui';
 
 import type { skillSelector } from '@/service/armories/selector';
 
+import ItemThumbnail from '@/client-component/item-thumbnail';
+import LabelLayout from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
-import ItemThumbnail from '@/client-component/pages/user-info/item-thumbnail';
-import LabelLayout from '@/client-component/pages/user-info/label-layout';
 
 import { GRADE_TEXT_COLOR } from '@/constant';
 
@@ -66,7 +66,7 @@ const CombatSkill = ({ data }: ICombatSkillProps) => {
 		<LabelLayout
 			label="스킬"
 			as="section"
-			empty={{ status: !data, message: '선택된 스킬이 없습니다.' }}
+			empty={{ status: !data, fallback: '선택된 스킬이 없습니다.' }}
 			afterLabel={
 				data && (
 					<div className="flex space-x-[8px]">

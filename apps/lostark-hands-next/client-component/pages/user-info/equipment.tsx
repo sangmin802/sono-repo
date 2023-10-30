@@ -2,9 +2,9 @@
 
 import type { IArmoryEquipment, TParsedArmory } from '@/service/armories/types';
 
+import LabelLayout from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
 import ArmoryCard from '@/client-component/pages/user-info/armory-card';
-import LabelLayout from '@/client-component/pages/user-info/label-layout';
 
 interface IEquipmentProps {
 	data: Record<'equip' | 'acc', TParsedArmory<IArmoryEquipment>[]>;

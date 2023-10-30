@@ -2,10 +2,10 @@
 
 import cn from 'classnames';
 
+import ItemThumbnail from '@/client-component/item-thumbnail';
 import ModalLayout from '@/client-component/modal/layout';
 import type { IModalItemProps } from '@/client-component/modal/types';
 import ArmoryTooltip from '@/client-component/pages/user-info/armory-tooltip';
-import ItemThumbnail from '@/client-component/pages/user-info/item-thumbnail';
 
 import { GRADE_TEXT_COLOR } from '@/constant';
 

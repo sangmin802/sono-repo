@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import type { IEffect } from '@/service/armories/types';
 
-import LabelLayout from '@/client-component/pages/user-info/label-layout';
+import LabelLayout from '@/client-component/label-layout';
 
 import { CDN_URL } from '@/constant';
 import ENGRAVE_IMGAE from '@/constant/engrave';
@@ -28,7 +28,7 @@ const Engraves = ({ data }: IEngravesProps) => {
 		<LabelLayout
 			label="각인"
 			as="aside"
-			empty={{ status: !data, message: '장착된 각인이 없습니다.' }}
+			empty={{ status: !data, fallback: '장착된 각인이 없습니다.' }}
 		>
 			<div className="space-y-[6px]">
 				{data?.map(({ name, point }) => (

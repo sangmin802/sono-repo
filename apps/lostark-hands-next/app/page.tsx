@@ -1,9 +1,11 @@
 import { getCalendarApi } from '@/service/game-contents';
+import { calendarSelector } from '@/service/game-contents/selector';
 import { getEventApi, getNoticeApi } from '@/service/news';
 
-import Calendar from '@/client-component/pages/home/calendar';
+import DailyContentSectionList from '@/client-component/pages/home/daily-content-section-list';
 import Event from '@/client-component/pages/home/event';
 import Notice from '@/client-component/pages/home/notice';
+import ProcyonCompassSectionList from '@/client-component/pages/home/procyon-compass-section-list';
 
 /**
  * cache time 5min
@@ -19,11 +21,14 @@ const Page = async () => {
 		getCalendarApi()
 	]);
 
+	const { procyon, daily } = calendarSelector(calendarData);
+
 	return (
-		<div className="px-[16px]">
-			<Notice initData={[...(noticeData ?? []), ...(storeData ?? [])]} />
+		<div className="space-y-[16px] px-[16px]">
+			<ProcyonCompassSectionList data={Object.values(procyon)} />
 			<Event initData={eventData ?? []} />
-			<Calendar initData={calendarData} />
+			<Notice initData={[...(noticeData ?? []), ...(storeData ?? [])]} />
+			<DailyContentSectionList data={Object.values(daily)} />
 		</div>
 	);
 };

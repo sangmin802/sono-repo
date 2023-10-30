@@ -4,9 +4,9 @@ import { removeHtmlTag } from '@sono-repo/util/convert';
 
 import type { IParsedGem } from '@/service/armories/types';
 
+import ItemThumbnail from '@/client-component/item-thumbnail';
+import LabelLayout from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
-import ItemThumbnail from '@/client-component/pages/user-info/item-thumbnail';
-import LabelLayout from '@/client-component/pages/user-info/label-layout';
 
 interface IGemProps {
 	data: IParsedGem[] | null;
@@ -60,7 +60,7 @@ const Gem = ({ data }: IGemProps) => {
 		<LabelLayout
 			label="보석"
 			as="section"
-			empty={{ status: !minifiedData, message: '장착중인 보석이 없습니다.' }}
+			empty={{ status: !minifiedData, fallback: '장착중인 보석이 없습니다.' }}
 		>
 			<div
 				className="mb-[-8px] flex cursor-pointer flex-wrap"

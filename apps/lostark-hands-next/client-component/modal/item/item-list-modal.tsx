@@ -6,7 +6,7 @@ import Image from 'next/image';
 import ModalLayout from '@/client-component/modal/layout';
 import type { IModalItemProps } from '@/client-component/modal/types';
 
-import { GRADE_BG_COLOR, GRADE_TEXT_COLOR } from '@/constant';
+import { GRADE_BG_COLOR } from '@/constant';
 
 const ItemListModal = ({ title, list }: IModalItemProps['itemListModal']) => {
 	return (
@@ -31,12 +31,8 @@ const ItemListModal = ({ title, list }: IModalItemProps['itemListModal']) => {
 							alt={name}
 						/>
 						<div className="ml-[6px] flex min-w-0 grow flex-col justify-center">
-							<div
-								className={cn('text-[16px] font-bold', GRADE_TEXT_COLOR[grade])}
-							>
-								{grade}
-							</div>
-							<div className="truncate tracking-tight">{name}</div>
+							<div className="text-[12px] font-bold">{grade}</div>
+							<div className="truncate text-[12px] tracking-tight">{name}</div>
 						</div>
 					</div>
 				))}

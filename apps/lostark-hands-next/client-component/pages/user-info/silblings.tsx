@@ -7,11 +7,11 @@ import { useRouter } from 'next/navigation';
 import type { ICharacterInfo } from '@/service/characters/types';
 
 import Label from '@/client-component/label';
-import LabelLayout from '@/client-component/pages/user-info/label-layout';
+import LabelLayout from '@/client-component/label-layout';
 
 import { CDN_URL } from '@/constant';
 
-import { CLASS } from '@/type/class';
+import { CLASS } from '@/type/content';
 
 interface ISilbingsProps {
 	data?: { server: string; list: ICharacterInfo[] }[];
@@ -30,7 +30,7 @@ const Silblings = ({ data }: ISilbingsProps) => {
 			label="원정대 캐릭터"
 			empty={{
 				status: !data,
-				message: '생성된 원정대 캐릭터가 없습니다.'
+				fallback: '생성된 원정대 캐릭터가 없습니다.'
 			}}
 		>
 			<div className="space-y-[24px]">

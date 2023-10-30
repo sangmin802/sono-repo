@@ -2,7 +2,7 @@
 
 import type { IEvent } from '@/service/news/types';
 
-import SectionLayout from '@/client-component/section-layout';
+import LabelLayout from '@/client-component/label-layout';
 import ThumbnailPost from '@/client-component/thumbnail-post';
 
 interface IEventProps {
@@ -11,22 +11,21 @@ interface IEventProps {
 
 const Event = ({ initData }: IEventProps) => {
 	return (
-		<SectionLayout
+		<LabelLayout
 			className="py-[20px]"
-			title="이벤트"
+			label="이벤트"
 		>
-			<div className="grid grid-cols-2 gap-[12px] lg:grid-cols-3">
+			<div className="hide-scrollbar mx-[-8px] flex flex-nowrap space-x-[16px] overflow-x-scroll px-[8px]">
 				{initData.map((item, idx) => (
 					<ThumbnailPost
+						className="min-w-[140px]"
 						key={idx}
-						date={`${item.startDate.split('T')[0]} ~ ${
-							item.endDate.split('T')[0]
-						}`}
+						date={item.endDate.split('T')[0]}
 						{...item}
 					/>
 				))}
 			</div>
-		</SectionLayout>
+		</LabelLayout>
 	);
 };
 
