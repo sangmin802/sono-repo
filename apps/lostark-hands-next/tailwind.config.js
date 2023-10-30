@@ -31,7 +31,8 @@ module.exports = {
 				legendary: '#fb923c',
 				relic: '#a24006',
 				ancient: '#dcc999',
-				esther: '#2faba8'
+				esther: '#2faba8',
+				white: '#efefef'
 			}
 		}
 	}
