@@ -1,6 +1,6 @@
 'use client';
 
-import classNames from 'classnames';
+import cn from 'classnames';
 import Image from 'next/image';
 
 import { Chip } from '@sono-repo/ui';
@@ -33,8 +33,10 @@ const ProcyonCompassCard = ({
 	showImg = false,
 	onOpenModal
 }: IProcyonCompassCardProps) => {
+	const isHasReward = !!rewardList.length;
+
 	const handleOpenRewardModal = () => {
-		if (!rewardList.length) return;
+		if (!isHasReward) return;
 
 		onOpenModal({
 			name: 'itemListModal',
@@ -47,7 +49,9 @@ const ProcyonCompassCard = ({
 
 	return (
 		<div
-			className="flex items-center space-x-[8px] [&_div]:text-[12px]"
+			className={cn('flex items-center space-x-[8px] [&_div]:text-[12px]', {
+				'cursor-pointer': isHasReward
+			})}
 			onClick={handleOpenRewardModal}
 		>
 			{showImg && (
@@ -69,7 +73,7 @@ const ProcyonCompassCard = ({
 						({ name }) =>
 							uniqueReward[name] && (
 								<Chip
-									className={classNames({ '!bg-yellow-600': name === '골드' })}
+									className={cn({ '!bg-yellow-600': name === '골드' })}
 									key={name}
 									type="info"
 								>

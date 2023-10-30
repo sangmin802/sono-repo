@@ -46,8 +46,8 @@ const DailyContentCard = ({
 			className={cn(
 				'min-w-0 cursor-pointer overflow-hidden rounded-[4px] [&_div]:text-[12px]',
 				time && time < 1000 * 60 * 10
-					? 'border-[2px] border-orange-400'
-					: 'border border-white'
+					? 'border border-orange-400'
+					: 'border border-[#7f7f7f]'
 			)}
 			onClick={handleOpenRewardModal}
 		>

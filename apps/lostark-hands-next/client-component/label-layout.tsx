@@ -32,10 +32,10 @@ const LabelLayout = <T extends ElementType>({
 
 	return (
 		<Tag
-			className={cn('rounded-[6px] bg-main-20 px-[8px] py-[18px]', className)}
+			className={cn('rounded-[6px] bg-main-20 px-[8px] py-[12px]', className)}
 			{...props}
 		>
-			<div className="mb-[18px] flex items-end space-x-[16px] leading-[16px]">
+			<div className="mb-[16px] flex items-end space-x-[16px] border-b border-[#7f7f7f] pb-[6px] leading-[16px]">
 				<div className="w-fit text-[16px] font-bold">{label}</div>
 				{afterLabel}
 			</div>

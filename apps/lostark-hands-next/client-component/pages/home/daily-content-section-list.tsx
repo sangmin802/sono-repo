@@ -12,7 +12,7 @@ interface IDailyContentSectionListProps {
 
 const DailyContentSectionList = ({ data }: IDailyContentSectionListProps) => {
 	return (
-		<div>
+		<div className="space-y-[16px]">
 			{data.map(({ title, list }) => (
 				<DailyContentSection
 					key={title}

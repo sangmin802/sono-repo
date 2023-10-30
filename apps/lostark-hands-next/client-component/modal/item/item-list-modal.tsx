@@ -22,7 +22,7 @@ const ItemListModal = ({ title, list }: IModalItemProps['itemListModal']) => {
 					>
 						<Image
 							className={cn(
-								'h-[40px] w-[40px] rounded-[6px] border border-white',
+								'h-[40px] w-[40px] rounded-[6px]',
 								GRADE_BG_COLOR[grade]
 							)}
 							width={500}

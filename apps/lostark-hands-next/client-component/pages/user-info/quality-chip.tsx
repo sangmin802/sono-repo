@@ -10,7 +10,9 @@ export const getQualityColor = (size: number) => {
 	if (size < 70) return 'bg-green-500';
 	if (size < 90) return 'bg-blue-500';
 	if (size < 100) return 'bg-purple-500';
-	return 'bg-orange-500';
+	if (size === 100) return 'bg-orange-500';
+
+	return 'bg-main-40';
 };
 
 const QaulityChip = ({ size }: IQaulityChipProps) => {
@@ -20,7 +22,7 @@ const QaulityChip = ({ size }: IQaulityChipProps) => {
 		<div
 			className={cn(
 				getQualityColor(size),
-				'w-fit rounded-[4px] bg-main-40 px-[4px] text-[12px]'
+				'w-fit rounded-[4px] px-[4px] text-[12px]'
 			)}
 		>
 			품질 {size}

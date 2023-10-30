@@ -49,7 +49,7 @@ const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
 				fallback: `오늘 등장하는 ${title}(이/가) 없어요.`
 			}}
 		>
-			<div className="hide-scrollbar mb-[-18px] max-h-[132px] space-y-[12px] overflow-y-scroll pb-[18px]">
+			<div className="hide-scrollbar mb-[-12px] max-h-[126px] space-y-[4px] overflow-y-scroll pb-[12px]">
 				{timerList.map((item) => (
 					<ProcyonCompassCard
 						key={item.name}

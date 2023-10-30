@@ -27,7 +27,7 @@ const ItemThumbnail = ({
 	return (
 		<div
 			className={cn(
-				'relative shrink-0 rounded-[4px] border border-white',
+				'relative shrink-0 rounded-[4px]',
 				grade ? GRADE_BG_COLOR[grade] : 'bg-main-10',
 				className
 			)}
