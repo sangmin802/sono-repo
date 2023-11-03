@@ -68,7 +68,7 @@ const ProcyonCompassCard = ({
 				{name.replaceAll(' ', '') !== desc.replaceAll(' ', '') && (
 					<div className="text-gray-400">{desc}</div>
 				)}
-				<div>
+				<div className="flex space-x-[4px]">
 					{rewardList.map(
 						({ name }) =>
 							uniqueReward[name] && (

@@ -9,7 +9,7 @@ import type { ToPascalKey } from '@/type';
  * @description get notice list on type
  * @param type notice type
  */
-export const getNoticeApi = async (type: string): Promise<INotice[] | null> =>
+export const getNoticeApi = async (type?: string): Promise<INotice[] | null> =>
 	(
 		await axiosInstance
 			.get<ToPascalKey<INotice>[] | null>('/news/notices', {
