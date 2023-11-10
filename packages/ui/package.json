@@ -8,8 +8,8 @@
     "ui-bin": "./bin/intro.js"
   },
   "scripts": {
-    "storybook:dev": "storybook dev -p 6006",
-    "storybook:build": "storybook build",
+    "dev": "storybook dev -p 6006",
+    "build22": "storybook build",
     "lint": "eslint \"**/*.ts*\""
   },
   "exports": {
@@ -17,6 +17,9 @@
     "./styles.css": "./src/styles.css",
     "./config": "./tailwind.config.js"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "dependencies": {
     "classnames": "^2.3.2",
     "react": "^18.2.0"

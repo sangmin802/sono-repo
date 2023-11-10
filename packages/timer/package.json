@@ -1,18 +1,22 @@
 {
   "name": "sono-repo-react-timer",
-  "type": "module",
-  "version": "0.2.0",
-  "private": false,
+  "version": "0.2.12",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/bundle.mjs",
-      "require": "./dist/bundle.cjs",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "repository": {
     "type": "git",
@@ -20,7 +24,8 @@
   },
   "homepage": "https://github.com/sangmin802/sono-repo/tree/main/packages/timer",
   "scripts": {
-    "build": "yarn tsc --noEmit && rollup --config rollup.config.js"
+    "build": "yarn tsc --noEmit && rollup --config rollup.config.js",
+    "prepublishOnly": "yarn build"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",

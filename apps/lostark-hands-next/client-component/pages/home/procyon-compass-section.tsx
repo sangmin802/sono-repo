@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { convertDateFormat, getTime } from '@sono-repo/util/date';
 
 import useFilterTimerList from '@/hook/use-filter-timer-list';
-import useTimer from '@sono-repo/timer';
+import useTimer from 'sono-repo-react-timer';
 
 import { getValidRewardList } from '@/util/calendar';
 
