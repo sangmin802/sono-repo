@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Chip } from '@sono-repo/ui';
 import { convertDateFormat, getTime } from '@sono-repo/util/date';
 
-import useTimer from '@sono-repo/timer';
+import useTimer from 'sono-repo-react-timer';
 
 import { getValidRewardList } from '@/util/calendar';
 

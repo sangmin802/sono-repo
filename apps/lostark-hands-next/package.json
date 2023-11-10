@@ -3,15 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "lostark:dev": "next dev",
-    "lostark:build": "yarn tsc && next build",
-    "lostark:start": "yarn run lostark:build && next start",
-    "start": "next start",
+    "dev": "next dev",
+    "build": "yarn tsc && next build",
+    "start": "yarn run build && next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^8.2.0",
-    "@sono-repo/timer": "workspace:^",
     "@sono-repo/ui": "workspace:*",
     "@sono-repo/util": "workspace:^",
     "axios": "^1.4.0",
@@ -20,6 +18,7 @@
     "react": "18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive": "^9.0.2",
+    "sono-repo-react-timer": "workspace:^",
     "zod": "^3.21.4"
   },
   "devDependencies": {

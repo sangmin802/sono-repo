@@ -2,21 +2,15 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
   "pipeline": {
+    "dev": {
+      "dependsOn": ["^build"]
+    },
+    "start": {
+      "dependsOn": ["^build"]
+    },
     "build": {
-      "dependsOn": ["^build"]
-    },
-    "storybook:dev": {
-      "dependsOn": ["^build"]
-    },
-    "lostark:dev": {
-      "dependsOn": ["^build"]
-    },
-    "lostark:start": {
-      "dependsOn": ["^build"]
-    },
-    "lostark:build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**", "storybook-static/**"]
     }
   }
 }

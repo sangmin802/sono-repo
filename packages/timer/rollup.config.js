@@ -1,17 +1,17 @@
-import typescript from '@rollup/plugin-typescript';
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
+const typescript = require('@rollup/plugin-typescript');
+const resolve = require('@rollup/plugin-node-resolve');
+const commonjs = require('@rollup/plugin-commonjs');
 
 /** @type {import('rollup').RollupOptions} */
-export default {
+module.exports = {
   input: 'src/index.ts',
   output: [
     {
-      file: "./dist/bundle.mjs",
+      file: "./dist/index.mjs",
       format: 'esm',
     },
     {
-      file: "./dist/bundle.cjs",
+      file: "./dist/index.cjs",
       format: 'cjs',
     }
 ],

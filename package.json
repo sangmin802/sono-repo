@@ -2,9 +2,11 @@
   "name": "sono-repo",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
+    "lostark:dev": "turbo run dev --filter=lostark-hands-next",
+    "lostark:start": "turbo run start --filter=lostark-hands-next",
+    "lostark:build": "turbo run build --filter=lostark-hands-next",
+    "storybook:dev": "turbo run dev --filter=@sono-repo/ui",
+    "storybook:build": "turbo run build --filter=@sono-repo/ui",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
