@@ -5,13 +5,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "exports": {
-    "./config": "./.prettierrc.js"
-  },
   "devDependencies": {
     "prettier": "^2.8.7"
-  },
-  "scripts": {
-    "setting": "yarn install"
   }
 }

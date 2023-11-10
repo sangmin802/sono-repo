@@ -1,5 +1,4 @@
 {
-  "extends": "@sono-repo/tsconfig/nextjs.json",
-  "include": ["**/*"],
+  "extends": "@sono-repo/tsconfig/base.json",
   "exclude": ["node_modules"]
 }

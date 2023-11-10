@@ -5,9 +5,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "setting": "yarn install"
-  },
   "exports": {
     ".": "./.eslintrc.js",
     "./tailwindcss": "./.tailwindcss.eslintrc.js"

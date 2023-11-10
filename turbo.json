@@ -2,13 +2,20 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
   "pipeline": {
-    "setting": {
-      "dependsOn": ["^setting"]
+    "build": {
+      "dependsOn": ["^build"]
     },
-    "storybook:dev": {},
-    "lostark:dev": {},
-    "lostark:start": {},
+    "storybook:dev": {
+      "dependsOn": ["^build"]
+    },
+    "lostark:dev": {
+      "dependsOn": ["^build"]
+    },
+    "lostark:start": {
+      "dependsOn": ["^build"]
+    },
     "lostark:build": {
+      "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     }
   }

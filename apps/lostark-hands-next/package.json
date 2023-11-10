@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "setting": "yarn install",
     "lostark:dev": "next dev",
     "lostark:build": "yarn tsc && next build",
     "lostark:start": "yarn run lostark:build && next start",
@@ -12,12 +11,13 @@
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^8.2.0",
+    "@sono-repo/timer": "workspace:^",
     "@sono-repo/ui": "workspace:*",
     "@sono-repo/util": "workspace:^",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
     "next": "^13.5.2",
-    "react": "^18.2.0",
+    "react": "18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive": "^9.0.2",
     "zod": "^3.21.4"
@@ -26,13 +26,13 @@
     "@sono-repo/prettier-config": "workspace:*",
     "@sono-repo/tsconfig": "workspace:*",
     "@types/node": "^18.15.11",
-    "@types/react": "^18.2.12",
-    "@types/react-dom": "^18.2.5",
+    "@types/react": "18.2.12",
+    "@types/react-dom": "18.2.15",
     "eslint": "^8.38.0",
     "eslint-config-sono-repo": "workspace:^",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "prettier": "^2.8.7",
     "tailwindcss": "^3.3.3",
-    "typescript": "^5.1.6"
+    "typescript": "5.1.3"
   }
 }

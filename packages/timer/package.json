@@ -1,0 +1,33 @@
+{
+  "name": "@sono-repo/timer",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/bundle.mjs",
+      "require": "./dist/bundle.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "yarn tsc --noEmit && rollup --config rollup.config.js"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "15.2.3",
+    "@rollup/plugin-typescript": "11.1.5",
+    "@sono-repo/tsconfig": "workspace:^",
+    "@types/react": "18.2.12",
+    "react": "18.2.0",
+    "rollup": "4.3.0",
+    "typescript": "5.1.3"
+  },
+  "peerDependencies": {
+    "react": "^17 || ^18"
+  }
+}
