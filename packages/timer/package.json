@@ -2,7 +2,7 @@
   "name": "@sono-repo/timer",
   "type": "module",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "license": "MIT",
   "publishConfig": {
     "access": "public"
