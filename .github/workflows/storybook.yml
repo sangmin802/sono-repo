@@ -18,4 +18,4 @@ jobs:
         with:
           workingDir: ./packages/ui
           projectToken: ${{ secrets.CHROMATIC_TOKEN }}
-          buildScriptName: "storybook:build"
+          buildScriptName: "build"

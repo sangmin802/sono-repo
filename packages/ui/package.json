@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build22": "storybook build",
+    "build": "storybook build",
     "lint": "eslint \"**/*.ts*\""
   },
   "exports": {
