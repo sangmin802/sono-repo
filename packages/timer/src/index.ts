@@ -15,17 +15,20 @@ const getTimeUnit = (time: number) => {
 /**
  * Returns the time remaining per second based on the entered end time
  * @param endTime number (getTime)
- * @param resetKey: resetKey
- * @param onCallback must be memoized
+ * @param resetKey create new timer RAF
+ * @param onCallback action after timer ends
+ * @param onWindowFocus on windowFocus
  */
 const useTimer = ({
 	endTime,
 	resetKey,
-	onCallback
+	onCallback,
+	onWindowFocus
 }: {
-	endTime?: number;
+	endTime: number;
 	resetKey?: unknown;
-	onCallback: () => void;
+	onCallback?: () => void;
+	onWindowFocus?: () => void;
 }) => {
 	const [restTime, setRestTime] = useState<number>(0);
 	const frame = useRef(0);
@@ -64,17 +67,17 @@ const useTimer = ({
 		};
 	}, [endTime, stringifyKey, onCallback]);
 
-	const { hour, min, sec } = getTimeUnit(restTime);
-
 	useEffect(() => {
-		window.addEventListener('focus', onCallback);
+		const event = () => onWindowFocus?.();
+
+		window.addEventListener('focus', event);
 
 		return () => {
-			window.removeEventListener('focus', onCallback);
+			window.removeEventListener('focus', event);
 		};
-	}, [onCallback]);
+	}, [onWindowFocus]);
 
-	return { time: restTime, hour, min, sec };
+	return { time: restTime, ...getTimeUnit(restTime) };
 };
 
 export default useTimer;

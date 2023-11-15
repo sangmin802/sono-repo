@@ -24,7 +24,8 @@ const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
 	const timerProps = useTimer({
 		endTime: new Date(firstTime).getTime(),
 		resetKey: baseItem,
-		onCallback: onReFilter
+		onCallback: onReFilter,
+		onWindowFocus: onReFilter
 	});
 
 	return (

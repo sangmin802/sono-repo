@@ -27,7 +27,8 @@ const DailyContentCard = ({
 	const timerProps = useTimer({
 		endTime: new Date(targetTime).getTime(),
 		resetKey: item,
-		onCallback: onResetTime
+		onCallback: onResetTime,
+		onWindowFocus: onResetTime
 	});
 
 	const handleOpenRewardModal = () => {

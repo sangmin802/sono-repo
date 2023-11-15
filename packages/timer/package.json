@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/sangmin802/sono-repo/tree/main/packages/timer",
   "scripts": {
-    "build": "yarn tsc --noEmit && rollup --config rollup.config.js",
+    "build": "yarn tsc && rollup --config rollup.config.js",
     "prepublishOnly": "yarn build"
   },
   "devDependencies": {
