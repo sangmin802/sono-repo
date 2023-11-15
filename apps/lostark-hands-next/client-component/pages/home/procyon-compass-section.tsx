@@ -1,17 +1,17 @@
 'use client';
 
-import cn from 'classnames';
+import useTimer from 'sono-repo-react-timer';
 
-import { convertDateFormat, getTime } from '@sono-repo/util/date';
+import { convertDateFormat } from '@sono-repo/util/date';
 
 import useFilterTimerList from '@/hook/use-filter-timer-list';
-import useTimer from 'sono-repo-react-timer';
 
 import { getValidRewardList } from '@/util/calendar';
 
 import LabelLayout from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
 import ProcyonCompassCard from '@/client-component/pages/home/procyon-compass-card';
+import TimeUnit from '@/client-component/pages/home/time-unit';
 import type { ICalenderContetProps } from '@/client-component/pages/home/types';
 
 const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
@@ -21,7 +21,7 @@ const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
 	const baseItem = timerList[0];
 	const firstTime = baseItem?.time[0];
 
-	const time = useTimer({
+	const timerProps = useTimer({
 		endTime: new Date(firstTime).getTime(),
 		resetKey: baseItem,
 		onCallback: onReFilter
@@ -33,15 +33,7 @@ const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
 			afterLabel={
 				<div className="flex space-x-[12px]">
 					{firstTime && <div>{convertDateFormat(firstTime)}</div>}
-					<div
-						className={cn(
-							time && time < 1000 * 60 * 10
-								? 'text-orange-400'
-								: 'text-gray-400'
-						)}
-					>
-						{time ? getTime(time) : '-'}
-					</div>
+					<TimeUnit {...timerProps} />
 				</div>
 			}
 			empty={{

@@ -2,6 +2,7 @@
   "name": "@sono-repo/prettier-config",
   "version": "0.0.0",
   "license": "MIT",
+  "main": ".prettierrc.js",
   "publishConfig": {
     "access": "public"
   },

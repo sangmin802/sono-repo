@@ -1,16 +1,15 @@
 'use client';
 
-import cn from 'classnames';
 import Image from 'next/image';
+import useTimer from 'sono-repo-react-timer';
 
 import { Chip } from '@sono-repo/ui';
-import { convertDateFormat, getTime } from '@sono-repo/util/date';
-
-import useTimer from 'sono-repo-react-timer';
+import { convertDateFormat } from '@sono-repo/util/date';
 
 import { getValidRewardList } from '@/util/calendar';
 
 import type { TModalItem } from '@/client-component/modal/types';
+import TimeUnit from '@/client-component/pages/home/time-unit';
 import type { TCalendarItem } from '@/client-component/pages/home/types';
 
 interface IDailyContentCardProps {
@@ -25,7 +24,7 @@ const DailyContentCard = ({
 	onOpenModal
 }: IDailyContentCardProps) => {
 	const targetTime = item.time[0];
-	const time = useTimer({
+	const timerProps = useTimer({
 		endTime: new Date(targetTime).getTime(),
 		resetKey: item,
 		onCallback: onResetTime
@@ -43,12 +42,7 @@ const DailyContentCard = ({
 
 	return (
 		<div
-			className={cn(
-				'min-w-0 cursor-pointer overflow-hidden rounded-[4px] [&_div]:text-[12px]',
-				time && time < 1000 * 60 * 10
-					? 'border border-orange-400'
-					: 'border border-[#7f7f7f]'
-			)}
+			className="min-w-0 cursor-pointer overflow-hidden rounded-[4px] border border-[#7f7f7f] [&_div]:text-[12px]"
 			onClick={handleOpenRewardModal}
 		>
 			<div className="truncate bg-gray-700 px-[8px] text-center">
@@ -71,13 +65,7 @@ const DailyContentCard = ({
 				</div>
 				<div className="flex w-full flex-col items-center justify-center">
 					<div className="text-white">{convertDateFormat(targetTime)}</div>
-					<div
-						className={cn(
-							time && time < 1000 * 60 * 10 ? 'text-white' : 'text-gray-400'
-						)}
-					>
-						{time ? getTime(time) : '-'}
-					</div>
+					<TimeUnit {...timerProps} />
 				</div>
 			</div>
 			<div className="truncate bg-gray-700 px-[8px] text-center">
