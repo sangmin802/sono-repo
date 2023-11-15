@@ -1,4 +1,4 @@
 /** @type { import("prettier").Options } */
 module.exports = {
-  ...require('@sono-repo/prettier-config/config'),
+  ...require('@sono-repo/prettier-config'),
 }
