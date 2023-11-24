@@ -1,6 +1,5 @@
 {
-  "extends": "@sono-repo/tsconfig/base.json",
-  "exclude": ["node_modules"],
+  "extends": "@sono-repo/tsconfig",
   "compilerOptions": {
     "outDir": "./dist",
     "declaration": true,

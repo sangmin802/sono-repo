@@ -1,6 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Default",
   "compilerOptions": {
     "jsx": "preserve",
     "composite": false,
@@ -21,6 +20,7 @@
     "noEmit": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
+    "resolveJsonModule": true,
     "lib": ["dom", "dom.iterable", "esnext"]
   }
 }
