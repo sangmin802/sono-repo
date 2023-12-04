@@ -1,4 +1,5 @@
 ## sono-repo-react-timer
+### DO NOT USE IN PRODUCTION MODE
 
 `React` 기반 `NPM` 배포 테스트용 `timer hook`
 
