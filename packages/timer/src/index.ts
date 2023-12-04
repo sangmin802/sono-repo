@@ -32,7 +32,6 @@ const useTimer = ({
 }) => {
 	const [restTime, setRestTime] = useState<number>(0);
 	const frame = useRef(0);
-	const stringifyKey = JSON.stringify(resetKey);
 
 	useEffect(() => {
 		if (!endTime) return;
@@ -65,7 +64,7 @@ const useTimer = ({
 		return () => {
 			cancelAnimationFrame(frame.current);
 		};
-	}, [endTime, stringifyKey, onCallback]);
+	}, [endTime, resetKey, onCallback]);
 
 	useEffect(() => {
 		const event = () => onWindowFocus?.();
