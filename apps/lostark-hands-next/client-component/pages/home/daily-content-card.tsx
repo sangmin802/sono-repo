@@ -6,6 +6,8 @@ import useTimer from 'sono-repo-react-timer';
 import { Chip } from '@sono-repo/ui';
 import { convertDateFormat } from '@sono-repo/util/date';
 
+import useNotification from '@/hook/use-notification';
+
 import { getValidRewardList } from '@/util/calendar';
 
 import type { TModalItem } from '@/client-component/modal/types';
@@ -31,6 +33,8 @@ const DailyContentCard = ({
 		onWindowFocus: onResetTime
 	});
 
+	const formattedTime = convertDateFormat(targetTime);
+
 	const handleOpenRewardModal = () => {
 		onOpenModal({
 			name: 'itemListModal',
@@ -40,6 +44,11 @@ const DailyContentCard = ({
 			}
 		});
 	};
+
+	useNotification({
+		title: `${item.type}: ${formattedTime}`,
+		body: item.name
+	});
 
 	return (
 		<div
@@ -65,7 +74,7 @@ const DailyContentCard = ({
 					/>
 				</div>
 				<div className="flex w-full flex-col items-center justify-center">
-					<div className="text-white">{convertDateFormat(targetTime)}</div>
+					<div className="text-white">{formattedTime}</div>
 					<TimeUnit {...timerProps} />
 				</div>
 			</div>

@@ -5,6 +5,7 @@ import useTimer from 'sono-repo-react-timer';
 import { convertDateFormat } from '@sono-repo/util/date';
 
 import useFilterTimerList from '@/hook/use-filter-timer-list';
+import useNotification from '@/hook/use-notification';
 
 import { getValidRewardList } from '@/util/calendar';
 
@@ -21,6 +22,8 @@ const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
 	const baseItem = timerList[0];
 	const firstTime = baseItem?.time[0];
 
+	const formattedTime = convertDateFormat(firstTime);
+
 	const timerProps = useTimer({
 		endTime: new Date(firstTime).getTime(),
 		resetKey: baseItem,
@@ -28,12 +31,19 @@ const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
 		onWindowFocus: onReFilter
 	});
 
+	useNotification({
+		title: `${title}: ${formattedTime}`,
+		body: timerList.length
+			? timerList.map(({ name }) => name).join(',')
+			: undefined
+	});
+
 	return (
 		<LabelLayout
 			label={title}
 			afterLabel={
 				<div className="flex space-x-[12px]">
-					{firstTime && <div>{convertDateFormat(firstTime)}</div>}
+					{firstTime && <div>{formattedTime}</div>}
 					<TimeUnit {...timerProps} />
 				</div>
 			}

@@ -11,6 +11,7 @@ const withPWA = require('@ducanh2912/next-pwa').default();
  * 13.4부터 appDir이 기본
  */
 module.exports = withPWA({
+	reactStrictMode: false,
 	images: {
 		domains: ['cdn-lostark.game.onstove.com', 'img.lostark.co.kr']
 	},

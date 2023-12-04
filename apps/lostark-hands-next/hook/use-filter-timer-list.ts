@@ -6,15 +6,15 @@ const useFilterTimerList = <T extends { time: string[] }>(list: T[]) => {
 	const [timerList, setTimerList] = useState(list);
 
 	const onReFilter = useCallback(() => {
-		setTimerList((prevList) =>
-			prevList.map((item) => ({
+		setTimerList((prevList) => {
+			return prevList.map((item) => ({
 				...item,
 				time: item.time.filter(
 					(startTime) =>
 						getDateDiff(new Date(startTime), new Date(), 'minutes').minutes > 0
 				)
-			}))
-		);
+			}));
+		});
 	}, []);
 
 	const filteredTimerList = timerList
