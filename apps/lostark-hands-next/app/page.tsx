@@ -5,6 +5,7 @@ import { getEventApi, getNoticeApi } from '@/service/news';
 import DailyContentSectionList from '@/client-component/pages/home/daily-content-section-list';
 import Event from '@/client-component/pages/home/event';
 import Notice from '@/client-component/pages/home/notice';
+import NotificationButton from '@/client-component/pages/home/notification-button';
 import ProcyonCompassSectionList from '@/client-component/pages/home/procyon-compass-section-list';
 
 /**
@@ -24,11 +25,12 @@ const Page = async () => {
 	const { procyon, daily } = calendarSelector(calendarData);
 
 	return (
-		<div className="space-y-[16px] px-[16px]">
+		<div className="space-y-[16px] px-[16px] pb-[16px]">
 			<ProcyonCompassSectionList data={Object.values(procyon)} />
 			<Event initData={eventData ?? []} />
 			<Notice initData={[...(noticeData ?? []), ...(storeData ?? [])]} />
 			<DailyContentSectionList data={Object.values(daily)} />
+			<NotificationButton />
 		</div>
 	);
 };
