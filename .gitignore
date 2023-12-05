@@ -47,10 +47,15 @@ install-state.gz
 !.yarn/sdks
 !.yarn/versions
 
-
 # next-pwa
 **/public/workbox**
 **/public/sw**
 **/public/worker**
 **/public/fallback**
 **/public/precache**
+
+# rollup
+.rollup.cache
+
+# tsconfig
+tsconfig.tsbuildinfo

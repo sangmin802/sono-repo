@@ -1,5 +1,5 @@
 {
-  "extends": "@sono-repo/tsconfig/next",
+  "extends": "@sono-repo/tsconfig",
   "include": ["**/*", ".storybook/*.tsx"],
   "exclude": ["dist", "build"]
 }
