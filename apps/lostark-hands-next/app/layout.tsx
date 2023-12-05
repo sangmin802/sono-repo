@@ -6,7 +6,7 @@ import Modal from '@/client-component/modal';
 import ModalProvider from '@/client-component/modal/provider';
 import Header from '@/client-component/pages/header';
 
-import '@/style/global.css';
+import '@/style/main.css';
 
 const Layout = ({ children }: PropsWithChildren) => {
 	return (
