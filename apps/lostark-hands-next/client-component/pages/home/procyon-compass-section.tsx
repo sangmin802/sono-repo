@@ -53,15 +53,18 @@ const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
 			}}
 		>
 			<div className="hide-scrollbar mb-[-12px] max-h-[126px] space-y-[4px] overflow-y-scroll pb-[12px]">
-				{timerList.map((item) => (
-					<ProcyonCompassCard
-						key={item.name}
-						{...item}
-						showImg={title === '모험 섬'}
-						rewardList={getValidRewardList(item.rewardItems, firstTime)}
-						onOpenModal={onOpenModal}
-					/>
-				))}
+				{timerList.map(
+					(item) =>
+						item.time[0] === firstTime && (
+							<ProcyonCompassCard
+								key={item.name}
+								{...item}
+								showImg={title === '모험 섬'}
+								rewardList={getValidRewardList(item.rewardItems, firstTime)}
+								onOpenModal={onOpenModal}
+							/>
+						)
+				)}
 			</div>
 		</LabelLayout>
 	);
