@@ -51,7 +51,7 @@ const Header = () => {
 					onSubmit={handleMoveUserInfo}
 				>
 					<Input
-						className="w-[260px] bg-transparent font-semibold text-white"
+						className="w-[260px] bg-transparent font-semibold"
 						placeholder="유저명을 검색해주세요."
 						onChange={setSearchQuery}
 					/>

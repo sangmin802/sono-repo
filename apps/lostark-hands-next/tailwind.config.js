@@ -1,7 +1,15 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable max-len */
+const path = require('path');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+	content: [
+		path.join(path.dirname(require.resolve('@sono-repo/ui')), '**/*.{cjs,mjs}'),
+		'app/**/*.{js,ts,jsx,tsx}',
+		'client-component/**/*.{js,ts,jsx,tsx}',
+		'constant/**/*.{tsx,jsx,ts,js}'
+	],
 	presets: [require('@sono-repo/ui/config')],
 	theme: {
 		extend: {

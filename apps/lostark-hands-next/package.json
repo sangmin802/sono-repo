@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@sono-repo/ui": "workspace:*",
+    "@sono-repo/ui": "workspace:^",
     "@sono-repo/util": "workspace:^",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",

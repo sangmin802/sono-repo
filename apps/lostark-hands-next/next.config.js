@@ -18,6 +18,5 @@ module.exports = withPWA({
 	reactStrictMode: true,
 	images: {
 		domains: ['cdn-lostark.game.onstove.com', 'img.lostark.co.kr']
-	},
-	transpilePackages: ['@sono-repo/ui', '@sono-repo/util']
+	}
 });
