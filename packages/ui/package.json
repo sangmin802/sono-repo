@@ -60,7 +60,8 @@
   },
   "peerDependencies": {
     "react": "^17 || ^18",
-    "react-dom": "^17 || ^18"
+    "react-dom": "^17 || ^18",
+    "tailwindcss": "^3.3.3"
   },
   "readme": "ERROR: No README data found!",
   "_id": "@sono-repo/ui@0.0.0"

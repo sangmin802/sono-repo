@@ -13,7 +13,7 @@ const Input = ({ className, onChange, ...props }: IInputProps) => {
 
 	return (
 		<input
-			className={cn('rounded-[6px] p-[4px] text-black outline-none', className)}
+			className={cn('rounded-[6px] p-[4px] outline-none', className)}
 			spellCheck="false"
 			onChange={handleChangeInput}
 			{...props}
