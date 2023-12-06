@@ -8,7 +8,7 @@ const Button = ({
 }: ButtonHTMLAttributes<HTMLButtonElement> & { children: ReactNode }) => {
 	return (
 		<button
-			className={cn('flex items-center justify-center outline-none', className)}
+			className={cn('flex items-center justify-center', className)}
 			{...props}
 		>
 			{children}
