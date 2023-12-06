@@ -4505,7 +4505,7 @@ __metadata:
     eslint: ^8.38.0
     eslint-config-sono-repo: "workspace:^"
     eslint-plugin-storybook: ^0.6.13
-    postcss: ^8.4.22
+    postcss: 8.4.22
     react: ^18.2.0
     react-dom: ^18.2.0
     storybook: ^7.4.2
@@ -12401,7 +12401,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.22, postcss@npm:^8.4.22":
+"postcss@npm:8.4.22":
   version: 8.4.22
   resolution: "postcss@npm:8.4.22"
   dependencies:
