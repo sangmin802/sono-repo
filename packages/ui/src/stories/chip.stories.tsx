@@ -3,9 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Chip } from '../index';
 
-type TCustonChipProps = ComponentProps<typeof Chip> & { fontColor?: string };
+type TChipProps = ComponentProps<typeof Chip> & { fontColor?: string };
 
-type Story = StoryObj<TCustonChipProps>;
+type Story = StoryObj<TChipProps>;
 
 /**
  * ### Chip Component
@@ -38,7 +38,7 @@ const meta = {
 			{...args}
 		/>
 	)
-} satisfies Meta<TCustonChipProps>;
+} satisfies Meta<TChipProps>;
 
 export const Primary = {
 	args: {

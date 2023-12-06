@@ -3,9 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Input } from '../index';
 
-type TCustonInputProps = ComponentProps<typeof Input>;
+type TInputProps = ComponentProps<typeof Input>;
 
-type Story = StoryObj<TCustonInputProps>;
+type Story = StoryObj<TInputProps>;
 
 /**
  * ### Input
@@ -15,7 +15,7 @@ const meta = {
 	tags: ['autodocs'],
 	component: Input,
 	render: ({ ...args }) => <Input {...args} />
-} satisfies Meta<TCustonInputProps>;
+} satisfies Meta<TInputProps>;
 
 export const Default = {
 	args: {
