@@ -15,12 +15,17 @@ export default defineConfig({
 	},
 	build: {
 		lib: {
-			entry: path.resolve(__dirname, 'src/index.ts'),
+			entry: {
+				/**
+				 * @THINK build entry를 분리하여, exports field에서 path로 구분해줄 수 있으면 좋지 않을까
+				 */
+				index: path.resolve(__dirname, 'src/index.ts'),
+				'fast-food/index': path.resolve(__dirname, 'src/fast-food/index.ts'),
+				'fruit/index': path.resolve(__dirname, 'src/fruit/index.ts')
+			},
 			formats: ['cjs', 'es'],
-			fileName: (format) => {
-				if (format === 'cjs') return 'index.cjs';
-				return 'index.mjs';
-			}
+			fileName: (format, entry) =>
+				`${entry}.${format === 'es' ? 'mjs' : format}`
 		},
 		rollupOptions: {
 			external: ['react', 'react-dom', 'tailwindcss']

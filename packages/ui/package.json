@@ -20,6 +20,16 @@
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     },
+    "./fruit": {
+      "require": "./dist/fruit/index.cjs",
+      "import": "./dist/fruit/index.mjs",
+      "types": "./dist/fruit/index.d.ts"
+    },
+    "./fast-food": {
+      "require": "./dist/fast-food/index.cjs",
+      "import": "./dist/fast-food/index.mjs",
+      "types": "./dist/fast-food/index.d.ts"
+    },
     "./styles.css": "./dist/styles.css",
     "./config": "./tailwind.config.js"
   },
