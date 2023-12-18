@@ -30,7 +30,6 @@
       "import": "./dist/fast-food/index.mjs",
       "types": "./dist/fast-food/index.d.ts"
     },
-    "./styles.css": "./dist/styles.css",
     "./config": "./tailwind.config.js"
   },
   "files": [
