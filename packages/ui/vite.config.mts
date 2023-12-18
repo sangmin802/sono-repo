@@ -7,7 +7,8 @@ export default defineConfig({
 	plugins: [
 		react(),
 		dts({
-			exclude: ['vite.config.ts', '.storybook/**/*']
+			outDir: 'dist',
+			exclude: ['vite.config.mts', '.storybook/**/*', 'src/stories/**/*']
 		})
 	],
 	resolve: {
