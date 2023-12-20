@@ -29,6 +29,9 @@ const ENGRAVE_IMGAE: Record<string, string> = {
 	// 스트라이커
 	일격필살: 'Ability/Ability_230.png',
 	오의난무: 'Ability/Ability_229.png',
+	// 브레이커
+	'수라의 길': 'Ability/Ability_278.png',
+	권왕파천무: 'Ability/Ability_277.png',
 	// 데빌헌터
 	'강화 무기': 'Buff/Buff_33.png',
 	핸드거너: 'Buff/Buff_124.png',
