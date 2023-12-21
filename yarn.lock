@@ -4488,6 +4488,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sono-repo/ui@workspace:packages/ui"
   dependencies:
+    "@rollup/plugin-node-resolve": 15.2.3
     "@sono-repo/prettier-config": "workspace:*"
     "@storybook/addon-essentials": ^7.4.2
     "@storybook/addon-interactions": ^7.4.2

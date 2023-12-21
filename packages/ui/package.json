@@ -40,6 +40,7 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "15.2.3",
     "@sono-repo/prettier-config": "workspace:*",
     "@storybook/addon-essentials": "^7.4.2",
     "@storybook/addon-interactions": "^7.4.2",
