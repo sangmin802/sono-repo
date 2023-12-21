@@ -1,0 +1,51 @@
+name-template: 'v$RESOLVED_VERSION 🌈'
+tag-template: 'v$RESOLVED_VERSION'
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'feature'
+      - 'design'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'fix'
+      - 'bug'
+  - title: '🧰 Maintenance'
+    label: 
+      - 'chore'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: patch
+template: | # 릴리즈 내용 
+  ## Changes (v$RESOLVED_VERSION)
+
+  $CHANGES
+autolabeler: # PR에 자동으로 label 붙혀주는 규칙 
+  - label: 'chore'
+    branch:
+      - '/chore\/.+/'
+    title:
+      - '/chore/i'
+  - label: 'bug'
+    branch:
+      - '/fix\/.+/'
+    title:
+      - '/fix/i'
+      - '/hotfix/i'
+      - '/bug/i'
+  - label: 'feature'
+    title:
+      - '/feature/i'
+      - '/feat/i'
+    branch:
+      - '/feature\/.+/'
+      - '/feat\/.+/'
