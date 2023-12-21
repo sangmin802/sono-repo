@@ -5,6 +5,7 @@ import Image from 'next/image';
 import type { IEffect } from '@/service/armories/types';
 
 import LabelLayout from '@/client-component/label-layout';
+import { useModalDispatch } from '@/client-component/modal/provider';
 
 import { CDN_URL } from '@/constant';
 import ENGRAVE_IMGAE from '@/constant/engrave';
@@ -24,11 +25,28 @@ const engravePointColor: Record<number, string> = {
 };
 
 const Engraves = ({ data }: IEngravesProps) => {
+	const { onOpenModal } = useModalDispatch();
+
+	const handleOpenModal = () => {
+		if (!data) return;
+
+		onOpenModal({
+			name: 'descListModal',
+			props: {
+				title: '각인',
+				list: data?.map(({ name, description }) => ({
+					title: name,
+					desc: description
+				}))
+			}
+		});
+	};
 	return (
 		<LabelLayout
 			label="각인"
 			as="aside"
 			empty={{ status: !data, fallback: '장착된 각인이 없습니다.' }}
+			onClick={handleOpenModal}
 		>
 			<div className="space-y-[6px]">
 				{data?.map(({ name, point }) => (
