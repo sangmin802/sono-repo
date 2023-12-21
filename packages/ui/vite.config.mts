@@ -1,3 +1,4 @@
+import resolve from '@rollup/plugin-node-resolve';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
@@ -14,6 +15,9 @@ export default defineConfig({
 	resolve: {
 		alias: { '@': path.resolve(__dirname, './src') }
 	},
+	define: {
+		outerEnv: 'process.env'
+	},
 	build: {
 		lib: {
 			entry: {
@@ -29,7 +33,8 @@ export default defineConfig({
 				`${entry}.${format === 'es' ? 'mjs' : format}`
 		},
 		rollupOptions: {
-			external: ['react', 'react-dom', 'tailwindcss']
+			external: ['react', 'react-dom', 'tailwindcss'],
+			plugins: [resolve()]
 		}
 	}
 });
