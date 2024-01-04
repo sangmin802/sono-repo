@@ -3,11 +3,17 @@
 import cn from 'classnames';
 import Image from 'next/image';
 
-import { Chip } from '@sono-repo/ui';
-
 import type { IRewardItem } from '@/service/game-contents/types';
 
 import type { TModalItem } from '@/client-component/modal/types';
+
+import {
+	CARD_EXP_ICON_URL,
+	CARD_PACK_ICON_URL,
+	CDN_URL,
+	GOLD_ICON_URL,
+	SEA_COIN_ICON_URL
+} from '@/constant';
 
 interface IProcyonCompassCardProps {
 	icon: string;
@@ -19,10 +25,10 @@ interface IProcyonCompassCardProps {
 }
 
 const uniqueReward: Record<string, string> = {
-	'전설 ~ 고급 카드 팩 III': '카드 팩',
-	골드: '골드',
-	'대양의 주화 상자': '주화 상자',
-	'영혼의 잎사귀': '카드 경험치'
+	'전설 ~ 고급 카드 팩 III': CARD_PACK_ICON_URL,
+	골드: GOLD_ICON_URL,
+	'대양의 주화 상자': SEA_COIN_ICON_URL,
+	'영혼의 잎사귀': CARD_EXP_ICON_URL
 };
 
 const ProcyonCompassCard = ({
@@ -68,17 +74,18 @@ const ProcyonCompassCard = ({
 				{name.replaceAll(' ', '') !== desc.replaceAll(' ', '') && (
 					<div className="text-gray-400">{desc}</div>
 				)}
-				<div className="flex space-x-[4px]">
+				<div className="flex shrink-0 space-x-[4px]">
 					{rewardList.map(
 						({ name }) =>
 							uniqueReward[name] && (
-								<Chip
-									className={cn({ '!bg-yellow-600': name === '골드' })}
+								<Image
 									key={name}
-									type="info"
-								>
-									{uniqueReward[name]}
-								</Chip>
+									className="h-[16px] w-[16px] rounded-[4px]"
+									width={16}
+									height={16}
+									src={`${CDN_URL}/${uniqueReward[name]}`}
+									alt={name}
+								/>
 							)
 					)}
 				</div>
