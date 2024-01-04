@@ -36,3 +36,8 @@ export const GRADE_TEXT_COLOR: Record<TGrade, string> = {
 	고대: 'text-ancient',
 	에스더: 'text-esther'
 };
+
+export const GOLD_ICON_URL = 'efui_iconatlas/money/money_4.png';
+export const CARD_PACK_ICON_URL = 'efui_iconatlas/use/use_10_236.png';
+export const CARD_EXP_ICON_URL = 'efui_iconatlas/use/use_10_222.png';
+export const SEA_COIN_ICON_URL = 'efui_iconatlas/use/use_2_8.png';
