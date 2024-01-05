@@ -26,6 +26,10 @@ const config: StorybookConfig = {
 	},
 	docs: {
 		autodocs: 'tag'
-	}
+	},
+	viteFinal: (config) => ({
+		...config,
+		define: { 'process.env': {} }
+	})
 };
 export default config;
