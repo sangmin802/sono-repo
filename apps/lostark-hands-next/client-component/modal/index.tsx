@@ -22,6 +22,8 @@ const Modal = () => {
 				return <Dynamic.ARMORY_TOOLTIP_MODAL {...modalItem.props} />;
 			case 'armoryTooltipListModal':
 				return <Dynamic.ARMORY_TOOLTIP_LIST_MODAL {...modalItem.props} />;
+			case 'filterModal':
+				return <Dynamic.FILTER_MODAL {...modalItem.props} />;
 			default:
 				return null;
 		}

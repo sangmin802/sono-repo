@@ -1,4 +1,4 @@
-import type { IObj, TArr, ToCamelKey } from '@/type';
+import type { IObj, TArr, ToCamelKey, ToPascalKey } from '@/type';
 
 /**
  * @description Change all pascal keys in the array to camel format
@@ -41,6 +41,20 @@ export const pascalToCamel = <T extends IObj>(
 
 		// object
 		if (isObject) return { ...prev, [newKey]: pascalToCamel(val) };
+
+		return { ...prev, [newKey]: val };
+	}, Object());
+};
+
+/**
+ * @description Change all pascal keys in the object to camel format
+ * use in api request params
+ */
+export const camelToPascal = <T extends IObj>(val: T): ToPascalKey<T> => {
+	const entries = Object.entries(val);
+
+	return entries.reduce<ToPascalKey<T>>((prev, [key, val]) => {
+		const newKey = key.replace(/^[a-z]/, (char) => char.toUpperCase());
 
 		return { ...prev, [newKey]: val };
 	}, Object());

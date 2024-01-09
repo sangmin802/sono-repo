@@ -62,7 +62,7 @@ const Accordion = ({
 				)}
 				onClick={handleClickSummary}
 			>
-				<div className="text-inherit">{summary.children}</div>
+				<div className="text-[16px] text-inherit">{summary.children}</div>
 				<Arrow
 					className={cn('duration-200', { 'rotate-180': open })}
 					fill={arrowMode === 'WHITE' ? '#efefef' : '#222'}
@@ -73,7 +73,7 @@ const Accordion = ({
 				style={{ maxHeight: open ? height : 0 }}
 			>
 				<div
-					className={cn('px-[4px] py-[8px]', details.className)}
+					className={cn('px-[6px] py-[10px]', details.className)}
 					ref={containerRef}
 				>
 					{details.children}

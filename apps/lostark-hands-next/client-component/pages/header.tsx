@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import { Input } from '@sono-repo/ui';
+import { Button, Input } from '@sono-repo/ui';
 
 import ShadowStickyElement from '@/client-component/sticky-element';
 
@@ -22,6 +22,10 @@ const Header = () => {
 		e.preventDefault();
 
 		router.push(`/user-info/${searchQuery}`);
+	};
+
+	const handleMoveMarkets = () => {
+		router.push('/markets');
 	};
 
 	return (
@@ -46,23 +50,26 @@ const Header = () => {
 						로아 핸즈
 					</div>
 				</div>
-				<form
-					className="flex w-[280px] items-center border-b border-white"
-					onSubmit={handleMoveUserInfo}
-				>
-					<Input
-						className="w-[260px] bg-transparent font-semibold"
-						placeholder="유저명을 검색해주세요."
-						onChange={setSearchQuery}
-					/>
-					<Image
-						className="inline-block cursor-pointer"
-						width={24}
-						height={24}
-						src="/icons/search/ic_search_16_gray60_ver01.svg"
-						alt="searchIcon"
-					/>
-				</form>
+				<div className="flex items-end space-x-[12px]">
+					<Button onClick={handleMoveMarkets}>거래소</Button>
+					<form
+						className="flex max-w-[280px] grow items-center border-b border-white"
+						onSubmit={handleMoveUserInfo}
+					>
+						<Input
+							className="grow bg-transparent font-semibold"
+							placeholder="유저명을 검색해주세요."
+							onChange={setSearchQuery}
+						/>
+						<Image
+							className="inline-block cursor-pointer"
+							width={24}
+							height={24}
+							src="/icons/search/ic_search_16_gray60_ver01.svg"
+							alt="searchIcon"
+						/>
+					</form>
+				</div>
 			</div>
 		</ShadowStickyElement>
 	);

@@ -6,11 +6,11 @@ import Image from 'next/image';
 import type { IRewardItem } from '@/service/game-contents/types';
 
 import type { TModalItem } from '@/client-component/modal/types';
+import RewardIcon from '@/client-component/reward-icon';
 
 import {
 	CARD_EXP_ICON_URL,
 	CARD_PACK_ICON_URL,
-	CDN_URL,
 	GOLD_ICON_URL,
 	SEA_COIN_ICON_URL
 } from '@/constant';
@@ -78,13 +78,10 @@ const ProcyonCompassCard = ({
 					{rewardList.map(
 						({ name }) =>
 							uniqueReward[name] && (
-								<Image
+								<RewardIcon
 									key={name}
-									className="h-[16px] w-[16px] rounded-[4px]"
-									width={16}
-									height={16}
-									src={`${CDN_URL}/${uniqueReward[name]}`}
-									alt={name}
+									name={name}
+									path={uniqueReward[name]}
 								/>
 							)
 					)}
