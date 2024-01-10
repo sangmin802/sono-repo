@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "yarn tsc && vite build",
+    "build": "pnpm tsc && vite build",
     "build:storybook": "storybook build",
     "lint": "eslint \"**/*.ts*\""
   },
@@ -39,6 +39,7 @@
     "@popperjs/core": "^2.11.8",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@sono-repo/prettier-config": "workspace:*",
+    "@sono-repo/tsconfig": "workspace:^",
     "@storybook/addon-essentials": "^7.4.2",
     "@storybook/addon-interactions": "^7.4.2",
     "@storybook/addon-links": "^7.4.2",
@@ -47,8 +48,9 @@
     "@storybook/react": "^7.4.2",
     "@storybook/react-vite": "^7.4.2",
     "@storybook/testing-library": "^0.2.1",
-    "@types/react": "^18.0.35",
-    "@types/react-dom": "^18.0.11",
+    "@types/react": "18.2.12",
+    "@types/react-dom": "18.2.15",
+    "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.14",
     "chromatic": "^7.2.0",
     "classnames": "^2.5.1",

@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "yarn tsc && next build",
-    "start": "yarn run build && next start",
+    "build": "pnpm tsc && next build",
+    "start": "pnpm run build && next start",
     "lint": "next lint"
   },
   "dependencies": {
