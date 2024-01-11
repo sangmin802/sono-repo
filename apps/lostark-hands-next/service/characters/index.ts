@@ -14,8 +14,8 @@ export const getSilblingsInfoApi = async (
 	(
 		await axiosInstance
 			.get<ToPascalKey<ICharacterInfo>[] | null>(`characters/${name}/siblings`)
-			.then((resolve) => ({
+			.then(({ data, ...resolve }) => ({
 				...resolve,
-				data: pascalToCamelInArray(resolve.data)
+				data: data ? pascalToCamelInArray(data) : data
 			}))
 	).data;

@@ -4,10 +4,8 @@ import type { IObj, TArr, ToCamelKey, ToPascalKey } from '@/type';
  * @description Change all pascal keys in the array to camel format
  */
 export const pascalToCamelInArray = <T extends TArr>(
-	arr: T | null
-): ToCamelKey<T>[number][] | null => {
-	if (!arr) return arr;
-
+	arr: T
+): ToCamelKey<T>[number][] => {
 	return arr.map((val) => {
 		const isObject = typeof val === 'object' && val;
 
@@ -24,11 +22,7 @@ export const pascalToCamelInArray = <T extends TArr>(
 /**
  * @description Change all pascal keys in the object to camel format
  */
-export const pascalToCamel = <T extends IObj>(
-	val: T | null
-): ToCamelKey<T> | null => {
-	if (!val) return val;
-
+export const pascalToCamel = <T extends IObj>(val: T): ToCamelKey<T> => {
 	const entries = Object.entries(val);
 
 	return entries.reduce<ToCamelKey<T>>((prev, [key, val]) => {
