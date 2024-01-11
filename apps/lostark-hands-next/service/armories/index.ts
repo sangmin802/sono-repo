@@ -24,9 +24,9 @@ export const getArmoriesInfoApi = async (
 	(
 		await axiosInstance
 			.get<ToPascalKey<IArmoriesInfo> | null>(`armories/characters/${name}`)
-			.then((resolve) => ({
+			.then(({ data, ...resolve }) => ({
 				...resolve,
-				data: pascalToCamel(resolve.data)
+				data: data ? pascalToCamel(data) : data
 			}))
 	).data;
 
@@ -41,9 +41,9 @@ export const getProfileInfoApi = async (
 			.get<ToPascalKey<IArmoryProfile> | null>(
 				`armories/characters/${name}/profiles`
 			)
-			.then((resolve) => ({
+			.then(({ data, ...resolve }) => ({
 				...resolve,
-				data: pascalToCamel(resolve.data)
+				data: data ? pascalToCamel(data) : data
 			}))
 	).data;
 
@@ -58,9 +58,9 @@ export const getEngravesInfoApi = async (
 			.get<ToPascalKey<IArmoryEngraving> | null>(
 				`armories/characters/${name}/engravings`
 			)
-			.then((resolve) => ({
+			.then(({ data, ...resolve }) => ({
 				...resolve,
-				data: pascalToCamel(resolve.data)
+				data: data ? pascalToCamel(data) : data
 			}))
 	).data;
 
@@ -75,9 +75,9 @@ export const getEquipmentApi = async (
 			.get<ToPascalKey<IArmoryEquipment>[] | null>(
 				`armories/characters/${name}/equipment`
 			)
-			.then((resolve) => ({
+			.then(({ data, ...resolve }) => ({
 				...resolve,
-				data: pascalToCamelInArray(resolve.data)
+				data: data ? pascalToCamelInArray(data) : data
 			}))
 	).data;
 
@@ -88,9 +88,9 @@ export const getCardApi = async (name: string): Promise<IArmoryCard | null> =>
 	(
 		await axiosInstance
 			.get<ToPascalKey<IArmoryCard> | null>(`armories/characters/${name}/cards`)
-			.then((resolve) => ({
+			.then(({ data, ...resolve }) => ({
 				...resolve,
-				data: pascalToCamel(resolve.data)
+				data: data ? pascalToCamel(data) : data
 			}))
 	).data;
 
@@ -105,9 +105,9 @@ export const getSkillApi = async (
 			.get<ToPascalKey<IArmorySkill>[] | null>(
 				`armories/characters/${name}/combat-skills`
 			)
-			.then((resolve) => ({
+			.then(({ data, ...resolve }) => ({
 				...resolve,
-				data: pascalToCamelInArray(resolve.data)
+				data: data ? pascalToCamelInArray(data) : data
 			}))
 	).data;
 
@@ -118,9 +118,9 @@ export const getGemApi = async (name: string): Promise<IArmoryGem | null> =>
 	(
 		await axiosInstance
 			.get<ToPascalKey<IArmoryGem> | null>(`armories/characters/${name}/gems`)
-			.then((resolve) => ({
+			.then(({ data, ...resolve }) => ({
 				...resolve,
-				data: pascalToCamel(resolve.data)
+				data: data ? pascalToCamel(data) : data
 			}))
 	).data;
 

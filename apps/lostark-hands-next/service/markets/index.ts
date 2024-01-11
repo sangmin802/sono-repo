@@ -16,9 +16,9 @@ export const getOptionsApi = async (): Promise<IOptions | null> =>
 	(
 		await axiosInstance
 			.get<ToPascalKey<IOptions> | null>('/markets/options')
-			.then((resolve) => ({
+			.then(({ data, ...resolve }) => ({
 				...resolve,
-				data: pascalToCamel(resolve.data)
+				data: data ? pascalToCamel(data) : data
 			}))
 	).data;
 
@@ -35,9 +35,6 @@ export const getItemListApi = async (
 			})
 			.then((resolve) => ({
 				...resolve,
-				/**
-				 * @todo pascalToCamel 내에서 null 반환식 제거하고, 외부에서 처리하도록 변경하기
-				 */
-				data: pascalToCamel(resolve.data) as IResponseItemList
+				data: pascalToCamel(resolve.data)
 			}))
 	).data;

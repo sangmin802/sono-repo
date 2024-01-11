@@ -23,7 +23,7 @@ const Markets = ({ options }: IMarketsProps) => {
 	return (
 		<div>
 			{isClientRendered && (
-				<Suspense fallback={null}>
+				<Suspense>
 					<List filter={filter} />
 				</Suspense>
 			)}
