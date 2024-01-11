@@ -14,5 +14,8 @@ export default {
 	),
 	ARMORY_TOOLTIP_LIST_MODAL: dynamic<IModalItemProps['armoryTooltipListModal']>(
 		() => import('@/client-component/modal/item/armory-tooltip-list-modal')
+	),
+	FILTER_MODAL: dynamic<IModalItemProps['filterModal']>(
+		() => import('@/client-component/modal/item/filter-modal')
 	)
 };

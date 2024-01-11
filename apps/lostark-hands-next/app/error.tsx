@@ -21,7 +21,7 @@ const Error = ({ reset }: IErrorProps) => {
 			<div>로스트아크 서비스 점검 중 입니다.</div>
 			<div>점검 종료 후 재시도해주세요.</div>
 			<Button
-				className="mt-[20px]"
+				className="mx-auto mt-[20px] rounded-[4px] bg-main-40 px-[6px] py-[4px]"
 				onClick={reset}
 			>
 				재시도

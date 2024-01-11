@@ -1,5 +1,10 @@
 import type { GRADE } from '@/constant';
 
+export interface ICode {
+	code: number;
+	codeName: string;
+}
+
 export type TGrade = (typeof GRADE)[keyof typeof GRADE];
 
 export type TPrimitives = string | number | boolean | null | undefined;
