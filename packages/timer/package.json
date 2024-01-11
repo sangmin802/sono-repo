@@ -1,6 +1,6 @@
 {
   "name": "sono-repo-react-timer",
-  "version": "0.2.15",
+  "version": "0.2.18",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/sangmin802/sono-repo/tree/main/packages/timer",
   "scripts": {
-    "build": "yarn tsc && rollup --config rollup.config.js",
-    "prepublishOnly": "yarn build"
+    "build": "pnpm tsc && rollup --config rollup.config.js",
+    "prepublishOnly": "pnpm build"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "25.0.7",

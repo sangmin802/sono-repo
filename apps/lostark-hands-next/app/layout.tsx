@@ -7,6 +7,7 @@ import ModalProvider from '@/client-component/modal/provider';
 import Header from '@/client-component/pages/header';
 
 import '@/style/main.css';
+import ReactQueryProvider from '@/provider/react-query-provider';
 
 const Layout = ({ children }: PropsWithChildren) => {
 	return (
@@ -22,11 +23,13 @@ const Layout = ({ children }: PropsWithChildren) => {
 			/>
 			<Head />
 			<body className="hide-scrollbar bg-main-10">
-				<ModalProvider>
-					<Modal />
-					<Header />
-					<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
-				</ModalProvider>
+				<ReactQueryProvider>
+					<ModalProvider>
+						<Modal />
+						<Header />
+						<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
+					</ModalProvider>
+				</ReactQueryProvider>
 			</body>
 		</html>
 	);

@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "yarn tsc && next build",
-    "start": "yarn run build && next start",
+    "build": "pnpm tsc && next build",
+    "start": "pnpm run build && next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@sono-repo/ui": "workspace:^",
     "@sono-repo/util": "workspace:^",
+    "@tanstack/react-query": "^5.17.9",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
     "next": "^14.0.3",
@@ -24,6 +25,7 @@
     "@ducanh2912/next-pwa": "9.7.2",
     "@sono-repo/prettier-config": "workspace:*",
     "@sono-repo/tsconfig": "workspace:*",
+    "@tanstack/eslint-plugin-query": "^5.17.7",
     "@types/node": "^18.15.11",
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.15",

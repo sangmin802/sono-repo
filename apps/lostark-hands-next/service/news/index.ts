@@ -17,9 +17,9 @@ export const getNoticeApi = async (type?: string): Promise<INotice[] | null> =>
 					type
 				}
 			})
-			.then((resolve) => ({
+			.then(({ data, ...resolve }) => ({
 				...resolve,
-				data: pascalToCamelInArray(resolve.data)
+				data: data ? pascalToCamelInArray(data) : data
 			}))
 	).data;
 
@@ -30,8 +30,8 @@ export const getEventApi = async (): Promise<IEvent[] | null> =>
 	(
 		await axiosInstance
 			.get<ToPascalKey<IEvent>[] | null>('/news/events')
-			.then((resolve) => ({
+			.then(({ data, ...resolve }) => ({
 				...resolve,
-				data: pascalToCamelInArray(resolve.data)
+				data: data ? pascalToCamelInArray(data) : data
 			}))
 	).data;

@@ -12,8 +12,8 @@ export const getCalendarApi = async (): Promise<ICalendar[] | null> =>
 	(
 		await axiosInstance
 			.get<ToPascalKey<ICalendar>[] | null>('/gamecontents/calendar')
-			.then((resolve) => ({
+			.then(({ data, ...resolve }) => ({
 				...resolve,
-				data: pascalToCamelInArray(resolve.data)
+				data: data ? pascalToCamelInArray(data) : data
 			}))
 	).data;

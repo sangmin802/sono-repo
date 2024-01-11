@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 
-import type { TGrade } from '@/type';
+import type { TFilter } from '@/client-component/modal/item/filter-modal/types';
+
+import type { ICode, TGrade } from '@/type';
 import type { TElementUnionArray } from '@/type/element-json';
 
 export interface IModalItemProps {
@@ -28,6 +30,33 @@ export interface IModalItemProps {
 			grade?: TGrade;
 			tooltip: TElementUnionArray;
 		}[];
+	};
+	filterModal: {
+		title: string;
+		initFilter: Partial<TFilter>;
+		list: (
+			| {
+					type: 'CATEGORY';
+					key: string;
+					name: string;
+					data: (ICode & {
+						subs: ICode[];
+					})[];
+			  }
+			| {
+					type: 'KEYWORD';
+					key: string;
+					name: string;
+					data: { key: string | number; name: string | number }[];
+			  }
+			| {
+					type: 'SEARCH';
+					key: string;
+					name: string;
+					placeholder?: string;
+			  }
+		)[];
+		onConfirm: (filter: Partial<TFilter>) => void;
 	};
 }
 
