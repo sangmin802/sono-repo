@@ -29,7 +29,7 @@ const Notice = ({ initData }: INoticeProps) => {
 	);
 
 	return (
-		<div className="grid grid-cols-1 gap-[16px] sm:grid-cols-3">
+		<div className="grid grid-cols-1 gap-[16px] md:grid-cols-3">
 			{noticeList.map(([key, postList]) => (
 				<LabelLayout
 					key={key}

@@ -41,8 +41,8 @@ const Page = async ({ params: { name } }: { params: { name: string } }) => {
 	const filteredGem = gemSelector(gem);
 
 	return (
-		<div className="space-y-[16px] sm:flex sm:space-x-[16px] sm:space-y-0">
-			<div className="w-full space-y-[12px] sm:w-[200px] sm:shrink-0">
+		<div className="space-y-[16px] md:flex md:space-x-[16px] md:space-y-0">
+			<div className="w-full space-y-[12px] md:w-[200px] md:shrink-0">
 				<Stats
 					stats={stats.slice(0, 6)}
 					power={stats[7]}
@@ -51,7 +51,7 @@ const Page = async ({ params: { name } }: { params: { name: string } }) => {
 				<Tendencies data={tendencies} />
 				<Engraves data={filteredEffects} />
 			</div>
-			<div className="w-full space-y-[16px] sm:w-auto sm:grow">
+			<div className="w-full space-y-[16px] md:w-auto md:grow">
 				<Equipment data={{ equip, acc }} />
 				<CardSet {...filteredCard} />
 				<Gem data={filteredGem} />
