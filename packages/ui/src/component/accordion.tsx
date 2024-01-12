@@ -38,6 +38,7 @@ const Accordion = ({
 
 	useEffect(() => {
 		const el = containerRef.current;
+
 		if (!el) return;
 
 		const observer = new ResizeObserver((entry) => {
