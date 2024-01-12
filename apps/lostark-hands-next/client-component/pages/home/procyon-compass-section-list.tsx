@@ -12,7 +12,7 @@ interface IDailyContentSectionListProps {
 
 const ProcyonCompassSectionList = ({ data }: IDailyContentSectionListProps) => {
 	return (
-		<div className="grid gap-[16px] sm:grid-cols-2 md:grid-cols-3">
+		<div className="grid gap-[16px] md:grid-cols-3">
 			{data.map(({ title, list }) => (
 				<ProcyonCompassSection
 					key={title}

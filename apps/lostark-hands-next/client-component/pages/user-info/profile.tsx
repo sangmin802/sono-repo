@@ -76,7 +76,7 @@ const Profile = ({ data }: IProfileProps) => {
 			{characterImage && (
 				<div
 					className={cn(
-						'absolute right-[-100px] z-[1] w-[360px] sm:right-0',
+						'absolute right-[-100px] z-[1] w-[360px] md:right-0',
 						'pointer-events-none select-none bg-main-10'
 					)}
 				>
@@ -97,7 +97,7 @@ const Profile = ({ data }: IProfileProps) => {
 			)}
 			<div
 				className={cn(
-					'absolute bottom-0 right-[-100px] z-[3] h-[10%] w-[360px] sm:right-0',
+					'absolute bottom-0 right-[-100px] z-[3] h-[10%] w-[360px] md:right-0',
 					'bg-gradient-to-t from-main-10 from-20% to-transparent'
 				)}
 			/>

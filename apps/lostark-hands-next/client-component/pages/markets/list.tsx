@@ -56,7 +56,7 @@ const List = ({ filter }: IListProps) => {
 	}, [ioEl, fetchNextPage]);
 
 	return (
-		<div className="grid gap-[24px] lg:grid-cols-2">
+		<div className="grid gap-[24px] md:grid-cols-2">
 			{data.map((item, idx) => (
 				<div
 					key={`${item.id}_${idx}`}

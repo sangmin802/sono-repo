@@ -45,7 +45,7 @@ const Silblings = ({ data }: ISilbingsProps) => {
 								<div
 									className={cn(
 										'mr-[6px] flex w-[142px] cursor-pointer items-center space-x-[8px] pb-[12px]',
-										'sm:mr-[16px] sm:w-[160px]'
+										'md:mr-[16px] md:w-[160px]'
 									)}
 									key={info.characterName}
 									onClick={() => handleMoveUserInfo(info.characterName)}

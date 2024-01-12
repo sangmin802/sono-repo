@@ -21,7 +21,7 @@ const DailyContentSection = ({ title, list }: ICalenderContetProps) => {
 				fallback: `오늘 등장하는 ${title}(이/가) 없어요.`
 			}}
 		>
-			<div className="grid grid-cols-2 gap-[8px] sm:grid-cols-4 lg:grid-cols-7">
+			<div className="grid grid-cols-2 gap-[8px] md:grid-cols-4 lg:grid-cols-7">
 				{timerList.map((item, idx) => (
 					<DailyContentCard
 						key={`${item.name}-${idx}`}

@@ -61,7 +61,7 @@ const CardSet = ({ cards, effects }: ICardSetProps) => {
 			))}
 		>
 			<div
-				className="grid cursor-pointer grid-cols-3 gap-[8px] md:grid-cols-6"
+				className="grid cursor-pointer grid-cols-3 gap-[8px] sm:grid-cols-6"
 				onClick={handleOpenCardEffectModal}
 			>
 				{cards.map((item, idx) => (
