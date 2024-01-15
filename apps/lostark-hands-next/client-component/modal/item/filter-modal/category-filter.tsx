@@ -18,14 +18,14 @@ const CategoryFilter = ({
 }: {
 	dataIndex: string;
 	name: string;
-	category: { main: number; sub?: number };
+	category?: { main?: number; sub?: number };
 	data: (ICode & {
 		subs: ICode[];
 	})[];
 	onChange: TOnChangeFilter;
 }) => {
 	const subList = useMemo(
-		() => data.find((item) => item.code === category.main),
+		() => data.find((item) => item.code === category?.main),
 		[data, category]
 	)?.subs;
 
@@ -34,7 +34,10 @@ const CategoryFilter = ({
 	};
 
 	const handleChangeSub = (code: number) => {
-		onChange('CATEGORY', { [dataIndex]: { ...category, sub: code } });
+		const main = category?.main;
+		if (!main) return;
+
+		onChange('CATEGORY', { [dataIndex]: { main, sub: code } });
 	};
 
 	return (
@@ -48,8 +51,8 @@ const CategoryFilter = ({
 								<div
 									key={code}
 									className={cn('cursor-pointer', {
-										'font-bold': category.main === code,
-										'text-main-40': category.main !== code
+										'font-bold': category?.main === code,
+										'text-main-40': category?.main !== code
 									})}
 									onClick={() => handleChangeMain(code)}
 								>
@@ -62,8 +65,8 @@ const CategoryFilter = ({
 								<div
 									key={code}
 									className={cn('cursor-pointer', {
-										'font-bold': category.sub === code,
-										'text-main-40': category.sub !== code
+										'font-bold': category?.sub === code,
+										'text-main-40': category?.sub !== code
 									})}
 									onClick={() => handleChangeSub(code)}
 								>

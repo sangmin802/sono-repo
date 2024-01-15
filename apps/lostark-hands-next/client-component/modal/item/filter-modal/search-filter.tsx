@@ -13,7 +13,7 @@ const SearchFilter = ({
 }: {
 	dataIndex: string;
 	name: string;
-	value: string;
+	value?: string;
 	placeholder?: string;
 	onChange: TOnChangeFilter;
 }) => {

@@ -23,12 +23,20 @@ interface IListProps {
 	};
 }
 
-const GoldIcon = (
-	<RewardIcon
-		name="골드"
-		path={GOLD_ICON_URL}
-	/>
-);
+const PriceLabel = ({ label, price }: { label: string; price: number }) => {
+	return (
+		<div className="flex items-center">
+			<Label className="mr-[4px] w-[68px] shrink-0 text-[12px]">{label}</Label>
+			<div className="flex shrink-0 grow justify-end text-[12px]">
+				{price.toLocaleString()}
+				<RewardIcon
+					name="골드"
+					path={GOLD_ICON_URL}
+				/>
+			</div>
+		</div>
+	);
+};
 
 const List = ({ filter }: IListProps) => {
 	const { data, fetchNextPage } = useGetListQuery(filter);
@@ -78,7 +86,7 @@ const List = ({ filter }: IListProps) => {
 							{item.bundleCount > 1 && (
 								<div>{item.bundleCount}개 단위 판매</div>
 							)}
-							{item.tradeRemainCount && (
+							{typeof item.tradeRemainCount === 'number' && (
 								<div className="text-[10px] text-gray-500">
 									구매 시 거래{' '}
 									<span className="text-[10px] font-bold">
@@ -90,29 +98,18 @@ const List = ({ filter }: IListProps) => {
 						</div>
 					</div>
 					<div className="shrink-0 grow basis-0 space-y-[4px]">
-						<div className="flex items-center">
-							<Label className="mr-[4px] w-[106px] shrink-0">최저가</Label>
-							<div className="flex shrink-0 grow justify-end">
-								{item.currentMinPrice.toLocaleString()}
-								{GoldIcon}
-							</div>
-						</div>
-						<div className="flex items-center">
-							<Label className="mr-[4px] w-[106px] shrink-0">
-								전일 평균 거래가
-							</Label>
-							<div className="flex shrink-0 grow justify-end">
-								{item.yDayAvgPrice.toLocaleString()}
-								{GoldIcon}
-							</div>
-						</div>
-						<div className="flex items-center">
-							<Label className="mr-[4px] w-[106px] shrink-0">최근 구매가</Label>
-							<div className="flex shrink-0 grow justify-end">
-								{item.recentPrice.toLocaleString()}
-								{GoldIcon}
-							</div>
-						</div>
+						<PriceLabel
+							label="최저가"
+							price={item.currentMinPrice}
+						/>
+						<PriceLabel
+							label="평균 거래가"
+							price={item.yDayAvgPrice}
+						/>
+						<PriceLabel
+							label="최근 구매가"
+							price={item.recentPrice}
+						/>
 					</div>
 				</div>
 			))}

@@ -4,6 +4,16 @@ import type { IOptions } from '@/service/markets/types';
 
 import { useModalDispatch } from '@/client-component/modal/provider';
 
+const filterKeyArr = [
+	'mainCategory',
+	'subCategory',
+	'characterClass',
+	'itemGrade',
+	'itemName',
+	'sort',
+	'sortCondition'
+];
+
 const useMarketsFilter = (options: IOptions) => {
 	const query = useSearchParams();
 	const pathname = usePathname();
@@ -24,6 +34,13 @@ const useMarketsFilter = (options: IOptions) => {
 			name: 'filterModal',
 			props: {
 				title: '거래소 필터',
+				resetFilter: {
+					category: {
+						categoryCode: {
+							main: 20000
+						}
+					}
+				},
 				initFilter: {
 					category: {
 						categoryCode: {
@@ -110,7 +127,7 @@ const useMarketsFilter = (options: IOptions) => {
 					const mainCategory = category?.categoryCode.main;
 					const subCategory = category?.categoryCode.sub;
 
-					current.delete('subCategory');
+					filterKeyArr.forEach((key) => current.delete(key));
 
 					if (subCategory) current.set('subCategory', `${subCategory}`);
 					if (mainCategory) current.set('mainCategory', `${mainCategory}`);

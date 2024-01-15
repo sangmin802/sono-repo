@@ -8,7 +8,7 @@ import type { ICollectible, TCollectibleType } from '@/service/armories/types';
 import useResponsive from '@/hook/use-responsive';
 
 import LabelLayout from '@/client-component/label-layout';
-import ShadowStickyElement from '@/client-component/sticky-element';
+import StickyElement from '@/client-component/sticky-element';
 
 import { COLLECTION_DESC } from '@/constant/collection';
 
@@ -38,7 +38,7 @@ const Collection = ({ data }: ICollectionProps) => {
 
 	return (
 		<div className="w-full lg:flex">
-			<ShadowStickyElement
+			<StickyElement
 				className={cn(
 					'flex flex-nowrap',
 					'z-[90] mx-[-16px] mb-[8px] self-start px-[16px] pb-[8px]',
@@ -47,7 +47,7 @@ const Collection = ({ data }: ICollectionProps) => {
 				)}
 				activeClassName={cn({ 'shadow-[0px_10px_10px_rgba(0,0,0,.3)]': !isLg })}
 				as="nav"
-				top={67}
+				top={68}
 			>
 				{data.map((item) => (
 					<div
@@ -85,7 +85,7 @@ const Collection = ({ data }: ICollectionProps) => {
 						</div>
 					</div>
 				))}
-			</ShadowStickyElement>
+			</StickyElement>
 			<LabelLayout
 				className="grow"
 				label={selectCollect.type}
