@@ -15,7 +15,7 @@ const KeywordFilter = ({
 }: {
 	dataIndex: string;
 	name: string;
-	keyword: string | number;
+	keyword?: string | number;
 	data: { key: string | number; name: string | number }[];
 	onChange: TOnChangeFilter;
 }) => {

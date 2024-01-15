@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import { Button } from '@sono-repo/ui';
+
 import CategoryFilter from '@/client-component/modal/item/filter-modal/category-filter';
 import KeywordFilter from '@/client-component/modal/item/filter-modal/keyword-filter';
 import SearchFilter from '@/client-component/modal/item/filter-modal/search-filter';
@@ -12,6 +14,7 @@ import type { IModalItemProps } from '@/client-component/modal/types';
 
 const FilterModal = ({
 	title,
+	resetFilter,
 	initFilter,
 	list,
 	onConfirm
@@ -24,6 +27,10 @@ const FilterModal = ({
 		onConfirm(filter);
 
 		onCloseModal();
+	};
+
+	const handleReset = () => {
+		setFilter({ category: {}, keyword: {}, search: {}, ...resetFilter });
 	};
 
 	const handleChangeFilter = (
@@ -49,42 +56,42 @@ const FilterModal = ({
 			containerClassName="space-y-[8px]"
 			footerProps={{ confirm: { onClick: handleConfirm } }}
 		>
+			<Button onClick={handleReset}>초기화</Button>
 			{list.map(({ key, ...item }) => {
 				const defaultProps = {
 					dataIndex: key,
 					onChange: handleChangeFilter
 				};
 
-				if (item.type === 'CATEGORY' && filter.category)
+				if (item.type === 'CATEGORY')
 					return (
 						<CategoryFilter
 							key={key}
-							category={filter['category'][key]}
+							category={filter.category?.[key]}
 							{...defaultProps}
 							{...item}
 						/>
 					);
 
-				if (item.type === 'KEYWORD' && filter.keyword)
+				if (item.type === 'KEYWORD')
 					return (
 						<KeywordFilter
 							key={key}
-							keyword={filter['keyword'][key]}
+							keyword={filter.keyword?.[key]}
 							{...defaultProps}
 							{...item}
 						/>
 					);
 
-				if (item.type === 'SEARCH' && filter.search) {
+				if (item.type === 'SEARCH')
 					return (
 						<SearchFilter
 							key={key}
-							value={filter['search'][key]}
+							value={filter.search?.[key]}
 							{...defaultProps}
 							{...item}
 						/>
 					);
-				}
 			})}
 		</ModalLayout>
 	);

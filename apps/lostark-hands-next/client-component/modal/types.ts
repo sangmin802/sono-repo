@@ -33,6 +33,7 @@ export interface IModalItemProps {
 	};
 	filterModal: {
 		title: string;
+		resetFilter?: Partial<TFilter>;
 		initFilter: Partial<TFilter>;
 		list: (
 			| {
