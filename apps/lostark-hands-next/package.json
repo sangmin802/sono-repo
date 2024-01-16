@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "pnpm tsc && next build",
     "start": "pnpm run build && next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@sono-repo/ui": "workspace:^",

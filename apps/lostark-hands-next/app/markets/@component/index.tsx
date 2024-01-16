@@ -7,10 +7,10 @@ import { Button } from '@sono-repo/ui';
 
 import type { IOptions } from '@/service/markets/types';
 
+import useMarketsFilter from '@/app/markets/@hook/use-markets-filter';
 import useClientRendered from '@/hook/use-client-rendered';
 
-import useMarketsFilter from '@/client-component/pages/markets/hook/use-markets-filter';
-import List from '@/client-component/pages/markets/list';
+import List from '@/app/markets/@component/list';
 
 interface IMarketsProps {
 	options: IOptions;

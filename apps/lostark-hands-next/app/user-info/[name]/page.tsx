@@ -15,13 +15,13 @@ import {
 	skillSelector
 } from '@/service/armories/selector';
 
-import CardSet from '@/client-component/pages/user-info/card-set';
-import CombatSkill from '@/client-component/pages/user-info/combat-skill';
-import Engraves from '@/client-component/pages/user-info/engraves';
-import Equipment from '@/client-component/pages/user-info/equipment';
-import Gem from '@/client-component/pages/user-info/gem';
-import Stats from '@/client-component/pages/user-info/stats';
-import Tendencies from '@/client-component/pages/user-info/tendencies';
+import CardSet from '@/app/user-info/[name]/@component/card-set';
+import CombatSkill from '@/app/user-info/[name]/@component/combat-skill';
+import Engraves from '@/app/user-info/[name]/@component/engraves';
+import Equipment from '@/app/user-info/[name]/@component/equipment';
+import Gem from '@/app/user-info/[name]/@component/gem';
+import Stats from '@/app/user-info/[name]/@component/stats';
+import Tendencies from '@/app/user-info/[name]/@component/tendencies';
 
 const Page = async ({ params: { name } }: { params: { name: string } }) => {
 	const [profile, engrave, equipment, card, skill, gem] = await Promise.all([

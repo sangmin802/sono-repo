@@ -1,10 +1,10 @@
 'use client';
 
+import ItemDesc from '@/app/user-info/[name]/@component/item-desc';
+import ArmoryTooltip from '@/client-component/armory-tooltip';
 import ItemThumbnail from '@/client-component/item-thumbnail';
 import ModalLayout from '@/client-component/modal/layout';
 import type { IModalItemProps } from '@/client-component/modal/types';
-import ArmoryTooltip from '@/client-component/pages/user-info/armory-tooltip';
-import ItemDesc from '@/client-component/pages/user-info/item-desc';
 
 const ArmoryTooltipModal = ({
 	name,

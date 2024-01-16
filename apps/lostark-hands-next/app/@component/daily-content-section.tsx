@@ -2,10 +2,10 @@
 
 import useFilterTimerList from '@/hook/use-filter-timer-list';
 
+import DailyContentCard from '@/app/@component/daily-content-card';
+import type { ICalenderContetProps } from '@/app/@component/types';
 import LabelLayout from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
-import DailyContentCard from '@/client-component/pages/home/daily-content-card';
-import type { ICalenderContetProps } from '@/client-component/pages/home/types';
 
 const DailyContentSection = ({ title, list }: ICalenderContetProps) => {
 	const { onOpenModal } = useModalDispatch();

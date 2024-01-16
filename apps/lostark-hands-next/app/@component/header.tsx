@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 import { Input } from '@sono-repo/ui';
 
-import ShadowStickyElement from '@/client-component/sticky-element';
+import StickyElement from '@/client-component/sticky-element';
 
 const Header = () => {
 	const router = useRouter();
@@ -26,7 +26,7 @@ const Header = () => {
 	};
 
 	return (
-		<ShadowStickyElement
+		<StickyElement
 			className="z-[90]"
 			activeClassName="shadow-[0px_10px_10px_rgba(0,0,0,.3)]"
 			as="header"
@@ -75,7 +75,7 @@ const Header = () => {
 					</form>
 				</div>
 			</div>
-		</ShadowStickyElement>
+		</StickyElement>
 	);
 };
 export default Header;

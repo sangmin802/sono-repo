@@ -1,9 +1,9 @@
 'use client';
 
 import DangerousHTML from '@/client-component/dangerous-html';
-import IndentStringGroup from '@/client-component/pages/user-info/indent-string-group';
-import ItemPartBox from '@/client-component/pages/user-info/item-part-box';
-import TripodSkillCustom from '@/client-component/pages/user-info/tripod-skill-custom';
+import IndentStringGroup from '@/client-component/indent-string-group';
+import ItemPartBox from '@/client-component/item-part-box';
+import TripodSkillCustom from '@/client-component/tripod-skill-custom';
 
 import type { TElement } from '@/type/element-json';
 

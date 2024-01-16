@@ -4,7 +4,7 @@ import type { ICalendar } from '@/service/game-contents/types';
 
 import { convertCalendarData } from '@/util/calendar';
 
-import ProcyonCompassSection from '@/client-component/pages/home/procyon-compass-section';
+import ProcyonCompassSection from '@/app/@component/procyon-compass-section';
 
 interface IDailyContentSectionListProps {
 	data: { title: string; list: ICalendar[] }[];
