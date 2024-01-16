@@ -1,8 +1,8 @@
 import { getCollectibleApi, getEquipmentApi } from '@/service/armories';
 import { equipmentSelector } from '@/service/armories/selector';
 
-import Collection from '@/client-component/pages/user-info/collection';
-import CollectionMedal from '@/client-component/pages/user-info/collection-medal';
+import Collection from '@/app/user-info/[name]/collection/@component';
+import CollectionMedal from '@/app/user-info/[name]/collection/@component/medal';
 
 const Page = async ({ params: { name } }: { params: { name: string } }) => {
 	const [equipment, collection] = await Promise.all([

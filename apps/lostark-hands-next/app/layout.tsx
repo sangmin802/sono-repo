@@ -2,9 +2,9 @@ import type { PropsWithChildren } from 'react';
 
 import Head from '@/app/head';
 
+import Header from '@/app/@component/header';
 import Modal from '@/client-component/modal';
 import ModalProvider from '@/client-component/modal/provider';
-import Header from '@/client-component/pages/header';
 
 import '@/style/main.css';
 import ReactQueryProvider from '@/provider/react-query-provider';

@@ -2,8 +2,8 @@ import type { ReactElement } from 'react';
 
 import { getProfileInfoApi } from '@/service/armories';
 
-import Profile from '@/client-component/pages/user-info/profile';
-import TabList from '@/client-component/pages/user-info/tab-list';
+import Profile from '@/app/user-info/[name]/@component/profile';
+import TabList from '@/app/user-info/[name]/@component/tab-list';
 
 /**
  * Layouts can fetch data.

@@ -38,12 +38,12 @@ module.exports = {
 					['^react', '^react', '^@?\\w'],
 					// monorepo package.json
 					['@sono-repo/*'],
-					// services
+					// app
 					['@/app'],
 					// services
 					['@/*/service'],
 					// hooks
-					['@/*/hook'],
+					['@/*/.*hook'],
 					// utils
 					['@/*/util'],
 					// components

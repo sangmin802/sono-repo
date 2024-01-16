@@ -3,11 +3,11 @@ import { getCalendarApi } from '@/service/game-contents';
 import { calendarSelector } from '@/service/game-contents/selector';
 import { getEventApi, getNoticeApi } from '@/service/news';
 
-import DailyContentSectionList from '@/client-component/pages/home/daily-content-section-list';
-import Event from '@/client-component/pages/home/event';
-import Notice from '@/client-component/pages/home/notice';
-import NotificationButton from '@/client-component/pages/home/notification-button';
-import ProcyonCompassSectionList from '@/client-component/pages/home/procyon-compass-section-list';
+import DailyContentSectionList from '@/app/@component/daily-content-section-list';
+import Event from '@/app/@component/event';
+import Notice from '@/app/@component/notice';
+import NotificationButton from '@/app/@component/notification-button';
+import ProcyonCompassSectionList from '@/app/@component/procyon-compass-section-list';
 
 /**
  * cache time 5min isr 주기적으로 재빌드

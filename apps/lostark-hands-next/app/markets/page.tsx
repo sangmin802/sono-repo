@@ -1,6 +1,6 @@
 import { getOptionsApi } from '@/service/markets';
 
-import Markets from '@/client-component/pages/markets';
+import Markets from '@/app/markets/@component';
 
 export const revalidate = 300;
 

@@ -4,7 +4,7 @@ import type { ICalendar } from '@/service/game-contents/types';
 
 import { convertCalendarData } from '@/util/calendar';
 
-import DailyContentSection from '@/client-component/pages/home/daily-content-section';
+import DailyContentSection from '@/app/@component/daily-content-section';
 
 interface IDailyContentSectionListProps {
 	data: { title: string; list: ICalendar[] }[];

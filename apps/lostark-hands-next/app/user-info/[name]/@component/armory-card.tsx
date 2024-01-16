@@ -4,12 +4,12 @@ import cn from 'classnames';
 
 import { getIndentContent } from '@/util/armory';
 
+import Elixir from '@/app/user-info/[name]/@component/elixir';
+import ItemDesc from '@/app/user-info/[name]/@component/item-desc';
+import QualityChip from '@/app/user-info/[name]/@component/quality-chip';
+import Transcendence from '@/app/user-info/[name]/@component/transcendence';
 import ItemThumbnail from '@/client-component/item-thumbnail';
 import type { TModalItem } from '@/client-component/modal/types';
-import Elixir from '@/client-component/pages/user-info/elixir';
-import ItemDesc from '@/client-component/pages/user-info/item-desc';
-import QualityChip from '@/client-component/pages/user-info/quality-chip';
-import Transcendence from '@/client-component/pages/user-info/transcendence';
 
 import type { TGrade } from '@/type';
 import type { TElement, TElementUnionArray } from '@/type/element-json';

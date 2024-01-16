@@ -10,9 +10,9 @@ import useNotification from '@/hook/use-notification';
 
 import { getValidRewardList } from '@/util/calendar';
 
+import TimeUnit from '@/app/@component/time-unit';
+import type { TCalendarItem } from '@/app/@component/types';
 import type { TModalItem } from '@/client-component/modal/types';
-import TimeUnit from '@/client-component/pages/home/time-unit';
-import type { TCalendarItem } from '@/client-component/pages/home/types';
 
 interface IDailyContentCardProps {
 	item: TCalendarItem;

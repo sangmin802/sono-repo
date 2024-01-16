@@ -9,11 +9,11 @@ import useNotification from '@/hook/use-notification';
 
 import { getValidRewardList } from '@/util/calendar';
 
+import ProcyonCompassCard from '@/app/@component/procyon-compass-card';
+import TimeUnit from '@/app/@component/time-unit';
+import type { ICalenderContetProps } from '@/app/@component/types';
 import LabelLayout from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
-import ProcyonCompassCard from '@/client-component/pages/home/procyon-compass-card';
-import TimeUnit from '@/client-component/pages/home/time-unit';
-import type { ICalenderContetProps } from '@/client-component/pages/home/types';
 
 const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
 	const { onOpenModal } = useModalDispatch();
