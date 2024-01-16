@@ -38,7 +38,13 @@ RUN pnpm install --frozen-lockfile
 COPY --from=prune app/out/full .
 COPY turbo.json turbo.json
 
-RUN pnpm lostark:build
+ARG TURBO_TEAM
+ENV TURBO_TEAM=$TURBO_TEAM
+ 
+ARG TURBO_TOKEN
+ENV TURBO_TOKEN=$TURBO_TOKEN
+
+RUN pnpm lostark:build --remote-only
 ################################################################################
 FROM base AS runner
 
