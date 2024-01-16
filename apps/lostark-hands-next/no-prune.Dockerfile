@@ -48,10 +48,20 @@ FROM deps AS build
 
 COPY . .
 
-# # Run the build script.
-RUN pnpm run lostark:build
+# --build-arg TURBO_TEAM=?? --build-arg TURBO_TOKEN=?? 주입 필요
+# --progress=plain으로 로깅 가능
+ARG TURBO_TEAM
+ENV TURBO_TEAM=$TURBO_TEAM
+ 
+ARG TURBO_TOKEN
+ENV TURBO_TOKEN=$TURBO_TOKEN
 
-# ################################################################################
+# Run the build script.
+# Use remote cache
+# 이게 근데, 이미지 빌드도 캐시되는게 있어서 매번 속도가 크게 체감되지는 않는것 같음 물론, --no-cache면 다르겠지만
+RUN pnpm lostark:build --remote-only
+
+#################################################################################
 # Create a new stage to run the application with minimal runtime dependencies
 # where the necessary files are copied from the build stage.
 FROM base AS runner
