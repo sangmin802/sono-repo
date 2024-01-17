@@ -10,7 +10,7 @@ import type { ICard, ICardEffect } from '@/service/armories/types';
 import LabelLayout from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
 
-import { CDN_URL, GRADE_TEXT_COLOR } from '@/constant';
+import { CDN_URL } from '@/constant';
 
 import type { TGrade } from '@/type';
 
@@ -61,7 +61,7 @@ const CardSet = ({ cards, effects }: ICardSetProps) => {
 			))}
 		>
 			<div
-				className="grid cursor-pointer grid-cols-3 gap-[8px] sm:grid-cols-6"
+				className="grid cursor-pointer grid-cols-6 gap-[8px]"
 				onClick={handleOpenCardEffectModal}
 			>
 				{cards.map((item, idx) => (
@@ -73,42 +73,27 @@ const CardSet = ({ cards, effects }: ICardSetProps) => {
 					>
 						{item && (
 							<>
-								<div className="absolute inset-0">
-									<Image
-										className="absolute inset-0 scale-[1.04]"
-										src={`${CDN_URL}/2018/obt/assets/images/m/profile/bg_profile_card${
-											cardOutline[item.grade]
-										}.png`}
-										width={300}
-										height={438}
-										alt={item.grade}
-									/>
-									<Chip
-										className={cn(
-											'absolute inset-x-[8px] top-[10px] w-fit max-w-[90%]',
-											'text-center font-bold',
-											GRADE_TEXT_COLOR[item.grade]
-										)}
-										type="transparent"
-									>
-										{item.name}
-									</Chip>
-									<Image
-										width={300}
-										height={438}
-										src={item.icon}
-										alt={item.name}
-									/>
-									<div
-										className={cn(
-											'absolute bottom-[4px] flex h-[12%] w-full justify-center',
-											'space-x-[4px]'
-										)}
-									>
-										{Array.from(
-											{ length: item.awakeTotal },
-											(_, idx) => idx
-										).map((idx) => (
+								<Image
+									fill
+									src={item.icon}
+									alt={item.name}
+								/>
+								<Image
+									className="absolute inset-0 scale-[1.04]"
+									src={`${CDN_URL}/2018/obt/assets/images/m/profile/bg_profile_card${
+										cardOutline[item.grade]
+									}.png`}
+									fill
+									alt={item.grade}
+								/>
+								<div
+									className={cn(
+										'absolute bottom-[4px] flex h-[12%] w-full justify-center',
+										'space-x-[4px]'
+									)}
+								>
+									{Array.from({ length: item.awakeTotal }, (_, idx) => idx).map(
+										(idx) => (
 											<Image
 												className="h-full w-[10%]"
 												key={idx}
@@ -121,8 +106,8 @@ const CardSet = ({ cards, effects }: ICardSetProps) => {
 												height={28}
 												alt="awake"
 											/>
-										))}
-									</div>
+										)
+									)}
 								</div>
 							</>
 						)}

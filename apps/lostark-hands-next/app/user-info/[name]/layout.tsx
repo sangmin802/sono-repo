@@ -25,7 +25,7 @@ const Layout = async ({
 	return (
 		<div>
 			{profile && <Profile data={profile} />}
-			<div className="space-y-[12px] p-[16px] pb-0">
+			<div className="space-y-[12px] p-[16px]">
 				<TabList />
 				{children}
 			</div>

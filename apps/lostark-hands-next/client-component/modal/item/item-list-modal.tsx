@@ -25,8 +25,8 @@ const ItemListModal = ({ title, list }: IModalItemProps['itemListModal']) => {
 								'h-[40px] w-[40px] rounded-[6px]',
 								GRADE_BG_COLOR[grade]
 							)}
-							width={500}
-							height={500}
+							width={80}
+							height={80}
 							src={icon}
 							alt={name}
 						/>
