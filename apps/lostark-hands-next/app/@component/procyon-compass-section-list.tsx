@@ -1,23 +1,19 @@
-'use client';
-
-import type { ICalendar } from '@/service/game-contents/types';
-
-import { convertCalendarData } from '@/util/calendar';
+import { getCalendarApi } from '@/service/game-contents';
+import { calendarSelector } from '@/service/game-contents/selector';
 
 import ProcyonCompassSection from '@/app/@component/procyon-compass-section';
 
-interface IDailyContentSectionListProps {
-	data: { title: string; list: ICalendar[] }[];
-}
+export const revalidate = 300;
 
-const ProcyonCompassSectionList = ({ data }: IDailyContentSectionListProps) => {
+const ProcyonCompassSectionList = async () => {
+	const { procyon } = calendarSelector(await getCalendarApi());
+
 	return (
 		<div className="grid gap-[16px] md:grid-cols-3">
-			{data.map(({ title, list }) => (
+			{Object.values(procyon).map((item) => (
 				<ProcyonCompassSection
-					key={title}
-					title={title}
-					list={convertCalendarData(list)}
+					key={item.title}
+					{...item}
 				/>
 			))}
 		</div>

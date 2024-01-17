@@ -36,6 +36,7 @@ const ThumbnailPost = ({
 				alt={title}
 				width={140}
 				height={67}
+				priority
 			/>
 			<div className="mt-[12px]">
 				<div className="truncate">{title}</div>
