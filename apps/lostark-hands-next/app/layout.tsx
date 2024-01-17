@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 
 import Head from '@/app/head';
 
@@ -30,6 +31,7 @@ const Layout = ({ children }: PropsWithChildren) => {
 						<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
 					</ModalProvider>
 				</ReactQueryProvider>
+				<Analytics />
 			</body>
 		</html>
 	);
