@@ -34,8 +34,8 @@ const ThumbnailPost = ({
 				className="rounded-[2px]"
 				src={thumbnail}
 				alt={title}
-				width={750}
-				height={357}
+				width={140}
+				height={67}
 			/>
 			<div className="mt-[12px]">
 				<div className="truncate">{title}</div>
