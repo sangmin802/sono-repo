@@ -58,6 +58,7 @@ const Silblings = ({ data }: ISilbingsProps) => {
 											CLASS[info.characterClassName]
 										}.png`}
 										alt={info.characterClassName}
+										priority
 									/>
 									<div className="min-w-0">
 										<div className="text-[12px] text-gray-400">

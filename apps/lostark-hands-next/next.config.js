@@ -23,5 +23,8 @@ module.exports = withPWA({
 	// output: 'standalone',
 	images: {
 		domains: ['cdn-lostark.game.onstove.com', 'img.lostark.co.kr']
+	},
+	experimental: {
+		ppr: true
 	}
 });

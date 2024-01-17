@@ -1,31 +1,25 @@
-'use client';
-
-import { useMemo } from 'react';
-
+import { getNoticeApi } from '@/service/news';
 import type { INotice } from '@/service/news/types';
 
 import LabelLayout from '@/client-component/label-layout';
 import MessagePost from '@/client-component/message-post';
 
-interface INoticeProps {
-	initData: INotice[];
-}
+export const revalidate = 300;
 
-const Notice = ({ initData }: INoticeProps) => {
-	const noticeList = useMemo(
-		() =>
-			Array.from(
-				initData.reduce((prev, cur) => {
-					const noticeType = cur.title.includes('업데이트')
-						? '업데이트'
-						: cur.type;
+const Notice = async () => {
+	const [noticeData, storeData] = await Promise.all([
+		getNoticeApi('공지'),
+		getNoticeApi('상점')
+	]);
 
-					prev.set(noticeType, [...(prev.get(noticeType) ?? []), cur]);
+	const noticeList = Array.from(
+		[...(noticeData ?? []), ...(storeData ?? [])].reduce((prev, cur) => {
+			const noticeType = cur.title.includes('업데이트') ? '업데이트' : cur.type;
 
-					return prev;
-				}, new Map<string, (typeof initData)[0][]>())
-			),
-		[initData]
+			prev.set(noticeType, [...(prev.get(noticeType) ?? []), cur]);
+
+			return prev;
+		}, new Map<string, INotice[]>())
 	);
 
 	return (
