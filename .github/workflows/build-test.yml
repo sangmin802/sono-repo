@@ -1,14 +1,11 @@
 name: lostark-hands-next build test
 
-# 해당 CI가 실행될 깃의 이벤트(푸시, pr 등등)
 on:
   pull_request:
     branches: [ "main" ]
 
-# workflows 내부에 여러개의 job을 넣어줄 수 있다.
-
 jobs:
-  # job의 이름.
+  # job name
   Node_test:
     runs-on: ubuntu-latest
 
@@ -19,7 +16,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    # 현재 리포지토리로 진입(깃 브랜치 checkout과 유사함)
+    # 현재 리포지토리로 진입(깃 브랜치 checkout)
     - uses: actions/checkout@v4
     
     # 노드환경 설치(위의 전략에 설정해준 버전 배열이 각각 job을 수행하면서 환경변수로 전달됨)
@@ -27,8 +24,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-
-
 
     - name: use pnpm
       uses: pnpm/action-setup@v2
@@ -38,10 +33,11 @@ jobs:
     - name: install dependencies
       run: pnpm install
           
-    # todo Remote Cache 연동
     - name: set env & build
       env: 
         NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
         NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
         NEXT_PUBLIC_CDN_URL: ${{ secrets.NEXT_PUBLIC_CDN_URL }}
+        TURBO_TEAM: ${{secrets.TURBO_TEAM}}
+        TURBO_TOKEN: ${{secrets.TURBO_TOKEN}}
       run: pnpm lostark:build
