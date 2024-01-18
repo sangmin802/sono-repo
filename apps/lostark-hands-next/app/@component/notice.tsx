@@ -5,6 +5,7 @@ import LabelLayout from '@/client-component/label-layout';
 import MessagePost from '@/client-component/message-post';
 
 export const revalidate = 300;
+export const dynamic = 'force-dynamic';
 
 const Notice = async () => {
 	const [noticeData, storeData] = await Promise.all([

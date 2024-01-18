@@ -1,12 +1,25 @@
+import axios from 'axios';
+
 import { getEventApi } from '@/service/news';
+
+import { pascalToCamelInArray } from '@/util/selector';
 
 import LabelLayout from '@/client-component/label-layout';
 import ThumbnailPost from '@/client-component/thumbnail-post';
 
-export const revalidate = 300;
+import { API_KEY, API_URL } from '@/constant';
 
 const Event = async () => {
-	const data = await getEventApi();
+	const data: any[] = await fetch(`${API_URL}/news/events`, {
+		// cache: 'no-store',
+		headers: {
+			accept: 'application/json',
+			authorization: `bearer ${API_KEY}`
+		},
+		next: {
+			revalidate: 300
+		}
+	}).then((res) => res.json());
 
 	return (
 		<LabelLayout
@@ -14,7 +27,7 @@ const Event = async () => {
 			label="이벤트"
 		>
 			<div className="hide-scrollbar mx-[-8px] flex flex-nowrap space-x-[16px] overflow-x-scroll px-[8px]">
-				{data?.map((item, idx) => (
+				{pascalToCamelInArray(data)?.map((item, idx) => (
 					<ThumbnailPost
 						className="min-w-[140px]"
 						key={idx}
