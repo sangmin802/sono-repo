@@ -7,8 +7,12 @@ import { Chip } from '@sono-repo/ui';
 import type { skillSelector } from '@/service/armories/selector';
 
 import ItemThumbnail from '@/client-component/item-thumbnail';
-import { LabelLayout } from '@/client-component/label-layout';
+import {
+	LabelLayout,
+	LabelLayoutSkeleton
+} from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
+import Skeleton from '@/client-component/skeleton';
 
 import { GRADE_TEXT_COLOR } from '@/constant';
 
@@ -31,22 +35,26 @@ const minifySkill = (data: TData) =>
 				({ type }) => type === 'SingleTextBox'
 			) as TElement['SingleTextBox'][];
 
-			target.forEach(({ value }) => {
-				const destoryLevel = /부위 파괴 : 레벨 (\d+)/;
-				const match = value.match(destoryLevel);
+			const skillInfo = target.find(({ value }) => value.includes('<'));
 
-				const counterLevel = value.includes('카운터 : 가능');
+			if (!skillInfo) return newArr;
 
-				if (match) newArr[0] += parseInt(match[1]);
-				if (counterLevel) newArr[1] += 1;
-			});
+			const { value } = skillInfo;
+
+			const destoryLevel = /부위 파괴 : 레벨 (\d+)/;
+			const match = value.match(destoryLevel);
+
+			const counterLevel = value.includes('카운터 : 가능');
+
+			if (match) newArr[0] += parseInt(match[1]);
+			if (counterLevel) newArr[1] += 1;
 
 			return newArr;
 		},
 		[0, 0]
 	);
 
-const CombatSkill = ({ data }: ICombatSkillProps) => {
+export const CombatSkill = ({ data }: ICombatSkillProps) => {
 	const { onOpenModal } = useModalDispatch();
 
 	const handleOpenSkillModal = (item: Exclude<TData, null>[0]) => () => {
@@ -125,4 +133,47 @@ const CombatSkill = ({ data }: ICombatSkillProps) => {
 	);
 };
 
-export default CombatSkill;
+export const CombatSkillSkeleton = () => (
+	<LabelLayoutSkeleton
+		as="section"
+		afterLabel
+	>
+		<div className="grid grid-cols-2 gap-[12px] md:grid-cols-4">
+			{Array.from({ length: 8 }).map((_, idx) => (
+				<div
+					className="flex cursor-pointer flex-col space-y-[4px]"
+					key={idx}
+				>
+					<div className="flex items-center space-x-[4px]">
+						<Skeleton
+							className="h-[21px]"
+							randomWidth={{ max: 64, min: 48 }}
+							type="LIGHT"
+						/>
+						<Skeleton
+							className="h-[21px] w-[21px]"
+							type="LIGHT"
+						/>
+					</div>
+					<div className="flex items-center space-x-[12px]">
+						<Skeleton
+							className="h-[50px] w-[50px]"
+							type="LIGHT"
+						/>
+						<div className="flex h-full min-w-0 grow flex-col items-start space-y-[1px]">
+							{Array.from({ length: Math.round(Math.random() * 2 + 1) }).map(
+								(_, idx) => (
+									<Skeleton
+										className="h-[16px] w-[60px]"
+										key={idx}
+										type="LIGHT"
+									/>
+								)
+							)}
+						</div>
+					</div>
+				</div>
+			))}
+		</div>
+	</LabelLayoutSkeleton>
+);

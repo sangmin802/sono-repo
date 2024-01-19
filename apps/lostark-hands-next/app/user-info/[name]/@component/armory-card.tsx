@@ -10,6 +10,7 @@ import QualityChip from '@/app/user-info/[name]/@component/quality-chip';
 import Transcendence from '@/app/user-info/[name]/@component/transcendence';
 import ItemThumbnail from '@/client-component/item-thumbnail';
 import type { TModalItem } from '@/client-component/modal/types';
+import Skeleton from '@/client-component/skeleton';
 
 import type { TGrade } from '@/type';
 import type { TElement, TElementUnionArray } from '@/type/element-json';
@@ -24,7 +25,7 @@ interface IArmoryCardProps {
 	onOpenModal?: (item: TModalItem) => void;
 }
 
-const ArmoryCard = ({
+export const ArmoryCard = ({
 	onOpenModal,
 	showChip = true,
 	...item
@@ -86,4 +87,28 @@ const ArmoryCard = ({
 	);
 };
 
-export default ArmoryCard;
+export const ArmoryCardSkeleton = () => (
+	<div className="flex space-x-[6px]">
+		<Skeleton
+			className="h-[60px] w-[60px]"
+			type="LIGHT"
+		/>
+		<div className="flex min-w-0 grow flex-col justify-center space-y-[1px]">
+			<Skeleton
+				className="h-[18px]"
+				randomWidth={{ max: 220, min: 100 }}
+				type="LIGHT"
+			/>
+			<Skeleton
+				className="h-[21px]"
+				randomWidth={{ max: 220, min: 100 }}
+				type="LIGHT"
+			/>
+			<Skeleton
+				className="h-[18px]"
+				randomWidth={{ max: 220, min: 100 }}
+				type="LIGHT"
+			/>
+		</div>
+	</div>
+);

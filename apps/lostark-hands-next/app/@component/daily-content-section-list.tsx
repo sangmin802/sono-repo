@@ -30,7 +30,7 @@ export const DailyContentSectionListSkeleton = () => (
 						(_, idx) => (
 							<div
 								key={idx}
-								className="h-[98px] animate-pulse rounded-[4px] bg-main-40"
+								className="h-[98px] animate-pulse rounded-[4px] bg-main-30"
 							/>
 						)
 					)}

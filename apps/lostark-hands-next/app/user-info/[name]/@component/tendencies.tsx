@@ -2,8 +2,9 @@ import { getProfileInfoApi } from '@/service/armories';
 import { profileTooltipSelector } from '@/service/armories/selector';
 
 import Label from '@/client-component/label';
+import Skeleton from '@/client-component/skeleton';
 
-const Tendencies = async ({ name }: { name: string }) => {
+export const Tendencies = async ({ name }: { name: string }) => {
 	const data = await getProfileInfoApi(name);
 	const { tendencies } = profileTooltipSelector(data);
 
@@ -22,4 +23,22 @@ const Tendencies = async ({ name }: { name: string }) => {
 	);
 };
 
-export default Tendencies;
+export const TendenciesSkeleton = () => (
+	<Skeleton className="grid grid-cols-2 gap-[6px] p-[8px]">
+		{Array.from({ length: 4 }).map((_, idx) => (
+			<div
+				className="flex items-center space-x-[4px]"
+				key={idx}
+			>
+				<Skeleton
+					className="h-[29px] w-[36px]"
+					type="LIGHT"
+				/>
+				<Skeleton
+					className="h-[29px] w-[36px]"
+					type="LIGHT"
+				/>
+			</div>
+		))}
+	</Skeleton>
+);

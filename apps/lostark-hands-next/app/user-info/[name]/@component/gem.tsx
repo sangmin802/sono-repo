@@ -5,8 +5,12 @@ import { removeHtmlTag } from '@sono-repo/util/convert';
 import type { IParsedGem } from '@/service/armories/types';
 
 import ItemThumbnail from '@/client-component/item-thumbnail';
-import { LabelLayout } from '@/client-component/label-layout';
+import {
+	LabelLayout,
+	LabelLayoutSkeleton
+} from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
+import Skeleton from '@/client-component/skeleton';
 
 interface IGemProps {
 	data: IParsedGem[] | null;
@@ -36,7 +40,7 @@ const minifyData = (data: IGemProps['data']) => {
 	);
 };
 
-const Gem = ({ data }: IGemProps) => {
+export const Gem = ({ data }: IGemProps) => {
 	const { onOpenModal } = useModalDispatch();
 
 	const handleClickGem = () => {
@@ -88,4 +92,30 @@ const Gem = ({ data }: IGemProps) => {
 	);
 };
 
-export default Gem;
+export const GemSkeleton = () => (
+	<LabelLayoutSkeleton as="section">
+		<div className="flex flex-wrap space-x-[16px]">
+			{Array.from({ length: Math.random() * 2 + 1 }).map((_, idx) => (
+				<div
+					className="flex items-center space-x-[8px]"
+					key={idx}
+				>
+					<Skeleton
+						className="h-[40px] w-[40px]"
+						type="LIGHT"
+					/>
+					<div>
+						<Skeleton
+							className="h-[21px] w-[38px]"
+							type="LIGHT"
+						/>
+						<Skeleton
+							className="mt-[1px] h-[18px] w-[38px]"
+							type="LIGHT"
+						/>
+					</div>
+				</div>
+			))}
+		</div>
+	</LabelLayoutSkeleton>
+);

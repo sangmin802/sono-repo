@@ -31,7 +31,7 @@ export const MessagePostSkeleton = ({ className }: { className?: string }) => (
 		<span className="mr-[8px]">📌</span>
 		<span
 			style={{ width: `${Math.random() * 60 + 30}%` }}
-			className="h-[21px] animate-pulse rounded-[2px] bg-main-40"
+			className="h-[21px] animate-pulse rounded-[2px] bg-main-30"
 		/>
 	</div>
 );

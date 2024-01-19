@@ -4,7 +4,9 @@ import ServerWrapper from '@/app/server-wrapper';
 
 import { getProfileInfoApi } from '@/service/armories';
 
-import Profile from '@/app/user-info/[name]/@component/profile';
+import Profile, {
+	ProfileSkeleton
+} from '@/app/user-info/[name]/@component/profile';
 import TabList from '@/app/user-info/[name]/@component/tab-list';
 
 /**
@@ -24,11 +26,7 @@ const Layout = ({
 }) => {
 	return (
 		<div>
-			<Suspense
-				fallback={
-					<div className="h-[400px] w-[400xp] bg-green-500">와난!@@</div>
-				}
-			>
+			<Suspense fallback={<ProfileSkeleton />}>
 				<ServerWrapper
 					apiPromise={getProfileInfoApi(name)}
 					render={(data) => <Profile data={data ?? undefined} />}

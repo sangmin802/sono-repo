@@ -19,13 +19,28 @@ import {
 	skillSelector
 } from '@/service/armories/selector';
 
-import CardSet from '@/app/user-info/[name]/@component/card-set';
-import CombatSkill from '@/app/user-info/[name]/@component/combat-skill';
-import Engraves from '@/app/user-info/[name]/@component/engraves';
-import Equipment from '@/app/user-info/[name]/@component/equipment';
-import Gem from '@/app/user-info/[name]/@component/gem';
-import Stats from '@/app/user-info/[name]/@component/stats';
-import Tendencies from '@/app/user-info/[name]/@component/tendencies';
+import {
+	CardSet,
+	CardSetSkeleton
+} from '@/app/user-info/[name]/@component/card-set';
+import {
+	CombatSkill,
+	CombatSkillSkeleton
+} from '@/app/user-info/[name]/@component/combat-skill';
+import {
+	Engraves,
+	EngravesSkeleton
+} from '@/app/user-info/[name]/@component/engraves';
+import {
+	Equipment,
+	EquipmentSkeleton
+} from '@/app/user-info/[name]/@component/equipment';
+import { Gem, GemSkeleton } from '@/app/user-info/[name]/@component/gem';
+import { Stats, StatsSkeleton } from '@/app/user-info/[name]/@component/stats';
+import {
+	Tendencies,
+	TendenciesSkeleton
+} from '@/app/user-info/[name]/@component/tendencies';
 
 const StatsRender = ({ stats }: ReturnType<typeof profileTooltipSelector>) => (
 	<Stats
@@ -57,29 +72,17 @@ const Page = ({ params: { name } }: { params: { name: string } }) => {
 	return (
 		<div className="space-y-[16px] md:flex md:space-x-[16px] md:space-y-0">
 			<div className="w-full space-y-[12px] md:w-[200px] md:shrink-0">
-				<Suspense
-					fallback={
-						<div className="h-[200px] w-[200px] bg-pink-500">와난!!</div>
-					}
-				>
+				<Suspense fallback={<StatsSkeleton />}>
 					<ServerWrapper
 						apiPromise={getProfileInfoApi(name)}
 						selector={profileTooltipSelector}
 						render={StatsRender}
 					/>
 				</Suspense>
-				<Suspense
-					fallback={
-						<div className="h-[200px] w-[200px] bg-purple-500">와난!!</div>
-					}
-				>
+				<Suspense fallback={<TendenciesSkeleton />}>
 					<Tendencies name={name} />
 				</Suspense>
-				<Suspense
-					fallback={
-						<div className="h-[200px] w-[200px] bg-yellow-500">와난!!</div>
-					}
-				>
+				<Suspense fallback={<EngravesSkeleton />}>
 					<ServerWrapper
 						apiPromise={getEngravesInfoApi(name)}
 						selector={engraveSelector}
@@ -88,44 +91,28 @@ const Page = ({ params: { name } }: { params: { name: string } }) => {
 				</Suspense>
 			</div>
 			<div className="w-full space-y-[16px] md:w-auto md:grow">
-				<Suspense
-					fallback={
-						<div className="h-[200px] w-[200px] bg-orange-500">와난!!</div>
-					}
-				>
+				<Suspense fallback={<EquipmentSkeleton />}>
 					<ServerWrapper
 						apiPromise={getEquipmentApi(name)}
 						selector={equipmentSelector}
 						render={EquipmentRender}
 					/>
 				</Suspense>
-				<Suspense
-					fallback={
-						<div className="h-[200px] w-[200px] bg-blue-500">와난!!</div>
-					}
-				>
+				<Suspense fallback={<CardSetSkeleton />}>
 					<ServerWrapper
 						apiPromise={getCardApi(name)}
 						selector={cardSelector}
 						render={CardSetRender}
 					/>
 				</Suspense>
-				<Suspense
-					fallback={
-						<div className="h-[200px] w-[200px] bg-amber-100">와난!!</div>
-					}
-				>
+				<Suspense fallback={<GemSkeleton />}>
 					<ServerWrapper
 						apiPromise={getGemApi(name)}
 						selector={gemSelector}
 						render={GemRender}
 					/>
 				</Suspense>
-				<Suspense
-					fallback={
-						<div className="h-[200px] w-[200px] bg-lime-700">와난!!</div>
-					}
-				>
+				<Suspense fallback={<CombatSkillSkeleton />}>
 					<ServerWrapper
 						apiPromise={getSkillApi(name)}
 						selector={skillSelector}

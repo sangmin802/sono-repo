@@ -22,7 +22,7 @@ export const ProcyonCompassSectionList = async () => {
 };
 
 export const ProcyonCompassSectionListSkeleton = () => (
-	<section className="grid gap-[16px] md:grid-cols-3">
+	<section className="!mt-0 grid gap-[16px] md:grid-cols-3">
 		{Array.from({ length: 3 }).map((_, idx) => (
 			<LabelLayoutSkeleton
 				key={idx}
@@ -35,7 +35,7 @@ export const ProcyonCompassSectionListSkeleton = () => (
 							<div
 								key={idx}
 								style={{ width: Math.random() * 100 + 40 }}
-								className="h-[18px] animate-pulse rounded-[2px] bg-main-40"
+								className="h-[18px] animate-pulse rounded-[2px] bg-main-30"
 							/>
 						)
 					)}

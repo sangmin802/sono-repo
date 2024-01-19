@@ -4,8 +4,12 @@ import Image from 'next/image';
 
 import type { IEffect } from '@/service/armories/types';
 
-import { LabelLayout } from '@/client-component/label-layout';
+import {
+	LabelLayout,
+	LabelLayoutSkeleton
+} from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
+import Skeleton from '@/client-component/skeleton';
 
 import { CDN_URL } from '@/constant';
 import ENGRAVE_IMGAE from '@/constant/engrave';
@@ -24,7 +28,7 @@ const engravePointColor: Record<number, string> = {
 	12: 'text-legendary'
 };
 
-const Engraves = ({ data }: IEngravesProps) => {
+export const Engraves = ({ data }: IEngravesProps) => {
 	const { onOpenModal } = useModalDispatch();
 
 	const handleOpenModal = () => {
@@ -82,4 +86,25 @@ const Engraves = ({ data }: IEngravesProps) => {
 	);
 };
 
-export default Engraves;
+export const EngravesSkeleton = () => (
+	<LabelLayoutSkeleton as="aside">
+		<div className="space-y-[6px]">
+			{Array.from({ length: Math.random() * 5 + 1 }).map((_, idx) => (
+				<div
+					key={idx}
+					className="flex items-center"
+				>
+					<Skeleton
+						className="h-[36px] w-[36px]"
+						type="LIGHT"
+					/>
+					<Skeleton
+						className="ml-[8px] h-[21px]"
+						type="LIGHT"
+						randomWidth={{ max: 110, min: 66 }}
+					/>
+				</div>
+			))}
+		</div>
+	</LabelLayoutSkeleton>
+);

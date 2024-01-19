@@ -72,12 +72,12 @@ export const LabelLayoutSkeleton = <T extends ElementType>({
 			<div className="mb-[16px] flex items-end space-x-[16px] border-b border-[#7f7f7f] pb-[6px] leading-[16px]">
 				<div
 					style={{ width: Math.random() * 20 + 50 }}
-					className="h-[16px] animate-pulse rounded-[2px] bg-main-40"
+					className="h-[16px] animate-pulse rounded-[2px] bg-main-30"
 				/>
 				{afterLabel && (
 					<div
 						style={{ width: Math.random() * 20 + 90 }}
-						className="h-[16px] animate-pulse rounded-[2px] bg-main-40"
+						className="h-[16px] animate-pulse rounded-[2px] bg-main-30"
 					/>
 				)}
 			</div>
