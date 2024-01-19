@@ -7,7 +7,7 @@ import type { ICollectible, TCollectibleType } from '@/service/armories/types';
 
 import useResponsive from '@/hook/use-responsive';
 
-import LabelLayout from '@/client-component/label-layout';
+import { LabelLayout } from '@/client-component/label-layout';
 import StickyElement from '@/client-component/sticky-element';
 
 import { COLLECTION_DESC } from '@/constant/collection';

@@ -8,7 +8,7 @@ import { convertCalendarData } from '@/util/calendar';
 
 import DailyContentCard from '@/app/@component/daily-content-card';
 import type { ICalenderContetProps } from '@/app/@component/types';
-import LabelLayout from '@/client-component/label-layout';
+import { LabelLayout } from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
 
 const DailyContentSection = ({ title, list }: ICalenderContetProps) => {
@@ -20,7 +20,6 @@ const DailyContentSection = ({ title, list }: ICalenderContetProps) => {
 
 	return (
 		<LabelLayout
-			className="w-full py-[20px]"
 			label={title}
 			empty={{
 				status: !timerList.length,

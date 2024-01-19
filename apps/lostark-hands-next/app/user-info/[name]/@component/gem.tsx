@@ -5,7 +5,7 @@ import { removeHtmlTag } from '@sono-repo/util/convert';
 import type { IParsedGem } from '@/service/armories/types';
 
 import ItemThumbnail from '@/client-component/item-thumbnail';
-import LabelLayout from '@/client-component/label-layout';
+import { LabelLayout } from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
 
 interface IGemProps {

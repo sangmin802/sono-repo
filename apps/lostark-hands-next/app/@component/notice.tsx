@@ -1,12 +1,18 @@
 import { getNoticeApi } from '@/service/news';
 import type { INotice } from '@/service/news/types';
 
-import LabelLayout from '@/client-component/label-layout';
-import MessagePost from '@/client-component/message-post';
+import {
+	LabelLayout,
+	LabelLayoutSkeleton
+} from '@/client-component/label-layout';
+import {
+	MessagePost,
+	MessagePostSkeleton
+} from '@/client-component/message-post';
 
 export const revalidate = 300;
 
-const Notice = async () => {
+export const Notice = async () => {
 	const [noticeData, storeData] = await Promise.all([
 		getNoticeApi('공지'),
 		getNoticeApi('상점')
@@ -44,4 +50,19 @@ const Notice = async () => {
 	);
 };
 
-export default Notice;
+export const NoticeSkeleton = () => (
+	<div className="grid grid-cols-1 gap-[16px] md:grid-cols-3">
+		{Array.from({ length: 3 }).map((_, idx) => (
+			<LabelLayoutSkeleton
+				key={idx}
+				className="min-w-0 grow basis-0"
+			>
+				<div className="space-y-[4px]">
+					{Array.from({ length: 10 }).map((_, idx) => (
+						<MessagePostSkeleton key={idx} />
+					))}
+				</div>
+			</LabelLayoutSkeleton>
+		))}
+	</div>
+);

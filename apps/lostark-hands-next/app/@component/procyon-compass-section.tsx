@@ -13,7 +13,7 @@ import { convertCalendarData, getValidRewardList } from '@/util/calendar';
 import ProcyonCompassCard from '@/app/@component/procyon-compass-card';
 import TimeUnit from '@/app/@component/time-unit';
 import type { ICalenderContetProps } from '@/app/@component/types';
-import LabelLayout from '@/client-component/label-layout';
+import { LabelLayout } from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
 
 const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {

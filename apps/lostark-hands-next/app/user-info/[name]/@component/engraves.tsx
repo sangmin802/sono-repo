@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import type { IEffect } from '@/service/armories/types';
 
-import LabelLayout from '@/client-component/label-layout';
+import { LabelLayout } from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
 
 import { CDN_URL } from '@/constant';

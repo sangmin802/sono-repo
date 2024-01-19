@@ -1,9 +1,12 @@
 /* eslint-disable max-len */
 import { Suspense } from 'react';
 
-import DailyContentSectionList from '@/app/@component/daily-content-section-list';
-import Event from '@/app/@component/event';
-import Notice from '@/app/@component/notice';
+import {
+	DailyContentSectionList,
+	DailyContentSectionListSkeleton
+} from '@/app/@component/daily-content-section-list';
+import { Event, EventSkeleton } from '@/app/@component/event';
+import { Notice, NoticeSkeleton } from '@/app/@component/notice';
 import NotificationButton from '@/app/@component/notification-button';
 import {
 	ProcyonCompassSectionList,
@@ -34,28 +37,16 @@ import {
 const Page = async () => {
 	return (
 		<div className="space-y-[16px] px-[16px] pb-[16px]">
-			<ProcyonCompassSectionList />
-
 			<Suspense fallback={<ProcyonCompassSectionListSkeleton />}>
-				<ProcyonCompassSectionListSkeleton />
+				<ProcyonCompassSectionList />
 			</Suspense>
-			<Suspense
-				fallback={
-					<div className="h-[200px] w-[200px] bg-purple-500">와난!!</div>
-				}
-			>
+			<Suspense fallback={<EventSkeleton />}>
 				<Event />
 			</Suspense>
-			<Suspense
-				fallback={
-					<div className="h-[200px] w-[200px] bg-yellow-500">와난!!</div>
-				}
-			>
+			<Suspense fallback={<NoticeSkeleton />}>
 				<Notice />
 			</Suspense>
-			<Suspense
-				fallback={<div className="h-[200px] w-[200px] bg-blue-500">와난!!</div>}
-			>
+			<Suspense fallback={<DailyContentSectionListSkeleton />}>
 				<DailyContentSectionList />
 			</Suspense>
 			<NotificationButton />

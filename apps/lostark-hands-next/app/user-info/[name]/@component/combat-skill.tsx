@@ -7,7 +7,7 @@ import { Chip } from '@sono-repo/ui';
 import type { skillSelector } from '@/service/armories/selector';
 
 import ItemThumbnail from '@/client-component/item-thumbnail';
-import LabelLayout from '@/client-component/label-layout';
+import { LabelLayout } from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
 
 import { GRADE_TEXT_COLOR } from '@/constant';
