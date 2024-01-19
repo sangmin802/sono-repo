@@ -2,15 +2,21 @@
 
 import type { IArmoryEquipment, TParsedArmory } from '@/service/armories/types';
 
-import ArmoryCard from '@/app/user-info/[name]/@component/armory-card';
-import { LabelLayout } from '@/client-component/label-layout';
+import {
+	ArmoryCard,
+	ArmoryCardSkeleton
+} from '@/app/user-info/[name]/@component/armory-card';
+import {
+	LabelLayout,
+	LabelLayoutSkeleton
+} from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
 
 interface IMedalProps {
 	data: TParsedArmory<IArmoryEquipment>[];
 }
 
-const Medal = ({ data }: IMedalProps) => {
+export const CollectionMedal = ({ data }: IMedalProps) => {
 	const { onOpenModal } = useModalDispatch();
 
 	return (
@@ -31,4 +37,12 @@ const Medal = ({ data }: IMedalProps) => {
 	);
 };
 
-export default Medal;
+export const CollectionMedalSkeleton = () => (
+	<LabelLayoutSkeleton className="my-[16px] lg:my-0">
+		<div className="space-y-[8px]">
+			{Array.from({ length: 2 }).map((_, idx) => (
+				<ArmoryCardSkeleton key={idx} />
+			))}
+		</div>
+	</LabelLayoutSkeleton>
+);

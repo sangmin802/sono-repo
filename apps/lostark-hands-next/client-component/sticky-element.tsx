@@ -18,7 +18,7 @@ type IStickyElementProps<T extends ElementType> = {
 	children?: ReactNode;
 } & ComponentPropsWithoutRef<T>;
 
-const StickyElement = <T extends ElementType>({
+export const StickyElement = <T extends ElementType>({
 	className,
 	activeClassName,
 	as,
@@ -70,4 +70,31 @@ const StickyElement = <T extends ElementType>({
 	);
 };
 
-export default StickyElement;
+export const StickyElementSkeleton = <T extends ElementType>({
+	as,
+	top,
+	className,
+	children
+}: {
+	as?: T;
+	top?: number;
+	className?: string;
+	children?: ReactNode;
+}) => {
+	const Tag = as ?? 'div';
+
+	return (
+		<>
+			<div className="self-start" />
+			<Tag
+				style={{ top }}
+				className={cn(
+					className,
+					'sticky bg-main-10 transition duration-[.3s] ease-out'
+				)}
+			>
+				{children}
+			</Tag>
+		</>
+	);
+};

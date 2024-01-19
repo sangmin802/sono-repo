@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 import { Input } from '@sono-repo/ui';
 
-import StickyElement from '@/client-component/sticky-element';
+import { StickyElement } from '@/client-component/sticky-element';
 
 const Header = () => {
 	const router = useRouter();

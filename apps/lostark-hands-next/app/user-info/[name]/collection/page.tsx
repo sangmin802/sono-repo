@@ -5,8 +5,14 @@ import ServerWrapper from '@/app/server-wrapper';
 import { getCollectibleApi, getEquipmentApi } from '@/service/armories';
 import { equipmentSelector } from '@/service/armories/selector';
 
-import Collection from '@/app/user-info/[name]/collection/@component';
-import CollectionMedal from '@/app/user-info/[name]/collection/@component/medal';
+import {
+	Collection,
+	CollectionSkeleton
+} from '@/app/user-info/[name]/collection/@component';
+import {
+	CollectionMedal,
+	CollectionMedalSkeleton
+} from '@/app/user-info/[name]/collection/@component/medal';
 
 const CollectionMedalRender = ({
 	col
@@ -15,11 +21,7 @@ const CollectionMedalRender = ({
 const Page = ({ params: { name } }: { params: { name: string } }) => {
 	return (
 		<div className="flex flex-col-reverse lg:flex-row lg:space-x-[16px]">
-			<Suspense
-				fallback={
-					<div className="h-[200px] w-[200px] bg-amber-200">와난!!</div>
-				}
-			>
+			<Suspense fallback={<CollectionSkeleton />}>
 				<ServerWrapper
 					apiPromise={getCollectibleApi(name)}
 					render={(data) => (
@@ -34,9 +36,7 @@ const Page = ({ params: { name } }: { params: { name: string } }) => {
 					)}
 				/>
 			</Suspense>
-			<Suspense
-				fallback={<div className="h-[200px] w-[200px] bg-blue-300">와난!!</div>}
-			>
+			<Suspense fallback={<CollectionMedalSkeleton />}>
 				<ServerWrapper
 					apiPromise={getEquipmentApi(name)}
 					selector={equipmentSelector}
