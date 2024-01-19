@@ -5,7 +5,10 @@ import DailyContentSectionList from '@/app/@component/daily-content-section-list
 import Event from '@/app/@component/event';
 import Notice from '@/app/@component/notice';
 import NotificationButton from '@/app/@component/notification-button';
-import ProcyonCompassSectionList from '@/app/@component/procyon-compass-section-list';
+import {
+	ProcyonCompassSectionList,
+	ProcyonCompassSectionListSkeleton
+} from '@/app/@component/procyon-compass-section-list';
 
 /**
  * build, cache 관련
@@ -25,23 +28,34 @@ import ProcyonCompassSectionList from '@/app/@component/procyon-compass-section-
  * force-cache 유사 ssg
  * no-store 유사 ssr
  *
- *
  * STREAMING RENDER
  */
 
 const Page = async () => {
 	return (
 		<div className="space-y-[16px] px-[16px] pb-[16px]">
-			<Suspense>
-				<ProcyonCompassSectionList />
+			<ProcyonCompassSectionList />
+
+			<Suspense fallback={<ProcyonCompassSectionListSkeleton />}>
+				<ProcyonCompassSectionListSkeleton />
 			</Suspense>
-			<Suspense>
+			<Suspense
+				fallback={
+					<div className="h-[200px] w-[200px] bg-purple-500">와난!!</div>
+				}
+			>
 				<Event />
 			</Suspense>
-			<Suspense>
+			<Suspense
+				fallback={
+					<div className="h-[200px] w-[200px] bg-yellow-500">와난!!</div>
+				}
+			>
 				<Notice />
 			</Suspense>
-			<Suspense>
+			<Suspense
+				fallback={<div className="h-[200px] w-[200px] bg-blue-500">와난!!</div>}
+			>
 				<DailyContentSectionList />
 			</Suspense>
 			<NotificationButton />

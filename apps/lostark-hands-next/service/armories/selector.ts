@@ -30,18 +30,17 @@ import type { TElementUnionArray } from '@/type/element-json';
 /**
  * 프로필 데이터 가공
  */
-export const profileTooltipSelector = ({
-	stats,
-	tendencies
-}: {
-	stats?: IStat[];
-	tendencies?: ITendency[];
-}) => ({
+export const profileTooltipSelector = (
+	data: {
+		stats: IStat[];
+		tendencies: ITendency[];
+	} | null
+) => ({
 	stats: BASIC_STATS.map((name) => ({
 		type: name,
 		value: `0`,
 		tooltip: ['-'],
-		...stats
+		...data?.stats
 			?.map((stat) => ({
 				...stat,
 				tooltip: stat.tooltip.filter((val) =>
@@ -54,7 +53,7 @@ export const profileTooltipSelector = ({
 		type: name,
 		point: 0,
 		maxPoint: 0,
-		...tendencies?.find(({ type }) => type === name)
+		...data?.tendencies?.find(({ type }) => type === name)
 	}))
 });
 
