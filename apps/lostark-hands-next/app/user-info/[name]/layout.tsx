@@ -1,8 +1,12 @@
-import type { ReactElement } from 'react';
+import { type ReactElement, Suspense } from 'react';
+
+import ServerWrapper from '@/app/server-wrapper';
 
 import { getProfileInfoApi } from '@/service/armories';
 
-import Profile from '@/app/user-info/[name]/@component/profile';
+import Profile, {
+	ProfileSkeleton
+} from '@/app/user-info/[name]/@component/profile';
 import TabList from '@/app/user-info/[name]/@component/tab-list';
 
 /**
@@ -13,18 +17,21 @@ import TabList from '@/app/user-info/[name]/@component/tab-list';
  * @see{@link https://nextjs.org/docs/app/building-your-application/caching#request-memoization}
  * @returns
  */
-const Layout = async ({
+const Layout = ({
 	children,
 	params: { name }
 }: {
 	children: ReactElement;
 	params: { name: string };
 }) => {
-	const profile = await getProfileInfoApi(name);
-
 	return (
 		<div>
-			{profile && <Profile data={profile} />}
+			<Suspense fallback={<ProfileSkeleton />}>
+				<ServerWrapper
+					apiPromise={getProfileInfoApi(name)}
+					render={(data) => <Profile data={data ?? undefined} />}
+				/>
+			</Suspense>
 			<div className="space-y-[12px] p-[16px]">
 				<TabList />
 				{children}

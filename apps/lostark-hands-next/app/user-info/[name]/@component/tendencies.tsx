@@ -1,19 +1,16 @@
-'use client';
-
-import type { ITendency } from '@/service/armories/types';
+import { getProfileInfoApi } from '@/service/armories';
+import { profileTooltipSelector } from '@/service/armories/selector';
 
 import Label from '@/client-component/label';
+import Skeleton from '@/client-component/skeleton';
 
-import type { ToCamelKey } from '@/type';
+export const Tendencies = async ({ name }: { name: string }) => {
+	const data = await getProfileInfoApi(name);
+	const { tendencies } = profileTooltipSelector(data);
 
-interface ITendenciesProps {
-	data: ToCamelKey<ITendency>[];
-}
-
-const Tendencies = ({ data }: ITendenciesProps) => {
 	return (
 		<div className="grid grid-cols-2 gap-[6px] rounded-[6px] bg-main-20 p-[8px]">
-			{data.map(({ type, point }) => (
+			{tendencies.map(({ type, point }) => (
 				<div
 					className="flex items-center space-x-[4px]"
 					key={type}
@@ -26,4 +23,22 @@ const Tendencies = ({ data }: ITendenciesProps) => {
 	);
 };
 
-export default Tendencies;
+export const TendenciesSkeleton = () => (
+	<Skeleton className="grid grid-cols-2 gap-[6px] p-[8px]">
+		{Array.from({ length: 4 }).map((_, idx) => (
+			<div
+				className="flex items-center space-x-[4px]"
+				key={idx}
+			>
+				<Skeleton
+					className="h-[29px] w-[36px]"
+					type="LIGHT"
+				/>
+				<Skeleton
+					className="h-[29px] w-[36px]"
+					type="LIGHT"
+				/>
+			</div>
+		))}
+	</Skeleton>
+);

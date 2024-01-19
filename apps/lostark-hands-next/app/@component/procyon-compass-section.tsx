@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo } from 'react';
 import useTimer from 'sono-repo-react-timer';
 
 import { convertDateFormat } from '@sono-repo/util/date';
@@ -7,17 +8,20 @@ import { convertDateFormat } from '@sono-repo/util/date';
 import useFilterTimerList from '@/hook/use-filter-timer-list';
 import useNotification from '@/hook/use-notification';
 
-import { getValidRewardList } from '@/util/calendar';
+import { convertCalendarData, getValidRewardList } from '@/util/calendar';
 
 import ProcyonCompassCard from '@/app/@component/procyon-compass-card';
 import TimeUnit from '@/app/@component/time-unit';
 import type { ICalenderContetProps } from '@/app/@component/types';
-import LabelLayout from '@/client-component/label-layout';
+import { LabelLayout } from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
 
 const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
 	const { onOpenModal } = useModalDispatch();
-	const { timerList, onReFilter } = useFilterTimerList(list);
+
+	const { timerList, onReFilter } = useFilterTimerList(
+		useMemo(() => convertCalendarData(list), [list])
+	);
 
 	const baseItem = timerList[0];
 	const firstTime = baseItem?.time[0];

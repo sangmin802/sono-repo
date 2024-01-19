@@ -12,10 +12,10 @@ import type { ToIndexSignature, ToPascalKey } from '@/type';
 /**
  * @description get option
  */
-export const getOptionsApi = async (): Promise<IOptions | null> =>
+export const getOptionsApi = async (): Promise<IOptions> =>
 	(
 		await axiosInstance
-			.get<ToPascalKey<IOptions> | null>('/markets/options')
+			.get<ToPascalKey<IOptions>>('/markets/options')
 			.then(({ data, ...resolve }) => ({
 				...resolve,
 				data: data ? pascalToCamel(data) : data

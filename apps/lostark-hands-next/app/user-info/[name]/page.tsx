@@ -1,3 +1,7 @@
+import { Suspense } from 'react';
+
+import ServerWrapper from '@/app/server-wrapper';
+
 import {
 	getCardApi,
 	getEngravesInfoApi,
@@ -15,47 +19,106 @@ import {
 	skillSelector
 } from '@/service/armories/selector';
 
-import CardSet from '@/app/user-info/[name]/@component/card-set';
-import CombatSkill from '@/app/user-info/[name]/@component/combat-skill';
-import Engraves from '@/app/user-info/[name]/@component/engraves';
-import Equipment from '@/app/user-info/[name]/@component/equipment';
-import Gem from '@/app/user-info/[name]/@component/gem';
-import Stats from '@/app/user-info/[name]/@component/stats';
-import Tendencies from '@/app/user-info/[name]/@component/tendencies';
+import {
+	CardSet,
+	CardSetSkeleton
+} from '@/app/user-info/[name]/@component/card-set';
+import {
+	CombatSkill,
+	CombatSkillSkeleton
+} from '@/app/user-info/[name]/@component/combat-skill';
+import {
+	Engraves,
+	EngravesSkeleton
+} from '@/app/user-info/[name]/@component/engraves';
+import {
+	Equipment,
+	EquipmentSkeleton
+} from '@/app/user-info/[name]/@component/equipment';
+import { Gem, GemSkeleton } from '@/app/user-info/[name]/@component/gem';
+import { Stats, StatsSkeleton } from '@/app/user-info/[name]/@component/stats';
+import {
+	Tendencies,
+	TendenciesSkeleton
+} from '@/app/user-info/[name]/@component/tendencies';
 
-const Page = async ({ params: { name } }: { params: { name: string } }) => {
-	const [profile, engrave, equipment, card, skill, gem] = await Promise.all([
-		getProfileInfoApi(name),
-		getEngravesInfoApi(name),
-		getEquipmentApi(name),
-		getCardApi(name),
-		getSkillApi(name),
-		getGemApi(name)
-	]);
+const StatsRender = ({ stats }: ReturnType<typeof profileTooltipSelector>) => (
+	<Stats
+		stats={stats.slice(0, 6)}
+		power={stats[7]}
+		healty={stats[6]}
+	/>
+);
 
-	const { stats, tendencies } = profileTooltipSelector({ ...profile });
-	const filteredEffects = engraveSelector(engrave) ?? undefined;
-	const { equip, acc } = equipmentSelector(equipment);
-	const filteredCard = cardSelector(card);
-	const filteredSkill = skillSelector(skill);
-	const filteredGem = gemSelector(gem);
+const EngravesRender = (data: ReturnType<typeof engraveSelector>) => (
+	<Engraves data={data ?? undefined} />
+);
 
+const EquipmentRender = (data: ReturnType<typeof equipmentSelector>) => (
+	<Equipment data={data} />
+);
+
+const CardSetRender = (data: ReturnType<typeof cardSelector>) => (
+	<CardSet {...data} />
+);
+
+const GemRender = (data: ReturnType<typeof gemSelector>) => <Gem data={data} />;
+
+const CombatSkillRender = (data: ReturnType<typeof skillSelector>) => (
+	<CombatSkill data={data} />
+);
+
+const Page = ({ params: { name } }: { params: { name: string } }) => {
 	return (
 		<div className="space-y-[16px] md:flex md:space-x-[16px] md:space-y-0">
 			<div className="w-full space-y-[12px] md:w-[200px] md:shrink-0">
-				<Stats
-					stats={stats.slice(0, 6)}
-					power={stats[7]}
-					healty={stats[6]}
-				/>
-				<Tendencies data={tendencies} />
-				<Engraves data={filteredEffects} />
+				<Suspense fallback={<StatsSkeleton />}>
+					<ServerWrapper
+						apiPromise={getProfileInfoApi(name)}
+						selector={profileTooltipSelector}
+						render={StatsRender}
+					/>
+				</Suspense>
+				<Suspense fallback={<TendenciesSkeleton />}>
+					<Tendencies name={name} />
+				</Suspense>
+				<Suspense fallback={<EngravesSkeleton />}>
+					<ServerWrapper
+						apiPromise={getEngravesInfoApi(name)}
+						selector={engraveSelector}
+						render={EngravesRender}
+					/>
+				</Suspense>
 			</div>
 			<div className="w-full space-y-[16px] md:w-auto md:grow">
-				<Equipment data={{ equip, acc }} />
-				<CardSet {...filteredCard} />
-				<Gem data={filteredGem} />
-				<CombatSkill data={filteredSkill} />
+				<Suspense fallback={<EquipmentSkeleton />}>
+					<ServerWrapper
+						apiPromise={getEquipmentApi(name)}
+						selector={equipmentSelector}
+						render={EquipmentRender}
+					/>
+				</Suspense>
+				<Suspense fallback={<CardSetSkeleton />}>
+					<ServerWrapper
+						apiPromise={getCardApi(name)}
+						selector={cardSelector}
+						render={CardSetRender}
+					/>
+				</Suspense>
+				<Suspense fallback={<GemSkeleton />}>
+					<ServerWrapper
+						apiPromise={getGemApi(name)}
+						selector={gemSelector}
+						render={GemRender}
+					/>
+				</Suspense>
+				<Suspense fallback={<CombatSkillSkeleton />}>
+					<ServerWrapper
+						apiPromise={getSkillApi(name)}
+						selector={skillSelector}
+						render={CombatSkillRender}
+					/>
+				</Suspense>
 			</div>
 		</div>
 	);

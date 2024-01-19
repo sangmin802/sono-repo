@@ -33,6 +33,7 @@ const NotificationButton = () => {
 				height={26}
 				alt="notificationPermission"
 				src="/icons/alert/icons8-96.png"
+				priority
 			/>
 		</Button>
 	);

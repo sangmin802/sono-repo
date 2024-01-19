@@ -6,74 +6,70 @@ import Image from 'next/image';
 import type { IArmoryProfile } from '@/service/armories/types';
 
 import Label from '@/client-component/label';
+import Skeleton from '@/client-component/skeleton';
 
 interface IProfileProps {
-	data: IArmoryProfile;
+	data?: IArmoryProfile;
 }
 
-const Profile = ({ data }: IProfileProps) => {
-	const {
-		characterImage,
-		characterName,
-		townLevel,
-		townName,
-		characterLevel,
-		itemMaxLevel,
-		characterClassName,
-		serverName,
-		pvpGradeName,
-		guildName,
-		expeditionLevel,
-		title
-	} = data;
-
+export const Profile = ({ data }: IProfileProps) => {
 	return (
 		<div className="relative h-[360px] overflow-hidden">
 			<div className="absolute z-[4] flex h-full flex-col justify-center">
 				<div className="space-y-[16px] px-[16px]">
 					<div className="flex space-x-[8px]">
-						{serverName && <Label>{serverName}</Label>}
-						<Label>{characterClassName}</Label>
+						{data?.serverName && <Label>{data?.serverName}</Label>}
+						{data?.characterClassName && (
+							<Label>{data?.characterClassName}</Label>
+						)}
 					</div>
 					<div className="flex items-baseline">
-						{title && (
-							<div className="mr-[4px] text-[12px] text-gray-400">{title}</div>
+						{data?.title && (
+							<div className="mr-[4px] text-[12px] text-gray-400">
+								{data?.title}
+							</div>
 						)}
-						<div className="text-[22px] font-bold">{characterName}</div>
+						<div className="text-[22px] font-bold">{data?.characterName}</div>
 					</div>
 					<div className="space-y-[6px]">
 						<div className="flex items-center">
 							<Label>길드</Label>
-							<div className="ml-[4px] text-[16px]">{guildName ?? '-'}</div>
+							<div className="ml-[4px] text-[16px]">
+								{data?.guildName ?? '-'}
+							</div>
 						</div>
 						<div className="flex items-center">
 							<Label>영지</Label>
 							<div className="ml-[4px] text-[16px]">
-								Lv{townLevel ?? '-'} / {townName}
+								{data?.townLevel
+									? `Lv${data?.townLevel} / ${data?.townName}`
+									: '-'}
 							</div>
 						</div>
 						<div className="flex items-center">
 							<Label>pvp</Label>
-							<div className="ml-[4px] text-[16px]">{pvpGradeName ?? '-'}</div>
+							<div className="ml-[4px] text-[16px]">
+								{data?.pvpGradeName ?? '-'}
+							</div>
 						</div>
 					</div>
-					<div className="flex space-x-[20px] [&_div]:text-[18px] [&_div]:font-bold">
-						<div>
+					<div className="flex space-x-[10px] [&_div]:text-[16px] [&_div]:font-bold [&_div]:sm:text-[18px]">
+						<div className="space-y-[4px]">
 							<div className="text-gray-400">전투</div>
-							<div>Lv. {characterLevel}</div>
+							<div>Lv. {data?.characterLevel ?? 0}</div>
 						</div>
-						<div>
+						<div className="space-y-[4px]">
 							<div className="text-gray-400">아이템</div>
-							<div>Lv. {itemMaxLevel}</div>
+							<div>Lv. {data?.itemMaxLevel ?? '0.00'}</div>
 						</div>
-						<div>
+						<div className="space-y-[4px]">
 							<div className="text-gray-400">원정대</div>
-							<div>{expeditionLevel}</div>
+							<div>Lv. {data?.expeditionLevel ?? 0}</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			{characterImage && (
+			{data?.characterImage && (
 				<div
 					className={cn(
 						'absolute right-[-100px] z-[1] w-[360px] md:right-0',
@@ -84,8 +80,8 @@ const Profile = ({ data }: IProfileProps) => {
 						priority
 						width={600}
 						height={900}
-						src={characterImage}
-						alt={characterName}
+						src={data?.characterImage}
+						alt={data?.characterName}
 					/>
 					<div
 						className={cn(
@@ -104,5 +100,62 @@ const Profile = ({ data }: IProfileProps) => {
 		</div>
 	);
 };
+
+export const ProfileSkeleton = () => (
+	<div className="relative h-[360px] w-full">
+		<div className="absolute z-[4] flex h-full flex-col justify-center">
+			<div className="space-y-[16px] px-[16px]">
+				<div className="flex space-x-[8px]">
+					<Skeleton
+						className="h-[29px]"
+						randomWidth={{ max: 70, min: 40 }}
+					/>
+					<Skeleton
+						className="h-[29px]"
+						randomWidth={{ max: 70, min: 40 }}
+					/>
+				</div>
+				<div className="flex items-baseline space-x-[4px]">
+					<Skeleton
+						className="h-[18px]"
+						randomWidth={{ max: 70, min: 40 }}
+					/>
+					<Skeleton
+						className="h-[33px]"
+						randomWidth={{ max: 36, min: 30 }}
+					/>
+				</div>
+				<div className="space-y-[6px]">
+					{Array.from({ length: 3 }).map((_, idx) => (
+						<div
+							key={idx}
+							className="flex items-center space-x-[4px]"
+						>
+							<Skeleton
+								className="h-[29px]"
+								randomWidth={{ max: 36, min: 30 }}
+							/>
+							<Skeleton
+								className="h-[29px]"
+								randomWidth={{ max: 100, min: 70 }}
+							/>
+						</div>
+					))}
+				</div>
+				<div className="flex space-x-[10px]">
+					{Array.from({ length: 3 }).map((_, idx) => (
+						<div
+							key={idx}
+							className="space-y-[4px]"
+						>
+							<Skeleton className="h-[24px] w-[60px] sm:h-[27px] sm:w-[50px]" />
+							<Skeleton className="h-[24px] w-[90px] sm:h-[27px] sm:w-[101px]" />
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+);
 
 export default Profile;

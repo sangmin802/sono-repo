@@ -1,14 +1,29 @@
+import { Suspense } from 'react';
+
+import ServerWrapper from '@/app/server-wrapper';
+
 import { getSilblingsInfoApi } from '@/service/characters';
 import { sliblingListSelector } from '@/service/characters/selector';
 
-import Silblings from '@/app/user-info/[name]/silblings/@component';
+import {
+	Silblings,
+	SilblingsSkeleton
+} from '@/app/user-info/[name]/silblings/@component';
 
-const Page = async ({ params: { name } }: { params: { name: string } }) => {
-	const silblings = await getSilblingsInfoApi(name);
+const SilblingsRender = (data: ReturnType<typeof sliblingListSelector>) => (
+	<Silblings data={data} />
+);
 
-	const filteredSilblings = sliblingListSelector(silblings);
-
-	return <Silblings data={filteredSilblings} />;
+const Page = ({ params: { name } }: { params: { name: string } }) => {
+	return (
+		<Suspense fallback={<SilblingsSkeleton />}>
+			<ServerWrapper
+				apiPromise={getSilblingsInfoApi(name)}
+				selector={sliblingListSelector}
+				render={SilblingsRender}
+			/>
+		</Suspense>
+	);
 };
 
 export default Page;

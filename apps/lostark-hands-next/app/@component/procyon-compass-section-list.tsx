@@ -1,27 +1,46 @@
-'use client';
-
-import type { ICalendar } from '@/service/game-contents/types';
-
-import { convertCalendarData } from '@/util/calendar';
+import { getCalendarApi } from '@/service/game-contents';
+import { calendarSelector } from '@/service/game-contents/selector';
 
 import ProcyonCompassSection from '@/app/@component/procyon-compass-section';
+import { LabelLayoutSkeleton } from '@/client-component/label-layout';
 
-interface IDailyContentSectionListProps {
-	data: { title: string; list: ICalendar[] }[];
-}
+export const revalidate = 300;
 
-const ProcyonCompassSectionList = ({ data }: IDailyContentSectionListProps) => {
+export const ProcyonCompassSectionList = async () => {
+	const { procyon } = calendarSelector(await getCalendarApi());
+
 	return (
-		<div className="grid gap-[16px] md:grid-cols-3">
-			{data.map(({ title, list }) => (
+		<section className="grid gap-[16px] md:grid-cols-3">
+			{Object.values(procyon).map((item) => (
 				<ProcyonCompassSection
-					key={title}
-					title={title}
-					list={convertCalendarData(list)}
+					key={item.title}
+					{...item}
 				/>
 			))}
-		</div>
+		</section>
 	);
 };
 
-export default ProcyonCompassSectionList;
+export const ProcyonCompassSectionListSkeleton = () => (
+	<section className="!mt-0 grid gap-[16px] md:grid-cols-3">
+		{Array.from({ length: 3 }).map((_, idx) => (
+			<LabelLayoutSkeleton
+				key={idx}
+				className="h-[177px]"
+				afterLabel
+			>
+				<div className="space-y-[4px] pb-[12px]">
+					{Array.from({ length: Math.ceil(Math.random() * 4 + 1) }).map(
+						(_, idx) => (
+							<div
+								key={idx}
+								style={{ width: Math.random() * 100 + 40 }}
+								className="h-[18px] animate-pulse rounded-[2px] bg-main-30"
+							/>
+						)
+					)}
+				</div>
+			</LabelLayoutSkeleton>
+		))}
+	</section>
+);

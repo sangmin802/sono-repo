@@ -46,6 +46,7 @@ const ItemThumbnail = ({
 					height={60}
 					src={src}
 					alt={alt}
+					priority
 				/>
 			)}
 		</div>

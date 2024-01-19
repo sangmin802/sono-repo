@@ -11,7 +11,7 @@ interface ITumbnailPostProps {
 	date: string;
 }
 
-const ThumbnailPost = ({
+export const ThumbnailPost = ({
 	className,
 	title,
 	thumbnail,
@@ -36,13 +36,36 @@ const ThumbnailPost = ({
 				alt={title}
 				width={140}
 				height={67}
+				priority
 			/>
-			<div className="mt-[12px]">
-				<div className="truncate">{title}</div>
-				<div className="truncate">{date}</div>
+			<div className="mt-[12px] space-y-[4px]">
+				<div className="truncate leading-[16px]">{title}</div>
+				<div className="truncate leading-[16px]">{date}</div>
 			</div>
 		</div>
 	);
 };
 
-export default ThumbnailPost;
+export const ThumbnailPostSkeleton = ({
+	className,
+	imgClassName
+}: {
+	className?: string;
+	imgClassName?: string;
+}) => (
+	<div className={className}>
+		<div
+			className={cn('animate-pulse rounded-[2px] bg-main-30', imgClassName)}
+		/>
+		<div className="mt-[12px] space-y-[4px]">
+			<div
+				style={{ width: Math.random() * 80 + 40 }}
+				className="h-[16px] animate-pulse rounded-[2px] bg-main-30"
+			/>
+			<div
+				style={{ width: Math.random() * 80 + 40 }}
+				className="h-[16px] animate-pulse rounded-[2px] bg-main-30"
+			/>
+		</div>
+	</div>
+);

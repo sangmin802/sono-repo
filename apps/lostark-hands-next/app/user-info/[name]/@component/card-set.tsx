@@ -7,8 +7,12 @@ import { Chip } from '@sono-repo/ui';
 
 import type { ICard, ICardEffect } from '@/service/armories/types';
 
-import LabelLayout from '@/client-component/label-layout';
+import {
+	LabelLayout,
+	LabelLayoutSkeleton
+} from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
+import Skeleton from '@/client-component/skeleton';
 
 import { CDN_URL } from '@/constant';
 
@@ -30,7 +34,7 @@ const cardOutline: Record<TGrade, number> = {
 	에스더: 7
 };
 
-const CardSet = ({ cards, effects }: ICardSetProps) => {
+export const CardSet = ({ cards, effects }: ICardSetProps) => {
 	const { onOpenModal } = useModalDispatch();
 
 	const handleOpenCardEffectModal = () => {
@@ -118,4 +122,19 @@ const CardSet = ({ cards, effects }: ICardSetProps) => {
 	);
 };
 
-export default CardSet;
+export const CardSetSkeleton = () => (
+	<LabelLayoutSkeleton
+		as="section"
+		afterLabel
+	>
+		<div className="grid cursor-pointer grid-cols-6 gap-[8px]">
+			{Array.from({ length: 6 }).map((_, idx) => (
+				<Skeleton
+					key={idx}
+					className="w-full pb-[146%]"
+					type="LIGHT"
+				/>
+			))}
+		</div>
+	</LabelLayoutSkeleton>
+);

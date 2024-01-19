@@ -1,27 +1,41 @@
-'use client';
-
-import type { ICalendar } from '@/service/game-contents/types';
-
-import { convertCalendarData } from '@/util/calendar';
+import { getCalendarApi } from '@/service/game-contents';
+import { calendarSelector } from '@/service/game-contents/selector';
 
 import DailyContentSection from '@/app/@component/daily-content-section';
+import { LabelLayoutSkeleton } from '@/client-component/label-layout';
 
-interface IDailyContentSectionListProps {
-	data: { title: string; list: ICalendar[] }[];
-}
+export const revalidate = 300;
 
-const DailyContentSectionList = ({ data }: IDailyContentSectionListProps) => {
+export const DailyContentSectionList = async () => {
+	const { daily } = calendarSelector(await getCalendarApi());
+
 	return (
 		<div className="space-y-[16px]">
-			{data.map(({ title, list }) => (
+			{Object.values(daily).map((item) => (
 				<DailyContentSection
-					key={title}
-					title={title}
-					list={convertCalendarData(list)}
+					key={item.title}
+					{...item}
 				/>
 			))}
 		</div>
 	);
 };
 
-export default DailyContentSectionList;
+export const DailyContentSectionListSkeleton = () => (
+	<div className="space-y-[16px]">
+		{Array.from({ length: 3 }).map((_, idx) => (
+			<LabelLayoutSkeleton key={idx}>
+				<div className="grid grid-cols-2 gap-[8px] md:grid-cols-4 lg:grid-cols-7">
+					{Array.from({ length: Math.ceil(Math.random() * 9 + 3) }).map(
+						(_, idx) => (
+							<div
+								key={idx}
+								className="h-[98px] animate-pulse rounded-[4px] bg-main-30"
+							/>
+						)
+					)}
+				</div>
+			</LabelLayoutSkeleton>
+		))}
+	</div>
+);
