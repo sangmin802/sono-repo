@@ -39,6 +39,11 @@ jobs:
       - name: install dependencies
         run: pnpm install
 
+      # 이게 참.. 하위의 모든 패키지가 배포가 된 경우에만 유용한것 같음. publish 액션이 돌 때, 하나라도 실패하는게 있으면 액션자체가 실패함
+      # 성공한것들은 배포가 되긴 하는데, 액션 상태에 x 떠있으면 기분이 나빠서 ㅎ...
+      # ignore필드에 명시해주려 해도, 모노레포 특징상 유일하게 배포하고자 하는 패키지가 배포를 원치 않는 패키지를 의존하는경우가 있는데,
+      # 이 의존하고있는 패키지가 배포를 원치 않는다고 해서 ignore 해두면 그것만으로도 changeset에서 에러를 반환함.. 
+      # 이 이유로.. 해당 액션은 테스트는 해보았으니 비활성화 하고자 함
       - name: create and publish versions
         uses: changesets/action@v1
         with:
