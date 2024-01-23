@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 const modulePath = fileURLToPath(import.meta.url);
 const wDir = dirname(modulePath);
 const pkgPath = path.join(wDir, '../package.json');
-const sementicVersionList = ['major', 'minor', 'patch'];
+const semverList = ['major', 'minor', 'patch'];
 
 console.clear();
 
@@ -16,14 +16,14 @@ inquirer
 	.prompt([
 		{
 			type: 'list',
-			name: 'sementicVersion',
-			message: 'Choose Sementic Version',
-			choices: sementicVersionList
+			name: 'semver',
+			message: 'Choose Semver',
+			choices: semverList
 		}
 	])
 	.then((answers) => {
-		const sementicVersion = answers.sementicVersion;
-		const index = sementicVersionList.findIndex((i) => sementicVersion === i);
+		const semver = answers.semver;
+		const index = semverList.findIndex((i) => semver === i);
 
 		const pkg = fs.readFileSync(pkgPath, {
 			encoding: 'utf8'
