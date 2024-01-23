@@ -7,6 +7,8 @@ on:
 env:
   CI: true
   PNPM_CACHE_FOLDER: .pnpm-store
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
 
 jobs:
   version:
@@ -36,7 +38,12 @@ jobs:
       - name: install dependencies
         run: pnpm install
 
-      ## 여기 지금 커밋을 만드는 위치가 프로젝트가 아니라, pnpm store에서 시작하는것 같음..?
+      - name: creating .npmrc
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          EOF
+
       - name: create and publish versions
         uses: changesets/action@v1
         with:
@@ -45,6 +52,4 @@ jobs:
           title: "chore: update versions"
           publish: pnpm changeset publish
           createGithubReleases: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+  
