@@ -36,6 +36,7 @@ jobs:
       - name: install dependencies
         run: pnpm install
 
+      ## 여기 지금 커밋을 만드는 위치가 프로젝트가 아니라, pnpm store에서 시작하는것 같음..?
       - name: create and publish versions
         uses: changesets/action@v1
         with:
