@@ -7,8 +7,6 @@ on:
 env:
   CI: true
   PNPM_CACHE_FOLDER: .pnpm-store
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
 
 jobs:
   version:
@@ -32,6 +30,7 @@ jobs:
       - name: setup pnpm config
         run: pnpm config set store-dir $PNPM_CACHE_FOLDER
 
+      # pr 생성 시 npmrc 파일은 만들어지지 않도록 changesets 액션 실행 전 만들어지도록 지정
       - name: Set up NPM credentials
         run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
         env:
@@ -48,4 +47,7 @@ jobs:
           title: "chore: update versions"
           publish: pnpm changeset publish
           createGithubReleases: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
   
