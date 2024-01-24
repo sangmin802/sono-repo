@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "pnpm tsc && next build",
+    "build": "next build",
     "start": "pnpm run build && next start",
     "lint": "next lint",
     "tsc": "tsc"
@@ -17,7 +17,7 @@
     "@vercel/speed-insights": "^1.0.4",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
-    "next": "^14.0.4",
+    "next": "^14.1.0",
     "react": "18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive": "^9.0.2",

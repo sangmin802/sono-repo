@@ -1,4 +1,4 @@
-name: lostark-hands-next build test
+name: Lostark-hands-next build test
 
 on:
   pull_request:

@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: 20.x
 
+      # todo pnpm/action-setup@v2
       - name: install pnpm
         run: npm i pnpm@latest -g
 
