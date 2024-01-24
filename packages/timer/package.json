@@ -1,6 +1,6 @@
 {
   "name": "sono-repo-react-timer",
-  "version": "0.2.23",
+  "version": "0.2.25",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -10,6 +10,9 @@
   ],
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "deploy-timer": "./bin/index.mjs"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
