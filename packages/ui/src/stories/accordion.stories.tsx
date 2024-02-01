@@ -34,14 +34,14 @@ const meta = {
 		return (
 			<div className={cn({ 'bg-black': isWhiteMode })}>
 				<Accordion
-					className="w-[200px]"
+					className="w-[80%] bg-orange-500"
 					{...args}
 					summary={{
 						className: cn({ 'text-white': isWhiteMode }),
 						...args.summary
 					}}
 					details={{
-						className: cn({ 'text-white': isWhiteMode }),
+						className: cn('bg-purple-500', { 'text-white': isWhiteMode }),
 						...args.details
 					}}
 				/>
@@ -56,7 +56,9 @@ export const Default = {
 			children: 'Accordion 버튼'
 		},
 		details: {
-			children: 'Accordion 콘텐츠'
+			children:
+				// eslint-disable-next-line max-len
+				'Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠Accordion 콘텐츠'
 		},
 		arrowMode: 'DARK'
 	}

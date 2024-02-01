@@ -1,4 +1,4 @@
-import { type ReactElement, useEffect, useRef, useState } from 'react';
+import { type ReactElement, useState } from 'react';
 import cn from 'classnames';
 
 import Arrow from './arrow';
@@ -27,32 +27,12 @@ const Accordion = ({
 	onClick
 }: IAccordionProps) => {
 	const [open, setOpen] = useState(false);
-	const [height, setHeight] = useState<number>(0);
-	const containerRef = useRef<HTMLDivElement>(null);
 
 	const handleClickSummary = () => {
 		setOpen(!open);
 
 		onClick?.(open ? 'CLOSE' : 'OPEN');
 	};
-
-	useEffect(() => {
-		const el = containerRef.current;
-
-		if (!el) return;
-
-		const observer = new ResizeObserver((entry) => {
-			const target = entry[0].borderBoxSize[0];
-
-			setHeight(target.blockSize);
-		});
-
-		observer.observe(el);
-
-		return () => {
-			observer.unobserve(el);
-		};
-	}, []);
 
 	return (
 		<div className={className}>
@@ -70,14 +50,15 @@ const Accordion = ({
 				/>
 			</div>
 			<div
-				className="overflow-hidden transition-max-height duration-300 ease-in-out"
-				style={{ maxHeight: open ? height : 0 }}
+				className={cn(
+					'grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out',
+					{ 'grid-rows-[1fr]': open }
+				)}
 			>
-				<div
-					className={cn('px-[6px] py-[10px]', details.className)}
-					ref={containerRef}
-				>
-					{details.children}
+				<div className="overflow-hidden">
+					<div className={cn('px-[6px] py-[10px]', details.className)}>
+						{details.children}
+					</div>
 				</div>
 			</div>
 		</div>
