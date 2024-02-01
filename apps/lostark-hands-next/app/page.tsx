@@ -34,6 +34,8 @@ import {
  * STREAMING RENDER
  */
 
+export const revalidate = 300;
+
 const Page = async () => {
 	return (
 		<div className="space-y-[16px] px-[16px] pb-[16px]">
