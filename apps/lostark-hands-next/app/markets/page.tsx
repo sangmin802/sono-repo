@@ -9,6 +9,7 @@ import Markets from '@/app/markets/@component';
 export const revalidate = 300;
 
 const Page = () => {
+	const a = 123;
 	return (
 		<div className="space-y-[16px] px-[16px] pb-[16px]">
 			<Suspense>
