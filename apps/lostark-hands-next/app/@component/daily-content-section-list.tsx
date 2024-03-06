@@ -1,14 +1,17 @@
-import { getCalendarApi } from '@/service/game-contents';
-import { calendarSelector } from '@/service/game-contents/selector';
+'use client';
 
 import DailyContentSection from '@/app/@component/daily-content-section';
 import { LabelLayoutSkeleton } from '@/client-component/label-layout';
 
-export const revalidate = 300;
+import type { TCalendarData } from './types';
 
-export const DailyContentSectionList = async () => {
-	const { daily } = calendarSelector(await getCalendarApi());
+interface IDailyContentSectionListProps {
+	data: TCalendarData;
+}
 
+export const DailyContentSectionList = ({
+	data: { daily }
+}: IDailyContentSectionListProps) => {
 	return (
 		<div className="space-y-[16px]">
 			{Object.values(daily).map((item) => (

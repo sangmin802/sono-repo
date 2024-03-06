@@ -9,13 +9,17 @@ import Skeleton from '@/client-component/skeleton';
 import type { ToCamelKey } from '@/type';
 
 interface IStatsProps {
-	stats: ToCamelKey<IStat>[];
-	power: ToCamelKey<IStat>;
-	healty: ToCamelKey<IStat>;
+	data: {
+		stats: ToCamelKey<IStat>[];
+	};
 }
 
-export const Stats = ({ stats, power, healty }: IStatsProps) => {
+export const Stats = ({ data: { stats: initStats } }: IStatsProps) => {
 	const { onOpenModal } = useModalDispatch();
+
+	const stats = initStats.slice(0, 6);
+	const power = initStats[7];
+	const healty = initStats[6];
 
 	const handleOpenModal = () => {
 		if (!Number(power.value) || !Number(healty.value)) return;

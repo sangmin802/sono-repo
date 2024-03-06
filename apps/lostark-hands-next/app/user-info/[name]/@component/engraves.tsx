@@ -14,10 +14,8 @@ import Skeleton from '@/client-component/skeleton';
 import { CDN_URL } from '@/constant';
 import ENGRAVE_IMGAE from '@/constant/engrave';
 
-import type { ToCamelKey } from '@/type';
-
 interface IEngravesProps {
-	data?: ToCamelKey<IEffect[]>;
+	data?: IEffect[] | null;
 }
 
 const engravePointColor: Record<number, string> = {

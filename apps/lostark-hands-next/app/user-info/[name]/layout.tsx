@@ -1,4 +1,4 @@
-import { type ReactElement, Suspense } from 'react';
+import { type ReactElement } from 'react';
 
 import ServerWrapper from '@/app/server-wrapper';
 
@@ -26,12 +26,11 @@ const Layout = ({
 }) => {
 	return (
 		<div>
-			<Suspense fallback={<ProfileSkeleton />}>
-				<ServerWrapper
-					apiPromise={getProfileInfoApi(name)}
-					render={(data) => <Profile data={data ?? undefined} />}
-				/>
-			</Suspense>
+			<ServerWrapper
+				fallback={<ProfileSkeleton />}
+				apiPromise={getProfileInfoApi(name)}
+				render={Profile}
+			/>
 			<div className="space-y-[12px] p-[16px]">
 				<TabList />
 				{children}

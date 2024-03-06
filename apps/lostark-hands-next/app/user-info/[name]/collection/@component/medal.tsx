@@ -13,7 +13,7 @@ import {
 import { useModalDispatch } from '@/client-component/modal/provider';
 
 interface IMedalProps {
-	data: TParsedArmory<IArmoryEquipment>[];
+	data: { col: TParsedArmory<IArmoryEquipment>[] | null };
 }
 
 export const CollectionMedal = ({ data }: IMedalProps) => {
@@ -25,7 +25,7 @@ export const CollectionMedal = ({ data }: IMedalProps) => {
 			label="수집품 보상"
 		>
 			<div className="space-y-[8px]">
-				{data.map((item, idx) => (
+				{data.col?.map((item, idx) => (
 					<ArmoryCard
 						key={idx}
 						{...item}
