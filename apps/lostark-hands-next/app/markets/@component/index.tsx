@@ -13,12 +13,12 @@ import useClientRendered from '@/hook/use-client-rendered';
 import List from '@/app/markets/@component/list';
 
 interface IMarketsProps {
-	options: IOptions;
+	data: IOptions;
 }
 
-const Markets = ({ options }: IMarketsProps) => {
+const Markets = ({ data }: IMarketsProps) => {
 	const isClientRendered = useClientRendered();
-	const { filter, onOpenFilter } = useMarketsFilter(options);
+	const { filter, onOpenFilter } = useMarketsFilter(data);
 
 	return (
 		<div>

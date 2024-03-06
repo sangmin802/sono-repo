@@ -48,7 +48,14 @@ const stickyNavStyle = cn(
 export const Collection = ({ data }: ICollectionProps) => {
 	const { isLg } = useResponsive();
 
-	const [selectCollect, setSelectCollect] = useState(data[0]);
+	const sortedData = data.map((item) => ({
+		...item,
+		collectiblePoints: item.collectiblePoints.sort((_, b) =>
+			b.maxPoint !== b.point ? 0 : -1
+		)
+	}));
+
+	const [selectCollect, setSelectCollect] = useState(sortedData[0]);
 
 	return (
 		<div className="w-full lg:flex">
@@ -58,7 +65,7 @@ export const Collection = ({ data }: ICollectionProps) => {
 				as="nav"
 				top={68}
 			>
-				{data.map((item) => (
+				{sortedData.map((item) => (
 					<div
 						className={cn(
 							'flex w-[130px] shrink-0 items-center',

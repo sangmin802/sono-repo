@@ -1,14 +1,17 @@
-import { getCalendarApi } from '@/service/game-contents';
-import { calendarSelector } from '@/service/game-contents/selector';
+'use client';
 
 import ProcyonCompassSection from '@/app/@component/procyon-compass-section';
 import { LabelLayoutSkeleton } from '@/client-component/label-layout';
 
-export const revalidate = 300;
+import type { TCalendarData } from './types';
 
-export const ProcyonCompassSectionList = async () => {
-	const { procyon } = calendarSelector(await getCalendarApi());
+interface IProcyonCompassSectionListProps {
+	data: TCalendarData;
+}
 
+export const ProcyonCompassSectionList = ({
+	data: { procyon }
+}: IProcyonCompassSectionListProps) => {
 	return (
 		<section className="grid gap-[16px] md:grid-cols-3">
 			{Object.values(procyon).map((item) => (

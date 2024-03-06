@@ -1,4 +1,5 @@
-import { getNoticeApi } from '@/service/news';
+'use client';
+
 import type { INotice } from '@/service/news/types';
 
 import {
@@ -10,14 +11,11 @@ import {
 	MessagePostSkeleton
 } from '@/client-component/message-post';
 
-export const revalidate = 300;
+interface INoticeProps {
+	data: (INotice[] | null)[];
+}
 
-export const Notice = async () => {
-	const [noticeData, storeData] = await Promise.all([
-		getNoticeApi('공지'),
-		getNoticeApi('상점')
-	]);
-
+export const Notice = ({ data: [noticeData, storeData] }: INoticeProps) => {
 	const noticeList = Array.from(
 		[...(noticeData ?? []), ...(storeData ?? [])].reduce((prev, cur) => {
 			const noticeType = cur.title.includes('업데이트') ? '업데이트' : cur.type;

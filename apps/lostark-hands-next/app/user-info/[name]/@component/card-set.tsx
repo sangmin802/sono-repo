@@ -19,8 +19,10 @@ import { CDN_URL } from '@/constant';
 import type { TGrade } from '@/type';
 
 interface ICardSetProps {
-	cards: (ICard | null)[];
-	effects: ICardEffect[] | null;
+	data: {
+		cards: (ICard | null)[];
+		effects: ICardEffect[] | null;
+	};
 }
 
 const cardOutline: Record<TGrade, number> = {
@@ -34,7 +36,7 @@ const cardOutline: Record<TGrade, number> = {
 	에스더: 7
 };
 
-export const CardSet = ({ cards, effects }: ICardSetProps) => {
+export const CardSet = ({ data: { cards, effects } }: ICardSetProps) => {
 	const { onOpenModal } = useModalDispatch();
 
 	const handleOpenCardEffectModal = () => {

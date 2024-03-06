@@ -1,4 +1,6 @@
-import { getEventApi } from '@/service/news';
+'use client';
+
+import type { IEvent } from '@/service/news/types';
 
 import {
 	LabelLayout,
@@ -9,11 +11,11 @@ import {
 	ThumbnailPostSkeleton
 } from '@/client-component/thumbnail-post';
 
-export const revalidate = 300;
+interface IEventProps {
+	data: IEvent[] | null;
+}
 
-export const Event = async () => {
-	const data = await getEventApi();
-
+export const Event = ({ data }: IEventProps) => {
 	return (
 		<LabelLayout
 			as="section"

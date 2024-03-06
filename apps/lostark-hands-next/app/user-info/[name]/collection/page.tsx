@@ -1,5 +1,3 @@
-import { Suspense } from 'react';
-
 import ServerWrapper from '@/app/server-wrapper';
 
 import { getCollectibleApi, getEquipmentApi } from '@/service/armories';
@@ -14,35 +12,20 @@ import {
 	CollectionMedalSkeleton
 } from '@/app/user-info/[name]/collection/@component/medal';
 
-const CollectionMedalRender = ({
-	col
-}: ReturnType<typeof equipmentSelector>) => <CollectionMedal data={col} />;
-
 const Page = ({ params: { name } }: { params: { name: string } }) => {
 	return (
 		<div className="flex flex-col-reverse lg:flex-row lg:space-x-[16px]">
-			<Suspense fallback={<CollectionSkeleton />}>
-				<ServerWrapper
-					apiPromise={getCollectibleApi(name)}
-					render={(data) => (
-						<Collection
-							data={data.map((item) => ({
-								...item,
-								collectiblePoints: item.collectiblePoints.sort((_, b) =>
-									b.maxPoint !== b.point ? 0 : -1
-								)
-							}))}
-						/>
-					)}
-				/>
-			</Suspense>
-			<Suspense fallback={<CollectionMedalSkeleton />}>
-				<ServerWrapper
-					apiPromise={getEquipmentApi(name)}
-					selector={equipmentSelector}
-					render={CollectionMedalRender}
-				/>
-			</Suspense>
+			<ServerWrapper
+				fallback={<CollectionSkeleton />}
+				apiPromise={getCollectibleApi(name)}
+				render={Collection}
+			/>
+			<ServerWrapper
+				fallback={<CollectionMedalSkeleton />}
+				apiPromise={getEquipmentApi(name)}
+				selector={equipmentSelector}
+				render={CollectionMedal}
+			/>
 		</div>
 	);
 };

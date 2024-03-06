@@ -9,7 +9,7 @@ import Label from '@/client-component/label';
 import Skeleton from '@/client-component/skeleton';
 
 interface IProfileProps {
-	data?: IArmoryProfile;
+	data?: IArmoryProfile | null;
 }
 
 export const Profile = ({ data }: IProfileProps) => {
