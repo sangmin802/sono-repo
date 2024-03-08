@@ -11,9 +11,8 @@ import cn from 'classnames';
 import DataEmptyFunnel from '@/client-component/data-empty-funnel';
 
 type TLabelLayoutProps<T extends ElementType> = {
-	label: string;
+	label: ReactNode;
 	className?: string;
-	afterLabel?: ReactNode;
 	empty?: ComponentProps<typeof DataEmptyFunnel>['data'];
 	as?: T;
 	children: ReactNode;
@@ -22,7 +21,6 @@ type TLabelLayoutProps<T extends ElementType> = {
 export const LabelLayout = <T extends ElementType>({
 	className,
 	label,
-	afterLabel,
 	empty,
 	as,
 	children,
@@ -36,8 +34,7 @@ export const LabelLayout = <T extends ElementType>({
 			{...props}
 		>
 			<div className="mb-[16px] flex items-end space-x-[16px] border-b border-[#7f7f7f] pb-[6px] leading-[16px]">
-				<div className="w-fit text-[16px] font-bold">{label}</div>
-				{afterLabel}
+				{label}
 			</div>
 			<DataEmptyFunnel
 				as="fragment"
@@ -52,12 +49,10 @@ export const LabelLayout = <T extends ElementType>({
 export const LabelLayoutSkeleton = <T extends ElementType>({
 	className,
 	as,
-	afterLabel,
 	children
 }: {
 	className?: string;
 	as?: T;
-	afterLabel?: boolean;
 	children?: ReactNode;
 }) => {
 	const Tag = as ?? 'div';
@@ -74,12 +69,6 @@ export const LabelLayoutSkeleton = <T extends ElementType>({
 					style={{ width: Math.random() * 20 + 50 }}
 					className="h-[16px] animate-pulse rounded-[2px] bg-main-30"
 				/>
-				{afterLabel && (
-					<div
-						style={{ width: Math.random() * 20 + 90 }}
-						className="h-[16px] animate-pulse rounded-[2px] bg-main-30"
-					/>
-				)}
 			</div>
 			{children}
 		</Tag>

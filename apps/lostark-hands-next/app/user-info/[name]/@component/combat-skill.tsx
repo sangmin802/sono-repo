@@ -2,7 +2,7 @@
 
 import cn from 'classnames';
 
-import { Chip } from '@sono-repo/ui';
+import { Accordion, Chip } from '@sono-repo/ui';
 
 import type { skillSelector } from '@/service/armories/selector';
 
@@ -71,73 +71,78 @@ export const CombatSkill = ({ data }: ICombatSkillProps) => {
 	const [destory, counter] = minifySkill(data) ?? [0, 0];
 
 	return (
-		<LabelLayout
-			label="스킬"
-			as="section"
-			empty={{ status: !data, fallback: '선택된 스킬이 없습니다.' }}
-			afterLabel={
-				data && (
-					<div className="flex space-x-[8px]">
-						<Chip type="info">부위파괴 {destory}</Chip>
-						<Chip type="info">카운터 {counter}</Chip>
-					</div>
-				)
-			}
-		>
-			<div className="grid grid-cols-2 gap-[12px] md:grid-cols-4">
-				{data?.map((item) => (
-					<div
-						className="flex cursor-pointer flex-col space-y-[4px]"
-						key={item.name}
-						onClick={handleOpenSkillModal(item)}
-					>
-						<div className="flex items-center space-x-[4px]">
-							<div>{item.name}</div>
-							{item.rune && (
-								<div className={cn(GRADE_TEXT_COLOR[item.rune.grade])}>
-									{item.rune.name}
+		<Accordion>
+			<LabelLayout
+				label={
+					<Accordion.Summary className="w-full">
+						<div className="flex space-x-[16px]">
+							<div className="text-[16px]">스킬</div>
+							{data && (
+								<div className="flex space-x-[8px]">
+									<Chip type="info">부위파괴 {destory}</Chip>
+									<Chip type="info">카운터 {counter}</Chip>
 								</div>
 							)}
 						</div>
-						<div className="flex items-center space-x-[12px]">
-							<ItemThumbnail
-								className="h-[50px] w-[50px]"
-								src={item.icon}
-								alt={item.name}
-								chip={item.level}
-							/>
-							<div className="min-w-0 grow">
-								{item.tripods.map(({ name, level }, idx) => (
-									<div
-										className="flex space-x-[8px]"
-										key={idx}
-									>
-										<div
-											className={cn(
-												'text-[12px] font-bold leading-[16px] text-orange-500'
-											)}
-										>
-											{level}
+					</Accordion.Summary>
+				}
+				as="section"
+				empty={{ status: !data, fallback: '선택된 스킬이 없습니다.' }}
+			>
+				<Accordion.Content className="pt-0">
+					<div className="grid grid-cols-2 gap-[12px] md:grid-cols-4">
+						{data?.map((item) => (
+							<div
+								className="flex cursor-pointer flex-col space-y-[4px]"
+								key={item.name}
+								onClick={handleOpenSkillModal(item)}
+							>
+								<div className="flex items-center space-x-[4px]">
+									<div>{item.name}</div>
+									{item.rune && (
+										<div className={cn(GRADE_TEXT_COLOR[item.rune.grade])}>
+											{item.rune.name}
 										</div>
-										<div className="truncate text-[12px] leading-[16px]">
-											{name}
-										</div>
+									)}
+								</div>
+								<div className="flex items-center space-x-[12px]">
+									<ItemThumbnail
+										className="h-[50px] w-[50px]"
+										src={item.icon}
+										alt={item.name}
+										chip={item.level}
+									/>
+									<div className="min-w-0 grow">
+										{item.tripods.map(({ name, level }, idx) => (
+											<div
+												className="flex space-x-[8px]"
+												key={idx}
+											>
+												<div
+													className={cn(
+														'text-[12px] font-bold leading-[16px] text-orange-500'
+													)}
+												>
+													{level}
+												</div>
+												<div className="truncate text-[12px] leading-[16px]">
+													{name}
+												</div>
+											</div>
+										))}
 									</div>
-								))}
+								</div>
 							</div>
-						</div>
+						))}
 					</div>
-				))}
-			</div>
-		</LabelLayout>
+				</Accordion.Content>
+			</LabelLayout>
+		</Accordion>
 	);
 };
 
 export const CombatSkillSkeleton = () => (
-	<LabelLayoutSkeleton
-		as="section"
-		afterLabel
-	>
+	<LabelLayoutSkeleton as="section">
 		<div className="grid grid-cols-2 gap-[12px] md:grid-cols-4">
 			{Array.from({ length: 8 }).map((_, idx) => (
 				<div

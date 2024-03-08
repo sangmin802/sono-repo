@@ -1,8 +1,7 @@
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren, ReactNode } from 'react';
 import {
 	createContext,
 	type Dispatch,
-	type ReactElement,
 	type SetStateAction,
 	useContext,
 	useEffect,
@@ -17,7 +16,7 @@ type TArrowMode = 'DARK' | 'WHITE';
 
 interface IAccordionProps {
 	className?: string;
-	children: ReactElement[];
+	children: ReactNode;
 	onChange?: (type: TAction) => void;
 }
 
@@ -54,7 +53,7 @@ const Accordion = ({ className, children, onChange }: IAccordionProps) => {
 	const [status, setStatus] = useState(false);
 
 	useEffect(() => {
-		onChange?.(status ? 'CLOSE' : 'OPEN');
+		onChange?.(status ? 'OPEN' : 'CLOSE');
 	}, [status, onChange]);
 
 	return (
@@ -66,7 +65,11 @@ const Accordion = ({ className, children, onChange }: IAccordionProps) => {
 	);
 };
 
-const Summary = ({ className, children, arrowMode }: ISummaryProps) => {
+const Summary = ({
+	className,
+	children,
+	arrowMode = 'WHITE'
+}: ISummaryProps) => {
 	const state = useStateContext();
 	const dispatch = useDispatchContext();
 
