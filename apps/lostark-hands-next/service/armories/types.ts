@@ -165,6 +165,16 @@ export interface IArmoryEquipment {
 	tooltip: string;
 }
 
+export interface ISelectedArmoryEquipment extends IArmoryEquipment {
+	levelInfo: string;
+	quality: number;
+	elixir?: string[];
+	transcendence?: {
+		grade: string;
+		total: string;
+	};
+}
+
 export interface IArmoryAvatar {
 	type: string;
 	name: string;

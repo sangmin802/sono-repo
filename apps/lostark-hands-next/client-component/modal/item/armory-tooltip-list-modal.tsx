@@ -1,13 +1,10 @@
 'use client';
 
-import cn from 'classnames';
-
 import ArmoryTooltip from '@/client-component/armory-tooltip';
-import ItemThumbnail from '@/client-component/item-thumbnail';
+import GradeText from '@/client-component/grade-text';
 import ModalLayout from '@/client-component/modal/layout';
 import type { IModalItemProps } from '@/client-component/modal/types';
-
-import { GRADE_TEXT_COLOR } from '@/constant';
+import Thumbnail from '@/client-component/thumbnail';
 
 const ArmoryTooltipListModal = ({
 	list
@@ -20,16 +17,14 @@ const ArmoryTooltipListModal = ({
 						className="flex flex-col justify-center"
 						key={idx}
 					>
-						<div
-							className={cn(
-								'mb-[4px] text-[12px] font-medium',
-								GRADE_TEXT_COLOR[grade ?? '일반']
-							)}
+						<GradeText
+							className="mb-[4px] text-[12px] font-medium"
+							grade={grade ?? '일반'}
 						>
 							{name}
-						</div>
+						</GradeText>
 						<div className="flex space-x-[8px]">
-							<ItemThumbnail
+							<Thumbnail
 								className="h-[40px] w-[40px]"
 								src={icon}
 								alt={name}

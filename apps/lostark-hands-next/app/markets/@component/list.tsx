@@ -5,9 +5,9 @@ import cn from 'classnames';
 
 import { useGetListQuery } from '@/service/markets/query';
 
-import ItemThumbnail from '@/client-component/item-thumbnail';
 import Label from '@/client-component/label';
 import RewardIcon from '@/client-component/reward-icon';
+import Thumbnail from '@/client-component/thumbnail';
 
 import { GOLD_ICON_URL } from '@/constant';
 
@@ -75,7 +75,7 @@ const List = ({ filter }: IListProps) => {
 					ref={idx === data.length - 1 ? setIoEl : undefined}
 				>
 					<div className="flex shrink-0 grow basis-0 items-center space-x-[8px]">
-						<ItemThumbnail
+						<Thumbnail
 							className="h-[40px] w-[40px]"
 							grade={item.grade}
 							src={item.icon}

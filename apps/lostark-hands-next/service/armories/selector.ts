@@ -7,10 +7,13 @@ import type {
 	IArmorySkill,
 	ICard,
 	IParsedGem,
+	ISelectedArmoryEquipment,
 	IStat,
 	ITendency,
 	TParsedArmory
 } from '@/service/armories/types';
+
+import { getElixir, getTranscendence } from '@/util/armory';
 
 import { CDN_URL } from '@/constant';
 import {
@@ -25,7 +28,7 @@ import {
 } from '@/constant/armory';
 
 import type { IObj } from '@/type';
-import type { TElementUnionArray } from '@/type/element-json';
+import type { TElement, TElementUnionArray } from '@/type/element-json';
 
 /**
  * 프로필 데이터 가공
@@ -116,7 +119,7 @@ const changeImageUrl = <T extends IObj>(item: T): T => {
  */
 export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 	[...EQUIP_PARTS, ...ACC_PARTS, ...COLLECT_PARTS].reduce<
-		Record<'equip' | 'acc' | 'col', TParsedArmory<IArmoryEquipment>[]>
+		Record<'equip' | 'acc' | 'col', TParsedArmory<ISelectedArmoryEquipment>[]>
 	>(
 		(prev, cur) => {
 			const key = EQUIP_PARTS.includes(cur)
@@ -131,13 +134,31 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 					type: cur,
 					name: '',
 					icon: '',
+					levelInfo: '',
+					quality: 0,
 					grade: '일반'
 				});
 			} else {
 				const { tooltip: jsonToolip, ...rest } = targetItem;
+				const tooltip = Object.values(
+					JSON.parse(jsonToolip)
+				) satisfies TElementUnionArray;
+
+				const itemTitle = tooltip.find(({ type }) => type === 'ItemTitle') as
+					| TElement['ItemTitle']
+					| undefined;
+
+				const levelInfo = itemTitle?.value.leftStr2 ?? '';
+				const quality = itemTitle?.value.qualityValue ?? 0;
+				const elixir = getElixir(tooltip);
+				const transcendence = getTranscendence(tooltip);
 
 				prev[key].push({
 					...rest,
+					levelInfo,
+					quality,
+					elixir,
+					transcendence,
 					tooltip: (
 						Object.values(JSON.parse(jsonToolip)) satisfies TElementUnionArray
 					).map((item) => {

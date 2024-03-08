@@ -22,7 +22,7 @@ const QaulityChip = ({ size }: IQaulityChipProps) => {
 		<div
 			className={cn(
 				getQualityColor(size),
-				'w-fit rounded-[4px] px-[4px] text-[12px]'
+				'flex w-fit items-center rounded-[4px] px-[4px] text-[12px]'
 			)}
 		>
 			품질 {size}

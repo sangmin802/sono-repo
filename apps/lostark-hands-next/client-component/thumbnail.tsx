@@ -9,7 +9,7 @@ import { GRADE_BG_COLOR } from '@/constant';
 
 import type { TGrade } from '@/type';
 
-interface IItemThumbnailProps {
+interface IThumbnailProps {
 	className?: string;
 	chip?: string | number;
 	grade?: TGrade;
@@ -17,17 +17,11 @@ interface IItemThumbnailProps {
 	alt: string;
 }
 
-const ItemThumbnail = ({
-	className,
-	src,
-	alt,
-	chip,
-	grade
-}: IItemThumbnailProps) => {
+const Thumbnail = ({ className, src, alt, chip, grade }: IThumbnailProps) => {
 	return (
 		<div
 			className={cn(
-				'relative shrink-0 rounded-[4px]',
+				'relative shrink-0 overflow-hidden rounded-[4px]',
 				grade ? GRADE_BG_COLOR[grade] : 'bg-main-10',
 				className
 			)}
@@ -53,4 +47,4 @@ const ItemThumbnail = ({
 	);
 };
 
-export default ItemThumbnail;
+export default Thumbnail;

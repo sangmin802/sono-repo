@@ -6,15 +6,14 @@ import { Accordion, Chip } from '@sono-repo/ui';
 
 import type { skillSelector } from '@/service/armories/selector';
 
-import ItemThumbnail from '@/client-component/item-thumbnail';
+import GradeText from '@/client-component/grade-text';
 import {
 	LabelLayout,
 	LabelLayoutSkeleton
 } from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
 import Skeleton from '@/client-component/skeleton';
-
-import { GRADE_TEXT_COLOR } from '@/constant';
+import Thumbnail from '@/client-component/thumbnail';
 
 import type { TElement } from '@/type/element-json';
 
@@ -62,6 +61,7 @@ export const CombatSkill = ({ data }: ICombatSkillProps) => {
 			name: 'armoryTooltipModal',
 			props: {
 				...item,
+				grade: '일반',
 				chip: item.level,
 				subTitle: item.type
 			}
@@ -100,13 +100,13 @@ export const CombatSkill = ({ data }: ICombatSkillProps) => {
 								<div className="flex items-center space-x-[4px]">
 									<div>{item.name}</div>
 									{item.rune && (
-										<div className={cn(GRADE_TEXT_COLOR[item.rune.grade])}>
+										<GradeText grade={item.rune.grade}>
 											{item.rune.name}
-										</div>
+										</GradeText>
 									)}
 								</div>
 								<div className="flex items-center space-x-[12px]">
-									<ItemThumbnail
+									<Thumbnail
 										className="h-[50px] w-[50px]"
 										src={item.icon}
 										alt={item.name}

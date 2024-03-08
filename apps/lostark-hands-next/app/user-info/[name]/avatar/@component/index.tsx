@@ -2,14 +2,15 @@
 
 import type { IArmoryAvatar, TParsedArmory } from '@/service/armories/types';
 
-import {
-	ArmoryCard,
-	ArmoryCardSkeleton
-} from '@/app/user-info/[name]/@component/armory-card';
+import GradeText from '@/client-component/grade-text';
 import {
 	LabelLayout,
 	LabelLayoutSkeleton
 } from '@/client-component/label-layout';
+import {
+	ThumbnailCard,
+	ThumbnailCardSkeleton
+} from '@/client-component/thumbnail-card';
 
 interface IAvatarProps {
 	data: TParsedArmory<IArmoryAvatar>[][];
@@ -27,11 +28,15 @@ export const Avatar = ({ data }: IAvatarProps) => (
 					key={list[0].type}
 				>
 					{list.map((item, idx) => (
-						<ArmoryCard
+						<ThumbnailCard
 							key={idx}
-							showChip={false}
-							{...item}
-						/>
+							className="h-[40px] w-[40px]"
+							grade={item.grade}
+							src={item.icon}
+							alt={item.name}
+						>
+							<GradeText grade={item.grade}>{item.name}</GradeText>
+						</ThumbnailCard>
 					))}
 				</div>
 			))}
@@ -49,7 +54,10 @@ export const AvatarSkeleton = () => (
 				>
 					{Array.from({ length: Math.round(Math.random() * 1) + 1 }).map(
 						(_, idx) => (
-							<ArmoryCardSkeleton key={idx} />
+							<ThumbnailCardSkeleton
+								key={idx}
+								className="h-[40px] w-[40px]"
+							/>
 						)
 					)}
 				</div>

@@ -16,11 +16,11 @@ export interface IModalItemProps {
 	};
 	armoryTooltipModal: {
 		name: string;
-		subTitle: string;
+		subTitle?: string;
 		afterSubTitle?: ReactNode;
 		icon: string;
 		chip?: string | number;
-		grade?: TGrade;
+		grade: TGrade;
 		tooltip?: TElementUnionArray;
 	};
 	armoryTooltipListModal: {
