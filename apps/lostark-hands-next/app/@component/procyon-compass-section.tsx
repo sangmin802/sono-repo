@@ -44,11 +44,13 @@ const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
 
 	return (
 		<LabelLayout
-			label={title}
-			afterLabel={
+			label={
 				<div className="flex space-x-[12px]">
-					{firstTime && <div>{formattedTime}</div>}
-					<TimeUnit {...timerProps} />
+					<div>{title}</div>
+					<div className="flex space-x-[6px]">
+						{firstTime && <div>{formattedTime}</div>}
+						<TimeUnit {...timerProps} />
+					</div>
 				</div>
 			}
 			empty={{

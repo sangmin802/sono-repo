@@ -4,13 +4,13 @@ import { removeHtmlTag } from '@sono-repo/util/convert';
 
 import type { IParsedGem } from '@/service/armories/types';
 
-import ItemThumbnail from '@/client-component/item-thumbnail';
 import {
 	LabelLayout,
 	LabelLayoutSkeleton
 } from '@/client-component/label-layout';
 import { useModalDispatch } from '@/client-component/modal/provider';
 import Skeleton from '@/client-component/skeleton';
+import Thumbnail from '@/client-component/thumbnail';
 
 interface IGemProps {
 	data: IParsedGem[] | null;
@@ -75,7 +75,7 @@ export const Gem = ({ data }: IGemProps) => {
 						className="flex w-[100px] items-center space-x-[8px] pb-[8px]"
 						key={idx}
 					>
-						<ItemThumbnail
+						<Thumbnail
 							className="h-[40px] w-[40px]"
 							src={icon}
 							alt={name}

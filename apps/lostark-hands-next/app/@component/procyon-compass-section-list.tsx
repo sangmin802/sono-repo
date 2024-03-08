@@ -30,7 +30,6 @@ export const ProcyonCompassSectionListSkeleton = () => (
 			<LabelLayoutSkeleton
 				key={idx}
 				className="h-[177px]"
-				afterLabel
 			>
 				<div className="space-y-[4px] pb-[12px]">
 					{Array.from({ length: Math.ceil(Math.random() * 4 + 1) }).map(

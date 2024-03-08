@@ -26,17 +26,6 @@ export const GRADE_BG_COLOR: Record<TGrade, string> = {
 	에스더: 'bg-esther'
 };
 
-export const GRADE_TEXT_COLOR: Record<TGrade, string> = {
-	일반: 'text-normal',
-	고급: 'text-advanced',
-	희귀: 'text-rare',
-	영웅: 'text-epic',
-	전설: 'text-legendary',
-	유물: 'text-relic',
-	고대: 'text-ancient',
-	에스더: 'text-esther'
-};
-
 export const GOLD_ICON_URL = 'efui_iconatlas/money/money_4.png';
 export const CARD_PACK_ICON_URL = 'efui_iconatlas/use/use_10_236.png';
 export const CARD_EXP_ICON_URL = 'efui_iconatlas/use/use_10_222.png';

@@ -13,6 +13,8 @@ interface IProfileProps {
 }
 
 export const Profile = ({ data }: IProfileProps) => {
+	if (!data) throw new Error('no character');
+
 	return (
 		<div className="relative h-[360px] overflow-hidden">
 			<div className="absolute z-[4] flex h-full flex-col justify-center">

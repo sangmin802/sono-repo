@@ -137,7 +137,7 @@ export const getCollectibleApi = async (
 			)
 			.then((resolve) => ({
 				...resolve,
-				data: pascalToCamelInArray(resolve.data) ?? []
+				data: pascalToCamelInArray(resolve.data ?? [])
 			}))
 	).data;
 
@@ -147,6 +147,6 @@ export const getAvatarApi = async (name: string): Promise<IArmoryAvatar[]> =>
 			.get<ToPascalKey<IArmoryAvatar>[]>(`armories/characters/${name}/avatars`)
 			.then((resolve) => ({
 				...resolve,
-				data: pascalToCamelInArray(resolve.data) ?? []
+				data: pascalToCamelInArray(resolve.data ?? [])
 			}))
 	).data;

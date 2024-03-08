@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import cn from 'classnames';
 
 import type { ICollectible, TCollectibleType } from '@/service/armories/types';
@@ -48,12 +48,16 @@ const stickyNavStyle = cn(
 export const Collection = ({ data }: ICollectionProps) => {
 	const { isLg } = useResponsive();
 
-	const sortedData = data.map((item) => ({
-		...item,
-		collectiblePoints: item.collectiblePoints.sort((_, b) =>
-			b.maxPoint !== b.point ? 0 : -1
-		)
-	}));
+	const sortedData = useMemo(
+		() =>
+			data.map((item) => ({
+				...item,
+				collectiblePoints: [...item.collectiblePoints].sort((_, b) =>
+					b.maxPoint !== b.point ? 0 : -1
+				)
+			})),
+		[data]
+	);
 
 	const [selectCollect, setSelectCollect] = useState(sortedData[0]);
 
