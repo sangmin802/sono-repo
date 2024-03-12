@@ -1,7 +1,11 @@
 import type { ComponentProps, ReactNode } from 'react';
 import cn from 'classnames';
+import type { AnimationProps } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 import { Button } from '@sono-repo/ui';
+
+import useResponsive from '@/hook/use-responsive';
 
 import { useModalDispatch } from './provider';
 
@@ -12,8 +16,21 @@ interface IModalLayout {
 	containerClassName?: string;
 	title?: string;
 	footerProps?: Partial<Record<'cancel' | 'confirm', TButtonProps>>;
-	children: ReactNode;
+	children?: ReactNode;
 }
+
+const motionProps: Record<'MD' | 'ELSE', AnimationProps> = {
+	MD: {
+		initial: { opacity: 0, translateY: '30%' },
+		animate: { opacity: 1, translateY: 0 }
+	},
+	ELSE: {
+		initial: { translateX: '100%' },
+		animate: { translateX: 0 },
+		exit: { translateX: '100%' },
+		transition: { duration: 0.3, ease: [0.42, 0, 0.58, 1] }
+	}
+};
 
 const defaultButtonProps = ({
 	props,
@@ -41,6 +58,7 @@ const ModalLayout = ({
 	footerProps
 }: IModalLayout) => {
 	const { onCloseModal } = useModalDispatch();
+	const { isMd } = useResponsive();
 
 	const {
 		className: cancelClassName,
@@ -62,7 +80,7 @@ const ModalLayout = ({
 	});
 
 	return (
-		<div
+		<Motion.div
 			className={cn(
 				'flex flex-col',
 				'h-full w-full rounded-[6px] bg-main-10 p-[16px]',
@@ -71,6 +89,7 @@ const ModalLayout = ({
 				className
 			)}
 			onClick={(e) => e.stopPropagation()}
+			{...motionProps[isMd ? 'MD' : 'ELSE']}
 		>
 			{title && <div className="pb-[28px] text-[20px] font-bold">{title}</div>}
 			<div
@@ -96,7 +115,7 @@ const ModalLayout = ({
 					/>
 				)}
 			</div>
-		</div>
+		</Motion.div>
 	);
 };
 

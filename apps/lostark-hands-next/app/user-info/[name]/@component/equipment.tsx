@@ -69,7 +69,6 @@ export const Equipment = ({ data: { equip, acc } }: IEquipmentProps) => {
 	const { onOpenModal } = useModalDispatch();
 
 	const handleOpenModal = (item: TParsedArmory<ISelectedArmoryEquipment>) => {
-		console.log(item.name);
 		if (!item.name) return;
 
 		onOpenModal({
