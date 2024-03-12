@@ -1,5 +1,6 @@
 'use client';
 
+import type { PropsWithChildren } from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
 
@@ -12,69 +13,76 @@ interface IProfileProps {
 	data?: IArmoryProfile | null;
 }
 
+const textStyle = 'text-[14px] md:text-[16px]';
+
+const LevelInfo = ({
+	label,
+	children
+}: PropsWithChildren<{ label: string }>) => (
+	<div className="space-y-[4px]">
+		<div className={cn('text-gray-400', textStyle)}>{label}</div>
+		<div className={textStyle}>Lv. {children}</div>
+	</div>
+);
+
 export const Profile = ({ data }: IProfileProps) => {
 	if (!data) throw new Error('no character');
 
 	return (
-		<div className="relative h-[360px] overflow-hidden">
+		<div className="relative h-[240px] overflow-hidden md:h-[360px]">
 			<div className="absolute z-[4] flex h-full flex-col justify-center">
-				<div className="space-y-[16px] px-[16px]">
+				<div className="space-y-[8px] px-[16px] md:space-y-[16px]">
 					<div className="flex space-x-[8px]">
-						{data?.serverName && <Label>{data?.serverName}</Label>}
-						{data?.characterClassName && (
-							<Label>{data?.characterClassName}</Label>
+						{data.serverName && (
+							<Label className={textStyle}>{data.serverName}</Label>
+						)}
+						{data.characterClassName && (
+							<Label className={textStyle}>{data.characterClassName}</Label>
 						)}
 					</div>
 					<div className="flex items-baseline">
-						{data?.title && (
+						{data.title && (
 							<div className="mr-[4px] text-[12px] text-gray-400">
-								{data?.title}
+								{data.title}
 							</div>
 						)}
-						<div className="text-[22px] font-bold">{data?.characterName}</div>
+						<div className="text-[18px] font-bold md:text-[22px]">
+							{data.characterName}
+						</div>
 					</div>
 					<div className="space-y-[6px]">
 						<div className="flex items-center">
-							<Label>길드</Label>
-							<div className="ml-[4px] text-[16px]">
-								{data?.guildName ?? '-'}
+							<Label className={textStyle}>길드</Label>
+							<div className="ml-[4px] text-[12px] md:text-[16px]">
+								{data.guildName ?? '-'}
 							</div>
 						</div>
 						<div className="flex items-center">
-							<Label>영지</Label>
-							<div className="ml-[4px] text-[16px]">
-								{data?.townLevel
-									? `Lv${data?.townLevel} / ${data?.townName}`
+							<Label className={textStyle}>영지</Label>
+							<div className="ml-[4px] text-[12px] md:text-[16px]">
+								{data.townLevel
+									? `Lv${data.townLevel} / ${data.townName}`
 									: '-'}
 							</div>
 						</div>
 						<div className="flex items-center">
-							<Label>pvp</Label>
-							<div className="ml-[4px] text-[16px]">
-								{data?.pvpGradeName ?? '-'}
+							<Label className={textStyle}>pvp</Label>
+							<div className="ml-[4px] text-[12px] md:text-[16px]">
+								{data.pvpGradeName ?? '-'}
 							</div>
 						</div>
 					</div>
-					<div className="flex space-x-[10px] [&_div]:text-[16px] [&_div]:font-bold [&_div]:sm:text-[18px]">
-						<div className="space-y-[4px]">
-							<div className="text-gray-400">전투</div>
-							<div>Lv. {data?.characterLevel ?? 0}</div>
-						</div>
-						<div className="space-y-[4px]">
-							<div className="text-gray-400">아이템</div>
-							<div>Lv. {data?.itemMaxLevel ?? '0.00'}</div>
-						</div>
-						<div className="space-y-[4px]">
-							<div className="text-gray-400">원정대</div>
-							<div>Lv. {data?.expeditionLevel ?? 0}</div>
-						</div>
+					<div className="flex space-x-[10px] [&_div]:font-bold">
+						<LevelInfo label="전투">{data.characterLevel ?? 0}</LevelInfo>
+						<LevelInfo label="아이템">{data.itemMaxLevel ?? '0.00'}</LevelInfo>
+						<LevelInfo label="원정대">{data.expeditionLevel ?? 0}</LevelInfo>
 					</div>
 				</div>
 			</div>
-			{data?.characterImage && (
+			{data.characterImage && (
 				<div
 					className={cn(
-						'absolute right-[-100px] z-[1] w-[360px] md:right-0',
+						'absolute right-0 z-[1] w-[240px] md:w-[360px]',
 						'pointer-events-none select-none bg-main-10'
 					)}
 				>
@@ -82,8 +90,8 @@ export const Profile = ({ data }: IProfileProps) => {
 						priority
 						width={600}
 						height={900}
-						src={data?.characterImage}
-						alt={data?.characterName}
+						src={data.characterImage}
+						alt={data.characterName}
 					/>
 					<div
 						className={cn(
@@ -95,7 +103,7 @@ export const Profile = ({ data }: IProfileProps) => {
 			)}
 			<div
 				className={cn(
-					'absolute bottom-0 right-[-100px] z-[3] h-[10%] w-[360px] md:right-0',
+					'absolute bottom-0 right-[-100px] z-[3] h-[10%] w-[240px] md:right-0 md:w-[360px]',
 					'bg-gradient-to-t from-main-10 from-20% to-transparent'
 				)}
 			/>
@@ -104,7 +112,7 @@ export const Profile = ({ data }: IProfileProps) => {
 };
 
 export const ProfileSkeleton = () => (
-	<div className="relative h-[360px] w-full">
+	<div className="relative h-[240px] w-full md:h-[360px]">
 		<div className="absolute z-[4] flex h-full flex-col justify-center">
 			<div className="space-y-[16px] px-[16px]">
 				<div className="flex space-x-[8px]">
