@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect } from 'react';
+import { AnimatePresence, motion as Motion } from 'framer-motion';
 
 import Dynamic from '@/client-component/modal/dynamic';
 import {
@@ -34,15 +35,19 @@ const Modal = () => {
 	}, [open]);
 
 	return (
-		open &&
-		ModalComponent && (
-			<div
-				className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70"
-				onClick={onCloseModal}
-			>
-				<ModalComponent />
-			</div>
-		)
+		<AnimatePresence>
+			{open && (
+				<Motion.div
+					className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70"
+					onClick={onCloseModal}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+				>
+					<ModalComponent />
+				</Motion.div>
+			)}
+		</AnimatePresence>
 	);
 };
 
