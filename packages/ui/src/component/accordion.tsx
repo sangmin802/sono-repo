@@ -27,6 +27,7 @@ interface ISummaryProps extends PropsWithChildren {
 
 interface IContentProps extends PropsWithChildren {
 	className?: string;
+	onClick?: () => void;
 }
 
 const errorMsg = 'Accordion 컴포넌트 내부에서 사용되어야 합니다.';
@@ -79,13 +80,12 @@ const Summary = ({
 
 	return (
 		<div
-			className={cn(
-				'flex cursor-pointer items-center justify-between space-x-[6px] px-[4px]',
-				className
-			)}
+			className={
+				'flex w-full cursor-pointer items-center justify-between space-x-[6px] px-[4px]'
+			}
 			onClick={handleToggleSummary}
 		>
-			<div className="text-[16px] text-inherit">{children}</div>
+			<div className={cn('text-inherit', className)}>{children}</div>
 			<Arrow
 				className={cn('duration-200', { 'rotate-180': state })}
 				fill={arrowMode === 'WHITE' ? '#efefef' : '#222'}
@@ -94,7 +94,7 @@ const Summary = ({
 	);
 };
 
-const Content = ({ className, children }: IContentProps) => {
+const Content = ({ className, children, onClick }: IContentProps) => {
 	const state = useStateContext();
 
 	return (
@@ -103,6 +103,7 @@ const Content = ({ className, children }: IContentProps) => {
 				'grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out',
 				{ 'grid-rows-[1fr]': state }
 			)}
+			onClick={onClick}
 		>
 			<div className="overflow-hidden">
 				<div className={cn('px-[6px] py-[10px]', className)}>{children}</div>

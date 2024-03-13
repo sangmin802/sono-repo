@@ -43,36 +43,34 @@ const CategoryFilter = ({
 	return (
 		<Accordion>
 			<Accordion.Summary>{name}</Accordion.Summary>
-			<Accordion.Content>
-				<div className="flex">
-					<div className="shrink-0 grow">
-						{data.map(({ code, codeName }) => (
-							<div
-								key={code}
-								className={cn('cursor-pointer', {
-									'font-bold': category?.main === code,
-									'text-main-40': category?.main !== code
-								})}
-								onClick={() => handleChangeMain(code)}
-							>
-								{codeName}
-							</div>
-						))}
-					</div>
-					<div className="shrink-0 grow">
-						{subList?.map(({ code, codeName }) => (
-							<div
-								key={code}
-								className={cn('cursor-pointer', {
-									'font-bold': category?.sub === code,
-									'text-main-40': category?.sub !== code
-								})}
-								onClick={() => handleChangeSub(code)}
-							>
-								{codeName}
-							</div>
-						))}
-					</div>
+			<Accordion.Content className="flex">
+				<div className="shrink-0 grow">
+					{data.map(({ code, codeName }) => (
+						<div
+							key={code}
+							className={cn('cursor-pointer', {
+								'font-bold': category?.main === code,
+								'text-main-40': category?.main !== code
+							})}
+							onClick={() => handleChangeMain(code)}
+						>
+							{codeName}
+						</div>
+					))}
+				</div>
+				<div className="shrink-0 grow">
+					{subList?.map(({ code, codeName }) => (
+						<div
+							key={code}
+							className={cn('cursor-pointer', {
+								'font-bold': category?.sub === code,
+								'text-main-40': category?.sub !== code
+							})}
+							onClick={() => handleChangeSub(code)}
+						>
+							{codeName}
+						</div>
+					))}
 				</div>
 			</Accordion.Content>
 		</Accordion>

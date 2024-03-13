@@ -42,7 +42,7 @@ const Transcendence = ({
 		>
 			<div className="flex">
 				<div className="text-[12px]">x{data.grade}</div>
-				<div className="ml-[6px] text-[12px] font-bold">+{data.total}</div>
+				<div className="text-[12px] font-bold">+{data.total}</div>
 			</div>
 		</ThumbnailCard>
 	);

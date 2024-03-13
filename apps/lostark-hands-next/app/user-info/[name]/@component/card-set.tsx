@@ -57,19 +57,17 @@ export const CardSet = ({ data: { cards, effects } }: ICardSetProps) => {
 		<Accordion>
 			<LabelLayout
 				label={
-					<Accordion.Summary className="w-full">
-						<div className="flex space-x-[16px]">
-							<div className="text-[16px]">카드</div>
-							<div>
-								{effects?.map((item, idx) => (
-									<Chip
-										key={idx}
-										type="info"
-									>
-										{item.items[item.items.length - 1].name}
-									</Chip>
-								))}
-							</div>
+					<Accordion.Summary className="flex space-x-[16px]">
+						<div>카드</div>
+						<div>
+							{effects?.map((item, idx) => (
+								<Chip
+									key={idx}
+									type="info"
+								>
+									{item.items[item.items.length - 1].name}
+								</Chip>
+							))}
 						</div>
 					</Accordion.Summary>
 				}

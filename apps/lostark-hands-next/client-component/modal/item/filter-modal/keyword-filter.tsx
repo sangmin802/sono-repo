@@ -26,21 +26,19 @@ const KeywordFilter = ({
 	return (
 		<Accordion>
 			<Accordion.Summary>{name}</Accordion.Summary>
-			<Accordion.Content>
-				<div className="flex flex-wrap">
-					{data.map(({ key, name }) => (
-						<div
-							key={`${name}-${key}`}
-							className={cn('mr-[12px] cursor-pointer', {
-								'font-bold': key === keyword,
-								'text-main-40': key !== keyword
-							})}
-							onClick={() => handleClickFilter(key)}
-						>
-							{name}
-						</div>
-					))}
-				</div>
+			<Accordion.Content className="flex flex-wrap">
+				{data.map(({ key, name }) => (
+					<div
+						key={`${name}-${key}`}
+						className={cn('mr-[12px] cursor-pointer', {
+							'font-bold': key === keyword,
+							'text-main-40': key !== keyword
+						})}
+						onClick={() => handleClickFilter(key)}
+					>
+						{name}
+					</div>
+				))}
 			</Accordion.Content>
 		</Accordion>
 	);
