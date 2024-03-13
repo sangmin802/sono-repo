@@ -43,7 +43,7 @@ import {
 const Page = ({ params: { name } }: { params: { name: string } }) => {
 	return (
 		<div className="space-y-[16px] md:flex md:space-x-[16px] md:space-y-0">
-			<div className="w-full space-y-[12px] md:w-[200px] md:shrink-0">
+			<div className="w-full space-y-[12px] md:w-[240px] md:shrink-0">
 				<ServerWrapper
 					fallback={<StatsSkeleton />}
 					apiPromise={getProfileInfoApi(name)}
