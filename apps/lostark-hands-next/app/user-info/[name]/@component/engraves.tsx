@@ -47,60 +47,62 @@ export const Engraves = ({ data }: IEngravesProps) => {
 	};
 	return (
 		<Accordion>
-			<LabelLayout
-				label={
-					<Accordion.Summary className="flex space-x-[4px]">
-						{data?.map(({ name }) => (
-							<Image
-								key={name}
-								className="rounded-[4px]"
-								src={`${CDN_URL}/EFUI_IconAtlas/${
-									ENGRAVE_IMGAE[name.split(' Lv')[0]]
-								}`}
-								width={24}
-								height={24}
-								alt={name}
-							/>
-						))}
-					</Accordion.Summary>
-				}
-				as="aside"
-				empty={{ status: !data, fallback: '장착된 각인이 없습니다.' }}
-			>
-				<Accordion.Content
-					className="space-y-[6px] pt-0"
-					onClick={handleOpenModal}
-				>
-					{data?.map(({ name, point }) => (
-						<div
-							key={name}
-							className="flex items-center"
-						>
-							<div className="relative">
+			<Accordion.Container id="engraves">
+				<LabelLayout
+					label={
+						<Accordion.Summary className="flex space-x-[4px]">
+							{data?.map(({ name }) => (
 								<Image
-									className="rounded-[6px]"
+									key={name}
+									className="rounded-[4px]"
 									src={`${CDN_URL}/EFUI_IconAtlas/${
 										ENGRAVE_IMGAE[name.split(' Lv')[0]]
 									}`}
-									width={36}
-									height={36}
+									width={24}
+									height={24}
 									alt={name}
 								/>
-							</div>
-							<div className="ml-[8px]">
-								{!!point && (
-									<div className="text-[12px] leading-[12px] text-gray-400">
-										+{point} 각인서
+							))}
+						</Accordion.Summary>
+					}
+					as="aside"
+					empty={{ status: !data, fallback: '장착된 각인이 없습니다.' }}
+				>
+					<Accordion.Content
+						className="space-y-[6px] pt-0"
+						onClick={handleOpenModal}
+					>
+						{data?.map(({ name, point }) => (
+							<div
+								key={name}
+								className="flex items-center"
+							>
+								<div className="relative">
+									<Image
+										className="rounded-[6px]"
+										src={`${CDN_URL}/EFUI_IconAtlas/${
+											ENGRAVE_IMGAE[name.split(' Lv')[0]]
+										}`}
+										width={36}
+										height={36}
+										alt={name}
+									/>
+								</div>
+								<div className="ml-[8px]">
+									{!!point && (
+										<div className="text-[12px] leading-[12px] text-gray-400">
+											+{point} 각인서
+										</div>
+									)}
+									<div className={engravePointColor[Number(point) ?? 0]}>
+										{name}
 									</div>
-								)}
-								<div className={engravePointColor[Number(point) ?? 0]}>
-									{name}
 								</div>
 							</div>
-						</div>
-					))}
-				</Accordion.Content>
-			</LabelLayout>
+						))}
+					</Accordion.Content>
+				</LabelLayout>
+			</Accordion.Container>
 		</Accordion>
 	);
 };

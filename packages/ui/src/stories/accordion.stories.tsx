@@ -8,9 +8,12 @@ import cn from 'classnames';
 
 import { Accordion } from '../index';
 
+type TContainerProps = ComponentProps<typeof Accordion.Container>;
 type TSummaryProps = ComponentProps<typeof Accordion.Summary>;
 type TContentProps = ComponentProps<typeof Accordion.Content>;
 type TAccordionProps = ComponentProps<typeof Accordion> & {
+	'Accordion.Container.onChange': TContainerProps['onChange'];
+	'Accordion.Container.id': TContainerProps['id'];
 	'Accordion.Summary': TSummaryProps;
 	'Accordion.Summary.arrowMode': TSummaryProps['arrowMode'];
 	'Accordion.Content': TContentProps;
@@ -25,8 +28,11 @@ const meta = {
 	title: 'DesignSystem/Component/Accordion',
 	tags: ['autodocs'],
 	argTypes: {
-		onChange: {
+		'Accordion.Container.onChange': {
 			description: 'Accordion status 변경 trigger'
+		},
+		'Accordion.Container.id': {
+			description: 'Accordion Container 고유 id'
 		},
 		'Accordion.Summary': {
 			description: '[children] Accordion Summary 컴포넌트'
@@ -42,19 +48,44 @@ const meta = {
 	},
 	component: Accordion,
 	render: ({ ...args }) => {
-		const isWhiteMode = args['Accordion.Summary.arrowMode'] === 'WHITE';
+		const arrowMode = args['Accordion.Summary.arrowMode'];
+		const isWhiteMode = arrowMode === 'WHITE';
 
 		return (
 			<div className={cn({ 'bg-black': isWhiteMode })}>
-				<Accordion className="w-[80%] bg-orange-500">
-					<Accordion.Summary className={cn({ 'text-white': isWhiteMode })}>
-						{args['Accordion.Summary'].children}
-					</Accordion.Summary>
-					<Accordion.Content
-						className={cn('bg-purple-500', { 'text-white': isWhiteMode })}
+				<Accordion>
+					<Accordion.Container
+						className="w-[80%] bg-orange-500"
+						id={1}
 					>
-						{args['Accordion.Content'].children}
-					</Accordion.Content>
+						<Accordion.Summary
+							className={cn({ 'text-white': isWhiteMode })}
+							arrowMode={arrowMode}
+						>
+							{args['Accordion.Summary'].children}
+						</Accordion.Summary>
+						<Accordion.Content
+							className={cn('bg-purple-500', { 'text-white': isWhiteMode })}
+						>
+							{args['Accordion.Content'].children}
+						</Accordion.Content>
+					</Accordion.Container>
+					<Accordion.Container
+						className="w-[80%] bg-orange-500"
+						id={2}
+					>
+						<Accordion.Summary
+							className={cn({ 'text-white': isWhiteMode })}
+							arrowMode={arrowMode}
+						>
+							{args['Accordion.Summary'].children}
+						</Accordion.Summary>
+						<Accordion.Content
+							className={cn('bg-purple-500', { 'text-white': isWhiteMode })}
+						>
+							{args['Accordion.Content'].children}
+						</Accordion.Content>
+					</Accordion.Container>
 				</Accordion>
 			</div>
 		);

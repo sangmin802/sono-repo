@@ -72,67 +72,69 @@ export const CombatSkill = ({ data }: ICombatSkillProps) => {
 
 	return (
 		<Accordion>
-			<LabelLayout
-				label={
-					<Accordion.Summary className="flex space-x-[16px]">
-						<div>스킬</div>
-						{data && (
-							<div className="flex space-x-[8px]">
-								<Chip type="info">부위파괴 {destory}</Chip>
-								<Chip type="info">카운터 {counter}</Chip>
-							</div>
-						)}
-					</Accordion.Summary>
-				}
-				as="section"
-				empty={{ status: !data, fallback: '선택된 스킬이 없습니다.' }}
-			>
-				<Accordion.Content className="grid grid-cols-2 gap-[12px] pt-0 md:grid-cols-4">
-					{data?.map((item) => (
-						<div
-							className="flex cursor-pointer flex-col space-y-[4px]"
-							key={item.name}
-							onClick={handleOpenSkillModal(item)}
-						>
-							<div className="flex items-center space-x-[4px]">
-								<div>{item.name}</div>
-								{item.rune && (
-									<GradeText grade={item.rune.grade}>
-										{item.rune.name}
-									</GradeText>
-								)}
-							</div>
-							<div className="flex items-center space-x-[12px]">
-								<Thumbnail
-									className="h-[50px] w-[50px]"
-									src={item.icon}
-									alt={item.name}
-									chip={item.level}
-								/>
-								<div className="min-w-0 grow">
-									{item.tripods.map(({ name, level }, idx) => (
-										<div
-											className="flex space-x-[8px]"
-											key={idx}
-										>
+			<Accordion.Container id="combat-skill">
+				<LabelLayout
+					label={
+						<Accordion.Summary className="flex space-x-[16px]">
+							<div>스킬</div>
+							{data && (
+								<div className="flex space-x-[8px]">
+									<Chip type="info">부위파괴 {destory}</Chip>
+									<Chip type="info">카운터 {counter}</Chip>
+								</div>
+							)}
+						</Accordion.Summary>
+					}
+					as="section"
+					empty={{ status: !data, fallback: '선택된 스킬이 없습니다.' }}
+				>
+					<Accordion.Content className="grid grid-cols-2 gap-[12px] pt-0 md:grid-cols-4">
+						{data?.map((item) => (
+							<div
+								className="flex cursor-pointer flex-col space-y-[4px]"
+								key={item.name}
+								onClick={handleOpenSkillModal(item)}
+							>
+								<div className="flex items-center space-x-[4px]">
+									<div>{item.name}</div>
+									{item.rune && (
+										<GradeText grade={item.rune.grade}>
+											{item.rune.name}
+										</GradeText>
+									)}
+								</div>
+								<div className="flex items-center space-x-[12px]">
+									<Thumbnail
+										className="h-[50px] w-[50px]"
+										src={item.icon}
+										alt={item.name}
+										chip={item.level}
+									/>
+									<div className="min-w-0 grow">
+										{item.tripods.map(({ name, level }, idx) => (
 											<div
-												className={cn(
-													'text-[12px] font-bold leading-[16px] text-orange-500'
-												)}
+												className="flex space-x-[8px]"
+												key={idx}
 											>
-												{level}
+												<div
+													className={cn(
+														'text-[12px] font-bold leading-[16px] text-orange-500'
+													)}
+												>
+													{level}
+												</div>
+												<div className="truncate text-[12px] leading-[16px]">
+													{name}
+												</div>
 											</div>
-											<div className="truncate text-[12px] leading-[16px]">
-												{name}
-											</div>
-										</div>
-									))}
+										))}
+									</div>
 								</div>
 							</div>
-						</div>
-					))}
-				</Accordion.Content>
-			</LabelLayout>
+						))}
+					</Accordion.Content>
+				</LabelLayout>
+			</Accordion.Container>
 		</Accordion>
 	);
 };

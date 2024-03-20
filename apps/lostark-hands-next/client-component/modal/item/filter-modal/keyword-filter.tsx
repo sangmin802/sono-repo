@@ -24,7 +24,7 @@ const KeywordFilter = ({
 	};
 
 	return (
-		<Accordion>
+		<>
 			<Accordion.Summary>{name}</Accordion.Summary>
 			<Accordion.Content className="flex flex-wrap">
 				{data.map(({ key, name }) => (
@@ -40,7 +40,7 @@ const KeywordFilter = ({
 					</div>
 				))}
 			</Accordion.Content>
-		</Accordion>
+		</>
 	);
 };
 
