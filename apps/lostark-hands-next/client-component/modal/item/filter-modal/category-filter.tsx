@@ -41,7 +41,7 @@ const CategoryFilter = ({
 	};
 
 	return (
-		<Accordion>
+		<>
 			<Accordion.Summary>{name}</Accordion.Summary>
 			<Accordion.Content className="flex">
 				<div className="shrink-0 grow">
@@ -73,7 +73,7 @@ const CategoryFilter = ({
 					))}
 				</div>
 			</Accordion.Content>
-		</Accordion>
+		</>
 	);
 };
 

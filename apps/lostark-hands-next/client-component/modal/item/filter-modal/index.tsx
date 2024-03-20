@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Button } from '@sono-repo/ui';
+import { Accordion, Button } from '@sono-repo/ui';
 
 import CategoryFilter from '@/client-component/modal/item/filter-modal/category-filter';
 import KeywordFilter from '@/client-component/modal/item/filter-modal/keyword-filter';
@@ -57,42 +57,45 @@ const FilterModal = ({
 			footerProps={{ confirm: { onClick: handleConfirm } }}
 		>
 			<Button onClick={handleReset}>초기화</Button>
-			{list.map(({ key, ...item }) => {
-				const defaultProps = {
-					dataIndex: key,
-					onChange: handleChangeFilter
-				};
+			<Accordion>
+				{list.map(({ key, ...item }) => {
+					const defaultProps = {
+						dataIndex: key,
+						onChange: handleChangeFilter
+					};
 
-				if (item.type === 'CATEGORY')
 					return (
-						<CategoryFilter
+						<Accordion.Container
 							key={key}
-							category={filter.category?.[key]}
-							{...defaultProps}
-							{...item}
-						/>
+							id={key}
+						>
+							{item.type === 'CATEGORY' && (
+								<CategoryFilter
+									category={filter.category?.[key]}
+									{...defaultProps}
+									{...item}
+								/>
+							)}
+							{item.type === 'KEYWORD' && (
+								<KeywordFilter
+									key={key}
+									keyword={filter.keyword?.[key]}
+									{...defaultProps}
+									{...item}
+								/>
+							)}
+							{item.type === 'SEARCH' && (
+								<SearchFilter
+									key={key}
+									value={filter.search?.[key]}
+									{...defaultProps}
+									{...item}
+								/>
+							)}
+						</Accordion.Container>
 					);
-
-				if (item.type === 'KEYWORD')
-					return (
-						<KeywordFilter
-							key={key}
-							keyword={filter.keyword?.[key]}
-							{...defaultProps}
-							{...item}
-						/>
-					);
-
-				if (item.type === 'SEARCH')
-					return (
-						<SearchFilter
-							key={key}
-							value={filter.search?.[key]}
-							{...defaultProps}
-							{...item}
-						/>
-					);
-			})}
+				})}
+			</Accordion>
 		</ModalLayout>
 	);
 };

@@ -13,10 +13,12 @@ import Arrow from './arrow';
 
 type TAction = 'OPEN' | 'CLOSE';
 type TArrowMode = 'DARK' | 'WHITE';
+type TId = number | string;
 
-interface IAccordionProps {
+interface IContainerProps {
 	className?: string;
 	children: ReactNode;
+	id: TId;
 	onChange?: (type: TAction) => void;
 }
 
@@ -32,11 +34,11 @@ interface IContentProps extends PropsWithChildren {
 
 const errorMsg = 'Accordion 컴포넌트 내부에서 사용되어야 합니다.';
 
-const StateContext = createContext<boolean | undefined>(undefined);
-
+const StateContext = createContext<TId | undefined>(undefined);
 const DispatchContext = createContext<
-	Dispatch<SetStateAction<boolean>> | undefined
+	Dispatch<SetStateAction<TId>> | undefined
 >(undefined);
+const IdContext = createContext<TId | undefined>(undefined);
 
 const useStateContext = () => {
 	const state = useContext(StateContext);
@@ -50,19 +52,35 @@ const useDispatchContext = () => {
 	return dispatch;
 };
 
-const Accordion = ({ className, children, onChange }: IAccordionProps) => {
-	const [status, setStatus] = useState(false);
+const useIdContext = () => {
+	const id = useContext(IdContext);
+	if (id === undefined) throw new Error(errorMsg);
+	return id;
+};
 
-	useEffect(() => {
-		onChange?.(status ? 'OPEN' : 'CLOSE');
-	}, [status, onChange]);
+const Accordion = ({ children }: PropsWithChildren) => {
+	const [state, setState] = useState<TId>(0);
 
 	return (
-		<StateContext.Provider value={status}>
-			<DispatchContext.Provider value={setStatus}>
-				<div className={className}>{children}</div>
+		<StateContext.Provider value={state}>
+			<DispatchContext.Provider value={setState}>
+				{children}
 			</DispatchContext.Provider>
 		</StateContext.Provider>
+	);
+};
+
+const Container = ({ id, className, children, onChange }: IContainerProps) => {
+	const state = useStateContext();
+
+	useEffect(() => {
+		onChange?.(state ? 'OPEN' : 'CLOSE');
+	}, [state, onChange]);
+
+	return (
+		<IdContext.Provider value={id}>
+			<div className={className}>{children}</div>
+		</IdContext.Provider>
 	);
 };
 
@@ -72,11 +90,14 @@ const Summary = ({
 	arrowMode = 'WHITE'
 }: ISummaryProps) => {
 	const state = useStateContext();
+	const id = useIdContext();
 	const dispatch = useDispatchContext();
 
 	const handleToggleSummary = () => {
-		dispatch((prev) => !prev);
+		dispatch((prevId) => (prevId === id ? 0 : id));
 	};
+
+	const isSelected = state === id;
 
 	return (
 		<div
@@ -87,7 +108,7 @@ const Summary = ({
 		>
 			<div className={cn('text-inherit', className)}>{children}</div>
 			<Arrow
-				className={cn('duration-200', { 'rotate-180': state })}
+				className={cn('duration-200', { 'rotate-180': isSelected })}
 				fill={arrowMode === 'WHITE' ? '#efefef' : '#222'}
 			/>
 		</div>
@@ -96,12 +117,13 @@ const Summary = ({
 
 const Content = ({ className, children, onClick }: IContentProps) => {
 	const state = useStateContext();
+	const id = useIdContext();
 
 	return (
 		<div
 			className={cn(
 				'grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out',
-				{ 'grid-rows-[1fr]': state }
+				{ 'grid-rows-[1fr]': state === id }
 			)}
 			onClick={onClick}
 		>
@@ -112,6 +134,7 @@ const Content = ({ className, children, onClick }: IContentProps) => {
 	);
 };
 
+Accordion.Container = Container;
 Accordion.Summary = Summary;
 Accordion.Content = Content;
 
