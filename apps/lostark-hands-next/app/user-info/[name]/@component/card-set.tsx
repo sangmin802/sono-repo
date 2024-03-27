@@ -3,7 +3,7 @@
 import cn from 'classnames';
 import Image from 'next/image';
 
-import { Accordion, Chip } from '@sono-repo/ui';
+import { Chip, Collapse } from '@sono-repo/ui';
 
 import type { ICard, ICardEffect } from '@/service/armories/types';
 
@@ -54,86 +54,84 @@ export const CardSet = ({ data: { cards, effects } }: ICardSetProps) => {
 	};
 
 	return (
-		<Accordion>
-			<Accordion.Container id="card">
-				<LabelLayout
-					label={
-						<Accordion.Summary className="flex space-x-[16px]">
-							<div>카드</div>
-							<div>
-								{effects?.map((item, idx) => (
-									<Chip
-										key={idx}
-										type="info"
-									>
-										{item.items[item.items.length - 1].name}
-									</Chip>
-								))}
-							</div>
-						</Accordion.Summary>
-					}
-					as="section"
-				>
-					<Accordion.Content className="pt-0">
-						<div
-							className="grid cursor-pointer grid-cols-6 gap-[8px]"
-							onClick={handleOpenCardEffectModal}
-						>
-							{cards.map((item, idx) => (
-								<div
-									className={cn('relative w-full bg-main-10 pb-[146%]', {
-										['border border-main-40 rounded-[6px]']: !item
-									})}
+		<Collapse id="card">
+			<LabelLayout
+				label={
+					<Collapse.Summary className="flex space-x-[16px]">
+						<div>카드</div>
+						<div>
+							{effects?.map((item, idx) => (
+								<Chip
 									key={idx}
+									type="info"
 								>
-									{item && (
-										<>
-											<Image
-												fill
-												src={item.icon}
-												alt={item.name}
-											/>
-											<Image
-												className="absolute inset-0 scale-[1.04]"
-												src={`${CDN_URL}/2018/obt/assets/images/m/profile/bg_profile_card${
-													cardOutline[item.grade]
-												}.png`}
-												fill
-												alt={item.grade}
-											/>
-											<div
-												className={cn(
-													'absolute bottom-[4px] flex h-[12%] w-full justify-center',
-													'space-x-[4px]'
-												)}
-											>
-												{Array.from(
-													{ length: item.awakeTotal },
-													(_, idx) => idx
-												).map((idx) => (
-													<Image
-														className="h-full w-[10%]"
-														key={idx}
-														src={
-															idx <= item.awakeCount - 1
-																? '/icons/img_profile_awake_fill.png'
-																: '/icons/img_profile_awake_empty.png'
-														}
-														width={16}
-														height={28}
-														alt="awake"
-													/>
-												))}
-											</div>
-										</>
-									)}
-								</div>
+									{item.items[item.items.length - 1].name}
+								</Chip>
 							))}
 						</div>
-					</Accordion.Content>
-				</LabelLayout>
-			</Accordion.Container>
-		</Accordion>
+					</Collapse.Summary>
+				}
+				as="section"
+			>
+				<Collapse.Content className="pt-0">
+					<div
+						className="grid cursor-pointer grid-cols-6 gap-[8px]"
+						onClick={handleOpenCardEffectModal}
+					>
+						{cards.map((item, idx) => (
+							<div
+								className={cn('relative w-full bg-main-10 pb-[146%]', {
+									['border border-main-40 rounded-[6px]']: !item
+								})}
+								key={idx}
+							>
+								{item && (
+									<>
+										<Image
+											fill
+											src={item.icon}
+											alt={item.name}
+										/>
+										<Image
+											className="absolute inset-0 scale-[1.04]"
+											src={`${CDN_URL}/2018/obt/assets/images/m/profile/bg_profile_card${
+												cardOutline[item.grade]
+											}.png`}
+											fill
+											alt={item.grade}
+										/>
+										<div
+											className={cn(
+												'absolute bottom-[4px] flex h-[12%] w-full justify-center',
+												'space-x-[4px]'
+											)}
+										>
+											{Array.from(
+												{ length: item.awakeTotal },
+												(_, idx) => idx
+											).map((idx) => (
+												<Image
+													className="h-full w-[10%]"
+													key={idx}
+													src={
+														idx <= item.awakeCount - 1
+															? '/icons/img_profile_awake_fill.png'
+															: '/icons/img_profile_awake_empty.png'
+													}
+													width={16}
+													height={28}
+													alt="awake"
+												/>
+											))}
+										</div>
+									</>
+								)}
+							</div>
+						))}
+					</div>
+				</Collapse.Content>
+			</LabelLayout>
+		</Collapse>
 	);
 };
 

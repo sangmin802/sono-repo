@@ -1,6 +1,6 @@
 'use client';
 
-import { Accordion } from '@sono-repo/ui';
+import { Collapse } from '@sono-repo/ui';
 
 import type { IStat } from '@/service/armories/types';
 
@@ -45,53 +45,51 @@ export const Stats = ({ data: { stats: initStats } }: IStatsProps) => {
 	};
 
 	return (
-		<Accordion>
-			<Accordion.Container id="stats">
-				<LabelLayout
-					label={
-						<Accordion.Summary className="flex items-center space-x-[8px]">
-							{mainStats.map(({ type, value }) => (
-								<div
-									className="flex items-center space-x-[4px]"
-									key={type}
-								>
-									<Label>{type}</Label>
-									<div>{value}</div>
-								</div>
-							))}
-						</Accordion.Summary>
-					}
-					as="aside"
+		<Collapse id="stats">
+			<LabelLayout
+				label={
+					<Collapse.Summary className="flex items-center space-x-[8px]">
+						{mainStats.map(({ type, value }) => (
+							<div
+								className="flex items-center space-x-[4px]"
+								key={type}
+							>
+								<Label>{type}</Label>
+								<div>{value}</div>
+							</div>
+						))}
+					</Collapse.Summary>
+				}
+				as="aside"
+			>
+				<Collapse.Content
+					className="pt-0"
+					onClick={handleOpenModal}
 				>
-					<Accordion.Content
-						className="pt-0"
-						onClick={handleOpenModal}
-					>
-						<div className="grid grid-cols-2 gap-[8px]">
-							<div className="space-y-[4px] text-center">
-								<Label>{power.type}</Label>
-								<div>{power.value}</div>
-							</div>
-							<div className="space-y-[4px] text-center">
-								<Label>{healty.type}</Label>
-								<div>{healty.value}</div>
-							</div>
+					<div className="grid grid-cols-2 gap-[8px]">
+						<div className="space-y-[4px] text-center">
+							<Label>{power.type}</Label>
+							<div>{power.value}</div>
 						</div>
-						<div className="mt-[12px] grid grid-cols-2 gap-[6px]">
-							{stats.map(({ type, value }) => (
-								<div
-									className="flex items-center space-x-[4px]"
-									key={type}
-								>
-									<Label>{type}</Label>
-									<div>{value}</div>
-								</div>
-							))}
+						<div className="space-y-[4px] text-center">
+							<Label>{healty.type}</Label>
+							<div>{healty.value}</div>
 						</div>
-					</Accordion.Content>
-				</LabelLayout>
-			</Accordion.Container>
-		</Accordion>
+					</div>
+					<div className="mt-[12px] grid grid-cols-2 gap-[6px]">
+						{stats.map(({ type, value }) => (
+							<div
+								className="flex items-center space-x-[4px]"
+								key={type}
+							>
+								<Label>{type}</Label>
+								<div>{value}</div>
+							</div>
+						))}
+					</div>
+				</Collapse.Content>
+			</LabelLayout>
+		</Collapse>
 	);
 };
 

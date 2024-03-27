@@ -24,7 +24,7 @@ export const Event = ({ data }: IEventProps) => {
 			<div className="hide-scrollbar mx-[-8px] flex flex-nowrap space-x-[16px] overflow-x-scroll px-[8px]">
 				{data?.map((item, idx) => (
 					<ThumbnailPost
-						className="min-w-[140px]"
+						className="w-[140px]"
 						key={idx}
 						date={item.endDate.split('T')[0]}
 						{...item}

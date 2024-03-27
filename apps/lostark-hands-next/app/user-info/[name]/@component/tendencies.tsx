@@ -1,6 +1,6 @@
 'use client';
 
-import { Accordion } from '@sono-repo/ui';
+import { Collapse } from '@sono-repo/ui';
 
 import Label from '@/client-component/label';
 import { LabelLayout } from '@/client-component/label-layout';
@@ -18,26 +18,24 @@ interface ITendenceisProps {
 
 export const Tendencies = ({ data: { tendencies } }: ITendenceisProps) => {
 	return (
-		<Accordion>
-			<Accordion.Container id="tendencies">
-				<LabelLayout
-					label={<Accordion.Summary>성향</Accordion.Summary>}
-					as="aside"
-				>
-					<Accordion.Content className="grid grid-cols-2 gap-[6px] rounded-[6px] pt-0">
-						{tendencies.map(({ type, point }) => (
-							<div
-								className="flex items-center space-x-[4px]"
-								key={type}
-							>
-								<Label>{type}</Label>
-								<div>{point}</div>
-							</div>
-						))}
-					</Accordion.Content>
-				</LabelLayout>
-			</Accordion.Container>
-		</Accordion>
+		<Collapse id="tendencies">
+			<LabelLayout
+				label={<Collapse.Summary>성향</Collapse.Summary>}
+				as="aside"
+			>
+				<Collapse.Content className="grid grid-cols-2 gap-[6px] rounded-[6px] pt-0">
+					{tendencies.map(({ type, point }) => (
+						<div
+							className="flex items-center space-x-[4px]"
+							key={type}
+						>
+							<Label>{type}</Label>
+							<div>{point}</div>
+						</div>
+					))}
+				</Collapse.Content>
+			</LabelLayout>
+		</Collapse>
 	);
 };
 
