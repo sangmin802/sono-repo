@@ -15,7 +15,7 @@ type TAction = 'OPEN' | 'CLOSE';
 type TArrowMode = 'DARK' | 'WHITE';
 type TId = number | string;
 
-interface IContainerProps {
+interface ICollapseProps {
 	className?: string;
 	children: ReactNode;
 	id: TId;
@@ -32,7 +32,7 @@ interface IContentProps extends PropsWithChildren {
 	onClick?: () => void;
 }
 
-const errorMsg = 'Accordion 컴포넌트 내부에서 사용되어야 합니다.';
+const errorMsg = 'Collapse 컴포넌트 내부에서 사용되어야 합니다.';
 
 const StateContext = createContext<TId | undefined>(undefined);
 const DispatchContext = createContext<
@@ -40,16 +40,17 @@ const DispatchContext = createContext<
 >(undefined);
 const IdContext = createContext<TId | undefined>(undefined);
 
-const useStateContext = () => {
+const useStateContext = (_state?: TId) => {
 	const state = useContext(StateContext);
-	if (state === undefined) throw new Error(errorMsg);
-	return state;
+	if (_state === undefined && state === undefined) throw new Error(errorMsg);
+	return state ?? _state;
 };
 
-const useDispatchContext = () => {
+const useDispatchContext = (_dispatch?: Dispatch<SetStateAction<TId>>) => {
 	const dispatch = useContext(DispatchContext);
-	if (dispatch === undefined) throw new Error(errorMsg);
-	return dispatch;
+	const returnDispatch = dispatch ?? _dispatch;
+	if (returnDispatch === undefined) throw new Error(errorMsg);
+	return returnDispatch;
 };
 
 const useIdContext = () => {
@@ -70,17 +71,23 @@ const Accordion = ({ children }: PropsWithChildren) => {
 	);
 };
 
-const Container = ({ id, className, children, onChange }: IContainerProps) => {
-	const state = useStateContext();
+const Collapse = ({ id, className, children, onChange }: ICollapseProps) => {
+	const [collapseState, setCollapseState] = useState<TId>(0);
+	const state = useStateContext(collapseState);
+	const setState = useDispatchContext(setCollapseState);
 
 	useEffect(() => {
-		onChange?.(state ? 'OPEN' : 'CLOSE');
-	}, [state, onChange]);
+		onChange?.(state === id ? 'OPEN' : 'CLOSE');
+	}, [state, id, onChange]);
 
 	return (
-		<IdContext.Provider value={id}>
-			<div className={className}>{children}</div>
-		</IdContext.Provider>
+		<StateContext.Provider value={state}>
+			<DispatchContext.Provider value={setState}>
+				<IdContext.Provider value={id}>
+					<div className={className}>{children}</div>
+				</IdContext.Provider>
+			</DispatchContext.Provider>
+		</StateContext.Provider>
 	);
 };
 
@@ -134,8 +141,7 @@ const Content = ({ className, children, onClick }: IContentProps) => {
 	);
 };
 
-Accordion.Container = Container;
-Accordion.Summary = Summary;
-Accordion.Content = Content;
+Collapse.Summary = Summary;
+Collapse.Content = Content;
 
-export default Accordion;
+export { Collapse, Accordion };

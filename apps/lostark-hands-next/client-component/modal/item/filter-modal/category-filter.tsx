@@ -3,7 +3,7 @@
 import { useMemo } from 'react';
 import cn from 'classnames';
 
-import { Accordion } from '@sono-repo/ui';
+import { Collapse } from '@sono-repo/ui';
 
 import type { TOnChangeFilter } from '@/client-component/modal/item/filter-modal/types';
 
@@ -42,8 +42,8 @@ const CategoryFilter = ({
 
 	return (
 		<>
-			<Accordion.Summary>{name}</Accordion.Summary>
-			<Accordion.Content className="flex">
+			<Collapse.Summary>{name}</Collapse.Summary>
+			<Collapse.Content className="flex">
 				<div className="shrink-0 grow">
 					{data.map(({ code, codeName }) => (
 						<div
@@ -72,7 +72,7 @@ const CategoryFilter = ({
 						</div>
 					))}
 				</div>
-			</Accordion.Content>
+			</Collapse.Content>
 		</>
 	);
 };

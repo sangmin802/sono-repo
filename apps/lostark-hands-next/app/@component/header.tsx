@@ -1,6 +1,9 @@
 'use client';
+
 import type { FormEvent } from 'react';
 import { useState } from 'react';
+import { LuSearch } from 'react-icons/lu';
+import { RiAuctionLine } from 'react-icons/ri';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -48,12 +51,8 @@ const Header = () => {
 					</div>
 				</div>
 				<div className="flex items-center space-x-[16px]">
-					<Image
-						className="translate-y-[4px] cursor-pointer"
-						width={30}
-						height={30}
-						src="/icons/auction/icons8-64.png"
-						alt="auction"
+					<RiAuctionLine
+						className="size-[24px] translate-y-[4px] cursor-pointer"
 						onClick={handleMoveMarkets}
 					/>
 					<form
@@ -65,13 +64,7 @@ const Header = () => {
 							placeholder="유저명을 검색해주세요."
 							onChange={setSearchQuery}
 						/>
-						<Image
-							className="inline-block cursor-pointer"
-							width={24}
-							height={24}
-							src="/icons/search/ic_search_16_gray60_ver01.svg"
-							alt="searchIcon"
-						/>
+						<LuSearch className="inline-block size-[24px] cursor-pointer" />
 					</form>
 				</div>
 			</div>

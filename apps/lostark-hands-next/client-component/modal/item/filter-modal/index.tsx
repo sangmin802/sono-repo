@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Accordion, Button } from '@sono-repo/ui';
+import { Accordion, Button, Collapse } from '@sono-repo/ui';
 
 import CategoryFilter from '@/client-component/modal/item/filter-modal/category-filter';
 import KeywordFilter from '@/client-component/modal/item/filter-modal/keyword-filter';
@@ -65,7 +65,7 @@ const FilterModal = ({
 					};
 
 					return (
-						<Accordion.Container
+						<Collapse
 							key={key}
 							id={key}
 						>
@@ -92,7 +92,7 @@ const FilterModal = ({
 									{...item}
 								/>
 							)}
-						</Accordion.Container>
+						</Collapse>
 					);
 				})}
 			</Accordion>

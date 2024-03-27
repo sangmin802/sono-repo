@@ -1,7 +1,7 @@
 'use client';
 
+import { IoNotificationsOutline } from 'react-icons/io5';
 import cn from 'classnames';
-import Image from 'next/image';
 
 import { Button } from '@sono-repo/ui';
 
@@ -28,13 +28,7 @@ const NotificationButton = () => {
 			)}
 			onClick={handleClickNotice}
 		>
-			<Image
-				width={26}
-				height={26}
-				alt="notificationPermission"
-				src="/icons/alert/icons8-96.png"
-				priority
-			/>
+			<IoNotificationsOutline className="size-[26px]" />
 		</Button>
 	);
 };

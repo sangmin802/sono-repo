@@ -2,7 +2,7 @@
 
 import cn from 'classnames';
 
-import { Accordion } from '@sono-repo/ui';
+import { Collapse } from '@sono-repo/ui';
 
 import type { TOnChangeFilter } from '@/client-component/modal/item/filter-modal/types';
 
@@ -25,8 +25,8 @@ const KeywordFilter = ({
 
 	return (
 		<>
-			<Accordion.Summary>{name}</Accordion.Summary>
-			<Accordion.Content className="flex flex-wrap">
+			<Collapse.Summary>{name}</Collapse.Summary>
+			<Collapse.Content className="flex flex-wrap">
 				{data.map(({ key, name }) => (
 					<div
 						key={`${name}-${key}`}
@@ -39,7 +39,7 @@ const KeywordFilter = ({
 						{name}
 					</div>
 				))}
-			</Accordion.Content>
+			</Collapse.Content>
 		</>
 	);
 };
