@@ -1,4 +1,4 @@
-import type { ChangeEvent, InputHTMLAttributes } from 'react';
+import { type ChangeEvent, forwardRef, type InputHTMLAttributes } from 'react';
 import cn from 'classnames';
 
 interface IInputProps
@@ -6,19 +6,24 @@ interface IInputProps
 	onChange: (value: string) => void;
 }
 
-const Input = ({ className, onChange, ...props }: IInputProps) => {
-	const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
-		onChange(event.target.value);
-	};
+const Input = forwardRef<HTMLInputElement, IInputProps>(
+	({ className, onChange, ...props }, ref) => {
+		const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
+			onChange(event.target.value);
+		};
 
-	return (
-		<input
-			className={cn('rounded-[6px] p-[4px] outline-none', className)}
-			spellCheck="false"
-			onChange={handleChangeInput}
-			{...props}
-		/>
-	);
-};
+		return (
+			<input
+				className={cn('rounded-[6px] p-[4px] outline-none', className)}
+				spellCheck="false"
+				onChange={handleChangeInput}
+				ref={ref}
+				{...props}
+			/>
+		);
+	}
+);
+
+Input.displayName = 'Input';
 
 export default Input;

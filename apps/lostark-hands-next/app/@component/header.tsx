@@ -1,7 +1,7 @@
 'use client';
 
 import type { FormEvent } from 'react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { LuSearch } from 'react-icons/lu';
 import { RiAuctionLine } from 'react-icons/ri';
 import Image from 'next/image';
@@ -14,6 +14,7 @@ import { StickyElement } from '@/client-component/sticky-element';
 const Header = () => {
 	const router = useRouter();
 	const [searchQuery, setSearchQuery] = useState('');
+	const inputRef = useRef<HTMLInputElement | null>(null);
 
 	const handleMoveHome = () => {
 		router.push('/');
@@ -21,6 +22,10 @@ const Header = () => {
 
 	const handleMoveUserInfo = (e: FormEvent) => {
 		e.preventDefault();
+
+		if (!inputRef.current) return;
+
+		inputRef.current.blur();
 		router.push(`/user-info/${searchQuery}`);
 	};
 
@@ -60,6 +65,8 @@ const Header = () => {
 						onSubmit={handleMoveUserInfo}
 					>
 						<Input
+							id="hello"
+							ref={inputRef}
 							className="min-w-0 bg-transparent font-semibold"
 							placeholder="유저명을 검색해주세요."
 							onChange={setSearchQuery}
