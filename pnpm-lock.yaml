@@ -145,6 +145,55 @@ importers:
         specifier: 5.3.2
         version: 5.3.2
 
+  apps/react-vite:
+    dependencies:
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.3.1)
+    devDependencies:
+      '@sono-repo/prettier-config':
+        specifier: workspace:^
+        version: link:../../packages/prettier-config
+      '@sono-repo/tsconfig':
+        specifier: workspace:^
+        version: link:../../packages/tsconfig
+      '@sono-repo/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
+      '@types/react':
+        specifier: 18.2.12
+        version: 18.2.12
+      '@types/react-dom':
+        specifier: 18.2.15
+        version: 18.2.15
+      '@vitejs/plugin-react':
+        specifier: ^4.2.1
+        version: 4.2.1(vite@5.0.11)
+      eslint:
+        specifier: ^8.38.0
+        version: 8.56.0
+      eslint-config-sono-repo:
+        specifier: workspace:^
+        version: link:../../packages/eslint-config
+      postcss:
+        specifier: 8.4.22
+        version: 8.4.22
+      prettier:
+        specifier: ^2.8.7
+        version: 2.8.8
+      tailwindcss:
+        specifier: ^3.3.3
+        version: 3.4.1
+      typescript:
+        specifier: 5.3.2
+        version: 5.3.2
+      vite:
+        specifier: ^5.0.5
+        version: 5.0.11
+
   packages/eslint-config:
     devDependencies:
       '@typescript-eslint/eslint-plugin':
@@ -9750,6 +9799,16 @@ packages:
       react: 18.2.0
       scheduler: 0.23.0
 
+  /react-dom@18.2.0(react@18.3.1):
+    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      loose-envify: 1.4.0
+      react: 18.3.1
+      scheduler: 0.23.0
+    dev: false
+
   /react-element-to-jsx-string@15.0.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-UDg4lXB6BzlobN60P8fHWVPX3Kyw8ORrTeBtClmIlGdkOOE+GYQSFvmEU5iLLpwp/6v42DINwNcwOhOLfQ//FQ==}
     peerDependencies:
@@ -9875,6 +9934,13 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+
+  /react@18.3.1:
+    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      loose-envify: 1.4.0
+    dev: false
 
   /read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}

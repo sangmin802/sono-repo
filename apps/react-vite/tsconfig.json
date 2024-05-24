@@ -1,0 +1,9 @@
+{
+  "extends": "@sono-repo/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+  },
+}
