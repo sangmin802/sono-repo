@@ -1,7 +1,6 @@
 const Head = () => {
 	return (
 		<>
-			<title>Lostark Hands Next</title>
 			<meta
 				content="width=device-width, initial-scale=1"
 				name="viewport"

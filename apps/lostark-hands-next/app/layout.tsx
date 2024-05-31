@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import type { Metadata } from 'next';
 
 import Head from '@/app/head';
 
@@ -10,6 +11,11 @@ import ModalProvider from '@/client-component/modal/provider';
 
 import '@/style/main.css';
 import ReactQueryProvider from '@/provider/react-query-provider';
+
+export const metadata: Metadata = {
+	title: 'Sono-repo Lostark Hands Next',
+	description: 'sono-repo 모노레포 토이프로젝트'
+};
 
 const Layout = ({ children }: PropsWithChildren) => {
 	return (
