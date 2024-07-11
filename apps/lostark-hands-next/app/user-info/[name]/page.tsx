@@ -9,6 +9,7 @@ import {
 	getSkillApi
 } from '@/service/armories';
 import {
+	arkPassiveSelector,
 	cardSelector,
 	engraveSelector,
 	equipmentSelector,
@@ -17,6 +18,7 @@ import {
 	skillSelector
 } from '@/service/armories/selector';
 
+import { ArkPassive } from '@/app/user-info/[name]/@component/ark-passive';
 import {
 	CardSet,
 	CardSetSkeleton
@@ -51,16 +53,22 @@ const Page = ({ params: { name } }: { params: { name: string } }) => {
 					render={Stats}
 				/>
 				<ServerWrapper
-					fallback={<TendenciesSkeleton />}
+					fallback={<StatsSkeleton />}
 					apiPromise={getProfileInfoApi(name)}
-					selector={profileTooltipSelector}
-					render={Tendencies}
+					selector={arkPassiveSelector}
+					render={ArkPassive}
 				/>
 				<ServerWrapper
 					fallback={<EngravesSkeleton />}
 					apiPromise={getEngravesInfoApi(name)}
 					selector={engraveSelector}
 					render={Engraves}
+				/>
+				<ServerWrapper
+					fallback={<TendenciesSkeleton />}
+					apiPromise={getProfileInfoApi(name)}
+					selector={profileTooltipSelector}
+					render={Tendencies}
 				/>
 			</div>
 			<div className="w-full space-y-[16px] md:w-auto md:grow">

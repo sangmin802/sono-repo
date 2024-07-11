@@ -103,7 +103,7 @@ export const Profile = ({ data }: IProfileProps) => {
 			)}
 			<div
 				className={cn(
-					'absolute bottom-0 right-[-100px] z-[3] h-[10%] w-[240px] md:right-0 md:w-[360px]',
+					'absolute bottom-0 right-0 z-[3] h-[10%] w-[240px] md:right-0 md:w-[360px]',
 					'bg-gradient-to-t from-main-10 from-20% to-transparent'
 				)}
 			/>

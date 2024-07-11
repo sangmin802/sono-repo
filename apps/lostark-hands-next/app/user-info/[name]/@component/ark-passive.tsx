@@ -2,86 +2,38 @@
 
 import { Collapse } from '@sono-repo/ui';
 
-import type { IStat } from '@/service/armories/types';
+import type { IArkPassive } from '@/service/armories/types';
 
 import Label from '@/client-component/label';
 import { LabelLayout } from '@/client-component/label-layout';
-import { useModalDispatch } from '@/client-component/modal/provider';
 import Skeleton from '@/client-component/skeleton';
 
 interface IStatsProps {
 	data: {
-		stats: IStat[];
+		arkPassive: IArkPassive;
 	};
 }
 
-export const Stats = ({ data: { stats: initStats } }: IStatsProps) => {
-	const { onOpenModal } = useModalDispatch();
-
-	const stats = initStats.slice(0, 6);
-	const power = initStats[7];
-	const healty = initStats[6];
-
-	const mainStats = stats
-		.sort((a, b) => Number(b.value) - Number(a.value))
-		.slice(0, 2);
-
-	const handleOpenModal = () => {
-		if (!Number(power.value) || !Number(healty.value)) return;
-
-		onOpenModal({
-			name: 'descListModal',
-			props: {
-				title: '능력치',
-				list: [power, healty, ...stats].map(({ type, value, tooltip }) => ({
-					title: type,
-					afterTitle: value,
-					desc: tooltip.join()
-				}))
-			}
-		});
-	};
-
+export const ArkPassive = ({ data: { arkPassive } }: IStatsProps) => {
 	return (
 		<Collapse id="stats">
 			<LabelLayout
 				label={
 					<Collapse.Summary className="flex items-center space-x-[8px]">
-						{mainStats.map(({ type, value }) => (
-							<div
-								className="flex items-center space-x-[4px]"
-								key={type}
-							>
-								<Label>{type}</Label>
-								<div>{value}</div>
-							</div>
-						))}
+						아크 패시브
 					</Collapse.Summary>
 				}
 				as="aside"
 			>
-				<Collapse.Content
-					className="pt-0"
-					onClick={handleOpenModal}
-				>
+				<Collapse.Content className="pt-0">
 					<div className="grid grid-cols-2 gap-[8px]">
-						<div className="space-y-[4px] text-center">
-							<Label>{power.type}</Label>
-							<div>{power.value}</div>
-						</div>
-						<div className="space-y-[4px] text-center">
-							<Label>{healty.type}</Label>
-							<div>{healty.value}</div>
-						</div>
-					</div>
-					<div className="mt-[12px] grid grid-cols-2 gap-[6px]">
-						{stats.map(({ type, value }) => (
+						{arkPassive.points.map((item) => (
 							<div
-								className="flex items-center space-x-[4px]"
-								key={type}
+								className="space-y-[4px] text-center"
+								key={item.name}
 							>
-								<Label>{type}</Label>
-								<div>{value}</div>
+								<Label>{item.name}</Label>
+								<div>{item.value}</div>
 							</div>
 						))}
 					</div>
