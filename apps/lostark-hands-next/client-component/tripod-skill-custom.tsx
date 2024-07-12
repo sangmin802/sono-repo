@@ -1,6 +1,8 @@
 'use client';
 
-import Image from 'next/image';
+import NextImage from 'next/image';
+
+import { Image } from '@sono-repo/ui';
 
 import DangerousHTML from '@/client-component/dangerous-html';
 
@@ -17,7 +19,8 @@ const TripodSkillCustom = ({ value }: TElement['TripodSkillCustom']) => {
 					key={idx}
 				>
 					<Image
-						className="h-[40px] w-[40px] shrink-0"
+						as={NextImage}
+						className="size-[40px] shrink-0"
 						width={40}
 						height={40}
 						alt={name}

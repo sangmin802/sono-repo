@@ -9,10 +9,13 @@ export interface ICalendar {
 	startTimes: string[] | null;
 	location: string;
 	rewardItems: {
-		name: string;
-		icon: string;
-		grade: TGrade;
-		startTimes: string[];
+		itemLevel: number;
+		items: {
+			name: string;
+			icon: string;
+			grade: TGrade;
+			startTimes: string[];
+		}[];
 	}[];
 }
 

@@ -12,9 +12,6 @@ export default defineConfig({
 			exclude: ['vite.config.mts', '.storybook/**/*', 'src/stories/**/*']
 		})
 	],
-	resolve: {
-		alias: { '@': path.resolve(__dirname, './src') }
-	},
 	define: {
 		outerEnv: 'process.env'
 	},

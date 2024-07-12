@@ -1,7 +1,9 @@
 'use client';
 
 import cn from 'classnames';
-import Image from 'next/image';
+import NextImage from 'next/image';
+
+import { Image } from '@sono-repo/ui';
 
 interface ITumbnailPostProps {
 	className?: string;
@@ -31,7 +33,8 @@ export const ThumbnailPost = ({
 			onClick={handleClickThumbnail}
 		>
 			<Image
-				className="rounded-[2px]"
+				as={NextImage}
+				className="h-[67px] w-[140px] overflow-hidden rounded-[2px]"
 				src={thumbnail}
 				alt={title}
 				width={140}

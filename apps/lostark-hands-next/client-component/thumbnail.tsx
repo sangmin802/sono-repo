@@ -1,9 +1,9 @@
 'use client';
 
 import cn from 'classnames';
-import Image from 'next/image';
+import NextImage from 'next/image';
 
-import { Chip } from '@sono-repo/ui';
+import { Chip, Image } from '@sono-repo/ui';
 
 import { GRADE_BG_COLOR } from '@/constant';
 
@@ -36,6 +36,8 @@ const Thumbnail = ({ className, src, alt, chip, grade }: IThumbnailProps) => {
 			)}
 			{src && (
 				<Image
+					className="size-full"
+					as={NextImage}
 					width={60}
 					height={60}
 					src={src}

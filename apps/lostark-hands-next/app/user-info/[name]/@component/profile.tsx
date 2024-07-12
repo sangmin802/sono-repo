@@ -2,7 +2,9 @@
 
 import type { PropsWithChildren } from 'react';
 import cn from 'classnames';
-import Image from 'next/image';
+import NextImage from 'next/image';
+
+import { Image } from '@sono-repo/ui';
 
 import type { IArmoryProfile } from '@/service/armories/types';
 
@@ -87,6 +89,7 @@ export const Profile = ({ data }: IProfileProps) => {
 					)}
 				>
 					<Image
+						as={NextImage}
 						priority
 						width={600}
 						height={900}

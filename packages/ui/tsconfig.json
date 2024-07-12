@@ -1,5 +1,8 @@
 {
   "extends": "@sono-repo/tsconfig",
   "include": ["**/*", ".storybook/*.tsx"],
-  "exclude": ["dist", "build"]
+  "exclude": ["dist", "build"],
+  "compilerOptions": {
+    "baseUrl": "."
+  }
 }

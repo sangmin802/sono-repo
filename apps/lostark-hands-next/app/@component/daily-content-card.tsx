@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
+import NextImage from 'next/image';
 import useTimer from 'sono-repo-react-timer';
 
-import { Chip } from '@sono-repo/ui';
+import { Chip, Image } from '@sono-repo/ui';
 import { convertDateFormat } from '@sono-repo/util/date';
 
 import useNotification from '@/hook/use-notification';
@@ -61,16 +61,18 @@ const DailyContentCard = ({
 			<div className="flex">
 				<div className="relative mr-[8px] h-[60px] w-[60px] shrink-0">
 					<Chip
-						className="absolute bottom-[1px] right-[1px]"
+						className="absolute bottom-[1px] right-[1px] z-[10]"
 						type="transparent"
 					>
 						Lv {item.badge}
 					</Chip>
 					<Image
+						className="size-[60px]"
 						src={item.icon}
 						width={120}
 						height={120}
 						alt={item.name}
+						as={NextImage}
 					/>
 				</div>
 				<div className="flex w-full flex-col items-center justify-center">

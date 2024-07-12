@@ -4,10 +4,10 @@ import type { FormEvent } from 'react';
 import { useRef, useState } from 'react';
 import { LuSearch } from 'react-icons/lu';
 import { RiAuctionLine } from 'react-icons/ri';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import { Input } from '@sono-repo/ui';
+import { Image, Input } from '@sono-repo/ui';
 
 import { StickyElement } from '@/client-component/sticky-element';
 
@@ -45,11 +45,12 @@ const Header = () => {
 					onClick={handleMoveHome}
 				>
 					<Image
-						className="mr-[8px] h-[36px] w-[36px]"
+						className="mr-[8px] h-[36px] w-[36px] overflow-hidden rounded-full"
 						src="/icons/logo/logo.png"
 						width={100}
 						height={100}
 						alt="logo"
+						as={NextImage}
 					/>
 					<div className="hidden text-[28px] font-bold leading-[36px] md:block">
 						로아 핸즈
