@@ -254,7 +254,8 @@ export type TCollectibleType =
 	| '세계수의 잎'
 	| '이그네아의 징표'
 	| '오르페우스의 별'
-	| '기억의 오르골';
+	| '기억의 오르골'
+	| '크림스네일의 해도';
 
 export interface ICollectible {
 	type: TCollectibleType;

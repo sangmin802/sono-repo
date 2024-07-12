@@ -35,7 +35,8 @@ const bgPosition: Record<
 	'세계수의 잎': { backgroundPositionX: -234, backgroundPositionY: -48 },
 	'이그네아의 징표': { backgroundPositionX: -234, backgroundPositionY: 0 },
 	'오르페우스의 별': { backgroundPositionX: -234, backgroundPositionY: -70 },
-	'기억의 오르골': { backgroundPositionX: 2, backgroundPositionY: -216 }
+	'기억의 오르골': { backgroundPositionX: 2, backgroundPositionY: -234 },
+	'크림스네일의 해도': { backgroundPositionX: 0, backgroundPositionY: -214 }
 };
 
 const stickyNavStyle = cn(
@@ -72,7 +73,7 @@ export const Collection = ({ data }: ICollectionProps) => {
 				{sortedData.map((item) => (
 					<div
 						className={cn(
-							'flex w-[130px] shrink-0 items-center',
+							'flex w-[140px] shrink-0 items-center',
 							'cursor-pointer space-x-[8px] rounded-[4px] p-[4px] duration-500',
 							{
 								'bg-main-30': item.type === selectCollect.type,
