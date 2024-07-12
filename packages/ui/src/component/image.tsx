@@ -7,7 +7,7 @@ import {
 } from 'react';
 import cn from 'classnames';
 
-import emptyImage from '../assets/emoticon_8.png';
+import emptyImage from '../assets/empty.png';
 
 type ImageProps<T extends ElementType> = {
 	className?: string;
