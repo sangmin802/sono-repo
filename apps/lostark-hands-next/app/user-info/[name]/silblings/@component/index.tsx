@@ -1,8 +1,10 @@
 'use client';
 
 import cn from 'classnames';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import { useRouter } from 'next/navigation';
+
+import { Image } from '@sono-repo/ui';
 
 import type { ICharacterInfo } from '@/service/characters/types';
 
@@ -55,7 +57,8 @@ export const Silblings = ({ data }: ISilbingsProps) => {
 									onClick={() => handleMoveUserInfo(info.characterName)}
 								>
 									<Image
-										className="h-[36px] w-[36px]"
+										as={NextImage}
+										className="size-[36px]"
 										width={36}
 										height={36}
 										src={`${CDN_URL}/2018/obt/assets/images/common/thumb/${

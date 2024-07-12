@@ -1,4 +1,5 @@
 import type {
+	IArkPassive,
 	IArmoryAvatar,
 	IArmoryCard,
 	IArmoryEngraving,
@@ -58,6 +59,18 @@ export const profileTooltipSelector = (
 		maxPoint: 0,
 		...data?.tendencies?.find(({ type }) => type === name)
 	}))
+});
+
+export const arkPassiveSelector = (
+	args: { arkPassive: IArkPassive } | null
+) => ({
+	arkPassive: args?.arkPassive ?? {
+		isArkPassive: false,
+		points: [
+			{ name: '진화', value: 0, tooltip: '' },
+			{ name: '깨달음', value: 0, tooltip: '' }
+		]
+	}
 });
 
 /**
@@ -212,7 +225,7 @@ export const skillSelector = (data: IArmorySkill[] | null) => {
 };
 
 export const gemSelector = (data: IArmoryGem | null): IParsedGem[] | null => {
-	if (!data) return null;
+	if (!data?.gems) return null;
 
 	return data.gems
 		.map((item) => ({

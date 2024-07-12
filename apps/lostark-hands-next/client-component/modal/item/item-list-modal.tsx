@@ -1,7 +1,9 @@
 'use client';
 
 import cn from 'classnames';
-import Image from 'next/image';
+import NextImage from 'next/image';
+
+import { Image } from '@sono-repo/ui';
 
 import ModalLayout from '@/client-component/modal/layout';
 import type { IModalItemProps } from '@/client-component/modal/types';
@@ -21,8 +23,9 @@ const ItemListModal = ({ title, list }: IModalItemProps['itemListModal']) => {
 						className="relative flex items-center rounded-[6px] bg-main-30 p-[6px]"
 					>
 						<Image
+							as={NextImage}
 							className={cn(
-								'h-[40px] w-[40px] rounded-[6px]',
+								'size-[40px] overflow-hidden rounded-[6px]',
 								GRADE_BG_COLOR[grade]
 							)}
 							width={80}

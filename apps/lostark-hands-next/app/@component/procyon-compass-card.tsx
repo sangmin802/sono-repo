@@ -1,7 +1,9 @@
 'use client';
 
 import cn from 'classnames';
-import Image from 'next/image';
+import NextImage from 'next/image';
+
+import { Image } from '@sono-repo/ui';
 
 import type { IRewardItem } from '@/service/game-contents/types';
 
@@ -62,11 +64,12 @@ const ProcyonCompassCard = ({
 		>
 			{showImg && (
 				<Image
-					className="rounded-[4px]"
+					className="size-[30px] overflow-hidden rounded-[4px]"
 					width={30}
 					height={30}
 					src={icon}
 					alt={name}
+					as={NextImage}
 				/>
 			)}
 			<div className="flex space-x-[16px]">

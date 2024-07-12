@@ -23,8 +23,9 @@ export const convertCalendarData = (list: ICalendar[]) =>
 						getDateDiff(new Date(startTime), new Date(), 'minutes').minutes > 0
 				) ?? [],
 			desc: location,
-			rewardItems: (rewardItems ?? []).reduce(
-				(prevMap, { name, icon, grade, startTimes }) => {
+			rewardItems: (rewardItems ?? [])
+				.flatMap(({ items }) => items)
+				.reduce((prevMap, { name, icon, grade, startTimes }) => {
 					prevMap.set(name, {
 						name: name,
 						icon: icon,
@@ -32,9 +33,7 @@ export const convertCalendarData = (list: ICalendar[]) =>
 						startTimes: new Set(startTimes)
 					});
 					return prevMap;
-				},
-				new Map<string, IRewardItem>()
-			)
+				}, new Map<string, IRewardItem>())
 		})
 	);
 

@@ -5,11 +5,11 @@ import type { TElement, TElementUnionArray } from '@/type/element-json';
 export const getIndentContent = (key: string, tooltip?: TElementUnionArray) =>
 	tooltip?.find(
 		({ type, value }) =>
-			type === 'IndentStringGroup' && value.Element_000?.topStr?.includes(key)
+			type === 'IndentStringGroup' && value?.Element_000?.topStr?.includes(key)
 	) as TElement['IndentStringGroup'] | undefined;
 
 export const getElixir = (tooltip: TElementUnionArray) => {
-	const elixir = getIndentContent('엘릭서 효과', tooltip);
+	const elixir = getIndentContent('엘릭서', tooltip);
 
 	return elixir
 		? Object.values(elixir.value.Element_000.contentStr).map(({ contentStr }) =>

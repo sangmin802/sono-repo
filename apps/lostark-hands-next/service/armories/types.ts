@@ -13,6 +13,15 @@ export interface ITendency {
 	maxPoint: number;
 }
 
+export interface IArkPassive {
+	isArkPassive: boolean;
+	points: {
+		name: string;
+		value: number;
+		tooltip: string;
+	}[];
+}
+
 interface ISkillTripod {
 	tier: number;
 	slot: number;
@@ -35,6 +44,14 @@ interface IEngraving {
 	name: string;
 	icon: string;
 	tooltip: string;
+}
+
+export interface IArkPassiveEffects {
+	abilityStoneLevel: null | number;
+	grade: string;
+	level: number;
+	name: string;
+	description: string;
 }
 
 export interface IEffect {
@@ -73,11 +90,15 @@ export interface IParsedGem extends Omit<IGem, 'tooltip'> {
 }
 
 interface IGemEffect {
-	gemSlot: number;
-	name: string;
 	description: string;
-	icon: string;
-	tooltip: string;
+	sktill: {
+		gemSlot: number;
+		name: string;
+		description: string[];
+		option: string;
+		icon: string;
+		tooltip: string;
+	}[];
 }
 
 interface IAggregationTeamDeathMatchRank {
@@ -155,6 +176,7 @@ export interface IArmoryProfile {
 	characterClassName: string;
 	itemAvgLevel: string;
 	itemMaxLevel: string;
+	arkPassive: IArkPassive;
 }
 
 export interface IArmoryEquipment {
@@ -203,6 +225,7 @@ export interface IArmorySkill {
 export interface IArmoryEngraving {
 	engravings: IEngraving[] | null;
 	effects: IEffect[] | null;
+	arkPassiveEffects: IArkPassiveEffects[];
 }
 
 export interface IArmoryCard {
@@ -212,7 +235,7 @@ export interface IArmoryCard {
 
 export interface IArmoryGem {
 	gems: IGem[];
-	effects: IGemEffect[];
+	effects: IGemEffect;
 }
 
 interface IColosseumInfo {
@@ -231,7 +254,8 @@ export type TCollectibleType =
 	| '세계수의 잎'
 	| '이그네아의 징표'
 	| '오르페우스의 별'
-	| '기억의 오르골';
+	| '기억의 오르골'
+	| '크림스네일의 해도';
 
 export interface ICollectible {
 	type: TCollectibleType;

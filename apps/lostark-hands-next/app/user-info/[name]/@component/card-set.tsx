@@ -1,9 +1,9 @@
 'use client';
 
 import cn from 'classnames';
-import Image from 'next/image';
+import NextImage from 'next/image';
 
-import { Chip, Collapse } from '@sono-repo/ui';
+import { Chip, Collapse, Image } from '@sono-repo/ui';
 
 import type { ICard, ICardEffect } from '@/service/armories/types';
 
@@ -88,11 +88,13 @@ export const CardSet = ({ data: { cards, effects } }: ICardSetProps) => {
 								{item && (
 									<>
 										<Image
+											as={NextImage}
 											fill
 											src={item.icon}
 											alt={item.name}
 										/>
 										<Image
+											as={NextImage}
 											className="absolute inset-0 scale-[1.04]"
 											src={`${CDN_URL}/2018/obt/assets/images/m/profile/bg_profile_card${
 												cardOutline[item.grade]
@@ -111,6 +113,7 @@ export const CardSet = ({ data: { cards, effects } }: ICardSetProps) => {
 												(_, idx) => idx
 											).map((idx) => (
 												<Image
+													as={NextImage}
 													className="h-full w-[10%]"
 													key={idx}
 													src={

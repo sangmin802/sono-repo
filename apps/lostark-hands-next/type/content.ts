@@ -13,6 +13,7 @@ export enum CLASS {
 	창술사 = 'lancemaster',
 	'무도가(남)' = 'fighter_male',
 	스트라이커 = 'striker',
+	브레이커 = 'infighter_male',
 	'헌터(남)' = 'hunter',
 	데빌헌터 = 'devilhunter',
 	호크아이 = 'hawkeye',

@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
+import NextImage from 'next/image';
 
-import { Collapse } from '@sono-repo/ui';
+import { Collapse, Image } from '@sono-repo/ui';
 
 import type { IEffect } from '@/service/armories/types';
 
@@ -52,8 +52,9 @@ export const Engraves = ({ data }: IEngravesProps) => {
 					<Collapse.Summary className="flex space-x-[4px]">
 						{data?.map(({ name }) => (
 							<Image
+								as={NextImage}
 								key={name}
-								className="rounded-[4px]"
+								className="size-[24px] overflow-hidden rounded-[4px]"
 								src={`${CDN_URL}/EFUI_IconAtlas/${
 									ENGRAVE_IMGAE[name.split(' Lv')[0]]
 								}`}
@@ -78,7 +79,8 @@ export const Engraves = ({ data }: IEngravesProps) => {
 						>
 							<div className="relative">
 								<Image
-									className="rounded-[6px]"
+									as={NextImage}
+									className="size-[36px] overflow-hidden rounded-[6px]"
 									src={`${CDN_URL}/EFUI_IconAtlas/${
 										ENGRAVE_IMGAE[name.split(' Lv')[0]]
 									}`}
