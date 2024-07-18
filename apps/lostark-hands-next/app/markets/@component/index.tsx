@@ -10,7 +10,7 @@ import type { IOptions } from '@/service/markets/types';
 import useMarketsFilter from '@/app/markets/@hook/use-markets-filter';
 import useClientRendered from '@/hook/use-client-rendered';
 
-import List from '@/app/markets/@component/list';
+import { List, ListSkeleton } from '@/app/markets/@component/list';
 
 interface IMarketsProps {
 	data: IOptions;
@@ -23,7 +23,7 @@ const Markets = ({ data }: IMarketsProps) => {
 	return (
 		<div>
 			{isClientRendered && (
-				<Suspense>
+				<Suspense fallback={<ListSkeleton />}>
 					<List filter={filter} />
 				</Suspense>
 			)}
