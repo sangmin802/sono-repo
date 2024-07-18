@@ -4,6 +4,7 @@ import type { FormEvent } from 'react';
 import { useRef, useState } from 'react';
 import { LuSearch } from 'react-icons/lu';
 import { RiAuctionLine } from 'react-icons/ri';
+import cn from 'classnames';
 import NextImage from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -35,8 +36,10 @@ const Header = () => {
 
 	return (
 		<StickyElement
-			className="z-[90]"
-			activeClassName="shadow-[0px_10px_10px_rgba(0,0,0,.3)]"
+			className="z-[90] bg-main-10 before:absolute before:inset-0 before:z-[-1]"
+			activeClassName={cn(
+				'bg-transparent shadow-[0px_10px_10px_rgba(0,0,0,.3)] before:backdrop-blur-[26px]'
+			)}
 			as="header"
 		>
 			<div className="flex items-center justify-between p-[16px] lg:mx-auto lg:w-[1024px]">
