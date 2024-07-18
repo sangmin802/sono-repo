@@ -55,13 +55,9 @@ export const StickyElement = <T extends ElementType>({
 			/>
 			<Tag
 				style={{ top }}
-				className={cn(
-					className,
-					'sticky bg-main-10 transition duration-[.3s] ease-out',
-					{
-						[`${activeClassName}`]: isScrolled && activeClassName
-					}
-				)}
+				className={cn(className, 'sticky transition duration-[.3s] ease-out', {
+					[`${activeClassName}`]: isScrolled && activeClassName
+				})}
 				{...props}
 			>
 				{children}

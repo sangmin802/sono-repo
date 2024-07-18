@@ -17,7 +17,7 @@ const filterKeyArr = [
 const useMarketsFilter = (options: IOptions) => {
 	/**
 	 * @see {@link https://nextjs.org/blog/next-14-1#other-improvements}
-	 * 14.1부터 useSearchParams hook이 Suspense로 감싸져 있지 않으면 build가 실패하도록 변ㄱ
+	 * 14.1부터 useSearchParams hook이 Suspense로 감싸져 있지 않으면 build가 실패하도록 변경됨
 	 */
 	const query = useSearchParams();
 	const pathname = usePathname();
