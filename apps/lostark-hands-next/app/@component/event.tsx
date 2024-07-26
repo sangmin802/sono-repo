@@ -1,5 +1,8 @@
 'use client';
 
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import type { IEvent } from '@/service/news/types';
 
 import {
@@ -21,16 +24,28 @@ export const Event = ({ data }: IEventProps) => {
 			as="section"
 			label="이벤트"
 		>
-			<div className="hide-scrollbar mx-[-8px] flex flex-nowrap space-x-[16px] overflow-x-scroll px-[8px]">
+			<Swiper
+				slidesPerView="auto"
+				spaceBetween={16}
+				loop
+				autoplay={{
+					delay: 3000
+				}}
+				speed={500}
+				modules={[Autoplay]}
+			>
 				{data?.map((item, idx) => (
-					<ThumbnailPost
-						className="w-[140px]"
+					<SwiperSlide
 						key={idx}
-						date={item.endDate.split('T')[0]}
-						{...item}
-					/>
+						className="!w-[140px]"
+					>
+						<ThumbnailPost
+							date={item.endDate.split('T')[0]}
+							{...item}
+						/>
+					</SwiperSlide>
 				))}
-			</div>
+			</Swiper>
 		</LabelLayout>
 	);
 };
