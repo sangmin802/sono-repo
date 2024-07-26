@@ -25,6 +25,7 @@
     "react-responsive": "^9.0.2",
     "sharp": "^0.32.6",
     "sono-repo-react-timer": "workspace:^",
+    "swiper": "^11.1.7",
     "zod": "^3.21.4"
   },
   "devDependencies": {

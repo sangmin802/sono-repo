@@ -9,6 +9,7 @@ import Header from '@/app/@component/header';
 import Modal from '@/client-component/modal';
 import ModalProvider from '@/client-component/modal/provider';
 
+import 'swiper/css';
 import '@/style/main.css';
 import ReactQueryProvider from '@/provider/react-query-provider';
 

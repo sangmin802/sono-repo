@@ -191,6 +191,7 @@ export interface ISelectedArmoryEquipment extends IArmoryEquipment {
 	levelInfo: string;
 	quality: number;
 	elixir?: string[];
+	advancedReinforce?: string;
 	transcendence?: {
 		grade: string;
 		total: string;

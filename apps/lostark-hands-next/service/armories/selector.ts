@@ -14,7 +14,11 @@ import type {
 	TParsedArmory
 } from '@/service/armories/types';
 
-import { getElixir, getTranscendence } from '@/util/armory';
+import {
+	getAdvancedReinforce,
+	getElixir,
+	getTranscendence
+} from '@/util/armory';
 
 import { CDN_URL } from '@/constant';
 import {
@@ -165,6 +169,7 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 				const quality = itemTitle?.value.qualityValue ?? 0;
 				const elixir = getElixir(tooltip);
 				const transcendence = getTranscendence(tooltip);
+				const advancedReinforce = getAdvancedReinforce(tooltip);
 
 				prev[key].push({
 					...rest,
@@ -172,6 +177,7 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 					quality,
 					elixir,
 					transcendence,
+					advancedReinforce,
 					tooltip: (
 						Object.values(JSON.parse(jsonToolip)) satisfies TElementUnionArray
 					).map((item) => {
