@@ -53,3 +53,5 @@ export const camelToPascal = <T extends IObj>(val: T): ToPascalKey<T> => {
 		return { ...prev, [newKey]: val };
 	}, Object());
 };
+
+export const onlyNumber = (str: string) => str.match(/\d+/g);

@@ -8,6 +8,8 @@ import type {
 	TParsedArmory
 } from '@/service/armories/types';
 
+import { onlyNumber } from '@/util/selector';
+
 import QualityChip from '@/app/user-info/[name]/@component/quality-chip';
 import GradeText from '@/client-component/grade-text';
 import {
@@ -81,6 +83,11 @@ export const Equipment = ({ data: { equip, acc } }: IEquipmentProps) => {
 		});
 	};
 
+	const accGrid = [
+		[0, 5],
+		[5, acc.length]
+	];
+
 	return (
 		<>
 			<LabelLayout
@@ -104,13 +111,14 @@ export const Equipment = ({ data: { equip, acc } }: IEquipmentProps) => {
 											className="text-[12px]"
 											grade={item.grade}
 										>
-											{item.name.match(/\+\d+/)?.[0]}
+											+{onlyNumber(item.name)}
 										</GradeText>
 										<GradeText
 											className="text-[12px]"
 											grade={item.grade}
 										>
-											{item.levelInfo.match(/(?<=레벨\s)\d+(?=\s\(티어)/)?.[0]}
+											{onlyNumber(removeHtmlTag(item.levelInfo))?.[0]}
+											{` [+${item.advancedReinforce ?? 0}]`}
 										</GradeText>
 										<QualityChip size={item.quality} />
 									</div>
@@ -129,10 +137,7 @@ export const Equipment = ({ data: { equip, acc } }: IEquipmentProps) => {
 				as="section"
 			>
 				<div className="grid grid-cols-1 gap-[8px] lg:grid-cols-2">
-					{[
-						[0, 5],
-						[5, acc.length]
-					].map((num, idx) => (
+					{accGrid.map((num, idx) => (
 						<div
 							key={idx}
 							className="flex flex-col space-y-[8px]"
