@@ -48,13 +48,14 @@ interface IEngraving {
 
 export interface IArkPassiveEffects {
 	abilityStoneLevel: null | number;
-	grade: string;
+	grade: TGrade;
 	level: number;
 	name: string;
 	description: string;
 }
 
 export interface IEffect {
+	icon: string;
 	name: string;
 	description: string;
 	point?: string;
@@ -226,7 +227,7 @@ export interface IArmorySkill {
 export interface IArmoryEngraving {
 	engravings: IEngraving[] | null;
 	effects: IEffect[] | null;
-	arkPassiveEffects: IArkPassiveEffects[];
+	arkPassiveEffects: IArkPassiveEffects[] | null;
 }
 
 export interface IArmoryCard {

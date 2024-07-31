@@ -37,7 +37,7 @@ module.exports = {
 				rare: '#6666FF',
 				epic: '#c200c2',
 				legendary: '#fb923c',
-				relic: '#a24006',
+				relic: '#ff6000',
 				ancient: '#dcc999',
 				esther: '#2faba8',
 				white: '#efefef'
