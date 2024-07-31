@@ -81,9 +81,9 @@ export const arkPassiveSelector = (
  * 각인 데이터 가공
  */
 export const engraveSelector = (args: IArmoryEngraving | null) => {
-	if (!args) return args;
+	if (!args) return { mappedEffects: null, arkPassiveEffects: null };
 
-	const { effects, engravings } = args;
+	const { effects, engravings, arkPassiveEffects } = args;
 	const sortedEffects = effects?.sort((a) =>
 		engravings?.some(({ name }) => a.name.includes(name)) ? -1 : 0
 	);
@@ -97,13 +97,13 @@ export const engraveSelector = (args: IArmoryEngraving | null) => {
 			if (!targetEngrave) return effect;
 
 			const json = JSON.parse(targetEngrave);
-			const regex = /\b(?:3|6|9|12)\b/g;
+			const regex = /\b(?:1|2|3|4|6|9|12)\b/g;
 			const [point] = json.Element_002.value.match(regex);
 
 			return { ...effect, point: `${point}` };
 		}) ?? null;
 
-	return mappedEffects;
+	return { mappedEffects, arkPassiveEffects };
 };
 
 const changeImageUrl = <T extends IObj>(item: T): T => {

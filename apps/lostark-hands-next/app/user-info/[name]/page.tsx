@@ -28,9 +28,9 @@ import {
 	CombatSkillSkeleton
 } from '@/app/user-info/[name]/@component/combat-skill';
 import {
-	Engraves,
-	EngravesSkeleton
-} from '@/app/user-info/[name]/@component/engraves';
+	EngraveCollapse,
+	EngraveSkeleton
+} from '@/app/user-info/[name]/@component/engrave';
 import {
 	Equipment,
 	EquipmentSkeleton
@@ -59,10 +59,10 @@ const Page = ({ params: { name } }: { params: { name: string } }) => {
 					render={ArkPassive}
 				/>
 				<ServerWrapper
-					fallback={<EngravesSkeleton />}
+					fallback={<EngraveSkeleton />}
 					apiPromise={getEngravesInfoApi(name)}
 					selector={engraveSelector}
-					render={Engraves}
+					render={EngraveCollapse}
 				/>
 				<ServerWrapper
 					fallback={<TendenciesSkeleton />}

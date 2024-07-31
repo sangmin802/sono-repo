@@ -14,20 +14,31 @@ interface IStatsProps {
 	};
 }
 
-export const ArkPassive = ({ data: { arkPassive } }: IStatsProps) => {
+export const ArkPassive = ({
+	data: {
+		arkPassive: { isArkPassive, points }
+	}
+}: IStatsProps) => {
 	return (
 		<Collapse id="stats">
 			<LabelLayout
 				label={
 					<Collapse.Summary className="flex items-center space-x-[8px]">
-						아크 패시브
+						<div>아크 패시브</div>
+						<div
+							className={
+								isArkPassive ? 'font-semibold text-[#ffd000]' : 'text-gray-600'
+							}
+						>
+							{isArkPassive ? 'ON' : 'OFF'}
+						</div>
 					</Collapse.Summary>
 				}
 				as="aside"
 			>
 				<Collapse.Content className="pt-0">
 					<div className="grid grid-cols-2 gap-[8px]">
-						{arkPassive.points.map((item) => (
+						{points.map((item) => (
 							<div
 								className="space-y-[4px] text-center"
 								key={item.name}

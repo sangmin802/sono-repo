@@ -50,5 +50,7 @@ export const EMO_IMAGE_URL: Record<string, string> = {
 	emoticon_tooltip_bracelet_changeable:
 		'/2018/obt/assets/images/common/game/ico_tooltip_changeable.png',
 	emoticon_tooltip_ability_stone_symbol:
-		'/2018/obt/assets/images/common/game/ico_ability_stone_symbol.png'
+		'/2018/obt/assets/images/common/game/ico_ability_stone_symbol.png',
+	emoticon_sign_greenDot:
+		'/2018/obt/assets/images/common/game/ico_tooltip_changeable.png'
 };
