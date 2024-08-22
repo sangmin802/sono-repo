@@ -15,7 +15,8 @@ import ReactQueryProvider from '@/provider/react-query-provider';
 
 export const metadata: Metadata = {
 	title: 'Sono-repo Lostark Hands Next',
-	description: 'sono-repo 모노레포 토이프로젝트'
+	description: 'sono-repo LostarkHands PWA 프로젝트',
+	keywords: ['lostark', 'pwa', 'sono-repo']
 };
 
 const Layout = ({ children }: PropsWithChildren) => {
