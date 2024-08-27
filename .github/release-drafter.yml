@@ -49,3 +49,6 @@ autolabeler: # PR에 자동으로 label 붙혀주는 규칙
     branch:
       - '/feature\/.+/'
       - '/feat\/.+/'
+  - label: 'lostark-hands-next-pwa'
+    files:
+      - 'apps/lostark-hands-next/**/*'
