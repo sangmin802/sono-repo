@@ -65,15 +65,15 @@ export const profileTooltipSelector = (
 	}))
 });
 
-export const arkPassiveSelector = (
-	args: { arkPassive: IArkPassive } | null
-) => ({
-	arkPassive: args?.arkPassive ?? {
+export const arkPassiveSelector = (data: IArkPassive | null) => ({
+	arkPassive: data ?? {
 		isArkPassive: false,
 		points: [
 			{ name: '진화', value: 0, tooltip: '' },
-			{ name: '깨달음', value: 0, tooltip: '' }
-		]
+			{ name: '깨달음', value: 0, tooltip: '' },
+			{ name: '진화', value: 0, tooltip: '' }
+		],
+		effects: []
 	}
 });
 
@@ -217,6 +217,7 @@ export const cardSelector = (data: IArmoryCard | null) => {
  */
 export const skillSelector = (data: IArmorySkill[] | null) => {
 	if (!data) return null;
+
 	const selectedSkill = data.filter(
 		({ level, isAwakening }) => level >= 4 && !isAwakening
 	);

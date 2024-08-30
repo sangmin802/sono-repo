@@ -12,7 +12,12 @@ export interface IModalItemProps {
 	};
 	descListModal: {
 		title?: string;
-		list: { title: string; afterTitle?: string; desc: string }[];
+		list: {
+			title: string;
+			icon?: string;
+			afterTitle?: string;
+			desc: string;
+		}[];
 	};
 	armoryTooltipModal: {
 		name: string;
