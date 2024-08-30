@@ -1,6 +1,7 @@
 import ServerWrapper from '@/app/server-wrapper';
 
 import {
+	getArkPassiveApi,
 	getCardApi,
 	getEngravesInfoApi,
 	getEquipmentApi,
@@ -54,7 +55,7 @@ const Page = ({ params: { name } }: { params: { name: string } }) => {
 				/>
 				<ServerWrapper
 					fallback={<StatsSkeleton />}
-					apiPromise={getProfileInfoApi(name)}
+					apiPromise={getArkPassiveApi(name)}
 					selector={arkPassiveSelector}
 					render={ArkPassive}
 				/>

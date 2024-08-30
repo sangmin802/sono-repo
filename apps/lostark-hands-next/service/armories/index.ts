@@ -1,4 +1,5 @@
 import type {
+	IArkPassive,
 	IArmoriesInfo,
 	IArmoryAvatar,
 	IArmoryCard,
@@ -141,6 +142,9 @@ export const getCollectibleApi = async (
 			}))
 	).data;
 
+/**
+ * @description get arvatar info
+ */
 export const getAvatarApi = async (name: string): Promise<IArmoryAvatar[]> =>
 	(
 		await axiosInstance
@@ -148,5 +152,18 @@ export const getAvatarApi = async (name: string): Promise<IArmoryAvatar[]> =>
 			.then((resolve) => ({
 				...resolve,
 				data: pascalToCamelInArray(resolve.data ?? [])
+			}))
+	).data;
+
+/**
+ * @description 아크패시브 정보
+ */
+export const getArkPassiveApi = async (name: string): Promise<IArkPassive> =>
+	(
+		await axiosInstance
+			.get<ToPascalKey<IArkPassive>>(`armories/characters/${name}/arkPassive`)
+			.then((resolve) => ({
+				...resolve,
+				data: pascalToCamel(resolve.data)
 			}))
 	).data;

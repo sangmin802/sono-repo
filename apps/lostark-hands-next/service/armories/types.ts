@@ -13,12 +13,20 @@ export interface ITendency {
 	maxPoint: number;
 }
 
+export type TArkPassiveKey = 'enlightenment' | 'evolution' | 'leap';
+
 export interface IArkPassive {
 	isArkPassive: boolean;
 	points: {
 		name: string;
 		value: number;
 		tooltip: string;
+	}[];
+	effects: {
+		name: TArkPassiveKey;
+		description: string;
+		icon: string;
+		toolTip: string;
 	}[];
 }
 
@@ -177,7 +185,6 @@ export interface IArmoryProfile {
 	characterClassName: string;
 	itemAvgLevel: string;
 	itemMaxLevel: string;
-	arkPassive: IArkPassive;
 }
 
 export interface IArmoryEquipment {
@@ -222,6 +229,13 @@ export interface IArmorySkill {
 	tripods: ISkillTripod[];
 	rune: ISkillRune | null;
 	tooltip: string;
+	/**
+	 * 0: 일반 스킬
+	 * 1: 초각성 스킬
+	 * 100: 각성
+	 * 101: 초각성
+	 */
+	skillType: 0 | 1 | 100 | 101;
 }
 
 export interface IArmoryEngraving {

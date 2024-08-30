@@ -1,12 +1,21 @@
 'use client';
 
+import cn from 'classnames';
+
 import { Collapse } from '@sono-repo/ui';
 
-import type { IArkPassive } from '@/service/armories/types';
+import type { IArkPassive, TArkPassiveKey } from '@/service/armories/types';
 
 import Label from '@/client-component/label';
 import { LabelLayout } from '@/client-component/label-layout';
+import { useModalDispatch } from '@/client-component/modal/provider';
 import Skeleton from '@/client-component/skeleton';
+
+const ArkPassiveName: Record<TArkPassiveKey, string> = {
+	enlightenment: '깨달음',
+	evolution: '진화',
+	leap: '도약'
+};
 
 interface IStatsProps {
 	data: {
@@ -16,9 +25,28 @@ interface IStatsProps {
 
 export const ArkPassive = ({
 	data: {
-		arkPassive: { isArkPassive, points }
+		arkPassive: { isArkPassive, points, effects }
 	}
 }: IStatsProps) => {
+	const { onOpenModal } = useModalDispatch();
+	const isArkPassiveSettled = isArkPassive && effects.length;
+
+	const handleClickArkPassive = () => {
+		if (!isArkPassiveSettled) return;
+
+		onOpenModal({
+			name: 'descListModal',
+			props: {
+				title: '아크 패시브',
+				list: effects.map((item) => ({
+					title: ArkPassiveName[item.name],
+					icon: item.icon,
+					desc: item.description
+				}))
+			}
+		});
+	};
+
 	return (
 		<Collapse id="stats">
 			<LabelLayout
@@ -37,7 +65,13 @@ export const ArkPassive = ({
 				as="aside"
 			>
 				<Collapse.Content className="pt-0">
-					<div className="grid grid-cols-2 gap-[8px]">
+					<div
+						className={cn(
+							'grid grid-cols-2 gap-[8px]',
+							isArkPassiveSettled && 'cursor-pointer'
+						)}
+						onClick={handleClickArkPassive}
+					>
 						{points.map((item) => (
 							<div
 								className="space-y-[4px] text-center"
