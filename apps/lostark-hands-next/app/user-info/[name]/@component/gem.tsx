@@ -12,6 +12,8 @@ import { useModalDispatch } from '@/client-component/modal/provider';
 import Skeleton from '@/client-component/skeleton';
 import Thumbnail from '@/client-component/thumbnail';
 
+console.log('HELLO');
+
 interface IGemProps {
 	data: IParsedGem[] | null;
 }
