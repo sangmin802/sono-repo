@@ -19,7 +19,10 @@ import {
 	skillSelector
 } from '@/service/armories/selector';
 
-import { ArkPassive } from '@/app/user-info/[name]/@component/ark-passive';
+import {
+	ArkPassiveCollapse,
+	ArkPassiveSkeleton
+} from '@/app/user-info/[name]/@component/ark-passive';
 import {
 	CardSet,
 	CardSetSkeleton
@@ -54,12 +57,6 @@ const Page = ({ params: { name } }: { params: { name: string } }) => {
 					render={Stats}
 				/>
 				<ServerWrapper
-					fallback={<StatsSkeleton />}
-					apiPromise={getArkPassiveApi(name)}
-					selector={arkPassiveSelector}
-					render={ArkPassive}
-				/>
-				<ServerWrapper
 					fallback={<EngraveSkeleton />}
 					apiPromise={getEngravesInfoApi(name)}
 					selector={engraveSelector}
@@ -80,22 +77,28 @@ const Page = ({ params: { name } }: { params: { name: string } }) => {
 					render={Equipment}
 				/>
 				<ServerWrapper
-					fallback={<CardSetSkeleton />}
-					apiPromise={getCardApi(name)}
-					selector={cardSelector}
-					render={CardSet}
-				/>
-				<ServerWrapper
 					fallback={<GemSkeleton />}
 					apiPromise={getGemApi(name)}
 					selector={gemSelector}
 					render={Gem}
 				/>
 				<ServerWrapper
+					fallback={<ArkPassiveSkeleton />}
+					apiPromise={getArkPassiveApi(name)}
+					selector={arkPassiveSelector}
+					render={ArkPassiveCollapse}
+				/>
+				<ServerWrapper
 					fallback={<CombatSkillSkeleton />}
 					apiPromise={getSkillApi(name)}
 					selector={skillSelector}
 					render={CombatSkill}
+				/>
+				<ServerWrapper
+					fallback={<CardSetSkeleton />}
+					apiPromise={getCardApi(name)}
+					selector={cardSelector}
+					render={CardSet}
 				/>
 			</div>
 		</div>

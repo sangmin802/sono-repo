@@ -27,7 +27,7 @@ const CommonEngrave = ({ data }: ICommonEngraveProps) => {
 			{data?.map(({ name, point }) => (
 				<div
 					key={name}
-					className="flex items-center"
+					className="flex cursor-pointer items-center"
 				>
 					<div className="relative">
 						<Image

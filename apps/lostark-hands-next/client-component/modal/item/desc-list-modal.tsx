@@ -29,7 +29,9 @@ const DescListModal = ({ title, list }: IModalItemProps['descListModal']) => {
 								alt={icon}
 							/>
 						)}
-						<Label>{title}</Label>
+						<Label>
+							<DangerousHTML html={title} />
+						</Label>
 						{afterTitle && <div>{afterTitle}</div>}
 					</div>
 					<DangerousHTML

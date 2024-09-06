@@ -14,20 +14,40 @@ export interface ITendency {
 }
 
 export type TArkPassiveKey = 'enlightenment' | 'evolution' | 'leap';
+export enum ArkPassiveType {
+	Enlightenment = '깨달음',
+	Evolution = '진화',
+	Leap = '도약'
+}
 
-export interface IArkPassive {
+interface DefaultArkPassive {
 	isArkPassive: boolean;
 	points: {
-		name: string;
+		name: ArkPassiveType;
 		value: number;
 		tooltip: string;
 	}[];
+}
+
+export interface IArkPassive extends DefaultArkPassive {
 	effects: {
 		name: TArkPassiveKey;
 		description: string;
 		icon: string;
 		toolTip: string;
 	}[];
+}
+
+export interface ISelectedArkPassive extends DefaultArkPassive {
+	effects: Record<
+		TArkPassiveKey,
+		{
+			name: ArkPassiveType;
+			description: string;
+			icon: string;
+			toolTip: TElementUnionArray;
+		}[]
+	>;
 }
 
 interface ISkillTripod {
