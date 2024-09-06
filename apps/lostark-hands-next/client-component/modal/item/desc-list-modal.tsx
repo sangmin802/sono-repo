@@ -22,7 +22,7 @@ const DescListModal = ({ title, list }: IModalItemProps['descListModal']) => {
 						{icon && (
 							<Image
 								as={NextImage}
-								className="overflow-hidden rounded-[6px]"
+								className="size-[40px] overflow-hidden rounded-[6px]"
 								width={40}
 								height={40}
 								src={icon}
