@@ -1,3 +1,5 @@
+import { ArkPassiveType } from '@/service/armories/types';
+
 export const EXCLUDE_TOOLTIP_TEXT = [
 	'카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.',
 	'캐릭터의 최대 생명력을 나타냅니다.',
@@ -41,6 +43,12 @@ export const AVATAR_PARTS = [
 	 */
 	''
 ];
+
+export const ARK_PASSIVE: Record<string, ArkPassiveType> = {
+	enlightenment: ArkPassiveType.Enlightenment,
+	evolution: ArkPassiveType.Evolution,
+	leap: ArkPassiveType.Leap
+};
 
 export const EMO_IMAGE_URL: Record<string, string> = {
 	emoticon_Transcendence_Grade:

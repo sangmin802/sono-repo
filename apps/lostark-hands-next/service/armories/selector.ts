@@ -1,17 +1,19 @@
-import type {
-	IArkPassive,
-	IArmoryAvatar,
-	IArmoryCard,
-	IArmoryEngraving,
-	IArmoryEquipment,
-	IArmoryGem,
-	IArmorySkill,
-	ICard,
-	IParsedGem,
-	ISelectedArmoryEquipment,
-	IStat,
-	ITendency,
-	TParsedArmory
+import type { ISelectedArkPassive } from '@/service/armories/types';
+import {
+	ArkPassiveType,
+	type IArkPassive,
+	type IArmoryAvatar,
+	type IArmoryCard,
+	type IArmoryEngraving,
+	type IArmoryEquipment,
+	type IArmoryGem,
+	type IArmorySkill,
+	type ICard,
+	type IParsedGem,
+	type ISelectedArmoryEquipment,
+	type IStat,
+	type ITendency,
+	type TParsedArmory
 } from '@/service/armories/types';
 
 import {
@@ -23,6 +25,7 @@ import {
 import { CDN_URL } from '@/constant';
 import {
 	ACC_PARTS,
+	ARK_PASSIVE,
 	AVATAR_PARTS,
 	BASIC_STATS,
 	BASIC_TENDENCIES,
@@ -65,17 +68,46 @@ export const profileTooltipSelector = (
 	}))
 });
 
-export const arkPassiveSelector = (data: IArkPassive | null) => ({
-	arkPassive: data ?? {
-		isArkPassive: false,
-		points: [
-			{ name: '진화', value: 0, tooltip: '' },
-			{ name: '깨달음', value: 0, tooltip: '' },
-			{ name: '진화', value: 0, tooltip: '' }
-		],
-		effects: []
-	}
-});
+export const arkPassiveSelector = (data: IArkPassive | null) => {
+	const defaultEffect = {
+		enlightenment: [],
+		evolution: [],
+		leap: []
+	} as ISelectedArkPassive['effects'];
+
+	if (!data)
+		return {
+			arkPassive: {
+				isArkPassive: false,
+				points: [
+					{ name: ArkPassiveType.Enlightenment, value: 0, tooltip: '' },
+					{ name: ArkPassiveType.Evolution, value: 0, tooltip: '' },
+					{ name: ArkPassiveType.Leap, value: 0, tooltip: '' }
+				],
+				effects: defaultEffect
+			}
+		};
+
+	const effects = data.effects
+		.map((item) => ({
+			...item,
+			toolTip: Object.values(
+				JSON.parse(item.toolTip)
+			) satisfies TElementUnionArray
+		}))
+		.reduce((prev, { name, ...cur }) => {
+			// ARK_PASSIVE
+			prev[name].push({ ...cur, name: ARK_PASSIVE[name] });
+			return prev;
+		}, defaultEffect satisfies ISelectedArkPassive['effects']);
+
+	return {
+		arkPassive: {
+			...data,
+			effects
+		}
+	};
+};
 
 /**
  * 각인 데이터 가공

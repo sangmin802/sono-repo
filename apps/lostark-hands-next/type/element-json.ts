@@ -70,6 +70,12 @@ type TElementJson = {
 			};
 		};
 	};
+	CommonSkillTitle: {
+		leftText: string;
+		level: string;
+		name: string;
+		slotData: { iconGrade: number; iconPath: string; imagePath: string };
+	};
 };
 
 export type TElement = {
