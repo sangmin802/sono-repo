@@ -14,9 +14,9 @@ import '@/style/main.css';
 import ReactQueryProvider from '@/provider/react-query-provider';
 
 export const metadata: Metadata = {
-	title: '로아핸즈',
+	title: '로아핸즈 - 로스트아크 정보 제공 토이프로젝트',
 	description:
-		'로스트아크 open api 기반 정보 제공 토이프로젝트입니다. 로스트아크의 다양한 정보를 제공합니다. PWA를 지원하여 앱으로 다운로드 받을 수 있습니다.',
+		'로스트아크 open api 기반 정보 제공 토이프로젝트 입니다. 로스트아크의 다양한 정보를 제공합니다. PWA를 지원하여 앱으로 다운로드 받을 수 있습니다.',
 	keywords: ['로스트아크', 'pwa', 'sono-repo']
 };
 
