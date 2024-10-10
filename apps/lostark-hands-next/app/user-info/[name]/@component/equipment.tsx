@@ -23,7 +23,7 @@ import {
 } from '@/client-component/thumbnail-card';
 
 import { CDN_URL } from '@/constant';
-import { EMO_IMAGE_URL } from '@/constant/armory';
+import { EMO_IMAGE_URL, POLISHING_EFFECT_OPTIONS } from '@/constant/armory';
 
 interface IEquipmentProps {
 	data: Record<'equip' | 'acc', TParsedArmory<ISelectedArmoryEquipment>[]>;
@@ -153,13 +153,27 @@ export const Equipment = ({ data: { equip, acc } }: IEquipmentProps) => {
 								>
 									{item.name && (
 										<>
-											<QualityChip size={item.quality} />
-											<GradeText
-												className="text-[12px]"
-												grade={item.grade}
-											>
-												{item.name}
-											</GradeText>
+											<div className="flex space-x-[8px]">
+												<QualityChip size={item.quality} />
+												<GradeText
+													className="text-[12px]"
+													grade={item.grade}
+												>
+													{item.type}
+												</GradeText>
+											</div>
+											<div className="flex space-x-[8px]">
+												{item.polishingEffect &&
+													item.polishingEffect.map((value) => (
+														<GradeText
+															className="text-[12px]"
+															key={value}
+															grade={POLISHING_EFFECT_OPTIONS[value].grade}
+														>
+															{POLISHING_EFFECT_OPTIONS[value].text}
+														</GradeText>
+													))}
+											</div>
 										</>
 									)}
 								</ThumbnailCard>

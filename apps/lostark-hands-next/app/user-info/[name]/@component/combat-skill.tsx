@@ -71,7 +71,10 @@ export const CombatSkill = ({ data }: ICombatSkillProps) => {
 	const [destory, counter] = minifySkill(data) ?? [0, 0];
 
 	return (
-		<Collapse id="combat-skill">
+		<Collapse
+			id="combat-skill"
+			isInitOpen
+		>
 			<LabelLayout
 				label={
 					<Collapse.Summary className="flex space-x-[16px]">

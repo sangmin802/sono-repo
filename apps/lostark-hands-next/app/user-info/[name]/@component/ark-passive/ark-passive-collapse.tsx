@@ -24,7 +24,10 @@ const ArkPassiveCollapse = ({
 	if (!isArkPassive) return;
 
 	return (
-		<Collapse id="stats">
+		<Collapse
+			id="stats"
+			isInitOpen
+		>
 			<LabelLayout
 				label={
 					<Collapse.Summary className="flex items-center space-x-[8px]">

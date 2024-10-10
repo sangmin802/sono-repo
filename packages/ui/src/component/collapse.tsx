@@ -19,6 +19,7 @@ interface ICollapseProps {
 	className?: string;
 	children: ReactNode;
 	id: TId;
+	isInitOpen?: boolean;
 	onChange?: (type: TAction) => void;
 }
 
@@ -71,8 +72,14 @@ const Accordion = ({ children }: PropsWithChildren) => {
 	);
 };
 
-const Collapse = ({ id, className, children, onChange }: ICollapseProps) => {
-	const [collapseState, setCollapseState] = useState<TId>(0);
+const Collapse = ({
+	id,
+	isInitOpen,
+	className,
+	children,
+	onChange
+}: ICollapseProps) => {
+	const [collapseState, setCollapseState] = useState<TId>(isInitOpen ? id : 0);
 	const state = useStateContext(collapseState);
 	const setState = useDispatchContext(setCollapseState);
 
@@ -96,6 +103,7 @@ const Summary = ({
 	children,
 	arrowMode = 'WHITE'
 }: ISummaryProps) => {
+	const [isClientRendered, setIsClientRendered] = useState(false);
 	const state = useStateContext();
 	const id = useIdContext();
 	const dispatch = useDispatchContext();
@@ -106,6 +114,10 @@ const Summary = ({
 
 	const isSelected = state === id;
 
+	useEffect(() => {
+		setIsClientRendered(true);
+	}, []);
+
 	return (
 		<div
 			className={
@@ -114,10 +126,12 @@ const Summary = ({
 			onClick={handleToggleSummary}
 		>
 			<div className={cn('text-inherit', className)}>{children}</div>
-			<Arrow
-				className={cn('duration-200', { 'rotate-180': isSelected })}
-				fill={arrowMode === 'WHITE' ? '#efefef' : '#222'}
-			/>
+			{isClientRendered && (
+				<Arrow
+					className={cn('duration-200', { 'rotate-180': isSelected })}
+					fill={arrowMode === 'WHITE' ? '#efefef' : '#222'}
+				/>
+			)}
 		</div>
 	);
 };

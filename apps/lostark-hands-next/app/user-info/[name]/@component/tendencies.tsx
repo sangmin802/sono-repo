@@ -18,7 +18,10 @@ interface ITendenceisProps {
 
 export const Tendencies = ({ data: { tendencies } }: ITendenceisProps) => {
 	return (
-		<Collapse id="tendencies">
+		<Collapse
+			id="tendencies"
+			isInitOpen
+		>
 			<LabelLayout
 				label={<Collapse.Summary>성향</Collapse.Summary>}
 				as="aside"

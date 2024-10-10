@@ -45,7 +45,10 @@ const EngraveCollapse = ({ data }: IEngravesProps) => {
 		});
 	};
 	return (
-		<Collapse id="engraves">
+		<Collapse
+			id="engraves"
+			isInitOpen
+		>
 			<LabelLayout
 				label={
 					<Collapse.Summary className="flex space-x-[4px]">
