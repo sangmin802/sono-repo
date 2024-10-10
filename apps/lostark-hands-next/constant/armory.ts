@@ -22,15 +22,7 @@ export const BASIC_TENDENCIES = ['지성', '담력', '매력', '친절'];
 
 export const EQUIP_PARTS = ['무기', '투구', '상의', '하의', '장갑', '어깨'];
 
-export const ACC_PARTS = [
-	'목걸이',
-	'귀걸이',
-	'귀걸이',
-	'반지',
-	'반지',
-	'어빌리티 스톤',
-	'팔찌'
-];
+export const ACC_PARTS = ['목걸이', '귀걸이', '반지', '어빌리티 스톤', '팔찌'];
 export const COLLECT_PARTS = ['나침반', '부적'];
 
 export const AVATAR_PARTS = [

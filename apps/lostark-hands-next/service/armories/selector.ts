@@ -177,9 +177,9 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 				: ACC_PARTS.includes(cur)
 				? 'acc'
 				: 'col';
-			const targetItem = data?.find(({ type }) => type === cur);
+			const targetItemList = data?.filter(({ type }) => type === cur);
 
-			if (!targetItem) {
+			if (!targetItemList) {
 				prev[key].push({
 					type: cur,
 					name: '',
@@ -188,7 +188,10 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 					quality: 0,
 					grade: '일반'
 				});
-			} else {
+				return prev;
+			}
+
+			targetItemList.forEach((targetItem) => {
 				const { tooltip: jsonToolip, ...rest } = targetItem;
 				const tooltip = Object.values(
 					JSON.parse(jsonToolip)
@@ -225,7 +228,7 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 						return changeImageUrl(item);
 					})
 				});
-			}
+			});
 
 			return prev;
 		},
