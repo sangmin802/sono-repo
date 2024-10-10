@@ -54,7 +54,10 @@ export const CardSet = ({ data: { cards, effects } }: ICardSetProps) => {
 	};
 
 	return (
-		<Collapse id="card">
+		<Collapse
+			id="card"
+			isInitOpen
+		>
 			<LabelLayout
 				label={
 					<Collapse.Summary className="flex space-x-[16px]">
@@ -88,18 +91,15 @@ export const CardSet = ({ data: { cards, effects } }: ICardSetProps) => {
 								{item && (
 									<>
 										<Image
-											as={NextImage}
-											fill
+											className="absolute inset-0"
 											src={item.icon}
 											alt={item.name}
 										/>
 										<Image
-											as={NextImage}
 											className="absolute inset-0 scale-[1.04]"
 											src={`${CDN_URL}/2018/obt/assets/images/m/profile/bg_profile_card${
 												cardOutline[item.grade]
 											}.png`}
-											fill
 											alt={item.grade}
 										/>
 										<div
