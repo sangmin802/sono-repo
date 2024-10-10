@@ -34,7 +34,7 @@ module.exports = {
 				},
 				normal: '#929292',
 				advanced: '#74a33c',
-				rare: '#6666FF',
+				rare: '#00b5ff',
 				epic: '#c200c2',
 				legendary: '#fb923c',
 				relic: '#ff6000',

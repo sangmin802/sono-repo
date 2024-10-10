@@ -4,6 +4,8 @@ import type { TElement, TElementUnionArray } from '@/type/element-json';
 
 import { onlyNumber } from './selector';
 
+const SPLIT_KEY = 'splitKey';
+
 export const getIndentContent = (key: string, tooltip?: TElementUnionArray) =>
 	tooltip?.find(
 		({ type, value }) =>
@@ -14,6 +16,12 @@ export const getSingleTextBox = (key: string, tooltip?: TElementUnionArray) =>
 	tooltip?.find(
 		({ type, value }) => type === 'SingleTextBox' && value?.includes(key)
 	) as TElement['SingleTextBox'] | undefined;
+
+export const getItemPartBox = (key: string, tooltip?: TElementUnionArray) =>
+	tooltip?.find(
+		({ type, value }) =>
+			type === 'ItemPartBox' && value?.Element_000.includes(key)
+	) as TElement['ItemPartBox'] | undefined;
 
 export const getElixir = (tooltip: TElementUnionArray) => {
 	const elixir = getIndentContent('엘릭서', tooltip);
@@ -50,4 +58,15 @@ export const getAdvancedReinforce = (tooltip: TElementUnionArray) => {
 	];
 
 	return value;
+};
+
+export const getPolishingEffect = (tooltip: TElementUnionArray) => {
+	const key = '연마 효과';
+	const polishingEffect = getItemPartBox(key, tooltip);
+
+	if (!polishingEffect) return undefined;
+
+	return removeHtmlTag(
+		polishingEffect.value.Element_001.replaceAll('<BR>', SPLIT_KEY)
+	).split(SPLIT_KEY);
 };

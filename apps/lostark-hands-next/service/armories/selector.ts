@@ -19,6 +19,7 @@ import {
 import {
 	getAdvancedReinforce,
 	getElixir,
+	getPolishingEffect,
 	getTranscendence
 } from '@/util/armory';
 
@@ -202,6 +203,7 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 				const elixir = getElixir(tooltip);
 				const transcendence = getTranscendence(tooltip);
 				const advancedReinforce = getAdvancedReinforce(tooltip);
+				const polishingEffect = getPolishingEffect(tooltip);
 
 				prev[key].push({
 					...rest,
@@ -210,6 +212,7 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 					elixir,
 					transcendence,
 					advancedReinforce,
+					polishingEffect,
 					tooltip: (
 						Object.values(JSON.parse(jsonToolip)) satisfies TElementUnionArray
 					).map((item) => {

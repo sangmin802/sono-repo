@@ -224,6 +224,7 @@ export interface ISelectedArmoryEquipment extends IArmoryEquipment {
 		grade: string;
 		total: string;
 	};
+	polishingEffect?: string[];
 }
 
 export interface IArmoryAvatar {
