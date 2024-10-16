@@ -1,3 +1,4 @@
+import type { TArkPassiveKey } from '@/service/armories/types';
 import { ArkPassiveType } from '@/service/armories/types';
 
 import type { TGrade } from '@/type';
@@ -42,6 +43,12 @@ export const ARK_PASSIVE: Record<string, ArkPassiveType> = {
 	enlightenment: ArkPassiveType.Enlightenment,
 	evolution: ArkPassiveType.Evolution,
 	leap: ArkPassiveType.Leap
+};
+
+export const ARK_PASSIVE_TYPE: Record<ArkPassiveType, TArkPassiveKey> = {
+	[ArkPassiveType.Enlightenment]: 'enlightenment',
+	[ArkPassiveType.Evolution]: 'evolution',
+	[ArkPassiveType.Leap]: 'leap'
 };
 
 export const EMO_IMAGE_URL: Record<string, string> = {
