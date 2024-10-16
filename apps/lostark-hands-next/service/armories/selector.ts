@@ -26,7 +26,7 @@ import {
 import { CDN_URL } from '@/constant';
 import {
 	ACC_PARTS,
-	ARK_PASSIVE,
+	ARK_PASSIVE_TYPE,
 	AVATAR_PARTS,
 	BASIC_STATS,
 	BASIC_TENDENCIES,
@@ -98,7 +98,10 @@ export const arkPassiveSelector = (data: IArkPassive | null) => {
 		}))
 		.reduce((prev, { name, ...cur }) => {
 			// ARK_PASSIVE
-			prev[name].push({ ...cur, name: ARK_PASSIVE[name] });
+			prev[ARK_PASSIVE_TYPE[name]].push({
+				...cur,
+				name
+			});
 			return prev;
 		}, defaultEffect satisfies ISelectedArkPassive['effects']);
 

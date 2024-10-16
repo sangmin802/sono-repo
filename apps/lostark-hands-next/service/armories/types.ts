@@ -31,7 +31,7 @@ interface DefaultArkPassive {
 
 export interface IArkPassive extends DefaultArkPassive {
 	effects: {
-		name: TArkPassiveKey;
+		name: ArkPassiveType;
 		description: string;
 		icon: string;
 		toolTip: string;
