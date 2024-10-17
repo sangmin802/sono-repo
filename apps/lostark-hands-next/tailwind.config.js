@@ -26,12 +26,6 @@ module.exports = {
 			},
 			// The higher the number, the brighter the color
 			colors: {
-				main: {
-					10: '#14181d',
-					20: '#1b2028',
-					30: '#262e39',
-					40: '#455264'
-				},
 				normal: '#929292',
 				advanced: '#74a33c',
 				rare: '#00b5ff',
