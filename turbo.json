@@ -13,7 +13,6 @@
     },
     "start": {
       "dependsOn": ["build"]
-    },
-    "build:storybook": {}
+    }
   }
 }
