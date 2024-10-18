@@ -353,7 +353,7 @@ importers:
         specifier: 10.4.14
         version: 10.4.14(postcss@8.4.22)
       chromatic:
-        specifier: ^7.2.0
+        specifier: ^7.6.0
         version: 7.6.0
       classnames:
         specifier: ^2.5.1
