@@ -26,4 +26,4 @@ jobs:
         with:
           workingDir: ./
           projectToken: ${{ secrets.CHROMATIC_TOKEN }}
-          buildScriptName: "pnpm storybook:build"
+          buildScriptName: "storybook:build"
