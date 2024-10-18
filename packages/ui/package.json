@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "pnpm tsc && vite build",
-    "build:storybook": "storybook build",
+    "build:storybook": "storybook build --output-logs",
     "lint": "eslint \"**/*.ts*\""
   },
   "exports": {
