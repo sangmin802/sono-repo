@@ -15,6 +15,7 @@
       "dependsOn": ["build"]
     },
     "build:storybook": {
+      "outputs": ["dist/**", "storybook-static/**"],
       "cache": false
     }
   }
