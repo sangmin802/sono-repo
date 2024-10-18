@@ -65,10 +65,9 @@
     "tailwindcss": "^3.3.3",
     "typescript": "5.3.2",
     "vite": "^5.0.5",
-    "vite-plugin-dts": "^3.6.4"
-  },
-  "volta": {
-    "node": "18.16.0"
+    "vite-plugin-dts": "^3.6.4",
+    "@sono-repo/hook": "workspace:^",
+    "framer-motion": "^11.0.8"
   },
   "peerDependencies": {
     "react": "^17 || ^18",
@@ -76,8 +75,5 @@
     "tailwindcss": "^3.3.3"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "@sono-repo/ui@0.0.0",
-  "dependencies": {
-    "framer-motion": "^11.0.8"
-  }
+  "_id": "@sono-repo/ui@0.0.0"
 }

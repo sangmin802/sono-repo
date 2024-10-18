@@ -6,7 +6,8 @@ import type { Metadata } from 'next';
 import Head from '@/app/head';
 
 import Header from '@/app/@component/header';
-import Modal from '@/client-component/modal';
+import ClientModalRoot from '@/client-component/modal/client-modal-root';
+// import Modal from '@/client-component/modal';
 import ModalProvider from '@/client-component/modal/provider';
 
 import 'swiper/css';
@@ -36,8 +37,9 @@ const Layout = ({ children }: PropsWithChildren) => {
 			<body className="hide-scrollbar bg-main-10">
 				<ReactQueryProvider>
 					<ModalProvider>
-						<Modal />
 						<Header />
+						{/* <Modal /> */}
+						<ClientModalRoot />
 						<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
 					</ModalProvider>
 				</ReactQueryProvider>

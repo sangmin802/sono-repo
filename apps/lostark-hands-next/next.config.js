@@ -17,7 +17,7 @@ const withPWA = require('@ducanh2912/next-pwa').default({
  * 13.4부터 appDir이 기본
  */
 module.exports = withPWA({
-	reactStrictMode: true,
+	reactStrictMode: false,
 	/**
 	 * 배포 도커라이징 시, 활성화
 	 */
