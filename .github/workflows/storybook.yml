@@ -25,4 +25,4 @@ jobs:
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_TOKEN }}
-          buildScriptName: "build:storybook"
+          buildScriptName: "storybook:build"
