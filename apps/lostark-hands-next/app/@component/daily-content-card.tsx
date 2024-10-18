@@ -3,6 +3,7 @@
 import NextImage from 'next/image';
 import useTimer from 'sono-repo-react-timer';
 
+import type { OpenModal } from '@sono-repo/ui';
 import { Chip, Image } from '@sono-repo/ui';
 import { convertDateFormat } from '@sono-repo/util/date';
 
@@ -12,12 +13,12 @@ import { getValidRewardList } from '@/util/calendar';
 
 import TimeUnit from '@/app/@component/time-unit';
 import type { TCalendarItem } from '@/app/@component/types';
-import type { TModalItem } from '@/client-component/modal/types';
+import ItemListModal from '@/client-component/modal/item-list-modal';
 
 interface IDailyContentCardProps {
 	item: TCalendarItem;
 	onResetTime: () => void;
-	onOpenModal: (item: TModalItem) => void;
+	onOpenModal: OpenModal;
 }
 
 const DailyContentCard = ({
@@ -37,7 +38,7 @@ const DailyContentCard = ({
 
 	const handleOpenRewardModal = () => {
 		onOpenModal({
-			name: 'itemListModal',
+			component: ItemListModal,
 			props: {
 				title: item.name,
 				list: getValidRewardList(item.rewardItems, targetTime)

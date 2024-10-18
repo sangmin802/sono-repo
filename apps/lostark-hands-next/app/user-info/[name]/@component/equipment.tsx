@@ -1,6 +1,6 @@
 'use client';
 
-import { Chip } from '@sono-repo/ui';
+import { Chip, useModal } from '@sono-repo/ui';
 import { removeHtmlTag } from '@sono-repo/util/convert';
 
 import type {
@@ -16,7 +16,7 @@ import {
 	LabelLayout,
 	LabelLayoutSkeleton
 } from '@/client-component/label-layout';
-import { useModalDispatch } from '@/client-component/modal/provider';
+import ArmoryTooltipModal from '@/client-component/modal/armory-tooltip-modal';
 import {
 	ThumbnailCard,
 	ThumbnailCardSkeleton
@@ -68,13 +68,13 @@ const Elixir = ({ data }: { data: ISelectedArmoryEquipment['elixir'] }) => {
 };
 
 export const Equipment = ({ data: { equip, acc } }: IEquipmentProps) => {
-	const { onOpenModal } = useModalDispatch();
+	const { onOpenModal } = useModal();
 
 	const handleOpenModal = (item: TParsedArmory<ISelectedArmoryEquipment>) => {
 		if (!item.name) return;
 
 		onOpenModal({
-			name: 'armoryTooltipModal',
+			component: ArmoryTooltipModal,
 			props: {
 				...item,
 				subTitle: removeHtmlTag(item.levelInfo),

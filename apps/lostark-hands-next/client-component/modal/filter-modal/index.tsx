@@ -2,32 +2,52 @@
 
 import { useState } from 'react';
 
-import { Accordion, Button, Collapse } from '@sono-repo/ui';
+import type { ModalProps } from '@sono-repo/ui';
+import { Accordion, Button, Collapse, ModalLayout } from '@sono-repo/ui';
 
-import CategoryFilter from '@/client-component/modal/item/filter-modal/category-filter';
-import KeywordFilter from '@/client-component/modal/item/filter-modal/keyword-filter';
-import SearchFilter from '@/client-component/modal/item/filter-modal/search-filter';
-import type { TOnChangeFilter } from '@/client-component/modal/item/filter-modal/types';
-import ModalLayout from '@/client-component/modal/layout';
-import { useModalDispatch } from '@/client-component/modal/provider';
-import type { IModalItemProps } from '@/client-component/modal/types';
+import type { ICode } from '@/type';
+
+import CategoryFilter from './category-filter';
+import KeywordFilter from './keyword-filter';
+import SearchFilter from './search-filter';
+import type { TFilter, TOnChangeFilter } from './types';
+
+interface FilterModalProps extends ModalProps<Partial<TFilter>> {
+	title: string;
+	resetFilter?: Partial<TFilter>;
+	initFilter: Partial<TFilter>;
+	list: (
+		| {
+				type: 'CATEGORY';
+				key: string;
+				name: string;
+				data: (ICode & {
+					subs: ICode[];
+				})[];
+		  }
+		| {
+				type: 'KEYWORD';
+				key: string;
+				name: string;
+				data: { key: string | number; name: string | number }[];
+		  }
+		| {
+				type: 'SEARCH';
+				key: string;
+				name: string;
+				placeholder?: string;
+		  }
+	)[];
+}
 
 const FilterModal = ({
 	title,
 	resetFilter,
 	initFilter,
 	list,
-	onConfirm
-}: IModalItemProps['filterModal']) => {
-	const { onCloseModal } = useModalDispatch();
-
+	onResolve
+}: FilterModalProps) => {
 	const [filter, setFilter] = useState(initFilter);
-
-	const handleConfirm = () => {
-		onConfirm(filter);
-
-		onCloseModal();
-	};
 
 	const handleReset = () => {
 		setFilter({ category: {}, keyword: {}, search: {}, ...resetFilter });
@@ -54,7 +74,7 @@ const FilterModal = ({
 		<ModalLayout
 			title={title}
 			containerClassName="space-y-[8px]"
-			footerProps={{ confirm: { onClick: handleConfirm } }}
+			confirm={{ show: true, onClick: () => onResolve(filter) }}
 		>
 			<Button onClick={handleReset}>초기화</Button>
 			<Accordion>

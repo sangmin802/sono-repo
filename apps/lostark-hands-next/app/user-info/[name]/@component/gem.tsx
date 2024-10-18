@@ -1,5 +1,6 @@
 'use client';
 
+import { useModal } from '@sono-repo/ui';
 import { removeHtmlTag } from '@sono-repo/util/convert';
 
 import type { IParsedGem } from '@/service/armories/types';
@@ -8,7 +9,7 @@ import {
 	LabelLayout,
 	LabelLayoutSkeleton
 } from '@/client-component/label-layout';
-import { useModalDispatch } from '@/client-component/modal/provider';
+import ArmoryTooltipListModal from '@/client-component/modal/armory-tooltip-list-modal';
 import Skeleton from '@/client-component/skeleton';
 import Thumbnail from '@/client-component/thumbnail';
 
@@ -41,13 +42,13 @@ const minifyData = (data: IGemProps['data']) => {
 };
 
 export const Gem = ({ data }: IGemProps) => {
-	const { onOpenModal } = useModalDispatch();
+	const { onOpenModal } = useModal();
 
 	const handleClickGem = () => {
 		if (!data) return;
 
 		onOpenModal({
-			name: 'armoryTooltipListModal',
+			component: ArmoryTooltipListModal,
 			props: {
 				list: data.map((item) => ({
 					...item,

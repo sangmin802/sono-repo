@@ -4,9 +4,9 @@ const overlayState = (() => {
 	const proxy = new Proxy(state, {
 		set: (state, key, value) => {
 			state[key as keyof typeof state] = value;
-
+			console.log(value);
 			if (key === 'activeOverlayCount') {
-				document.body.style.overflow = value ? 'hidden' : 'visible';
+				document.body.style.overflow = value > 0 ? 'hidden' : 'visible';
 			}
 
 			return true;
@@ -14,10 +14,10 @@ const overlayState = (() => {
 	});
 
 	const addActiveOverlayCount = () => {
-		state.activeOverlayCount = proxy.activeOverlayCount + 1;
+		proxy.activeOverlayCount = proxy.activeOverlayCount + 1;
 	};
 	const minusActiveOverlayCount = () => {
-		state.activeOverlayCount = proxy.activeOverlayCount - 1;
+		proxy.activeOverlayCount = proxy.activeOverlayCount - 1;
 	};
 
 	return {

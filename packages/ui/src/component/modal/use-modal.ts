@@ -138,6 +138,14 @@ export interface ModalProps<T = undefined> {
 	onReject: () => void;
 }
 
+export type OpenModal = <
+	ModalComponent extends ReactComponent,
+	ContextProvider extends ReactComponent | undefined,
+	ReturnValue = CreateReturnValue<ModalComponent>
+>(
+	args: CombinedConditionalArgs<ModalComponent, ContextProvider>
+) => Promise<{ result: true; value: ReturnValue } | { result: false }>;
+
 const modalStore = (function () {
 	const listeners = new Set<() => void>();
 	let modalState: ModalStore = { ...INITIAL_MODAL_STATE };
@@ -161,15 +169,7 @@ const modalStore = (function () {
 		listeners.forEach((cb) => cb());
 	};
 
-	const onOpenModal: <
-		ModalComponent extends ReactComponent,
-		ContextProvider extends ReactComponent | undefined,
-		ReturnValue = CreateReturnValue<ModalComponent>
-	>(
-		args: CombinedConditionalArgs<ModalComponent, ContextProvider>
-	) => Promise<{ result: true; value: ReturnValue } | { result: false }> = (
-		args
-	) => {
+	const onOpenModal: OpenModal = (args) => {
 		/**
 		 * @description
 		 * @see {@link ComponentPropsGuard}
@@ -208,8 +208,6 @@ const modalStore = (function () {
 
 	const onCloseModal = () => {
 		overlayState.minusActiveOverlayCount();
-
-		modalState.onReject?.();
 
 		onClearModalState();
 	};

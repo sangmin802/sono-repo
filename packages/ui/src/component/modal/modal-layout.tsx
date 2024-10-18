@@ -49,7 +49,7 @@ const ModalLayout = ({
 	children
 }: IModalLayout) => {
 	const { isMd } = useResponsive();
-	const { onCloseModal } = useModal();
+	const { onCloseModal, onResolve, onReject } = useModal();
 
 	return (
 		<Motion.div
@@ -78,7 +78,7 @@ const ModalLayout = ({
 					<Button
 						className={cn('bg-main-20', buttonStyle, cancel.className)}
 						onClick={(e) => {
-							cancel.onClick?.(e);
+							cancel.onClick ? cancel.onClick(e) : onReject?.();
 							onCloseModal();
 						}}
 					>
@@ -89,7 +89,7 @@ const ModalLayout = ({
 					<Button
 						className={cn('bg-main-40', buttonStyle, confirm.className)}
 						onClick={(e) => {
-							confirm.onClick?.(e);
+							confirm.onClick ? confirm.onClick(e) : onResolve?.();
 							onCloseModal();
 						}}
 					>

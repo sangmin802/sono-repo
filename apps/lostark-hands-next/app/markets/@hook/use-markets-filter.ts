@@ -1,8 +1,10 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
+import { useModal } from '@sono-repo/ui';
+
 import type { IOptions } from '@/service/markets/types';
 
-import { useModalDispatch } from '@/client-component/modal/provider';
+import FilterModal from '@/client-component/modal/filter-modal';
 
 const filterKeyArr = [
 	'mainCategory',
@@ -23,7 +25,7 @@ const useMarketsFilter = (options: IOptions) => {
 	const pathname = usePathname();
 	const router = useRouter();
 
-	const { onOpenModal } = useModalDispatch();
+	const { onOpenModal } = useModal();
 
 	const mainCategory = Number(query.get('mainCategory')) || 20000;
 	const subCategory = Number(query.get('subCategory')) || undefined;
@@ -33,9 +35,9 @@ const useMarketsFilter = (options: IOptions) => {
 	const sort = query.get('sort') ?? undefined;
 	const sortCondition = query.get('sortCondition') ?? undefined;
 
-	const onOpenFilter = () => {
-		onOpenModal({
-			name: 'filterModal',
+	const onOpenFilter = async () => {
+		const modalResult = await onOpenModal({
+			component: FilterModal,
 			props: {
 				title: '거래소 필터',
 				resetFilter: {
@@ -123,29 +125,31 @@ const useMarketsFilter = (options: IOptions) => {
 							{ key: 'DESC', name: '내림차순' }
 						]
 					}
-				],
-				onConfirm: (filter) => {
-					const current = new URLSearchParams(Array.from(query.entries()));
-					const { category, keyword, search } = filter;
-
-					const mainCategory = category?.categoryCode.main;
-					const subCategory = category?.categoryCode.sub;
-
-					filterKeyArr.forEach((key) => current.delete(key));
-
-					if (subCategory) current.set('subCategory', `${subCategory}`);
-					if (mainCategory) current.set('mainCategory', `${mainCategory}`);
-
-					Object.entries({ ...keyword, ...search }).forEach(([key, value]) => {
-						if (value) current.set(key, `${value}`);
-					});
-
-					const searchQuery = current.toString();
-
-					router.replace(`${pathname}${searchQuery ? `?${searchQuery}` : ''}`);
-				}
+				]
 			}
 		});
+
+		if (!modalResult.result) return;
+
+		const { category, keyword, search } = modalResult.value;
+
+		const current = new URLSearchParams(Array.from(query.entries()));
+
+		const newMainCategory = category?.categoryCode.main;
+		const newSubCategory = category?.categoryCode.sub;
+
+		filterKeyArr.forEach((key) => current.delete(key));
+
+		if (newMainCategory) current.set('mainCategory', `${newMainCategory}`);
+		if (newSubCategory) current.set('subCategory', `${newSubCategory}`);
+
+		Object.entries({ ...keyword, ...search }).forEach(([key, value]) => {
+			if (value) current.set(key, `${value}`);
+		});
+
+		const searchQuery = current.toString();
+
+		router.replace(`${pathname}${searchQuery ? `?${searchQuery}` : ''}`);
 	};
 
 	return {

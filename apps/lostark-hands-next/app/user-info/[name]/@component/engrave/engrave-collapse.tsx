@@ -2,12 +2,12 @@
 
 import NextImage from 'next/image';
 
-import { Collapse, Image } from '@sono-repo/ui';
+import { Collapse, Image, useModal } from '@sono-repo/ui';
 
 import type { IArkPassiveEffects, IEffect } from '@/service/armories/types';
 
 import { LabelLayout } from '@/client-component/label-layout';
-import { useModalDispatch } from '@/client-component/modal/provider';
+import DescListModal from '@/client-component/modal/desc-list-modal';
 
 import { CDN_URL } from '@/constant';
 import ENGRAVE_IMGAE from '@/constant/engrave';
@@ -28,13 +28,13 @@ const EngraveCollapse = ({ data }: IEngravesProps) => {
 		? data.arkPassiveEffects
 		: data.mappedEffects;
 
-	const { onOpenModal } = useModalDispatch();
+	const { onOpenModal } = useModal();
 
 	const handleOpenModal = () => {
 		if (!engraveData) return;
 
 		onOpenModal({
-			name: 'descListModal',
+			component: DescListModal,
 			props: {
 				title: '각인',
 				list: engraveData?.map(({ name, description }) => ({

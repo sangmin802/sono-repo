@@ -1,5 +1,7 @@
 'use client';
 
+import { useModal } from '@sono-repo/ui';
+
 import type { IArmoryEquipment, TParsedArmory } from '@/service/armories/types';
 
 import GradeText from '@/client-component/grade-text';
@@ -7,7 +9,7 @@ import {
 	LabelLayout,
 	LabelLayoutSkeleton
 } from '@/client-component/label-layout';
-import { useModalDispatch } from '@/client-component/modal/provider';
+import ArmoryTooltipModal from '@/client-component/modal/armory-tooltip-modal';
 import {
 	ThumbnailCard,
 	ThumbnailCardSkeleton
@@ -18,13 +20,13 @@ interface IMedalProps {
 }
 
 export const CollectionMedal = ({ data }: IMedalProps) => {
-	const { onOpenModal } = useModalDispatch();
+	const { onOpenModal } = useModal();
 
 	const handleOpenModal = (item: TParsedArmory<IArmoryEquipment>) => {
 		if (!item.name) return;
 
 		onOpenModal({
-			name: 'armoryTooltipModal',
+			component: ArmoryTooltipModal,
 			props: {
 				...item
 			}

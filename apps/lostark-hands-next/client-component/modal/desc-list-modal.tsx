@@ -2,18 +2,27 @@
 
 import NextImage from 'next/image';
 
-import { Image } from '@sono-repo/ui';
+import type { ModalProps } from '@sono-repo/ui';
+import { Image, ModalLayout } from '@sono-repo/ui';
 
 import DangerousHTML from '@/client-component/dangerous-html';
 import Label from '@/client-component/label';
-import ModalLayout from '@/client-component/modal/layout';
-import type { IModalItemProps } from '@/client-component/modal/types';
 
-const DescListModal = ({ title, list }: IModalItemProps['descListModal']) => {
+interface DescListModalProps extends ModalProps {
+	title?: string;
+	list: {
+		title: string;
+		icon?: string;
+		afterTitle?: string;
+		desc: string;
+	}[];
+}
+
+const DescListModal = ({ title, list }: DescListModalProps) => {
 	return (
 		<ModalLayout
 			title={title}
-			footerProps={{ cancel: { show: false } }}
+			confirm={{ show: true }}
 			containerClassName="space-y-[12px]"
 		>
 			{list.map(({ title, afterTitle, desc, icon }, idx) => (

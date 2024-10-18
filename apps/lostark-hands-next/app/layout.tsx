@@ -7,9 +7,8 @@ import Head from '@/app/head';
 
 import Header from '@/app/@component/header';
 import ClientModalRoot from '@/client-component/modal/client-modal-root';
-// import Modal from '@/client-component/modal';
-import ModalProvider from '@/client-component/modal/provider';
 
+// import Modal from '@/client-componet/modal';
 import 'swiper/css';
 import '@/style/main.css';
 import ReactQueryProvider from '@/provider/react-query-provider';
@@ -36,12 +35,9 @@ const Layout = ({ children }: PropsWithChildren) => {
 			<Head />
 			<body className="hide-scrollbar bg-main-10">
 				<ReactQueryProvider>
-					<ModalProvider>
-						<Header />
-						{/* <Modal /> */}
-						<ClientModalRoot />
-						<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
-					</ModalProvider>
+					<Header />
+					<ClientModalRoot />
+					<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
 				</ReactQueryProvider>
 				<Analytics />
 				<SpeedInsights />

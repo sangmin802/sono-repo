@@ -1,16 +1,27 @@
 'use client';
 
+import type { ModalProps } from '@sono-repo/ui';
+import { ModalLayout } from '@sono-repo/ui';
+
 import ArmoryTooltip from '@/client-component/armory-tooltip';
 import GradeText from '@/client-component/grade-text';
-import ModalLayout from '@/client-component/modal/layout';
-import type { IModalItemProps } from '@/client-component/modal/types';
 import Thumbnail from '@/client-component/thumbnail';
 
-const ArmoryTooltipListModal = ({
-	list
-}: IModalItemProps['armoryTooltipListModal']) => {
+import type { TGrade } from '@/type';
+import type { TElementUnionArray } from '@/type/element-json';
+
+interface ArmoryTooltipListModalProps extends ModalProps {
+	list: {
+		icon: string;
+		name: string;
+		grade?: TGrade;
+		tooltip: TElementUnionArray;
+	}[];
+}
+
+const ArmoryTooltipListModal = ({ list }: ArmoryTooltipListModalProps) => {
 	return (
-		<ModalLayout footerProps={{ cancel: { show: false } }}>
+		<ModalLayout confirm={{ show: true }}>
 			<div className="space-y-[12px]">
 				{list.map(({ icon, name, grade, tooltip }, idx) => (
 					<div
