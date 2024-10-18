@@ -4,7 +4,7 @@ import { AnimatePresence, motion as Motion } from 'framer-motion';
 
 import { useModal } from './use-modal';
 
-const MODAL_ROOT_CLASS = 'ssm-modal-root';
+const MODAL_ROOT_CLASS = 'sm-modal-root';
 
 const ModalRoot: FC = () => {
 	const [modalRootEl, setModalRootEl] = useState(
