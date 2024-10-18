@@ -2,7 +2,7 @@
 
 import { Input } from '@sono-repo/ui';
 
-import type { TOnChangeFilter } from '@/client-component/modal/item/filter-modal/types';
+import type { TOnChangeFilter } from './types';
 
 const SearchFilter = ({
 	dataIndex,

@@ -5,9 +5,9 @@ import cn from 'classnames';
 
 import { Collapse } from '@sono-repo/ui';
 
-import type { TOnChangeFilter } from '@/client-component/modal/item/filter-modal/types';
-
 import type { ICode } from '@/type';
+
+import type { TOnChangeFilter } from './types';
 
 const CategoryFilter = ({
 	dataIndex,

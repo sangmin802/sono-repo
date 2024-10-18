@@ -1,21 +1,26 @@
-import type { ComponentProps, ReactNode } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
 import cn from 'classnames';
 import type { AnimationProps } from 'framer-motion';
 import { motion as Motion } from 'framer-motion';
 
-import { Button } from '@sono-repo/ui';
+import { useResponsive } from '@sono-repo/hook';
 
-import useResponsive from '@/hook/use-responsive';
+import Button from '../button';
+import { useModal } from './use-modal';
 
-import { useModalDispatch } from './provider';
-
-type TButtonProps = Partial<ComponentProps<typeof Button> & { show: boolean }>;
+type TButtonProps = Partial<{
+	show: boolean;
+	className: string;
+	label: string;
+	onClick: (e: MouseEvent) => void;
+}>;
 
 interface IModalLayout {
 	className?: string;
 	containerClassName?: string;
 	title?: string;
-	footerProps?: Partial<Record<'cancel' | 'confirm', TButtonProps>>;
+	cancel?: TButtonProps;
+	confirm?: TButtonProps;
 	children?: ReactNode;
 }
 
@@ -32,21 +37,6 @@ const motionProps: Record<'MD' | 'ELSE', AnimationProps> = {
 	}
 };
 
-const defaultButtonProps = ({
-	props,
-	children,
-	onClick
-}: {
-	props?: TButtonProps;
-	children: string;
-	onClick: () => void;
-}) => ({
-	show: true,
-	children,
-	onClick,
-	...props
-});
-
 const buttonStyle =
 	'h-[48px] rounded-[6px] grow text-[16px] lg:min-w-[120px] lg:grow-0';
 
@@ -54,30 +44,12 @@ const ModalLayout = ({
 	className,
 	containerClassName,
 	title,
-	children,
-	footerProps
+	cancel,
+	confirm,
+	children
 }: IModalLayout) => {
-	const { onCloseModal } = useModalDispatch();
 	const { isMd } = useResponsive();
-
-	const {
-		className: cancelClassName,
-		show: showCancel,
-		...cancelProps
-	} = defaultButtonProps({
-		props: footerProps?.cancel,
-		children: '닫기',
-		onClick: onCloseModal
-	});
-	const {
-		className: confirmClassName,
-		show: showConfirm,
-		...confirmProps
-	} = defaultButtonProps({
-		props: footerProps?.confirm,
-		children: '확인',
-		onClick: onCloseModal
-	});
+	const { onCloseModal, onResolve, onReject } = useModal();
 
 	return (
 		<Motion.div
@@ -102,17 +74,27 @@ const ModalLayout = ({
 				{children}
 			</div>
 			<div className="flex items-center justify-center space-x-[8px] pt-[12px] lg:justify-end">
-				{showCancel && (
+				{cancel?.show && (
 					<Button
-						className={cn('bg-main-20', buttonStyle, cancelClassName)}
-						{...cancelProps}
-					/>
+						className={cn('bg-main-20', buttonStyle, cancel.className)}
+						onClick={(e) => {
+							cancel.onClick ? cancel.onClick(e) : onReject?.();
+							onCloseModal();
+						}}
+					>
+						{cancel.label ?? '취소'}
+					</Button>
 				)}
-				{showConfirm && (
+				{confirm?.show && (
 					<Button
-						className={cn('bg-main-40', buttonStyle, confirmClassName)}
-						{...confirmProps}
-					/>
+						className={cn('bg-main-40', buttonStyle, confirm.className)}
+						onClick={(e) => {
+							confirm.onClick ? confirm.onClick(e) : onResolve?.();
+							onCloseModal();
+						}}
+					>
+						{confirm.label ?? '확인'}
+					</Button>
 				)}
 			</div>
 		</Motion.div>

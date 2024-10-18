@@ -2,13 +2,13 @@
 import cn from 'classnames';
 import NextImage from 'next/image';
 
-import { Image } from '@sono-repo/ui';
+import { Image, useModal } from '@sono-repo/ui';
 
 import type { TArkPassiveKey } from '@/service/armories/types';
 import type { ISelectedArkPassive } from '@/service/armories/types';
 
 import DangerousHTML from '@/client-component/dangerous-html';
-import { useModalDispatch } from '@/client-component/modal/provider';
+import DescListModal from '@/client-component/modal/desc-list-modal';
 
 import { ARK_PASSIVE } from '@/constant/armory';
 
@@ -22,7 +22,7 @@ interface ContentGridProps {
 }
 
 const ContentGrid = ({ title, group }: ContentGridProps) => {
-	const { onOpenModal } = useModalDispatch();
+	const { onOpenModal } = useModal();
 
 	const handleClickArkPassive = (
 		title: string,
@@ -34,7 +34,7 @@ const ContentGrid = ({ title, group }: ContentGridProps) => {
 		).replace('||', '');
 
 		onOpenModal({
-			name: 'descListModal',
+			component: DescListModal,
 			props: {
 				list: [{ title, icon, desc }]
 			}

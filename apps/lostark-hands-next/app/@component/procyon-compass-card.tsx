@@ -3,11 +3,12 @@
 import cn from 'classnames';
 import NextImage from 'next/image';
 
+import type { OpenModal } from '@sono-repo/ui';
 import { Image } from '@sono-repo/ui';
 
 import type { IRewardItem } from '@/service/game-contents/types';
 
-import type { TModalItem } from '@/client-component/modal/types';
+import ItemListModal from '@/client-component/modal/item-list-modal';
 import RewardIcon from '@/client-component/reward-icon';
 
 import {
@@ -23,7 +24,7 @@ interface IProcyonCompassCardProps {
 	desc: string;
 	rewardList: IRewardItem[];
 	showImg?: boolean;
-	onOpenModal: (item: TModalItem) => void;
+	onOpenModal: OpenModal;
 }
 
 const uniqueReward: Record<string, string> = {
@@ -47,7 +48,7 @@ const ProcyonCompassCard = ({
 		if (!isHasReward) return;
 
 		onOpenModal({
-			name: 'itemListModal',
+			component: ItemListModal,
 			props: {
 				title: name,
 				list: rewardList

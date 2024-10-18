@@ -2,7 +2,7 @@
 
 import cn from 'classnames';
 
-import { Chip, Collapse } from '@sono-repo/ui';
+import { Chip, Collapse, useModal } from '@sono-repo/ui';
 
 import type { skillSelector } from '@/service/armories/selector';
 
@@ -11,7 +11,7 @@ import {
 	LabelLayout,
 	LabelLayoutSkeleton
 } from '@/client-component/label-layout';
-import { useModalDispatch } from '@/client-component/modal/provider';
+import ArmoryTooltipModal from '@/client-component/modal/armory-tooltip-modal';
 import Skeleton from '@/client-component/skeleton';
 import Thumbnail from '@/client-component/thumbnail';
 
@@ -54,11 +54,11 @@ const minifySkill = (data: TData) =>
 	);
 
 export const CombatSkill = ({ data }: ICombatSkillProps) => {
-	const { onOpenModal } = useModalDispatch();
+	const { onOpenModal } = useModal();
 
 	const handleOpenSkillModal = (item: Exclude<TData, null>[0]) => () => {
 		onOpenModal({
-			name: 'armoryTooltipModal',
+			component: ArmoryTooltipModal,
 			props: {
 				...item,
 				grade: '일반',

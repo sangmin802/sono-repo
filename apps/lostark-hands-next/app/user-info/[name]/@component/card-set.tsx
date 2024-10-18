@@ -3,7 +3,7 @@
 import cn from 'classnames';
 import NextImage from 'next/image';
 
-import { Chip, Collapse, Image } from '@sono-repo/ui';
+import { Chip, Collapse, Image, useModal } from '@sono-repo/ui';
 
 import type { ICard, ICardEffect } from '@/service/armories/types';
 
@@ -11,7 +11,7 @@ import {
 	LabelLayout,
 	LabelLayoutSkeleton
 } from '@/client-component/label-layout';
-import { useModalDispatch } from '@/client-component/modal/provider';
+import DescListModal from '@/client-component/modal/desc-list-modal';
 import Skeleton from '@/client-component/skeleton';
 
 import { CDN_URL } from '@/constant';
@@ -37,13 +37,13 @@ const cardOutline: Record<TGrade, number> = {
 };
 
 export const CardSet = ({ data: { cards, effects } }: ICardSetProps) => {
-	const { onOpenModal } = useModalDispatch();
+	const { onOpenModal } = useModal();
 
 	const handleOpenCardEffectModal = () => {
 		if (!effects) return;
 
 		onOpenModal({
-			name: 'descListModal',
+			component: DescListModal,
 			props: {
 				title: '카드 세트 효과',
 				list: effects

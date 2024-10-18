@@ -1,12 +1,12 @@
 'use client';
 
-import { Collapse } from '@sono-repo/ui';
+import { Collapse, useModal } from '@sono-repo/ui';
 
 import type { IStat } from '@/service/armories/types';
 
 import Label from '@/client-component/label';
 import { LabelLayout } from '@/client-component/label-layout';
-import { useModalDispatch } from '@/client-component/modal/provider';
+import DescListModal from '@/client-component/modal/desc-list-modal';
 import Skeleton from '@/client-component/skeleton';
 
 interface IStatsProps {
@@ -16,7 +16,7 @@ interface IStatsProps {
 }
 
 export const Stats = ({ data: { stats: initStats } }: IStatsProps) => {
-	const { onOpenModal } = useModalDispatch();
+	const { onOpenModal } = useModal();
 
 	const stats = initStats.slice(0, 6);
 	const power = initStats[7];
@@ -30,7 +30,7 @@ export const Stats = ({ data: { stats: initStats } }: IStatsProps) => {
 		if (!Number(power.value) || !Number(healty.value)) return;
 
 		onOpenModal({
-			name: 'descListModal',
+			component: DescListModal,
 			props: {
 				title: '능력치',
 				list: [power, healty, ...stats].map(({ type, value, tooltip }) => ({

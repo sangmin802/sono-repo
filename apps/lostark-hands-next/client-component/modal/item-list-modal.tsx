@@ -3,18 +3,23 @@
 import cn from 'classnames';
 import NextImage from 'next/image';
 
-import { Image } from '@sono-repo/ui';
-
-import ModalLayout from '@/client-component/modal/layout';
-import type { IModalItemProps } from '@/client-component/modal/types';
+import type { ModalProps } from '@sono-repo/ui';
+import { Image, ModalLayout } from '@sono-repo/ui';
 
 import { GRADE_BG_COLOR } from '@/constant';
 
-const ItemListModal = ({ title, list }: IModalItemProps['itemListModal']) => {
+import type { TGrade } from '@/type';
+
+interface ItemListModalProps extends ModalProps {
+	title: string;
+	list: { name: string; icon: string; grade: TGrade }[];
+}
+
+const ItemListModal = ({ title, list }: ItemListModalProps) => {
 	return (
 		<ModalLayout
 			title={title}
-			footerProps={{ cancel: { show: false } }}
+			confirm={{ show: true }}
 		>
 			<div className="grid grid-cols-2 gap-[8px] lg:grid-cols-3">
 				{list.map(({ icon, name, grade }, idx) => (

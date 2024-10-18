@@ -2,6 +2,8 @@
 
 import { useMemo } from 'react';
 
+import { useModal } from '@sono-repo/ui';
+
 import useFilterTimerList from '@/hook/use-filter-timer-list';
 
 import { convertCalendarData } from '@/util/calendar';
@@ -9,10 +11,9 @@ import { convertCalendarData } from '@/util/calendar';
 import DailyContentCard from '@/app/@component/daily-content-card';
 import type { ICalenderContetProps } from '@/app/@component/types';
 import { LabelLayout } from '@/client-component/label-layout';
-import { useModalDispatch } from '@/client-component/modal/provider';
 
 const DailyContentSection = ({ title, list }: ICalenderContetProps) => {
-	const { onOpenModal } = useModalDispatch();
+	const { onOpenModal } = useModal();
 
 	const { timerList, onReFilter } = useFilterTimerList(
 		useMemo(() => convertCalendarData(list), [list])

@@ -3,9 +3,9 @@
 import { useMemo, useState } from 'react';
 import cn from 'classnames';
 
-import type { ICollectible, TCollectibleType } from '@/service/armories/types';
+import { useResponsive } from '@sono-repo/hook';
 
-import useResponsive from '@/hook/use-responsive';
+import type { ICollectible, TCollectibleType } from '@/service/armories/types';
 
 import {
 	LabelLayout,

@@ -1,10 +1,26 @@
 'use client';
 
+import type { ReactNode } from 'react';
+
+import type { ModalProps } from '@sono-repo/ui';
+import { ModalLayout } from '@sono-repo/ui';
+
 import ArmoryTooltip from '@/client-component/armory-tooltip';
 import GradeText from '@/client-component/grade-text';
-import ModalLayout from '@/client-component/modal/layout';
-import type { IModalItemProps } from '@/client-component/modal/types';
 import Thumbnail from '@/client-component/thumbnail';
+
+import type { TGrade } from '@/type';
+import type { TElementUnionArray } from '@/type/element-json';
+
+interface ArmoryTooltipModalProps extends ModalProps {
+	name: string;
+	subTitle?: string;
+	afterSubTitle?: ReactNode;
+	icon: string;
+	chip?: string | number;
+	grade: TGrade;
+	tooltip?: TElementUnionArray;
+}
 
 const ArmoryTooltipModal = ({
 	name,
@@ -14,11 +30,11 @@ const ArmoryTooltipModal = ({
 	chip,
 	grade,
 	tooltip
-}: IModalItemProps['armoryTooltipModal']) => {
+}: ArmoryTooltipModalProps) => {
 	const contents = Object.values(tooltip ?? {});
 
 	return (
-		<ModalLayout footerProps={{ cancel: { show: false } }}>
+		<ModalLayout confirm={{ show: true }}>
 			<div className="mb-[18px] flex space-x-[8px]">
 				<Thumbnail
 					className="h-[60px] w-[60px]"

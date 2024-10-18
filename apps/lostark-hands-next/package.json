@@ -10,6 +10,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
+    "@sono-repo/hook": "workspace:^",
     "@sono-repo/ui": "workspace:^",
     "@sono-repo/util": "workspace:^",
     "@tanstack/react-query": "^5.17.9",

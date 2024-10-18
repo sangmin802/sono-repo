@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import useTimer from 'sono-repo-react-timer';
 
+import { useModal } from '@sono-repo/ui';
 import { convertDateFormat } from '@sono-repo/util/date';
 
 import useFilterTimerList from '@/hook/use-filter-timer-list';
@@ -14,10 +15,9 @@ import ProcyonCompassCard from '@/app/@component/procyon-compass-card';
 import TimeUnit from '@/app/@component/time-unit';
 import type { ICalenderContetProps } from '@/app/@component/types';
 import { LabelLayout } from '@/client-component/label-layout';
-import { useModalDispatch } from '@/client-component/modal/provider';
 
 const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
-	const { onOpenModal } = useModalDispatch();
+	const { onOpenModal } = useModal();
 
 	const { timerList, onReFilter } = useFilterTimerList(
 		useMemo(() => convertCalendarData(list), [list])
