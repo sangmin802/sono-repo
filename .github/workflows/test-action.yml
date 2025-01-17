@@ -1,0 +1,43 @@
+name: Test Action haha
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  # job name
+  Node_test:
+    runs-on: ubuntu-latest
+
+    # 명시된 모든 버전에 대해 해당 job을 실행, 테스트를 진행.
+    strategy:
+      matrix:
+        node-version: [20.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    # 현재 리포지토리로 진입(깃 브랜치 checkout)
+    - uses: actions/checkout@v4
+    
+    # 노드환경 설치(위의 전략에 설정해준 버전 배열이 각각 job을 수행하면서 환경변수로 전달됨)
+    - name: use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: use pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8.14.1
+
+    - name: install dependencies
+      run: pnpm install
+          
+    - name: set env & build
+      env: 
+        NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+        NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
+        NEXT_PUBLIC_CDN_URL: ${{ secrets.NEXT_PUBLIC_CDN_URL }}
+        TURBO_TEAM: ${{secrets.TURBO_TEAM}}
+        TURBO_TOKEN: ${{secrets.TURBO_TOKEN}}
+      run: pnpm lostark:build
