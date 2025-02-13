@@ -70,7 +70,7 @@ jobs:
               {
                 "pretext": "✅ Dev 아티팩트 생성",
                 "title": "information",
-                "text": "아티팩트 URL: `${{ steps.artifact-upload.outputs.artifact-url }}`",
+                "text": "Job result status: `${{ job.status }}`\nWorkflow: `${{ github.workflow }}`\nActor: `${{ github.actor }}`\nDownload URL: `${{ steps.artifact-upload.outputs.artifact-url }}`\nEnvironment: `${{ github.event.inputs.environment }}`\nRepository: `${{ github.repository }}`\nEvent name: `${{ github.event_name }}`\nRef name: `${{ github.ref_name }}`\nRef type: `${{ github.ref_type }}`",
                 "color": "#2EB67D"
               }
             ]
