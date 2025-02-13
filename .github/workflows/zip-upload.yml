@@ -1,4 +1,4 @@
-name: Lostark-hands-next build test
+name: zip artifact upload
 
 on:
   pull_request:
