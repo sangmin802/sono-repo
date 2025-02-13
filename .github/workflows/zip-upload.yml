@@ -80,7 +80,7 @@ jobs:
               {
                 "pretext": "✅ Dev 아티팩트 생성",
                 "title": "information",
-                "text": "아티팩트 URL: `${{ steps.artifact-upload.outputs.artifact-url }}",
+                "text": "아티팩트 URL: `${{ steps.artifact-upload.outputs.artifact-url }}`",
                 "color": "#2EB67D"
               }
             ]
