@@ -1,18 +1,7 @@
 name: zip artifact upload
 
-on:
-  pull_request:
-    branches: 
-      - "xx"
-  workflow_dispatch:
-    # inputs:
-    #   environment:
-    #     type: choice
-    #     description: '배포할 환경을 선택해주세요'
-    #     required: true
-    #     options:
-    #     - prod
-
+on: workflow_dispatch
+    
 env:
   APPLICATION_PATH: apps/lostark-hands-next/.next/
 
