@@ -63,8 +63,9 @@ jobs:
         zip -r "lostark-hands-next.zip" ./*
         ls -al
 
-    - name: artifact-upload
+    - name: Upload lostark-hands-next artifact
       uses: actions/upload-artifact@v4
+      id: artifact-upload
       with:
         name: lostark-hands-next.zip build artifact
         path: ${{ env.APPLICATION_PATH }}/lostark-hands-next.zip
