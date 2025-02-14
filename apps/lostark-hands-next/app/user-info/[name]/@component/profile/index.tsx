@@ -1,6 +1,5 @@
 'use client';
 
-import type { PropsWithChildren } from 'react';
 import cn from 'classnames';
 import NextImage from 'next/image';
 
@@ -9,25 +8,15 @@ import { Image } from '@sono-repo/ui';
 import type { IArmoryProfile } from '@/service/armories/types';
 
 import Label from '@/client-component/label';
-import Skeleton from '@/client-component/skeleton';
+
+import { TEXT_STYLE } from './constants';
+import { LevelInfo } from './level-info';
 
 interface IProfileProps {
 	data?: IArmoryProfile | null;
 }
 
-const textStyle = 'text-[14px] md:text-[16px]';
-
-const LevelInfo = ({
-	label,
-	children
-}: PropsWithChildren<{ label: string }>) => (
-	<div className="space-y-[4px]">
-		<div className={cn('text-gray-400', textStyle)}>{label}</div>
-		<div className={textStyle}>Lv. {children}</div>
-	</div>
-);
-
-export const Profile = ({ data }: IProfileProps) => {
+const Profile = ({ data }: IProfileProps) => {
 	if (!data) throw new Error('no character');
 
 	return (
@@ -36,10 +25,10 @@ export const Profile = ({ data }: IProfileProps) => {
 				<div className="space-y-[8px] px-[16px] md:space-y-[16px]">
 					<div className="flex space-x-[8px]">
 						{data.serverName && (
-							<Label className={textStyle}>{data.serverName}</Label>
+							<Label className={TEXT_STYLE}>{data.serverName}</Label>
 						)}
 						{data.characterClassName && (
-							<Label className={textStyle}>{data.characterClassName}</Label>
+							<Label className={TEXT_STYLE}>{data.characterClassName}</Label>
 						)}
 					</div>
 					<div className="flex items-baseline">
@@ -54,13 +43,13 @@ export const Profile = ({ data }: IProfileProps) => {
 					</div>
 					<div className="space-y-[6px]">
 						<div className="flex items-center">
-							<Label className={textStyle}>길드</Label>
+							<Label className={TEXT_STYLE}>길드</Label>
 							<div className="ml-[4px] text-[12px] md:text-[16px]">
 								{data.guildName ?? '-'}
 							</div>
 						</div>
 						<div className="flex items-center">
-							<Label className={textStyle}>영지</Label>
+							<Label className={TEXT_STYLE}>영지</Label>
 							<div className="ml-[4px] text-[12px] md:text-[16px]">
 								{data.townLevel
 									? `Lv${data.townLevel} / ${data.townName}`
@@ -68,7 +57,7 @@ export const Profile = ({ data }: IProfileProps) => {
 							</div>
 						</div>
 						<div className="flex items-center">
-							<Label className={textStyle}>pvp</Label>
+							<Label className={TEXT_STYLE}>pvp</Label>
 							<div className="ml-[4px] text-[12px] md:text-[16px]">
 								{data.pvpGradeName ?? '-'}
 							</div>
@@ -113,62 +102,5 @@ export const Profile = ({ data }: IProfileProps) => {
 		</div>
 	);
 };
-
-export const ProfileSkeleton = () => (
-	<div className="relative h-[240px] w-full md:h-[360px]">
-		<div className="absolute z-[4] flex h-full flex-col justify-center">
-			<div className="space-y-[16px] px-[16px]">
-				<div className="flex space-x-[8px]">
-					<Skeleton
-						className="h-[29px]"
-						randomWidth={{ max: 70, min: 40 }}
-					/>
-					<Skeleton
-						className="h-[29px]"
-						randomWidth={{ max: 70, min: 40 }}
-					/>
-				</div>
-				<div className="flex items-baseline space-x-[4px]">
-					<Skeleton
-						className="h-[18px]"
-						randomWidth={{ max: 70, min: 40 }}
-					/>
-					<Skeleton
-						className="h-[33px]"
-						randomWidth={{ max: 36, min: 30 }}
-					/>
-				</div>
-				<div className="space-y-[6px]">
-					{Array.from({ length: 3 }).map((_, idx) => (
-						<div
-							key={idx}
-							className="flex items-center space-x-[4px]"
-						>
-							<Skeleton
-								className="h-[29px]"
-								randomWidth={{ max: 36, min: 30 }}
-							/>
-							<Skeleton
-								className="h-[29px]"
-								randomWidth={{ max: 100, min: 70 }}
-							/>
-						</div>
-					))}
-				</div>
-				<div className="flex space-x-[10px]">
-					{Array.from({ length: 3 }).map((_, idx) => (
-						<div
-							key={idx}
-							className="space-y-[4px]"
-						>
-							<Skeleton className="h-[24px] w-[60px] sm:h-[27px] sm:w-[50px]" />
-							<Skeleton className="h-[24px] w-[90px] sm:h-[27px] sm:w-[101px]" />
-						</div>
-					))}
-				</div>
-			</div>
-		</div>
-	</div>
-);
 
 export default Profile;

@@ -5,43 +5,17 @@ import { removeHtmlTag } from '@sono-repo/util/convert';
 
 import type { IParsedGem } from '@/service/armories/types';
 
-import {
-	LabelLayout,
-	LabelLayoutSkeleton
-} from '@/client-component/label-layout';
+import { LabelLayout } from '@/client-component/label-layout';
 import ArmoryTooltipListModal from '@/client-component/modal/armory-tooltip-list-modal';
-import Skeleton from '@/client-component/skeleton';
 import Thumbnail from '@/client-component/thumbnail';
+
+import { minifyData } from './utils';
 
 interface IGemProps {
 	data: IParsedGem[] | null;
 }
 
-/**
- * @description 중복된 보석의 갯수만 계산하여 데이터 간소화
- */
-const minifyData = (data: IGemProps['data']) => {
-	const minifiedObject = data?.reduce<
-		Record<string, IParsedGem & { size: number }>
-	>((prev, cur) => {
-		const name = removeHtmlTag(cur.name);
-		const newPrev = { ...prev };
-		const target = newPrev[name];
-
-		newPrev[name] = target
-			? { ...target, size: target.size + 1 }
-			: { ...cur, name: name, size: 1 };
-
-		return newPrev;
-	}, {});
-
-	return (
-		minifiedObject &&
-		Object.values(minifiedObject).sort((a, b) => b.level - a.level)
-	);
-};
-
-export const Gem = ({ data }: IGemProps) => {
+const Gem = ({ data }: IGemProps) => {
 	const { onOpenModal } = useModal();
 
 	const handleClickGem = () => {
@@ -93,30 +67,4 @@ export const Gem = ({ data }: IGemProps) => {
 	);
 };
 
-export const GemSkeleton = () => (
-	<LabelLayoutSkeleton as="section">
-		<div className="flex flex-wrap space-x-[16px]">
-			{Array.from({ length: Math.random() * 2 + 1 }).map((_, idx) => (
-				<div
-					className="flex items-center space-x-[8px]"
-					key={idx}
-				>
-					<Skeleton
-						className="h-[40px] w-[40px]"
-						type="LIGHT"
-					/>
-					<div>
-						<Skeleton
-							className="h-[21px] w-[38px]"
-							type="LIGHT"
-						/>
-						<Skeleton
-							className="mt-[1px] h-[18px] w-[38px]"
-							type="LIGHT"
-						/>
-					</div>
-				</div>
-			))}
-		</div>
-	</LabelLayoutSkeleton>
-);
+export default Gem;

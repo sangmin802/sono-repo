@@ -4,7 +4,6 @@ import { Collapse } from '@sono-repo/ui';
 
 import Label from '@/client-component/label';
 import { LabelLayout } from '@/client-component/label-layout';
-import Skeleton from '@/client-component/skeleton';
 
 interface ITendenceisProps {
 	data: {
@@ -16,7 +15,7 @@ interface ITendenceisProps {
 	};
 }
 
-export const Tendencies = ({ data: { tendencies } }: ITendenceisProps) => {
+const Tendencies = ({ data: { tendencies } }: ITendenceisProps) => {
 	return (
 		<Collapse
 			id="tendencies"
@@ -42,22 +41,4 @@ export const Tendencies = ({ data: { tendencies } }: ITendenceisProps) => {
 	);
 };
 
-export const TendenciesSkeleton = () => (
-	<Skeleton className="grid grid-cols-2 gap-[6px] p-[8px]">
-		{Array.from({ length: 4 }).map((_, idx) => (
-			<div
-				className="flex items-center space-x-[4px]"
-				key={idx}
-			>
-				<Skeleton
-					className="h-[29px] w-[36px]"
-					type="LIGHT"
-				/>
-				<Skeleton
-					className="h-[29px] w-[36px]"
-					type="LIGHT"
-				/>
-			</div>
-		))}
-	</Skeleton>
-);
+export default Tendencies;
