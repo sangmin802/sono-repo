@@ -39,7 +39,7 @@ const ArmoryCard = ({ onClick, ...item }: IEquipCardProps) => {
 						<QualityChip size={item.quality} />
 					</div>
 					<div className="flex items-center space-x-[6px]">
-						{item.elixir && <Elixir {...item.elixir} />}
+						{item.elixir && <Elixir data={item.elixir} />}
 						{item.transcendence && <Transcendence {...item.transcendence} />}
 					</div>
 				</>

@@ -2,9 +2,11 @@ import { Chip } from '@sono-repo/ui';
 
 import type { ISelectedArmoryEquipment } from '@/service/armories/types';
 
-const Elixir = (
-	data: Exclude<ISelectedArmoryEquipment['elixir'], undefined>
-) => {
+interface IElixirProps {
+	data: Exclude<ISelectedArmoryEquipment['elixir'], undefined>;
+}
+
+const Elixir = ({ data }: IElixirProps) => {
 	return (
 		<div className="flex shrink-0 space-x-[4px]">
 			{data.map((value) => (
