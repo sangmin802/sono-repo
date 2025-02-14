@@ -10,7 +10,8 @@ import type { IOptions } from '@/service/markets/types';
 import useMarketsFilter from '@/app/markets/@hook/use-markets-filter';
 import useClientRendered from '@/hook/use-client-rendered';
 
-import { List, ListSkeleton } from '@/app/markets/@component/list';
+import List from './goods-list';
+import ListSkeleton from './goods-list/skeleton';
 
 interface IMarketsProps {
 	data: IOptions;

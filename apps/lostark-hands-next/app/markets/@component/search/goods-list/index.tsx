@@ -4,7 +4,7 @@ import { useGetListQuery } from '@/service/markets/query';
 
 import InfiniteList from '@/client-component/infinite-list';
 
-import { Card, CardSkeleton } from './card';
+import Card from './card';
 
 interface IListProps {
 	filter: {
@@ -18,7 +18,7 @@ interface IListProps {
 	};
 }
 
-export const List = ({ filter }: IListProps) => {
+const List = ({ filter }: IListProps) => {
 	const { data, isFetching, hasNextPage, fetchNextPage } =
 		useGetListQuery(filter);
 
@@ -39,10 +39,4 @@ export const List = ({ filter }: IListProps) => {
 	);
 };
 
-export const ListSkeleton = () => (
-	<div className="grid gap-[24px] md:grid-cols-2">
-		{Array.from({ length: 20 }).map((_, idx) => (
-			<CardSkeleton key={idx} />
-		))}
-	</div>
-);
+export default List;
