@@ -5,21 +5,15 @@ import { useModal } from '@sono-repo/ui';
 import type { IArmoryEquipment, TParsedArmory } from '@/service/armories/types';
 
 import GradeText from '@/client-component/grade-text';
-import {
-	LabelLayout,
-	LabelLayoutSkeleton
-} from '@/client-component/label-layout';
+import LabelLayout from '@/client-component/label-layout';
 import ArmoryTooltipModal from '@/client-component/modal/armory-tooltip-modal';
-import {
-	ThumbnailCard,
-	ThumbnailCardSkeleton
-} from '@/client-component/thumbnail-card';
+import ThumbnailCard from '@/client-component/thumbnail-card';
 
 interface IMedalProps {
 	data: { col: TParsedArmory<IArmoryEquipment>[] | null };
 }
 
-export const CollectionMedal = ({ data }: IMedalProps) => {
+const CollectionMedal = ({ data }: IMedalProps) => {
 	const { onOpenModal } = useModal();
 
 	const handleOpenModal = (item: TParsedArmory<IArmoryEquipment>) => {
@@ -56,15 +50,4 @@ export const CollectionMedal = ({ data }: IMedalProps) => {
 	);
 };
 
-export const CollectionMedalSkeleton = () => (
-	<LabelLayoutSkeleton className="my-[16px] lg:my-0">
-		<div className="space-y-[8px]">
-			{Array.from({ length: 2 }).map((_, idx) => (
-				<ThumbnailCardSkeleton
-					className="h-[40px] w-[40px]"
-					key={idx}
-				/>
-			))}
-		</div>
-	</LabelLayoutSkeleton>
-);
+export default CollectionMedal;

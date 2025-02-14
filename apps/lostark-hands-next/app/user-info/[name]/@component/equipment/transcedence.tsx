@@ -1,6 +1,6 @@
 import type { ISelectedArmoryEquipment } from '@/service/armories/types';
 
-import { ThumbnailCard } from '@/client-component/thumbnail-card';
+import ThumbnailCard from '@/client-component/thumbnail-card';
 
 import { CDN_URL } from '@/constant';
 import { EMO_IMAGE_URL } from '@/constant/armory';

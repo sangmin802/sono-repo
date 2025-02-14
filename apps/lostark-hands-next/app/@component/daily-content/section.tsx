@@ -9,7 +9,7 @@ import useFilterTimerList from '@/hook/use-filter-timer-list';
 import { convertCalendarData } from '@/util/calendar';
 
 import type { ICalenderContetProps } from '@/app/@component/types';
-import { LabelLayout } from '@/client-component/label-layout';
+import LabelLayout from '@/client-component/label-layout';
 
 import DailyContentCard from './card';
 

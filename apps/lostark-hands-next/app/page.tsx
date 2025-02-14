@@ -4,12 +4,14 @@ import { getCalendarApi } from '@/service/game-contents';
 import { calendarSelector } from '@/service/game-contents/selector';
 import { getEventApi, getNoticeApi } from '@/service/news';
 
-import { Event, EventSkeleton } from '@/app/@component/event';
-import { Notice, NoticeSkeleton } from '@/app/@component/notice';
 import NotificationButton from '@/app/@component/notification-button';
 
 import DailyContent from './@component/daily-content';
 import DailyContentSkeleton from './@component/daily-content/skeleton';
+import Event from './@component/event';
+import EventSkeleton from './@component/event/skeleton';
+import Notice from './@component/notice';
+import NoticeSkeleton from './@component/notice/skeleton';
 import ProcyonCompass from './@component/procyon-compass';
 import ProcyonCompassSkeleton from './@component/procyon-compass/skeleton';
 import ServerWrapper from './server-wrapper';

@@ -3,7 +3,7 @@
 import { Collapse } from '@sono-repo/ui';
 
 import Label from '@/client-component/label';
-import { LabelLayout } from '@/client-component/label-layout';
+import LabelLayout from '@/client-component/label-layout';
 
 interface ITendenceisProps {
 	data: {

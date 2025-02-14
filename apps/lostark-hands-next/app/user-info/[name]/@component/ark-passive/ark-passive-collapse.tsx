@@ -7,7 +7,7 @@ import { Collapse } from '@sono-repo/ui';
 import type { ISelectedArkPassive } from '@/service/armories/types';
 
 import Label from '@/client-component/label';
-import { LabelLayout } from '@/client-component/label-layout';
+import LabelLayout from '@/client-component/label-layout';
 
 import { ARK_PASSIVE_COLOR_CONFIG } from './constants';
 import ContentGrid from './content-grid';

@@ -2,7 +2,7 @@
 
 import { Chip, Collapse } from '@sono-repo/ui';
 
-import { LabelLayout } from '@/client-component/label-layout';
+import LabelLayout from '@/client-component/label-layout';
 
 import SkillCard from './card';
 import type { TData } from './types';

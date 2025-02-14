@@ -7,8 +7,8 @@ import { useResponsive } from '@sono-repo/hook';
 
 import type { ICollectible, TCollectibleType } from '@/service/armories/types';
 
-import { LabelLayout } from '@/client-component/label-layout';
-import { StickyElement } from '@/client-component/sticky-element';
+import LabelLayout from '@/client-component/label-layout';
+import StickyElement from '@/client-component/sticky-element';
 
 import { COLLECTION_DESC } from '@/constant/collection';
 

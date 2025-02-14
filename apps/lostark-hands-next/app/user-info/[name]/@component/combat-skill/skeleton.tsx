@@ -1,4 +1,4 @@
-import { LabelLayoutSkeleton } from '@/client-component/label-layout';
+import LabelLayoutSkeleton from '@/client-component/label-layout/skeleton';
 import Skeleton from '@/client-component/skeleton';
 
 const CombatSkillSkeleton = () => (

@@ -1,6 +1,6 @@
 'use client';
 
-import { LabelLayoutSkeleton } from '@/client-component/label-layout';
+import LabelLayoutSkeleton from '@/client-component/label-layout/skeleton';
 
 const ProcyonCompassSkeleton = () => (
 	<section className="!mt-0 grid gap-[16px] md:grid-cols-3">

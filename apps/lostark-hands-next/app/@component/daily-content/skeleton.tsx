@@ -1,6 +1,6 @@
 'use client';
 
-import { LabelLayoutSkeleton } from '@/client-component/label-layout';
+import LabelLayoutSkeleton from '@/client-component/label-layout/skeleton';
 
 const DailyContentSkeleton = () => (
 	<div className="space-y-[16px]">

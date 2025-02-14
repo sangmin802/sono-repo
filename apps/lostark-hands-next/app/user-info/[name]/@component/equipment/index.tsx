@@ -9,7 +9,7 @@ import type {
 } from '@/service/armories/types';
 
 import QualityChip from '@/app/user-info/[name]/@component/quality-chip';
-import { LabelLayout } from '@/client-component/label-layout';
+import LabelLayout from '@/client-component/label-layout';
 import ArmoryTooltipModal from '@/client-component/modal/armory-tooltip-modal';
 
 import AccCard from './acc-card';

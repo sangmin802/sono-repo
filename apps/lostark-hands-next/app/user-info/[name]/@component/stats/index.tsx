@@ -5,7 +5,7 @@ import { Collapse, useModal } from '@sono-repo/ui';
 import type { IStat } from '@/service/armories/types';
 
 import Label from '@/client-component/label';
-import { LabelLayout } from '@/client-component/label-layout';
+import LabelLayout from '@/client-component/label-layout';
 import DescListModal from '@/client-component/modal/desc-list-modal';
 
 interface IStatsProps {

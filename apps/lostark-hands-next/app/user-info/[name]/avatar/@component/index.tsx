@@ -3,8 +3,8 @@
 import type { IArmoryAvatar, TParsedArmory } from '@/service/armories/types';
 
 import GradeText from '@/client-component/grade-text';
-import { LabelLayout } from '@/client-component/label-layout';
-import { ThumbnailCard } from '@/client-component/thumbnail-card';
+import LabelLayout from '@/client-component/label-layout';
+import ThumbnailCard from '@/client-component/thumbnail-card';
 
 interface IAvatarGridProps {
 	data: TParsedArmory<IArmoryAvatar>[][];

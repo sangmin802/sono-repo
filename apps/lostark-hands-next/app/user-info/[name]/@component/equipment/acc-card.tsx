@@ -1,5 +1,5 @@
 import GradeText from '@/client-component/grade-text';
-import { ThumbnailCard } from '@/client-component/thumbnail-card';
+import ThumbnailCard from '@/client-component/thumbnail-card';
 
 import { POLISHING_EFFECT_OPTIONS } from '@/constant/armory';
 

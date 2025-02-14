@@ -1,5 +1,5 @@
-import { LabelLayoutSkeleton } from '@/client-component/label-layout';
-import { ThumbnailCardSkeleton } from '@/client-component/thumbnail-card';
+import LabelLayoutSkeleton from '@/client-component/label-layout/skeleton';
+import ThumbnailCardSkeleton from '@/client-component/thumbnail-card/skeleton';
 
 const AvatarGridSkeleton = () => (
 	<LabelLayoutSkeleton as="section">

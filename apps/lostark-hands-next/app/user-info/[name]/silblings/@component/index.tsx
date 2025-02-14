@@ -9,7 +9,7 @@ import { Image } from '@sono-repo/ui';
 import type { ICharacterInfo } from '@/service/characters/types';
 
 import Label from '@/client-component/label';
-import { LabelLayout } from '@/client-component/label-layout';
+import LabelLayout from '@/client-component/label-layout';
 
 import { CDN_URL } from '@/constant';
 

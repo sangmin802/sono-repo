@@ -1,8 +1,8 @@
 import cn from 'classnames';
 
-import { LabelLayoutSkeleton } from '@/client-component/label-layout';
+import LabelLayoutSkeleton from '@/client-component/label-layout/skeleton';
 import Skeleton from '@/client-component/skeleton';
-import { StickyElementSkeleton } from '@/client-component/sticky-element';
+import StickyElementSkeleton from '@/client-component/sticky-element/skeleton';
 
 import { STICKY_NAV_STYLE } from './constants';
 

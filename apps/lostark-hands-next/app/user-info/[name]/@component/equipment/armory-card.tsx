@@ -3,7 +3,7 @@ import { removeHtmlTag } from '@sono-repo/util/convert';
 import { onlyNumber } from '@/util/selector';
 
 import GradeText from '@/client-component/grade-text';
-import { ThumbnailCard } from '@/client-component/thumbnail-card';
+import ThumbnailCard from '@/client-component/thumbnail-card';
 
 import QualityChip from '../quality-chip';
 import Elixir from './elixir';
