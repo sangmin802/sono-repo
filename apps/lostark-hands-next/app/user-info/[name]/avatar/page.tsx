@@ -3,18 +3,16 @@ import ServerWrapper from '@/app/server-wrapper';
 import { getAvatarApi } from '@/service/armories';
 import { avatarSelector } from '@/service/armories/selector';
 
-import {
-	Avatar,
-	AvatarSkeleton
-} from '@/app/user-info/[name]/avatar/@component';
+import AvatarGrid from './@component';
+import AvatarGridSkeleton from './@component/skeleton';
 
 const Page = ({ params: { name } }: { params: { name: string } }) => {
 	return (
 		<ServerWrapper
-			fallback={<AvatarSkeleton />}
+			fallback={<AvatarGridSkeleton />}
 			apiPromise={getAvatarApi(name)}
 			selector={avatarSelector}
-			render={Avatar}
+			render={AvatarGrid}
 		/>
 	);
 };

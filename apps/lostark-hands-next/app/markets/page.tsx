@@ -2,7 +2,7 @@ import ServerWrapper from '@/app/server-wrapper';
 
 import { getOptionsApi } from '@/service/markets';
 
-import Search from '@/app/markets/@component/search';
+import Search from '@/app/markets/@component';
 
 const Page = () => {
 	return (
