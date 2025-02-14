@@ -1,30 +1,8 @@
 'use client';
 
-import DailyContentSection from '@/app/@component/daily-content-section';
 import { LabelLayoutSkeleton } from '@/client-component/label-layout';
 
-import type { TCalendarData } from './types';
-
-interface IDailyContentSectionListProps {
-	data: TCalendarData;
-}
-
-export const DailyContentSectionList = ({
-	data: { daily }
-}: IDailyContentSectionListProps) => {
-	return (
-		<div className="space-y-[16px]">
-			{Object.values(daily).map((item) => (
-				<DailyContentSection
-					key={item.title}
-					{...item}
-				/>
-			))}
-		</div>
-	);
-};
-
-export const DailyContentSectionListSkeleton = () => (
+const DailyContentSkeleton = () => (
 	<div className="space-y-[16px]">
 		{Array.from({ length: 3 }).map((_, idx) => (
 			<LabelLayoutSkeleton key={idx}>
@@ -42,3 +20,5 @@ export const DailyContentSectionListSkeleton = () => (
 		))}
 	</div>
 );
+
+export default DailyContentSkeleton;

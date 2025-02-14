@@ -1,30 +1,8 @@
 'use client';
 
-import ProcyonCompassSection from '@/app/@component/procyon-compass-section';
 import { LabelLayoutSkeleton } from '@/client-component/label-layout';
 
-import type { TCalendarData } from './types';
-
-interface IProcyonCompassSectionListProps {
-	data: TCalendarData;
-}
-
-export const ProcyonCompassSectionList = ({
-	data: { procyon }
-}: IProcyonCompassSectionListProps) => {
-	return (
-		<section className="grid gap-[16px] md:grid-cols-3">
-			{Object.values(procyon).map((item) => (
-				<ProcyonCompassSection
-					key={item.title}
-					{...item}
-				/>
-			))}
-		</section>
-	);
-};
-
-export const ProcyonCompassSectionListSkeleton = () => (
+const ProcyonCompassSkeleton = () => (
 	<section className="!mt-0 grid gap-[16px] md:grid-cols-3">
 		{Array.from({ length: 3 }).map((_, idx) => (
 			<LabelLayoutSkeleton
@@ -46,3 +24,5 @@ export const ProcyonCompassSectionListSkeleton = () => (
 		))}
 	</section>
 );
+
+export default ProcyonCompassSkeleton;

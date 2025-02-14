@@ -11,7 +11,7 @@ import useNotification from '@/hook/use-notification';
 
 import { convertCalendarData, getValidRewardList } from '@/util/calendar';
 
-import ProcyonCompassCard from '@/app/@component/procyon-compass-card';
+import ProcyonCompassCard from '@/app/@component/procyon-compass/card';
 import TimeUnit from '@/app/@component/time-unit';
 import type { ICalenderContetProps } from '@/app/@component/types';
 import { LabelLayout } from '@/client-component/label-layout';
