@@ -24,27 +24,22 @@ import {
 	ArkPassiveSkeleton
 } from '@/app/user-info/[name]/@component/ark-passive';
 import {
-	CardSet,
-	CardSetSkeleton
-} from '@/app/user-info/[name]/@component/card-set';
-import {
-	CombatSkill,
-	CombatSkillSkeleton
-} from '@/app/user-info/[name]/@component/combat-skill';
-import {
 	EngraveCollapse,
 	EngraveSkeleton
 } from '@/app/user-info/[name]/@component/engrave';
-import {
-	Equipment,
-	EquipmentSkeleton
-} from '@/app/user-info/[name]/@component/equipment';
-import { Gem, GemSkeleton } from '@/app/user-info/[name]/@component/gem';
-import { Stats, StatsSkeleton } from '@/app/user-info/[name]/@component/stats';
-import {
-	Tendencies,
-	TendenciesSkeleton
-} from '@/app/user-info/[name]/@component/tendencies';
+
+import CardSet from './@component/card-set';
+import CardSetSkeleton from './@component/card-set/skeleton';
+import CombatSkill from './@component/combat-skill';
+import CombatSkillSkeleton from './@component/combat-skill/skeleton';
+import Equipment from './@component/equipment';
+import EquipmentSkeleton from './@component/equipment/skeleton';
+import Gem from './@component/gem';
+import GemSkeleton from './@component/gem/skeleton';
+import Stats from './@component/stats';
+import StatsSkeleton from './@component/stats/skeleton';
+import Tendencies from './@component/tendencies';
+import TendenciesSkeleton from './@component/tendencies/skeleton';
 
 const Page = ({ params: { name } }: { params: { name: string } }) => {
 	return (

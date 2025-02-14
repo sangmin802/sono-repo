@@ -6,7 +6,7 @@ import { Collapse, Image, useModal } from '@sono-repo/ui';
 
 import type { IArkPassiveEffects, IEffect } from '@/service/armories/types';
 
-import { LabelLayout } from '@/client-component/label-layout';
+import LabelLayout from '@/client-component/label-layout';
 import DescListModal from '@/client-component/modal/desc-list-modal';
 
 import { CDN_URL } from '@/constant';

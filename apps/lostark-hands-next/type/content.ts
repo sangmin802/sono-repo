@@ -33,5 +33,6 @@ export enum CLASS {
 	소울이터 = 'soul_eater',
 	'스페셜리스트' = 'specialist',
 	기상술사 = 'weather_artist',
-	도화가 = 'artist'
+	도화가 = 'artist',
+	환수사 = 'alchemist'
 }

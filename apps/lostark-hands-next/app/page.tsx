@@ -4,18 +4,16 @@ import { getCalendarApi } from '@/service/game-contents';
 import { calendarSelector } from '@/service/game-contents/selector';
 import { getEventApi, getNoticeApi } from '@/service/news';
 
-import {
-	DailyContentSectionList,
-	DailyContentSectionListSkeleton
-} from '@/app/@component/daily-content-section-list';
-import { Event, EventSkeleton } from '@/app/@component/event';
-import { Notice, NoticeSkeleton } from '@/app/@component/notice';
 import NotificationButton from '@/app/@component/notification-button';
-import {
-	ProcyonCompassSectionList,
-	ProcyonCompassSectionListSkeleton
-} from '@/app/@component/procyon-compass-section-list';
 
+import DailyContent from './@component/daily-content';
+import DailyContentSkeleton from './@component/daily-content/skeleton';
+import Event from './@component/event';
+import EventSkeleton from './@component/event/skeleton';
+import Notice from './@component/notice';
+import NoticeSkeleton from './@component/notice/skeleton';
+import ProcyonCompass from './@component/procyon-compass';
+import ProcyonCompassSkeleton from './@component/procyon-compass/skeleton';
 import ServerWrapper from './server-wrapper';
 
 /**
@@ -45,10 +43,10 @@ const Page = () => {
 	return (
 		<div className="space-y-[16px] px-[16px] pb-[16px]">
 			<ServerWrapper
-				fallback={<ProcyonCompassSectionListSkeleton />}
+				fallback={<ProcyonCompassSkeleton />}
 				apiPromise={getCalendarApi()}
 				selector={calendarSelector}
-				render={ProcyonCompassSectionList}
+				render={ProcyonCompass}
 			/>
 			<ServerWrapper
 				fallback={<EventSkeleton />}
@@ -61,10 +59,10 @@ const Page = () => {
 				render={Notice}
 			/>
 			<ServerWrapper
-				fallback={<DailyContentSectionListSkeleton />}
+				fallback={<DailyContentSkeleton />}
 				apiPromise={getCalendarApi()}
 				selector={calendarSelector}
-				render={DailyContentSectionList}
+				render={DailyContent}
 			/>
 			<NotificationButton />
 		</div>

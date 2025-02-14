@@ -7,17 +7,12 @@ import { useResponsive } from '@sono-repo/hook';
 
 import type { ICollectible, TCollectibleType } from '@/service/armories/types';
 
-import {
-	LabelLayout,
-	LabelLayoutSkeleton
-} from '@/client-component/label-layout';
-import Skeleton from '@/client-component/skeleton';
-import {
-	StickyElement,
-	StickyElementSkeleton
-} from '@/client-component/sticky-element';
+import LabelLayout from '@/client-component/label-layout';
+import StickyElement from '@/client-component/sticky-element';
 
 import { COLLECTION_DESC } from '@/constant/collection';
+
+import { STICKY_NAV_STYLE } from './constants';
 
 interface ICollectionProps {
 	data: ICollectible[];
@@ -39,14 +34,7 @@ const bgPosition: Record<
 	'크림스네일의 해도': { backgroundPositionX: 0, backgroundPositionY: -214 }
 };
 
-const stickyNavStyle = cn(
-	'flex flex-nowrap',
-	'z-[90] mx-[-16px] mb-[8px] self-start px-[16px] pb-[8px]',
-	'hide-scrollbar w-screen overflow-x-scroll',
-	'lg:m-0 lg:mr-[30px] lg:w-fit lg:flex-col lg:overflow-x-visible lg:bg-transparent lg:px-0 lg:pb-0'
-);
-
-export const Collection = ({ data }: ICollectionProps) => {
+const Collection = ({ data }: ICollectionProps) => {
 	const { isLg } = useResponsive();
 
 	const sortedData = useMemo(
@@ -65,7 +53,7 @@ export const Collection = ({ data }: ICollectionProps) => {
 	return (
 		<div className="w-full lg:flex">
 			<StickyElement
-				className={stickyNavStyle}
+				className={STICKY_NAV_STYLE}
 				activeClassName={cn({ 'shadow-[0px_10px_10px_rgba(0,0,0,.3)]': !isLg })}
 				as="nav"
 				top={68}
@@ -140,43 +128,4 @@ export const Collection = ({ data }: ICollectionProps) => {
 	);
 };
 
-export const CollectionSkeleton = () => (
-	<div className="!ml-0 w-full lg:flex">
-		<StickyElementSkeleton
-			className={cn(
-				'space-x-[4px] lg:space-x-0 lg:space-y-[4px]',
-				stickyNavStyle
-			)}
-			as="nav"
-			top={68}
-		>
-			{Array.from({ length: 9 }).map((_, idx) => (
-				<Skeleton
-					key={idx}
-					className="flex h-[50px] w-[130px] shrink-0 items-center"
-				/>
-			))}
-		</StickyElementSkeleton>
-		<LabelLayoutSkeleton className="grow">
-			<div className="space-y-[4px]">
-				{Array.from({ length: Math.random() * 5 + 5 }).map((_, idx) => (
-					<div
-						className="grid grid-cols-[1fr_2fr] gap-[16px]"
-						key={idx}
-					>
-						<Skeleton
-							className="h-[21px]"
-							type="LIGHT"
-							randomWidth={{ max: 100, min: 60 }}
-						/>
-						<Skeleton
-							className="h-[21px]"
-							type="LIGHT"
-							randomWidth={{ max: 100, min: 60 }}
-						/>
-					</div>
-				))}
-			</div>
-		</LabelLayoutSkeleton>
-	</div>
-);
+export default Collection;

@@ -4,10 +4,9 @@ import ServerWrapper from '@/app/server-wrapper';
 
 import { getProfileInfoApi } from '@/service/armories';
 
-import Profile, {
-	ProfileSkeleton
-} from '@/app/user-info/[name]/@component/profile';
-import TabList from '@/app/user-info/[name]/@component/tab-list';
+import Profile from './@component/profile';
+import ProfileSkeleton from './@component/profile/skeleton';
+import TabList from './@component/tab-list';
 
 /**
  * Layouts can fetch data.

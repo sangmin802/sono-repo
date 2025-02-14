@@ -3,20 +3,14 @@
 import type { IArmoryAvatar, TParsedArmory } from '@/service/armories/types';
 
 import GradeText from '@/client-component/grade-text';
-import {
-	LabelLayout,
-	LabelLayoutSkeleton
-} from '@/client-component/label-layout';
-import {
-	ThumbnailCard,
-	ThumbnailCardSkeleton
-} from '@/client-component/thumbnail-card';
+import LabelLayout from '@/client-component/label-layout';
+import ThumbnailCard from '@/client-component/thumbnail-card';
 
-interface IAvatarProps {
+interface IAvatarGridProps {
 	data: TParsedArmory<IArmoryAvatar>[][];
 }
 
-export const Avatar = ({ data }: IAvatarProps) => (
+const AvatarGrid = ({ data }: IAvatarGridProps) => (
 	<LabelLayout
 		label="아바타"
 		as="section"
@@ -44,24 +38,4 @@ export const Avatar = ({ data }: IAvatarProps) => (
 	</LabelLayout>
 );
 
-export const AvatarSkeleton = () => (
-	<LabelLayoutSkeleton as="section">
-		<div className="space-y-[8px]">
-			{Array.from({ length: 7 }).map((_, idx) => (
-				<div
-					className="grid grid-cols-2 gap-[4px]"
-					key={idx}
-				>
-					{Array.from({ length: Math.round(Math.random() * 1) + 1 }).map(
-						(_, idx) => (
-							<ThumbnailCardSkeleton
-								key={idx}
-								className="h-[40px] w-[40px]"
-							/>
-						)
-					)}
-				</div>
-			))}
-		</div>
-	</LabelLayoutSkeleton>
-);
+export default AvatarGrid;
