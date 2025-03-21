@@ -4,7 +4,7 @@
 # link https://turbo.build/repo/docs/handbook/deploying-with-docker
 
 ARG NODE_VERSION=20.8.0
-ARG PNPM_VERSION=8.14.1
+ARG PNPM_VERSION=10.6.5
 
 ################################################################################
 # 모든 스테이지에서 기본적으로 사용할 base 환경 설정
