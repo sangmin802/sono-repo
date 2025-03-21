@@ -1,7 +1,7 @@
 import axiosInstance from '@/service/axios';
-import type { IEvent, INotice } from '@/service/news/types';
+import type { IAlramResponse, IEvent, INotice } from '@/service/news/types';
 
-import { pascalToCamelInArray } from '@/util/selector';
+import { pascalToCamel, pascalToCamelInArray } from '@/util/selector';
 
 import type { ToPascalKey } from '@/type';
 
@@ -33,5 +33,18 @@ export const getEventApi = async (): Promise<IEvent[] | null> =>
 			.then(({ data, ...resolve }) => ({
 				...resolve,
 				data: data ? pascalToCamelInArray(data) : data
+			}))
+	).data;
+
+/**
+ * @description get alaram list
+ */
+export const getAlaramApi = async (): Promise<IAlramResponse | null> =>
+	(
+		await axiosInstance
+			.get<ToPascalKey<IAlramResponse> | null>('/news/alarms')
+			.then(({ data, ...resolve }) => ({
+				...resolve,
+				data: data ? pascalToCamel(data) : data
 			}))
 	).data;

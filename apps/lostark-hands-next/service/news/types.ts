@@ -15,3 +15,16 @@ export interface IEvent {
 	endDate: string;
 	rewardDate: string;
 }
+
+export interface IAlram {
+	alarmType: string;
+	contents: string;
+	startDate: string;
+	endDate: null;
+}
+
+/** 알람 */
+export interface IAlramResponse {
+	requirePolling: true;
+	alarms: IAlram[];
+}
