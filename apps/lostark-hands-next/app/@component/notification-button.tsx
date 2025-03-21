@@ -23,7 +23,7 @@ const NotificationButton = () => {
 	return (
 		<Button
 			className={cn(
-				'fixed bottom-[4%] right-[6%] flex h-[40px] w-[40px] items-center justify-center rounded-[50%]',
+				'fixed bottom-[4%] right-[6%] flex size-[40px] items-center justify-center rounded-[50%]',
 				'bg-gray-800/[.6] shadow-[2px_2px_8px_rgba(0,0,0,0.32)]'
 			)}
 			onClick={handleClickNotice}

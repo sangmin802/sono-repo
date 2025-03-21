@@ -60,9 +60,9 @@ const DailyContentCard = ({
 				{item.name}
 			</div>
 			<div className="flex">
-				<div className="relative mr-[8px] h-[60px] w-[60px] shrink-0">
+				<div className="relative mr-[8px] size-[60px] shrink-0">
 					<Chip
-						className="absolute bottom-[1px] right-[1px] z-[10]"
+						className="absolute bottom-px right-px z-10"
 						type="transparent"
 					>
 						Lv {item.badge}
