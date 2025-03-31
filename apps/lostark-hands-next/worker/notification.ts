@@ -24,6 +24,8 @@ class CreateNotification {
 		Notification.requestPermission().then((value) => {
 			if (value !== 'granted') return;
 
+			navigator.serviceWorker.register('/pwa-sw.js');
+
 			this.subscribe?.();
 		});
 	};

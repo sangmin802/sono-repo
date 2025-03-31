@@ -30,7 +30,6 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@ducanh2912/next-pwa": "9.7.2",
     "@sono-repo/prettier-config": "workspace:*",
     "@sono-repo/tsconfig": "workspace:*",
     "@tanstack/eslint-plugin-query": "^5.17.7",
