@@ -49,3 +49,6 @@ tsconfig.tsbuildinfo
 
 # pnpm
 .pnpm-store/
+
+# vite
+.vite
