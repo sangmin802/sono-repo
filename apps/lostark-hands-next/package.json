@@ -1,51 +1,50 @@
 {
-  "name": "lostark-hands-next",
-  "version": "0.1.3",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "pnpm run build && next start",
-    "lint": "next lint",
-    "tsc": "tsc"
-  },
-  "dependencies": {
-    "@sono-repo/hook": "workspace:^",
-    "@sono-repo/ui": "workspace:^",
-    "@sono-repo/util": "workspace:^",
-    "@tanstack/react-query": "^5.17.9",
-    "@vercel/analytics": "^1.1.1",
-    "@vercel/speed-insights": "^1.0.4",
-    "axios": "^1.4.0",
-    "classnames": "^2.3.2",
-    "framer-motion": "^11.0.8",
-    "next": "^14.1.0",
-    "react": "18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^5.0.1",
-    "react-responsive": "^9.0.2",
-    "sharp": "^0.32.6",
-    "sono-repo-react-timer": "workspace:^",
-    "swiper": "^11.1.7",
-    "zod": "^3.21.4"
-  },
-  "devDependencies": {
-    "@sono-repo/prettier-config": "workspace:*",
-    "@sono-repo/tsconfig": "workspace:*",
-    "@tanstack/eslint-plugin-query": "^5.17.7",
-    "@types/node": "^18.15.11",
-    "@types/react": "18.2.12",
-    "@types/react-dom": "18.2.15",
-    "autoprefixer": "10.4.14",
-    "eslint": "^8.38.0",
-    "eslint-config-sono-repo": "workspace:^",
-    "eslint-plugin-tailwindcss": "^3.13.0",
-    "postcss": "8.4.22",
-    "prettier": "^2.8.7",
-    "tailwindcss": "^3.3.3",
-    "typescript": "5.3.2"
-  },
-  "volta": {
-    "node": "20.8.0"
-  }
+	"name": "lostark-hands-next",
+	"version": "0.1.3",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "pnpm run build && next start",
+		"lint": "next lint",
+		"tsc": "tsc"
+	},
+	"dependencies": {
+		"@sono-repo/hook": "workspace:^",
+		"@sono-repo/ui": "workspace:^",
+		"@sono-repo/util": "workspace:^",
+		"@tanstack/react-query": "^5.17.9",
+		"@vercel/analytics": "^1.1.1",
+		"@vercel/speed-insights": "^1.0.4",
+		"axios": "^1.4.0",
+		"classnames": "^2.3.2",
+		"framer-motion": "^11.0.8",
+		"next": "^14.1.0",
+		"react": "18.2.0",
+		"react-dom": "^18.2.0",
+		"react-icons": "^5.0.1",
+		"react-responsive": "^9.0.2",
+		"sharp": "^0.32.6",
+		"sono-repo-react-timer": "workspace:^",
+		"swiper": "^11.1.7",
+		"zod": "^3.21.4"
+	},
+	"devDependencies": {
+		"@sono-repo/prettier-config": "workspace:*",
+		"@sono-repo/tsconfig": "workspace:*",
+		"@tanstack/eslint-plugin-query": "^5.17.7",
+		"@types/node": "^18.15.11",
+		"@types/react": "18.2.12",
+		"@types/react-dom": "18.2.15",
+		"autoprefixer": "10.4.14",
+		"eslint": "9.25.0",
+		"eslint-plugin-tailwindcss": "^3.13.0",
+		"postcss": "8.4.22",
+		"prettier": "^2.8.7",
+		"tailwindcss": "^3.3.3",
+		"typescript": "5.3.2"
+	},
+	"volta": {
+		"node": "20.8.0"
+	}
 }
