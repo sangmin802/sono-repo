@@ -1,11 +1,11 @@
-import sonoRepoPrettierConfig from '@sono-repo/prettier-config'
+import sonoRepoPrettierConfig from '@sono-repo/prettier-config';
 
 /**
  * @see https://prettier.io/docs/configuration
  * @type {import("prettier").Config}
  */
 const config = {
-  ...sonoRepoPrettierConfig
+	...sonoRepoPrettierConfig
 };
 
 export default config;
