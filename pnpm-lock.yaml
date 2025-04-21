@@ -90,9 +90,9 @@ importers:
         specifier: ^3.21.4
         version: 3.24.2
     devDependencies:
-      '@sono-repo/prettier-config':
-        specifier: workspace:*
-        version: link:../../packages/prettier-config
+      '@sono-repo/eslint-config':
+        specifier: workspace:^
+        version: link:../../packages/eslint-config
       '@sono-repo/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
@@ -120,9 +120,6 @@ importers:
       postcss:
         specifier: 8.4.22
         version: 8.4.22
-      prettier:
-        specifier: ^2.8.7
-        version: 2.8.8
       tailwindcss:
         specifier: ^3.3.3
         version: 3.4.17
@@ -145,9 +142,9 @@ importers:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
     devDependencies:
-      '@sono-repo/prettier-config':
+      '@sono-repo/eslint-config':
         specifier: workspace:^
-        version: link:../../packages/prettier-config
+        version: link:../../packages/eslint-config
       '@sono-repo/tsconfig':
         specifier: workspace:^
         version: link:../../packages/tsconfig
@@ -169,9 +166,6 @@ importers:
       postcss:
         specifier: 8.4.22
         version: 8.4.22
-      prettier:
-        specifier: ^2.8.7
-        version: 2.8.8
       tailwindcss:
         specifier: ^3.3.3
         version: 3.4.17
@@ -196,17 +190,14 @@ importers:
       eslint-config-prettier:
         specifier: 10.1.2
         version: 10.1.2(eslint@9.25.0(jiti@1.21.7))
-      eslint-config-turbo:
-        specifier: ^1.9.1
-        version: 1.13.4(eslint@9.25.0(jiti@1.21.7))
       eslint-plugin-prettier:
         specifier: 5.2.6
         version: 5.2.6(eslint-config-prettier@10.1.2(eslint@9.25.0(jiti@1.21.7)))(eslint@9.25.0(jiti@1.21.7))(prettier@3.5.3)
       eslint-plugin-simple-import-sort:
-        specifier: ^10.0.0
-        version: 10.0.0(eslint@9.25.0(jiti@1.21.7))
+        specifier: 12.1.1
+        version: 12.1.1(eslint@9.25.0(jiti@1.21.7))
       eslint-plugin-tailwindcss:
-        specifier: ^3.13.0
+        specifier: 3.18.0
         version: 3.18.0(tailwindcss@3.4.17)
       typescript-eslint:
         specifier: ^8.30.1
@@ -289,6 +280,9 @@ importers:
       '@rollup/plugin-node-resolve':
         specifier: 15.2.3
         version: 15.2.3(rollup@4.36.0)
+      '@sono-repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
       '@sono-repo/hook':
         specifier: workspace:^
         version: link:../hook
@@ -3478,10 +3472,6 @@ packages:
     resolution: {integrity: sha512-GopVGCpVS1UKH75VKHGuQFqS1Gusej0z4FyQkPdwjil2gNIv+LNsqBlboOzpJFZKVT95GkCyWJbBSdFEFUWI2A==}
     engines: {node: '>=12'}
 
-  dotenv@16.0.3:
-    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
-    engines: {node: '>=12'}
-
   dotenv@16.4.7:
     resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
     engines: {node: '>=12'}
@@ -3624,11 +3614,6 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
 
-  eslint-config-turbo@1.13.4:
-    resolution: {integrity: sha512-+we4eWdZlmlEn7LnhXHCIPX/wtujbHCS7XjQM/TN09BHNEl2fZ8id4rHfdfUKIYTSKyy8U/nNyJ0DNoZj5Q8bw==}
-    peerDependencies:
-      eslint: '>6.6.0'
-
   eslint-import-resolver-node@0.3.9:
     resolution: {integrity: sha512-WFj2isz22JahUv+B788TlO3N6zL3nNJGU8CcZbPZvVEkBPaJdCV4vy5wyghty5ROFbCRnm132v8BScu5/1BQ8g==}
 
@@ -3708,8 +3693,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9.7
 
-  eslint-plugin-simple-import-sort@10.0.0:
-    resolution: {integrity: sha512-AeTvO9UCMSNzIHRkg8S6c3RPy5YEwKWSQPx3DYghLedo2ZQxowPFLGDN1AZ2evfg6r6mjBSZSLxLFsWSu3acsw==}
+  eslint-plugin-simple-import-sort@12.1.1:
+    resolution: {integrity: sha512-6nuzu4xwQtE3332Uz0to+TxDQYRLTKRESSc2hefVT48Zc8JthmN23Gx9lnYhu0FtkRSL1oxny3kJ2aveVhmOVA==}
     peerDependencies:
       eslint: '>=5.0.0'
 
@@ -3724,11 +3709,6 @@ packages:
     engines: {node: '>=18.12.0'}
     peerDependencies:
       tailwindcss: ^3.4.0
-
-  eslint-plugin-turbo@1.13.4:
-    resolution: {integrity: sha512-82GfMzrewI/DJB92Bbch239GWbGx4j1zvjk1lqb06lxIlMPnVwUHVwPbAnLfyLG3JuhLv9whxGkO/q1CL18JTg==}
-    peerDependencies:
-      eslint: '>6.6.0'
 
   eslint-scope@8.3.0:
     resolution: {integrity: sha512-pUNxi75F8MJ/GdeKtVLSbYg4ZI34J6C0C7sbL4YOp2exGwen7ZsuBqKzUhXd0qMQ362yET3z+uPwKeg/0C2XCQ==}
@@ -9941,8 +9921,6 @@ snapshots:
 
   dotenv-expand@10.0.0: {}
 
-  dotenv@16.0.3: {}
-
   dotenv@16.4.7: {}
 
   dunder-proto@1.0.1:
@@ -10190,11 +10168,6 @@ snapshots:
     dependencies:
       eslint: 9.25.0(jiti@1.21.7)
 
-  eslint-config-turbo@1.13.4(eslint@9.25.0(jiti@1.21.7)):
-    dependencies:
-      eslint: 9.25.0(jiti@1.21.7)
-      eslint-plugin-turbo: 1.13.4(eslint@9.25.0(jiti@1.21.7))
-
   eslint-import-resolver-node@0.3.9:
     dependencies:
       debug: 3.2.7
@@ -10311,7 +10284,7 @@ snapshots:
       string.prototype.matchall: 4.0.12
       string.prototype.repeat: 1.0.0
 
-  eslint-plugin-simple-import-sort@10.0.0(eslint@9.25.0(jiti@1.21.7)):
+  eslint-plugin-simple-import-sort@12.1.1(eslint@9.25.0(jiti@1.21.7)):
     dependencies:
       eslint: 9.25.0(jiti@1.21.7)
 
@@ -10330,11 +10303,6 @@ snapshots:
       fast-glob: 3.3.3
       postcss: 8.4.22
       tailwindcss: 3.4.17
-
-  eslint-plugin-turbo@1.13.4(eslint@9.25.0(jiti@1.21.7)):
-    dependencies:
-      dotenv: 16.0.3
-      eslint: 9.25.0(jiti@1.21.7)
 
   eslint-scope@8.3.0:
     dependencies:

@@ -1,6 +1,7 @@
 {
 	"name": "react-vite",
 	"version": "1.0.0",
+	"type": "module",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
@@ -11,7 +12,7 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"@sono-repo/prettier-config": "workspace:^",
+		"@sono-repo/eslint-config": "workspace:^",
 		"@sono-repo/tsconfig": "workspace:^",
 		"@sono-repo/ui": "workspace:^",
 		"@types/react": "18.2.12",
@@ -19,15 +20,14 @@
 		"@vitejs/plugin-react": "^4.2.1",
 		"eslint": "9.25.0",
 		"postcss": "8.4.22",
-		"prettier": "^2.8.7",
 		"tailwindcss": "^3.3.3",
 		"typescript": "5.3.2",
 		"vite": "^5.0.5"
 	},
 	"dependencies": {
-		"react": "^18.3.1",
-		"react-dom": "^18.2.0",
 		"@tanstack/react-query": "5.72.1",
-		"@tanstack/react-query-devtools": "5.72.1"
+		"@tanstack/react-query-devtools": "5.72.1",
+		"react": "^18.3.1",
+		"react-dom": "^18.2.0"
 	}
 }
