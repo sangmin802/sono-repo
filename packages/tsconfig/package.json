@@ -1,9 +1,10 @@
 {
-  "name": "@sono-repo/tsconfig",
-  "version": "0.0.0",
-  "private": true,
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@sono-repo/tsconfig",
+	"version": "0.0.0",
+	"type": "module",
+	"private": true,
+	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	}
 }

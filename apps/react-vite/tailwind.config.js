@@ -1,13 +1,14 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable max-len */
-const path = require('path');
+import path from 'path';
+
+import sonoRepoUiConfig from '@sono-repo/ui/config';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
 	content: [
+		// eslint-disable-next-line no-undef
 		path.join(path.dirname(require.resolve('@sono-repo/ui')), '**/*.{cjs,mjs}'),
 		'src/**/*.{js,ts,jsx,tsx}'
 	],
-	presets: [require('@sono-repo/ui/config')],
+	presets: [sonoRepoUiConfig],
 	theme: {}
 };

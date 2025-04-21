@@ -8,7 +8,6 @@ import Head from '@/app/head';
 import Header from '@/app/@component/header';
 import ClientModalRoot from '@/client-component/modal/client-modal-root';
 
-// import Modal from '@/client-componet/modal';
 import 'swiper/css';
 import '@/style/main.css';
 import ReactQueryProvider from '@/provider/react-query-provider';

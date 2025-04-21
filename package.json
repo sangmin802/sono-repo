@@ -1,31 +1,27 @@
 {
-  "name": "sono-repo",
-  "private": true,
-  "scripts": {
-    "lostark:dev": "turbo run dev --filter=lostark-hands-next",
-    "lostark:start": "turbo run start --filter=lostark-hands-next",
-    "lostark:build": "turbo run build --filter=lostark-hands-next",
-    "react-vite:dev": "turbo run dev --filter=react-vite",
-    "storybook:dev": "turbo run dev --filter=@sono-repo/ui",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
-  },
-  "devDependencies": {
-    "@changesets/cli": "^2.27.1",
-    "@sono-repo/prettier-config": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.58.0",
-    "@typescript-eslint/parser": "^5.58.0",
-    "eslint": "^8.38.0",
-    "eslint-config-next": "^13.3.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-config-sono-repo": "workspace:^",
-    "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.7",
-    "sono-repo-react-timer": "workspace:^",
-    "turbo": "^1.10.12",
-    "typescript": "5.3.2"
-  },
-  "packageManager": "pnpm@10.6.5",
-  "volta": {
-    "node": "20.8.0"
-  }
+	"name": "sono-repo",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"lostark:dev": "turbo run dev --filter=lostark-hands-next",
+		"lostark:start": "turbo run start --filter=lostark-hands-next",
+		"lostark:build": "turbo run build --filter=lostark-hands-next",
+		"react-vite:dev": "turbo run dev --filter=react-vite",
+		"storybook:dev": "turbo run dev --filter=@sono-repo/ui",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\""
+	},
+	"devDependencies": {
+		"@changesets/cli": "^2.27.1",
+		"@sono-repo/eslint-config": "workspace:*",
+		"@sono-repo/prettier-config": "workspace:*",
+		"eslint": "9.25.0",
+		"prettier": "3.5.3",
+		"sono-repo-react-timer": "workspace:*",
+		"turbo": "^2.5.0",
+		"typescript": "5.3.2"
+	},
+	"packageManager": "pnpm@10.6.5",
+	"volta": {
+		"node": "20.8.0"
+	}
 }
