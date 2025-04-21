@@ -1,16 +1,21 @@
-/**
- * migration guide to flat
- * @see {@link https://eslint.org/docs/latest/use/configure/migration-guide}
- */
-import { defineConfig } from "eslint/config";
+import { defineConfig } from 'eslint/config';
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
-
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
 /** @type { import("eslint").Linter.Config } */
 export default defineConfig([
 	eslint.configs.recommended,
 	tseslint.configs.recommended,
+	eslintConfigPrettier,
+	eslintPluginPrettierRecommended,
+	{
+		rules: {
+			'prettier/prettier': ['error', { endOfLine: 'auto' }],
+			'max-len': ['error', { code: 120 }]
+		}
+	}
 ]);
 
 // module.exports = {
