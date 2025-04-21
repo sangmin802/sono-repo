@@ -22,7 +22,8 @@ export default defineConfig([
 				{
 					fixStyle: 'separate-type-imports'
 				}
-			]
+			],
+			'@typescript-eslint/no-unused-expressions': ['off']
 		}
 	},
 	eslintConfigPrettier,

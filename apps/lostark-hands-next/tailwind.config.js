@@ -1,16 +1,18 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable max-len */
-const path = require('path');
+import path from 'path';
+
+import sonoRepoUiConfig from '@sono-repo/ui/config';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
 	content: [
+		// eslint-disable-next-line no-undef
 		path.join(path.dirname(require.resolve('@sono-repo/ui')), '**/*.{cjs,mjs}'),
 		'app/**/*.{js,ts,jsx,tsx}',
 		'client-component/**/*.{js,ts,jsx,tsx}',
 		'constant/**/*.{tsx,jsx,ts,js}'
 	],
-	presets: [require('@sono-repo/ui/config')],
+	presets: [sonoRepoUiConfig],
 	theme: {
 		extend: {
 			backgroundImage: {
@@ -22,6 +24,7 @@ module.exports = {
 				relic: 'linear-gradient(135deg, #341a09, #a24006)',
 				ancient: 'linear-gradient(135deg, #3d3325, #dcc999)',
 				esther: 'linear-gradient(135deg, #0c2e2c, #2faba8)',
+				// eslint-disable-next-line no-undef
 				collection: `url(${process.env.NEXT_PUBLIC_CDN_URL}/2018/obt/assets/images/pc/sprite/sprite_profile.png)`
 			},
 			// The higher the number, the brighter the color

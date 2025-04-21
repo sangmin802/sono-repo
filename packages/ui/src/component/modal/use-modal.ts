@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ComponentProps, ComponentType } from 'react';
 import { useSyncExternalStore } from 'react';
 
@@ -16,18 +18,18 @@ type ModalDefaultPropsKey = ResolveAction | RejectAction;
  * props가 모두 옵셔널한지
  */
 
-type IsOptional<T, K extends keyof T> = { [U in K]?: T[U] } extends Pick<T, K>
-	? true
-	: false;
+type IsOptional<T, K extends keyof T> =
+	{ [U in K]?: T[U] } extends Pick<T, K> ? true : false;
 
-type IsAllOptional<T> = Exclude<
-	{
-		[K in keyof T]: IsOptional<T, K>;
-	}[keyof T],
-	undefined
-> extends true
-	? true
-	: false;
+type IsAllOptional<T> =
+	Exclude<
+		{
+			[K in keyof T]: IsOptional<T, K>;
+		}[keyof T],
+		undefined
+	> extends true
+		? true
+		: false;
 
 /**
  * @description
@@ -38,9 +40,8 @@ type IsAllOptional<T> = Exclude<
  * props: {id?: number, name: string} --> props: {id?: number, name: string}
  * props: {id?: number, name?: string} --> props?: {id?: number, name?: string}
  */
-type AddPartialUtil<T, K extends keyof T> = IsAllOptional<T[K]> extends true
-	? Partial<T>
-	: T;
+type AddPartialUtil<T, K extends keyof T> =
+	IsAllOptional<T[K]> extends true ? Partial<T> : T;
 
 interface ModalDefaultProps {
 	onResolve: (...args: ResolveArguments) => void;
@@ -67,15 +68,15 @@ type ModalComponentArgs<ModalComponent extends ReactComponent> = keyof Omit<
 > extends never
 	? {
 			component: ComponentPropsGuard<ModalComponent>;
-	  }
+		}
 	: {
 			component: ComponentPropsGuard<ModalComponent>;
-	  } & AddPartialUtil<
+		} & AddPartialUtil<
 			{
 				props: Omit<ComponentProps<ModalComponent>, ModalDefaultPropsKey>;
 			},
 			'props'
-	  >;
+		>;
 
 /**
  * @description
@@ -87,10 +88,10 @@ type ContextProviderArgs<ContextProvider extends ReactComponent | undefined> =
 		? keyof Omit<ComponentProps<ContextProvider>, 'children'> extends never
 			? {
 					contextProvider: ContextProvider;
-			  }
+				}
 			: {
 					contextProvider: ContextProvider;
-			  } & AddPartialUtil<
+				} & AddPartialUtil<
 					{
 						contextProviderProps: Omit<
 							ComponentProps<ContextProvider>,
@@ -98,10 +99,10 @@ type ContextProviderArgs<ContextProvider extends ReactComponent | undefined> =
 						>;
 					},
 					'contextProviderProps'
-			  >
+				>
 		: {
 				contextProvider?: ContextProvider;
-		  };
+			};
 
 type CombinedConditionalArgs<
 	T extends ReactComponent,

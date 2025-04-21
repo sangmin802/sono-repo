@@ -55,7 +55,7 @@ const ModalLayout = ({
 		<Motion.div
 			className={cn(
 				'flex flex-col',
-				'h-full w-full rounded-[6px] bg-main-10 p-[16px]',
+				'size-full rounded-[6px] bg-main-10 p-[16px]',
 				'lg:h-auto lg:max-h-[660px] lg:w-[560px]',
 				'shadow-[2px_2px_8px_rgba(0,0,0,0.32)]',
 				className
