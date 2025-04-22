@@ -2,7 +2,7 @@
  * @see https://prettier.io/docs/configuration
  * @type {import("prettier").Config}
  */
-const config = {
+export default {
 	singleQuote: true,
 	semi: true,
 	useTabs: true,
@@ -12,6 +12,5 @@ const config = {
 	arrowParens: 'always',
 	singleAttributePerLine: true,
 	pluginSearchDirs: false
+	// plugins: [require('prettier-plugin-tailwindcss')]
 };
-
-export default config;

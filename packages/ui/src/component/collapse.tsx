@@ -120,9 +120,7 @@ const Summary = ({
 
 	return (
 		<div
-			className={
-				'flex w-full cursor-pointer items-center justify-between space-x-[6px] px-[4px]'
-			}
+			className="flex w-full cursor-pointer items-center justify-between space-x-[6px] px-[4px]"
 			onClick={handleToggleSummary}
 		>
 			<div className={cn('text-inherit', className)}>{children}</div>
