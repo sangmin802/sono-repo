@@ -74,5 +74,8 @@
 		"tailwindcss": "^4"
 	},
 	"readme": "ERROR: No README data found!",
-	"_id": "@sono-repo/ui@0.0.0"
+	"_id": "@sono-repo/ui@0.0.0",
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.4"
+	}
 }
