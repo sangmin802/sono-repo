@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/**
+	* 사용되지 않는 theme, utility는 빌드 결과물의 css에 포함되지 않음
+	*/
 @theme {
 	--color-black: #222;
 	--color-hello: green;

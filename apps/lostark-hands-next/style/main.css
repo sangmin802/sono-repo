@@ -3,14 +3,14 @@
 @import "@sono-repo/ui/style";
 
 @theme {
-  --color-linear-normal: 'linear-gradient(135deg, #232323, #575757)';
-  --color-linear-advanced: 'linear-gradient(135deg, #18220b, #304911)';
-  --color-linear-rare: 'linear-gradient(135deg, #111f2c, #113d5d)';
-  --color-linear-epic: 'linear-gradient(135deg, #261331, #480d5d)';
-  --color-linear-legendary: 'linear-gradient(135deg, #362003, #9e5f04)';
-  --color-linear-relic: 'linear-gradient(135deg, #341a09, #a24006)';
-  --color-linear-ancient: 'linear-gradient(135deg, #3d3325, #dcc999)';
-  --color-linear-esther: 'linear-gradient(135deg, #0c2e2c, #2faba8)';
+  --bg-linear-normal: linear-gradient(135deg, #232323, #575757);
+  --bg-linear-advanced: linear-gradient(135deg, #18220b, #304911);
+  --bg-linear-rare: linear-gradient(135deg, #111f2c, #113d5d);
+  --bg-linear-epic: linear-gradient(135deg, #261331, #480d5d);
+  --bg-linear-legendary: linear-gradient(135deg, #362003, #9e5f04);
+  --bg-linear-relic: linear-gradient(135deg, #341a09, #a24006);
+  --bg-linear-ancient: linear-gradient(135deg, #3d3325, #dcc999);
+  --bg-linear-esther: linear-gradient(135deg, #0c2e2c, #2faba8);
   
   --color-normal: #929292;
   --color-advanced: #74a33c;
@@ -21,6 +21,10 @@
   --color-ancient: #dcc999;
   --color-esther: #2faba8;
   --color-white: #efefef;
+}
+
+@utility bg-linear-* {
+  background-image: --value(--bg-linear-*);
 }
 
 @layer base {
