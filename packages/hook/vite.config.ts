@@ -9,7 +9,7 @@ export default defineConfig({
 		react(),
 		dts({
 			outDir: 'dist',
-			exclude: ['vite.config.mts']
+			exclude: ['vite.config.ts']
 		})
 	],
 	build: {

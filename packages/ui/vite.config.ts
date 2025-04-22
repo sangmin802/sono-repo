@@ -10,7 +10,7 @@ export default defineConfig({
 		react(),
 		dts({
 			outDir: 'dist',
-			exclude: ['vite.config.mts', '.storybook/**/*', 'src/stories/**/*']
+			exclude: ['vite.config.ts', '.storybook/**/*', 'src/stories/**/*']
 		}),
 		tailwindcss()
 	],
