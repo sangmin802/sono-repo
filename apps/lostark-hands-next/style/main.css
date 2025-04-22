@@ -1,6 +1,30 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css');
+@import "tailwindcss";
+@import "@sono-repo/ui/style";
 
-@tailwind base;
+@theme {
+  --color-normal-linear: 'linear-gradient(135deg, #232323, #575757)';
+  --color-advanced-linear: 'linear-gradient(135deg, #18220b, #304911)';
+  --color-rare-linear: 'linear-gradient(135deg, #111f2c, #113d5d)';
+  --color-epic-linear: 'linear-gradient(135deg, #261331, #480d5d)';
+  --color-legendary-linear: 'linear-gradient(135deg, #362003, #9e5f04)';
+  --color-relic-linear: 'linear-gradient(135deg, #341a09, #a24006)';
+  --color-ancient-linear: 'linear-gradient(135deg, #3d3325, #dcc999)';
+  --color-esther-linear: 'linear-gradient(135deg, #0c2e2c, #2faba8)';
+  
+  --color-collection: `url(${process.env.NEXT_PUBLIC_CDN_URL}/2018/obt/assets/images/pc/sprite/sprite_profile.png)`;
+
+  --color-normal: #929292;
+  --color-advanced: #74a33c;
+  --color-rare: #00b5ff;
+  --color-epic: #c200c2;
+  --color-legendary: #fb923c;
+  --color-relic: #ff6000;
+  --color-ancient: #dcc999;
+  --color-esther: #2faba8;
+  --color-white: #efefef;
+}
+
 @layer base {
   * :not(.dangerousHTML *) {
     @apply text-white;
@@ -17,5 +41,3 @@
   }
 }
 
-@tailwind components;
-@tailwind utilities;
