@@ -16,14 +16,14 @@ export const GRADE = {
 } as const;
 
 export const GRADE_BG_COLOR: Record<TGrade, string> = {
-	일반: 'bg-normal',
-	고급: 'bg-advanced',
-	희귀: 'bg-rare',
-	영웅: 'bg-epic',
-	전설: 'bg-legendary',
-	유물: 'bg-relic',
-	고대: 'bg-ancient',
-	에스더: 'bg-esther'
+	일반: 'bg-linear-normal',
+	고급: 'bg-linear-advanced',
+	희귀: 'bg-linear-rare',
+	영웅: 'bg-linear-epic',
+	전설: 'bg-linear-legendary',
+	유물: 'bg-linear-relic',
+	고대: 'bg-linear-ancient',
+	에스더: 'bg-linear-esther'
 };
 
 export const GOLD_ICON_URL = 'efui_iconatlas/money/money_4.png';

@@ -3,17 +3,15 @@
 @import "@sono-repo/ui/style";
 
 @theme {
-  --color-normal-linear: 'linear-gradient(135deg, #232323, #575757)';
-  --color-advanced-linear: 'linear-gradient(135deg, #18220b, #304911)';
-  --color-rare-linear: 'linear-gradient(135deg, #111f2c, #113d5d)';
-  --color-epic-linear: 'linear-gradient(135deg, #261331, #480d5d)';
-  --color-legendary-linear: 'linear-gradient(135deg, #362003, #9e5f04)';
-  --color-relic-linear: 'linear-gradient(135deg, #341a09, #a24006)';
-  --color-ancient-linear: 'linear-gradient(135deg, #3d3325, #dcc999)';
-  --color-esther-linear: 'linear-gradient(135deg, #0c2e2c, #2faba8)';
+  --color-linear-normal: 'linear-gradient(135deg, #232323, #575757)';
+  --color-linear-advanced: 'linear-gradient(135deg, #18220b, #304911)';
+  --color-linear-rare: 'linear-gradient(135deg, #111f2c, #113d5d)';
+  --color-linear-epic: 'linear-gradient(135deg, #261331, #480d5d)';
+  --color-linear-legendary: 'linear-gradient(135deg, #362003, #9e5f04)';
+  --color-linear-relic: 'linear-gradient(135deg, #341a09, #a24006)';
+  --color-linear-ancient: 'linear-gradient(135deg, #3d3325, #dcc999)';
+  --color-linear-esther: 'linear-gradient(135deg, #0c2e2c, #2faba8)';
   
-  --color-collection: `url(${process.env.NEXT_PUBLIC_CDN_URL}/2018/obt/assets/images/pc/sprite/sprite_profile.png)`;
-
   --color-normal: #929292;
   --color-advanced: #74a33c;
   --color-rare: #00b5ff;
