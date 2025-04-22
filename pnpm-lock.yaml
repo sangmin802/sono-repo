@@ -14,18 +14,15 @@ importers:
       '@sono-repo/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
-      '@sono-repo/prettier-config':
-        specifier: workspace:*
-        version: link:packages/prettier-config
       eslint:
         specifier: 9.25.0
         version: 9.25.0(jiti@2.4.2)
       prettier:
         specifier: 3.5.3
         version: 3.5.3
-      sono-repo-react-timer:
-        specifier: workspace:*
-        version: link:packages/timer
+      prettier-plugin-tailwindcss:
+        specifier: 0.6.11
+        version: 0.6.11(prettier@3.5.3)
       turbo:
         specifier: ^2.5.0
         version: 2.5.0
@@ -237,15 +234,6 @@ importers:
         specifier: ^3.6.4
         version: 3.9.1(@types/node@18.19.80)(rollup@4.36.0)(typescript@5.4.2)(vite@5.4.14(@types/node@18.19.80)(lightningcss@1.29.2)(terser@5.39.0))
 
-  packages/prettier-config:
-    devDependencies:
-      prettier:
-        specifier: 3.5.3
-        version: 3.5.3
-      prettier-plugin-tailwindcss:
-        specifier: ^0.6.11
-        version: 0.6.11(prettier@3.5.3)
-
   packages/timer:
     devDependencies:
       '@rollup/plugin-commonjs':
@@ -296,9 +284,6 @@ importers:
       '@sono-repo/hook':
         specifier: workspace:^
         version: link:../hook
-      '@sono-repo/prettier-config':
-        specifier: workspace:*
-        version: link:../prettier-config
       '@sono-repo/tsconfig':
         specifier: workspace:^
         version: link:../tsconfig

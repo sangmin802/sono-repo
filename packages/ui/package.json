@@ -41,7 +41,6 @@
 		"@rollup/plugin-node-resolve": "15.2.3",
 		"@sono-repo/eslint-config": "workspace:*",
 		"@sono-repo/hook": "workspace:^",
-		"@sono-repo/prettier-config": "workspace:*",
 		"@sono-repo/tsconfig": "workspace:^",
 		"@storybook/addon-essentials": "^7.4.2",
 		"@storybook/addon-interactions": "^7.4.2",
