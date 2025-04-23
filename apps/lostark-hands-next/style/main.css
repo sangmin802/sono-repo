@@ -4,14 +4,16 @@
 @import '@sono-repo/ui/style';
 
 @theme {
-	--bg-linear-normal: linear-gradient(135deg, #232323, #575757);
-	--bg-linear-advanced: linear-gradient(135deg, #18220b, #304911);
-	--bg-linear-rare: linear-gradient(135deg, #111f2c, #113d5d);
-	--bg-linear-epic: linear-gradient(135deg, #261331, #480d5d);
-	--bg-linear-legendary: linear-gradient(135deg, #362003, #9e5f04);
-	--bg-linear-relic: linear-gradient(135deg, #341a09, #a24006);
-	--bg-linear-ancient: linear-gradient(135deg, #3d3325, #dcc999);
-	--bg-linear-esther: linear-gradient(135deg, #0c2e2c, #2faba8);
+	--bg-image-normal: linear-gradient(135deg, #232323, #575757);
+	--bg-image-advanced: linear-gradient(135deg, #18220b, #304911);
+	--bg-image-rare: linear-gradient(135deg, #111f2c, #113d5d);
+	--bg-image-epic: linear-gradient(135deg, #261331, #480d5d);
+	--bg-image-legendary: linear-gradient(135deg, #362003, #9e5f04);
+	--bg-image-relic: linear-gradient(135deg, #341a09, #a24006);
+	--bg-image-ancient: linear-gradient(135deg, #3d3325, #dcc999);
+	--bg-image-esther: linear-gradient(135deg, #0c2e2c, #2faba8);
+
+	--bg-image-collection: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/sprite/sprite_profile.png);
 
 	--color-normal: #929292;
 	--color-advanced: #74a33c;
@@ -24,8 +26,8 @@
 	--color-white: #efefef;
 }
 
-@utility bg-linear-* {
-	background-image: --value(--bg-linear- *);
+@utility bg-image-* {
+	background-image: --value(--bg-image- *);
 }
 
 @layer base {

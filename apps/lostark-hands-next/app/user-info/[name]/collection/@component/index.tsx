@@ -10,7 +10,6 @@ import type { ICollectible, TCollectibleType } from '@/service/armories/types';
 import LabelLayout from '@/client-component/label-layout';
 import StickyElement from '@/client-component/sticky-element';
 
-import { CDN_URL } from '@/constant';
 import { COLLECTION_DESC } from '@/constant/collection';
 
 import { STICKY_NAV_STYLE } from './constants';
@@ -75,10 +74,7 @@ const Collection = ({ data }: ICollectionProps) => {
 						}}
 					>
 						<div
-							className={cn(
-								'h-[22px] w-[22px]',
-								`bg-[url(${CDN_URL}/2018/obt/assets/images/pc/sprite/sprite_profile.png)]`
-							)}
+							className="bg-image-collection h-[22px] w-[22px]"
 							style={{ ...bgPosition[item.type] }}
 						/>
 						<div>
