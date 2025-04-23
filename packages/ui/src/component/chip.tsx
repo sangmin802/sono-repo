@@ -2,9 +2,9 @@ import type { HTMLAttributes, ReactNode } from 'react';
 import cn from 'classnames';
 
 enum TChipType {
-	'primary' = 'bg-purple-500',
-	'info' = 'bg-gray-700',
-	'transparent' = 'bg-gray-950/50'
+	'primary' = 'ui:bg-purple-500',
+	'info' = 'ui:bg-gray-700',
+	'transparent' = 'ui:bg-gray-950/50'
 }
 
 interface IChipProps extends HTMLAttributes<HTMLDivElement> {
