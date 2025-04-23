@@ -47,7 +47,7 @@ const CommonEngrave = ({ data }: ICommonEngraveProps) => {
 								+{point} 각인서
 							</div>
 						)}
-						<div className={ENGRAVE_POINT_COLOR[Number(point) ?? 0]}>
+						<div className={ENGRAVE_POINT_COLOR[Number(point ?? 0)]}>
 							{name}
 						</div>
 					</div>

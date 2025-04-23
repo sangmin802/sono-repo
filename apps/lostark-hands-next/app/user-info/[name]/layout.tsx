@@ -16,13 +16,14 @@ import TabList from './@component/tab-list';
  * @see{@link https://nextjs.org/docs/app/building-your-application/caching#request-memoization}
  * @returns
  */
-const Layout = ({
+const Layout = async ({
 	children,
-	params: { name }
+	params
 }: {
 	children: ReactElement;
 	params: { name: string };
 }) => {
+	const { name } = await params;
 	return (
 		<div>
 			<ServerWrapper

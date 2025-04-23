@@ -24,7 +24,7 @@ const TabList = () => {
 			{tabList.map(({ name, path }) => (
 				<div
 					className={cn('cursor-pointer px-[16px] py-[4px] text-[16px]', {
-						'font-bold bg-main-20 rounded-t-[6px]': extraPath === path
+						'bg-main-20 rounded-t-[6px] font-bold': extraPath === path
 					})}
 					key={name}
 					onClick={() => router.push(`${basePath}/${path}`)}
