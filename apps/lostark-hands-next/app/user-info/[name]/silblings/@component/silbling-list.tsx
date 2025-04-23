@@ -28,7 +28,7 @@ const SilblingList = ({ list }: ISilblingListProps) => {
 			{list.map((info) => (
 				<div
 					className={cn(
-						'mr-[6px] flex w-[142px] cursor-pointer items-center space-x-[8px] pb-[12px]',
+						'mr-[6px] flex w-[142px] cursor-pointer items-center gap-x-[8px] pb-[12px]',
 						'md:mr-[16px] md:w-[160px]'
 					)}
 					key={info.characterName}

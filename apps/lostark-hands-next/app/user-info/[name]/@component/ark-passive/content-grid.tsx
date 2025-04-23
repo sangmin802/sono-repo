@@ -51,11 +51,11 @@ const ContentGrid = ({ title, group }: ContentGridProps) => {
 			>
 				{ARK_PASSIVE[title]}
 			</div>
-			<div className="my-[12px] space-y-[8px]">
+			<div className="my-[12px] flex flex-col gap-y-[8px]">
 				{group.map((item, idx) => (
 					<div
 						key={`${item.name}-${idx}`}
-						className="flex cursor-pointer items-center space-x-[8px]"
+						className="flex cursor-pointer items-center gap-x-[8px]"
 						onClick={() =>
 							handleClickArkPassive(item.description, item.icon, item.toolTip)
 						}

@@ -41,7 +41,7 @@ const ArkPassiveEngrave = ({ data }: IArkPassiveEffectsProps) => {
 						/>
 					</div>
 					<div className="ml-[8px]">
-						<div className="flex items-center space-x-2">
+						<div className="flex items-center gap-x-2">
 							<div
 								className={cn(
 									'text-[12px] leading-[12px]',

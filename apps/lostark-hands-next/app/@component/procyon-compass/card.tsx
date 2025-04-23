@@ -58,7 +58,7 @@ const ProcyonCompassCard = ({
 
 	return (
 		<div
-			className={cn('flex items-center space-x-[8px] [&_div]:text-[12px]', {
+			className={cn('flex items-center gap-x-[8px] [&_div]:text-[12px]', {
 				'cursor-pointer': isHasReward
 			})}
 			onClick={handleOpenRewardModal}
@@ -73,12 +73,12 @@ const ProcyonCompassCard = ({
 					as={NextImage}
 				/>
 			)}
-			<div className="flex space-x-[16px]">
+			<div className="flex gap-x-[16px]">
 				<div>{name}</div>
 				{name.replaceAll(' ', '') !== desc.replaceAll(' ', '') && (
 					<div className="text-gray-400">{desc}</div>
 				)}
-				<div className="flex shrink-0 space-x-[4px]">
+				<div className="flex shrink-0 gap-x-[4px]">
 					{rewardList.map(
 						({ name }) =>
 							uniqueReward[name] && (

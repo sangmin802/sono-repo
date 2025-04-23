@@ -17,11 +17,11 @@ const ThumbnailCard = ({
 }: IThumbnailCardProps & ComponentProps<typeof Thumbnail>) => {
 	return (
 		<div
-			className={cn('flex space-x-[6px]', { 'cursor-pointer': !!onClick })}
+			className={cn('flex gap-x-[6px]', { 'cursor-pointer': !!onClick })}
 			onClick={onClick}
 		>
 			<Thumbnail {...props} />
-			<div className="flex min-w-0 grow flex-col justify-center space-y-[2px]">
+			<div className="flex min-w-0 grow flex-col justify-center gap-y-[2px]">
 				{children}
 			</div>
 		</div>

@@ -12,11 +12,11 @@ const ArkPassiveSkeleton = () => (
 						type="LIGHT"
 						className="h-[21px] w-[60px]"
 					/>
-					<div className="my-[12px] space-y-[8px]">
+					<div className="my-[12px] flex flex-col gap-y-[8px]">
 						{Array.from({ length: 6 }).map((item, idx) => (
 							<div
 								key={`grid-${idx}`}
-								className="flex cursor-pointer items-center space-x-[8px]"
+								className="flex cursor-pointer items-center gap-x-[8px]"
 							>
 								<Skeleton
 									type="LIGHT"

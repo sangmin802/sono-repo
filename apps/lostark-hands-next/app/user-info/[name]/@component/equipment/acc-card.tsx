@@ -17,7 +17,7 @@ const AccCard = ({ onClick, ...item }: IEquipCardProps) => {
 		>
 			{item.name && (
 				<>
-					<div className="flex space-x-[8px]">
+					<div className="flex gap-x-[8px]">
 						<QualityChip size={item.quality} />
 						<GradeText
 							className="text-[12px]"
@@ -26,7 +26,7 @@ const AccCard = ({ onClick, ...item }: IEquipCardProps) => {
 							{item.type}
 						</GradeText>
 					</div>
-					<div className="flex space-x-[8px]">
+					<div className="flex gap-x-[8px]">
 						{item.polishingEffect &&
 							item.polishingEffect.map((value) => (
 								<GradeText

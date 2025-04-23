@@ -38,7 +38,7 @@ const CardItem = (item: ICard) => {
 			<div
 				className={cn(
 					'absolute bottom-[4px] flex h-[12%] w-full justify-center',
-					'space-x-[4px]'
+					'gap-x-[4px]'
 				)}
 			>
 				{Array.from({ length: item.awakeTotal }, (_, idx) => idx).map((idx) => (

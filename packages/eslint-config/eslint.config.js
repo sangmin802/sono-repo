@@ -48,7 +48,7 @@ export default defineConfig([
 	eslintPluginPrettierRecommended,
 	{
 		rules: {
-			'max-len': ['error', { code: 120 }],
+			'max-len': ['error', { code: 180 }],
 			'prettier/prettier': ['error', { endOfLine: 'auto' }]
 		}
 	},

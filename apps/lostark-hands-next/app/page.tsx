@@ -41,7 +41,7 @@ export const revalidate = 300;
 
 const Page = () => {
 	return (
-		<div className="space-y-[16px] px-[16px] pb-[16px]">
+		<div className="flex flex-col gap-y-[16px] px-[16px] pb-[16px]">
 			<ServerWrapper
 				fallback={<ProcyonCompassSkeleton />}
 				apiPromise={getCalendarApi()}

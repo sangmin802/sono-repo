@@ -47,7 +47,7 @@ const Gem = ({ data }: IGemProps) => {
 			>
 				{minifiedData?.map(({ icon, name, grade, level, size }, idx) => (
 					<div
-						className="flex w-[100px] items-center space-x-[8px] pb-[8px]"
+						className="flex w-[100px] items-center gap-x-[8px] pb-[8px]"
 						key={idx}
 					>
 						<Thumbnail

@@ -5,7 +5,7 @@ import Skeleton from '@/client-component/skeleton';
 
 const EngravesSkeleton = () => (
 	<LabelLayoutSkeleton as="aside">
-		<div className="space-y-[6px]">
+		<div className="flex flex-col gap-y-[6px]">
 			{Array.from({ length: Math.random() * 5 + 1 }).map((_, idx) => (
 				<div
 					key={idx}

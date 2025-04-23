@@ -3,10 +3,10 @@ import Skeleton from '@/client-component/skeleton';
 
 const GemSkeleton = () => (
 	<LabelLayoutSkeleton as="section">
-		<div className="flex flex-wrap space-x-[16px]">
+		<div className="flex flex-wrap gap-x-[16px]">
 			{Array.from({ length: Math.random() * 2 + 1 }).map((_, idx) => (
 				<div
-					className="flex items-center space-x-[8px]"
+					className="flex items-center gap-x-[8px]"
 					key={idx}
 				>
 					<Skeleton

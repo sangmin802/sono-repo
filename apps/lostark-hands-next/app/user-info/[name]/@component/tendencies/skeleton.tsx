@@ -4,7 +4,7 @@ const TendenciesSkeleton = () => (
 	<Skeleton className="grid grid-cols-2 gap-[6px] p-[8px]">
 		{Array.from({ length: 4 }).map((_, idx) => (
 			<div
-				className="flex items-center space-x-[4px]"
+				className="flex items-center gap-x-[4px]"
 				key={idx}
 			>
 				<Skeleton

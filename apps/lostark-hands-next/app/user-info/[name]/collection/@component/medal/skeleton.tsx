@@ -3,7 +3,7 @@ import ThumbnailCardSkeleton from '@/client-component/thumbnail-card/skeleton';
 
 const CollectionMedalSkeleton = () => (
 	<LabelLayoutSkeleton className="my-[16px] lg:my-0">
-		<div className="space-y-[8px]">
+		<div className="flex flex-col gap-y-[8px]">
 			{Array.from({ length: 2 }).map((_, idx) => (
 				<ThumbnailCardSkeleton
 					className="h-[40px] w-[40px]"

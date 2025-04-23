@@ -23,11 +23,11 @@ const DescListModal = ({ title, list }: DescListModalProps) => {
 		<ModalLayout
 			title={title}
 			confirm={{ show: true }}
-			containerClassName="space-y-[12px]"
+			containerClassName="flex flex-col gap-y-[12px]"
 		>
 			{list.map(({ title, afterTitle, desc, icon }, idx) => (
 				<div key={idx}>
-					<div className="flex items-center space-x-[4px]">
+					<div className="flex items-center gap-x-[4px]">
 						{icon && (
 							<Image
 								as={NextImage}

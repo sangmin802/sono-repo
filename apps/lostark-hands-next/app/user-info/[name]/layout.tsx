@@ -30,7 +30,7 @@ const Layout = ({
 				apiPromise={getProfileInfoApi(name)}
 				render={Profile}
 			/>
-			<div className="space-y-[12px] p-[16px]">
+			<div className="flex flex-col gap-y-[12px] p-[16px]">
 				<TabList />
 				{children}
 			</div>

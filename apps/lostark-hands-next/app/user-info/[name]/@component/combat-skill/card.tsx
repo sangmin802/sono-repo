@@ -25,17 +25,17 @@ const SkillCard = (item: Exclude<TData, null>[0]) => {
 
 	return (
 		<div
-			className="flex cursor-pointer flex-col space-y-[4px]"
+			className="flex cursor-pointer flex-col gap-y-[4px]"
 			key={item.name}
 			onClick={handleOpenSkillModal}
 		>
-			<div className="flex items-center space-x-[4px]">
+			<div className="flex items-center gap-x-[4px]">
 				<div>{item.name}</div>
 				{item.rune && (
 					<GradeText grade={item.rune.grade}>{item.rune.name}</GradeText>
 				)}
 			</div>
-			<div className="flex items-center space-x-[12px]">
+			<div className="flex items-center gap-x-[12px]">
 				<Thumbnail
 					className="h-[50px] w-[50px]"
 					src={item.icon}
@@ -45,7 +45,7 @@ const SkillCard = (item: Exclude<TData, null>[0]) => {
 				<div className="min-w-0 grow">
 					{item.tripods.map(({ name, level }, idx) => (
 						<div
-							className="flex space-x-[8px]"
+							className="flex gap-x-[8px]"
 							key={idx}
 						>
 							<div

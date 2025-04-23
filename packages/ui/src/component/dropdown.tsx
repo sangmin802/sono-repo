@@ -87,7 +87,7 @@ const DropDown = ({
 			{open && (
 				<div
 					className={cn(
-						'space-y-[4px] rounded-[4px] p-[4px]',
+						'flex flex-col gap-y-[4px] rounded-[4px] p-[4px]',
 						dropdownClassName
 					)}
 					style={{ ...styles.popper, width }}

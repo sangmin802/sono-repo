@@ -73,7 +73,7 @@ const ModalLayout = ({
 			>
 				{children}
 			</div>
-			<div className="flex items-center justify-center space-x-[8px] pt-[12px] lg:justify-end">
+			<div className="flex items-center justify-center gap-x-[8px] pt-[12px] lg:justify-end">
 				{cancel?.show && (
 					<Button
 						className={cn('bg-main-20', buttonStyle, cancel.className)}

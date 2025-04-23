@@ -32,7 +32,7 @@ const CollectionMedal = ({ data }: IMedalProps) => {
 			className="my-[16px] h-fit shrink-0 lg:my-0"
 			label="수집품 보상"
 		>
-			<div className="space-y-[8px]">
+			<div className="flex flex-col gap-y-[8px]">
 				{data.col?.map((item, idx) => (
 					<ThumbnailCard
 						key={idx}

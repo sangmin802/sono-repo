@@ -51,7 +51,7 @@ const EngraveCollapse = ({ data }: IEngravesProps) => {
 		>
 			<LabelLayout
 				label={
-					<Collapse.Summary className="flex space-x-[4px]">
+					<Collapse.Summary className="flex gap-x-[4px]">
 						{engraveData?.map(({ name }) => (
 							<Image
 								as={NextImage}
@@ -71,7 +71,7 @@ const EngraveCollapse = ({ data }: IEngravesProps) => {
 				empty={{ status: !data, fallback: '설정된 각인이 없습니다.' }}
 			>
 				<Collapse.Content
-					className="space-y-[6px] pt-0"
+					className="flex flex-col gap-y-[6px] pt-0"
 					onClick={handleOpenModal}
 				>
 					{isArkPassive ? (

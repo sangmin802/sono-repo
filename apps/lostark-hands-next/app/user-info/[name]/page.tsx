@@ -43,8 +43,8 @@ import TendenciesSkeleton from './@component/tendencies/skeleton';
 
 const Page = ({ params: { name } }: { params: { name: string } }) => {
 	return (
-		<div className="space-y-[16px] md:flex md:space-x-[16px] md:space-y-0">
-			<div className="w-full space-y-[12px] md:w-[240px] md:shrink-0">
+		<div className="flex flex-col gap-y-[16px] md:flex-row md:gap-x-[16px] md:gap-y-0">
+			<div className="flex w-full flex-col gap-y-[12px] md:w-[240px] md:shrink-0">
 				<ServerWrapper
 					fallback={<StatsSkeleton />}
 					apiPromise={getProfileInfoApi(name)}
@@ -64,7 +64,7 @@ const Page = ({ params: { name } }: { params: { name: string } }) => {
 					render={Tendencies}
 				/>
 			</div>
-			<div className="w-full space-y-[16px] md:w-auto md:grow">
+			<div className="flex w-full flex-col gap-y-[16px] md:w-auto md:grow">
 				<ServerWrapper
 					fallback={<EquipmentSkeleton />}
 					apiPromise={getEquipmentApi(name)}

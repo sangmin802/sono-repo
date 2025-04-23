@@ -59,7 +59,7 @@ const Header = () => {
 						로아 핸즈
 					</div>
 				</div>
-				<div className="flex items-center space-x-[16px]">
+				<div className="flex items-center gap-x-[16px]">
 					<RiAuctionLine
 						className="size-[24px] translate-y-[4px] cursor-pointer"
 						onClick={handleMoveMarkets}
