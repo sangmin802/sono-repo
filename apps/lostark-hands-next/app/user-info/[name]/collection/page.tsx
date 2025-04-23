@@ -8,7 +8,8 @@ import CollectionMedal from './@component/medal';
 import CollectionMedalSkeleton from './@component/medal/skeleton';
 import CollectionSkeleton from './@component/skeleton';
 
-const Page = ({ params: { name } }: { params: { name: string } }) => {
+const Page = async ({ params }: { params: { name: string } }) => {
+	const { name } = await params;
 	return (
 		<div className="flex flex-col-reverse lg:flex-row lg:gap-x-[16px]">
 			<ServerWrapper

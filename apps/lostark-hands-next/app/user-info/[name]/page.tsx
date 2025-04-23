@@ -41,7 +41,8 @@ import StatsSkeleton from './@component/stats/skeleton';
 import Tendencies from './@component/tendencies';
 import TendenciesSkeleton from './@component/tendencies/skeleton';
 
-const Page = ({ params: { name } }: { params: { name: string } }) => {
+const Page = async ({ params }: { params: { name: string } }) => {
+	const { name } = await params;
 	return (
 		<div className="flex flex-col gap-y-[16px] md:flex-row md:gap-x-[16px] md:gap-y-0">
 			<div className="flex w-full flex-col gap-y-[12px] md:w-[240px] md:shrink-0">

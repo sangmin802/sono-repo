@@ -6,7 +6,8 @@ import { sliblingListSelector } from '@/service/characters/selector';
 import Silblings from './@component';
 import SilblingsSkeleton from './@component/skeleton';
 
-const Page = ({ params: { name } }: { params: { name: string } }) => {
+const Page = async ({ params }: { params: { name: string } }) => {
+	const { name } = await params;
 	return (
 		<ServerWrapper
 			fallback={<SilblingsSkeleton />}
