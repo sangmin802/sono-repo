@@ -36,7 +36,7 @@ const Header = () => {
 
 	return (
 		<StickyElement
-			className="z-[90] bg-main-10 before:absolute before:inset-0 before:z-[-1]"
+			className="bg-main-10 z-[90] before:absolute before:inset-0 before:z-[-1]"
 			activeClassName={cn(
 				'bg-transparent shadow-[0px_10px_10px_rgba(0,0,0,.3)] before:backdrop-blur-[26px]'
 			)}
