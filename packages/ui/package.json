@@ -31,7 +31,7 @@
 			"import": "./dist/fast-food/index.mjs",
 			"types": "./dist/fast-food/index.d.ts"
 		},
-		"./style": "./dist/style.css"
+		"./theme": "./src/style/theme.css"
 	},
 	"files": [
 		"dist/**/*"

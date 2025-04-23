@@ -1,6 +1,6 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css');
 @import "tailwindcss";
-@import "@sono-repo/ui/style";
+@import "@sono-repo/ui/theme";
 
 @theme {
   --bg-linear-normal: linear-gradient(135deg, #232323, #575757);
