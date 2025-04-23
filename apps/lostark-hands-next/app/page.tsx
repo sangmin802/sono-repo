@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 import { getCalendarApi } from '@/service/game-contents';
 import { calendarSelector } from '@/service/game-contents/selector';
 import { getEventApi, getNoticeApi } from '@/service/news';
