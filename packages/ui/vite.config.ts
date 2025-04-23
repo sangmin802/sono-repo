@@ -1,4 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve';
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
@@ -9,13 +10,15 @@ export default defineConfig({
 		react(),
 		dts({
 			outDir: 'dist',
-			exclude: ['vite.config.mts', '.storybook/**/*', 'src/stories/**/*']
-		})
+			exclude: ['vite.config.ts', '.storybook/**/*', 'src/stories/**/*']
+		}),
+		tailwindcss()
 	],
 	define: {
 		outerEnv: 'process.env'
 	},
 	build: {
+		minify: false,
 		lib: {
 			entry: {
 				/**

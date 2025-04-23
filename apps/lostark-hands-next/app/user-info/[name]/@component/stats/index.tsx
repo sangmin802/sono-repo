@@ -48,10 +48,10 @@ const Stats = ({ data: { stats: initStats } }: IStatsProps) => {
 		>
 			<LabelLayout
 				label={
-					<Collapse.Summary className="flex items-center space-x-[8px]">
+					<Collapse.Summary className="flex items-center gap-x-[8px]">
 						{mainStats.map(({ type, value }) => (
 							<div
-								className="flex items-center space-x-[4px]"
+								className="flex items-center gap-x-[4px]"
 								key={type}
 							>
 								<Label>{type}</Label>
@@ -67,11 +67,11 @@ const Stats = ({ data: { stats: initStats } }: IStatsProps) => {
 					onClick={handleOpenModal}
 				>
 					<div className="grid grid-cols-2 gap-[8px]">
-						<div className="space-y-[4px] text-center">
+						<div className="flex flex-col gap-y-[4px] text-center">
 							<Label>{power.type}</Label>
 							<div>{power.value}</div>
 						</div>
-						<div className="space-y-[4px] text-center">
+						<div className="flex flex-col gap-y-[4px] text-center">
 							<Label>{healty.type}</Label>
 							<div>{healty.value}</div>
 						</div>
@@ -79,7 +79,7 @@ const Stats = ({ data: { stats: initStats } }: IStatsProps) => {
 					<div className="mt-[12px] grid grid-cols-2 gap-[6px]">
 						{stats.map(({ type, value }) => (
 							<div
-								className="flex items-center space-x-[4px]"
+								className="flex items-center gap-x-[4px]"
 								key={type}
 							>
 								<Label>{type}</Label>

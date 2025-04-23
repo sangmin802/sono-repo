@@ -6,7 +6,7 @@ const IndentStringGroup = ({ value }: TElement['IndentStringGroup']) => {
 	const arr = Object.values(value ?? {});
 
 	return (
-		<div className="space-y-[16px]">
+		<div className="flex flex-col gap-y-[16px]">
 			{arr.map(({ contentStr, topStr }) => (
 				<div
 					className="text-[12px] [&_*]:text-[12px]"

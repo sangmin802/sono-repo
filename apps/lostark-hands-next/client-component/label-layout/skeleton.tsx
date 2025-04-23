@@ -15,14 +15,14 @@ const LabelLayoutSkeleton = <T extends ElementType>({
 	return (
 		<Tag
 			className={cn(
-				'animate-pulse rounded-[6px] bg-main-20 px-[8px] py-[12px]',
+				'bg-main-20 animate-pulse rounded-[6px] px-[8px] py-[12px]',
 				className
 			)}
 		>
-			<div className="mb-[16px] flex items-end space-x-[16px] border-b border-[#7f7f7f] pb-[6px] leading-[16px]">
+			<div className="mb-[16px] flex items-end gap-x-[16px] border-b border-[#7f7f7f] pb-[6px] leading-[16px]">
 				<div
 					style={{ width: Math.random() * 20 + 50 }}
-					className="h-[16px] animate-pulse rounded-[2px] bg-main-30"
+					className="bg-main-30 h-[16px] animate-pulse rounded-[2px]"
 				/>
 			</div>
 			{children}

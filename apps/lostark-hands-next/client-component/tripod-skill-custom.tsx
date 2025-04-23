@@ -12,10 +12,10 @@ const TripodSkillCustom = ({ value }: TElement['TripodSkillCustom']) => {
 	const arr = Object.values(value ?? {});
 
 	return (
-		<div className="space-y-[12px]">
+		<div className="flex flex-col gap-y-[12px]">
 			{arr.map(({ name, tier, desc, slotData: { iconPath } }, idx) => (
 				<div
-					className="flex space-x-[8px]"
+					className="flex gap-x-[8px]"
 					key={idx}
 				>
 					<Image
@@ -27,7 +27,7 @@ const TripodSkillCustom = ({ value }: TElement['TripodSkillCustom']) => {
 						src={iconPath}
 					/>
 					<div className="[&_*]:text-[12px]">
-						<div className="flex space-x-[4px]">
+						<div className="flex gap-x-[4px]">
 							<DangerousHTML html={tier} />
 							<DangerousHTML html={name} />
 						</div>

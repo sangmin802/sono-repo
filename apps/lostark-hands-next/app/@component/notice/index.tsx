@@ -28,7 +28,7 @@ const Notice = ({ data: [noticeData, storeData] }: INoticeProps) => {
 					className="min-w-0 grow basis-0"
 					label={key}
 				>
-					<div className="space-y-[4px]">
+					<div className="flex flex-col gap-y-[4px]">
 						{postList.slice(0, 10).map((item, idx) => (
 							<MessagePost
 								key={idx}

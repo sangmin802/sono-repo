@@ -22,7 +22,7 @@ const SearchFilter = ({
 	};
 
 	return (
-		<div className="flex items-end space-x-[8px] px-[4px]">
+		<div className="flex items-end gap-x-[8px] px-[4px]">
 			<div className="shrink-0 text-[16px] leading-[29px]">{name}</div>
 			<Input
 				className="grow bg-transparent font-semibold"

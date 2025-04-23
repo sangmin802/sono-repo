@@ -64,7 +64,7 @@ const Equipment = ({ data: { equip, acc } }: IEquipmentProps) => {
 					{accGrid.map((num, idx) => (
 						<div
 							key={idx}
-							className="flex flex-col space-y-[8px]"
+							className="flex flex-col gap-y-[8px]"
 						>
 							{acc.slice(...num).map((item, idx) => (
 								<AccCard

@@ -21,10 +21,10 @@ const Silblings = ({ data }: ISilbingsProps) => {
 				fallback: '생성된 원정대 캐릭터가 없습니다.'
 			}}
 		>
-			<div className="space-y-[24px]">
+			<div className="flex flex-col gap-y-[24px]">
 				{data?.map(({ server, list }) => (
 					<div
-						className="rounded-[6px] bg-main-10 p-[8px]"
+						className="bg-main-10 rounded-[6px] p-[8px]"
 						key={server}
 					>
 						<Label className="mb-[12px] w-fit">{server}</Label>

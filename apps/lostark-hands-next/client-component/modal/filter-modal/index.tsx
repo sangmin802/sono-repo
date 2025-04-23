@@ -73,7 +73,7 @@ const FilterModal = ({
 	return (
 		<ModalLayout
 			title={title}
-			containerClassName="space-y-[8px]"
+			containerClassName="flex flex-col gap-y-[8px]"
 			confirm={{ show: true, onClick: () => onResolve(filter) }}
 		>
 			<Button onClick={handleReset}>초기화</Button>

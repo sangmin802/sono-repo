@@ -2,7 +2,10 @@ import eslint from '@eslint/js';
 import { defineConfig } from 'eslint/config';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import eslintPluginReact from 'eslint-plugin-react';
+import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 /**
@@ -13,6 +16,21 @@ import tseslint from 'typescript-eslint';
 
 /** @type { import("eslint").Linter.Config } */
 export default defineConfig([
+	{
+		languageOptions: {
+			ecmaVersion: 'latest',
+			sourceType: 'module',
+			globals: {
+				...globals.browser,
+				...globals.node
+			},
+			parserOptions: {
+				ecmaFeatures: {
+					jsx: true
+				}
+			}
+		}
+	},
 	eslint.configs.recommended,
 	tseslint.configs.recommended,
 	{
@@ -30,10 +48,17 @@ export default defineConfig([
 	eslintPluginPrettierRecommended,
 	{
 		rules: {
-			'max-len': ['error', { code: 120 }],
+			'max-len': ['error', { code: 180 }],
 			'prettier/prettier': ['error', { endOfLine: 'auto' }]
 		}
 	},
+	eslintPluginReact.configs.flat.recommended,
+	{
+		rules: {
+			'react/react-in-jsx-scope': 'off'
+		}
+	},
+	eslintPluginReactHooks.configs['recommended-latest'],
 	{
 		plugins: {
 			'simple-import-sort': simpleImportSort

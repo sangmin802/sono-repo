@@ -6,7 +6,7 @@ import Search from '@/app/markets/@component';
 
 const Page = () => {
 	return (
-		<div className="space-y-[16px] px-[16px] pb-[16px]">
+		<div className="flex flex-col gap-y-[16px] px-[16px] pb-[16px]">
 			<ServerWrapper
 				apiPromise={getOptionsApi()}
 				render={Search}

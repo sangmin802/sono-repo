@@ -22,7 +22,7 @@ const ArmoryCard = ({ onClick, ...item }: IEquipCardProps) => {
 		>
 			{item.name && (
 				<>
-					<div className="flex space-x-[8px]">
+					<div className="flex gap-x-[8px]">
 						<GradeText
 							className="text-[12px]"
 							grade={item.grade}
@@ -38,7 +38,7 @@ const ArmoryCard = ({ onClick, ...item }: IEquipCardProps) => {
 						</GradeText>
 						<QualityChip size={item.quality} />
 					</div>
-					<div className="flex items-center space-x-[6px]">
+					<div className="flex items-center gap-x-[6px]">
 						{item.elixir && <Elixir data={item.elixir} />}
 						{item.transcendence && <Transcendence {...item.transcendence} />}
 					</div>

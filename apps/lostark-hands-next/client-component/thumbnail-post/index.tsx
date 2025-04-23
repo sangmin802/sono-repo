@@ -41,7 +41,7 @@ const ThumbnailPost = ({
 				height={67}
 				priority
 			/>
-			<div className="mt-[12px] space-y-[4px]">
+			<div className="mt-[12px] flex flex-col gap-y-[4px]">
 				<div className="truncate leading-[16px]">{title}</div>
 				<div className="truncate leading-[16px]">{date}</div>
 			</div>

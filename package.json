@@ -13,10 +13,9 @@
 	"devDependencies": {
 		"@changesets/cli": "^2.27.1",
 		"@sono-repo/eslint-config": "workspace:*",
-		"@sono-repo/prettier-config": "workspace:*",
 		"eslint": "9.25.0",
 		"prettier": "3.5.3",
-		"sono-repo-react-timer": "workspace:*",
+		"prettier-plugin-tailwindcss": "0.6.11",
 		"turbo": "^2.5.0",
 		"typescript": "5.3.2"
 	},

@@ -22,10 +22,10 @@ const CombatSkill = ({ data }: ICombatSkillProps) => {
 		>
 			<LabelLayout
 				label={
-					<Collapse.Summary className="flex space-x-[16px]">
+					<Collapse.Summary className="flex gap-x-[16px]">
 						<div>스킬</div>
 						{data && (
-							<div className="flex space-x-[8px]">
+							<div className="flex gap-x-[8px]">
 								<Chip type="info">부위파괴 {destory}</Chip>
 								<Chip type="info">카운터 {counter}</Chip>
 							</div>

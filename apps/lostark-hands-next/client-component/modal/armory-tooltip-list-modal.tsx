@@ -22,7 +22,7 @@ interface ArmoryTooltipListModalProps extends ModalProps {
 const ArmoryTooltipListModal = ({ list }: ArmoryTooltipListModalProps) => {
 	return (
 		<ModalLayout confirm={{ show: true }}>
-			<div className="space-y-[12px]">
+			<div className="flex flex-col gap-y-[12px]">
 				{list.map(({ icon, name, grade, tooltip }, idx) => (
 					<div
 						className="flex flex-col justify-center"
@@ -34,7 +34,7 @@ const ArmoryTooltipListModal = ({ list }: ArmoryTooltipListModalProps) => {
 						>
 							{name}
 						</GradeText>
-						<div className="flex space-x-[8px]">
+						<div className="flex gap-x-[8px]">
 							<Thumbnail
 								className="h-[40px] w-[40px]"
 								src={icon}

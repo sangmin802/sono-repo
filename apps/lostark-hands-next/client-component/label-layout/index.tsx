@@ -30,10 +30,10 @@ const LabelLayout = <T extends ElementType>({
 
 	return (
 		<Tag
-			className={cn('rounded-[6px] bg-main-20 px-[8px] py-[12px]', className)}
+			className={cn('bg-main-20 rounded-[6px] px-[8px] py-[12px]', className)}
 			{...props}
 		>
-			<div className="mb-[16px] flex items-end space-x-[16px] border-b border-[#7f7f7f] pb-[6px] leading-[16px]">
+			<div className="mb-[16px] flex items-end gap-x-[16px] border-b border-[#7f7f7f] pb-[6px] leading-[16px]">
 				{label}
 			</div>
 			<DataEmptyFunnel

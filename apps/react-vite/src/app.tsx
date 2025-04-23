@@ -4,7 +4,7 @@ import SuspenseQueryChild from './components/suspense-query-child';
 
 const App = () => {
 	return (
-		<div>
+		<div className="bg-hello test-one-30 test-five-19">
 			App
 			<Suspense fallback={<div>Loading...</div>}>
 				<SuspenseQueryChild index={1} />

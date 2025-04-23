@@ -22,8 +22,8 @@ const Profile = ({ data }: IProfileProps) => {
 	return (
 		<div className="relative h-[240px] overflow-hidden md:h-[360px]">
 			<div className="absolute z-[4] flex h-full flex-col justify-center">
-				<div className="space-y-[8px] px-[16px] md:space-y-[16px]">
-					<div className="flex space-x-[8px]">
+				<div className="flex flex-col gap-y-[8px] px-[16px] md:gap-y-[16px]">
+					<div className="flex gap-x-[8px]">
 						{data.serverName && (
 							<Label className={TEXT_STYLE}>{data.serverName}</Label>
 						)}
@@ -41,7 +41,7 @@ const Profile = ({ data }: IProfileProps) => {
 							{data.characterName}
 						</div>
 					</div>
-					<div className="space-y-[6px]">
+					<div className="flex flex-col gap-y-[6px]">
 						<div className="flex items-center">
 							<Label className={TEXT_STYLE}>길드</Label>
 							<div className="ml-[4px] text-[12px] md:text-[16px]">
@@ -63,7 +63,7 @@ const Profile = ({ data }: IProfileProps) => {
 							</div>
 						</div>
 					</div>
-					<div className="flex space-x-[10px] [&_div]:font-bold">
+					<div className="flex gap-x-[10px] [&_div]:font-bold">
 						<LevelInfo label="전투">{data.characterLevel ?? 0}</LevelInfo>
 						<LevelInfo label="아이템">{data.itemMaxLevel ?? '0.00'}</LevelInfo>
 						<LevelInfo label="원정대">{data.expeditionLevel ?? 0}</LevelInfo>
@@ -74,7 +74,7 @@ const Profile = ({ data }: IProfileProps) => {
 				<div
 					className={cn(
 						'absolute right-0 z-[1] w-[240px] md:w-[360px]',
-						'pointer-events-none select-none bg-main-10'
+						'bg-main-10 pointer-events-none select-none'
 					)}
 				>
 					<Image
@@ -88,7 +88,7 @@ const Profile = ({ data }: IProfileProps) => {
 					<div
 						className={cn(
 							'absolute left-0 top-0 z-[2] h-[300px] w-[10%]',
-							'bg-gradient-to-r from-main-10 from-20% to-transparent'
+							'from-main-10 bg-gradient-to-r from-20% to-transparent'
 						)}
 					/>
 				</div>
@@ -96,7 +96,7 @@ const Profile = ({ data }: IProfileProps) => {
 			<div
 				className={cn(
 					'absolute bottom-0 right-0 z-[3] h-[10%] w-[240px] md:right-0 md:w-[360px]',
-					'bg-gradient-to-t from-main-10 from-20% to-transparent'
+					'from-main-10 bg-gradient-to-t from-20% to-transparent'
 				)}
 			/>
 		</div>
