@@ -9,7 +9,7 @@ const Button = ({
 	return (
 		<button
 			className={cn(
-				'flex cursor-pointer items-center justify-center',
+				'ui:flex ui:cursor-pointer ui:items-center ui:justify-center',
 				className
 			)}
 			{...props}

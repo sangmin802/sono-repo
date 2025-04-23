@@ -1,3 +1,3 @@
-@import "tailwindcss";
-@import "@sono-repo/ui/theme";
-@import "@sono-repo/ui/style";
+@import 'tailwindcss';
+@import '@sono-repo/ui/theme';
+@import '@sono-repo/ui/style';

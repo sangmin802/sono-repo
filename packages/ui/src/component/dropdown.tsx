@@ -77,7 +77,7 @@ const DropDown = ({
 	return (
 		<>
 			<button
-				className={cn('px-[4px] text-left', buttonClassName)}
+				className={cn('ui:px-[4px] ui:text-left', buttonClassName)}
 				style={{ width }}
 				ref={setButton}
 				onClick={handleClickButton}
@@ -87,7 +87,7 @@ const DropDown = ({
 			{open && (
 				<div
 					className={cn(
-						'flex flex-col gap-y-[4px] rounded-[4px] p-[4px]',
+						'ui:flex ui:flex-col ui:gap-y-[4px] ui:rounded-[4px] ui:p-[4px]',
 						dropdownClassName
 					)}
 					style={{ ...styles.popper, width }}
@@ -98,7 +98,7 @@ const DropDown = ({
 					{list.map(({ key, label }) => (
 						<div
 							className={cn(
-								'flex w-full cursor-pointer items-center',
+								'ui:flex ui:w-full ui:cursor-pointer ui:items-center',
 								itemClassName
 							)}
 							key={key}

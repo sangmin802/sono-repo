@@ -18,6 +18,7 @@ export default defineConfig({
 		outerEnv: 'process.env'
 	},
 	build: {
+		minify: false,
 		lib: {
 			entry: {
 				/**

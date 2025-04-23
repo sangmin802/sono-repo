@@ -64,9 +64,9 @@ export const Image = <T extends ElementType>({
 			)}
 		>
 			<Tag
-				className={cn('size-full object-cover duration-300', {
-					'opacity-100': isLoad && !isError,
-					'opacity-0': !isLoad || isError
+				className={cn('ui:size-full ui:object-cover ui:duration-300', {
+					'ui:opacity-100': isLoad && !isError,
+					'ui:opacity-0': !isLoad || isError
 				})}
 				data-src={src}
 				src={isLoad ? src : emptyImage}

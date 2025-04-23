@@ -120,13 +120,13 @@ const Summary = ({
 
 	return (
 		<div
-			className="flex w-full cursor-pointer items-center justify-between gap-x-[6px] px-[4px]"
+			className="ui:flex ui:w-full ui:cursor-pointer ui:items-center ui:justify-between ui:gap-x-[6px] ui:px-[4px]"
 			onClick={handleToggleSummary}
 		>
-			<div className={cn('text-inherit', className)}>{children}</div>
+			<div className={cn('ui:text-inherit', className)}>{children}</div>
 			{isClientRendered && (
 				<Arrow
-					className={cn('duration-200', { 'rotate-180': isSelected })}
+					className={cn('ui:duration-200', { 'ui:rotate-180': isSelected })}
 					fill={arrowMode === 'WHITE' ? '#efefef' : '#222'}
 				/>
 			)}
@@ -141,13 +141,15 @@ const Content = ({ className, children, onClick }: IContentProps) => {
 	return (
 		<div
 			className={cn(
-				'grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out',
-				{ 'grid-rows-[1fr]': state === id }
+				'ui:grid ui:grid-rows-[0fr] ui:transition-[grid-template-rows] ui:duration-300 ui:ease-in-out',
+				{ 'ui:grid-rows-[1fr]': state === id }
 			)}
 			onClick={onClick}
 		>
-			<div className="overflow-hidden">
-				<div className={cn('px-[6px] py-[10px]', className)}>{children}</div>
+			<div className="ui:overflow-hidden">
+				<div className={cn('ui:px-[6px] ui:py-[10px]', className)}>
+					{children}
+				</div>
 			</div>
 		</div>
 	);
