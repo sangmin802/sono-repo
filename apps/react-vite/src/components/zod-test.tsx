@@ -7,7 +7,9 @@ import { string } from 'zod';
 
 import { Button, Input } from '@sono-repo/ui';
 
-const emailRule = string();
+const emailRule = string()
+	.min(7, { message: 'Must be at least 7 characters long.' })
+	.email({ message: 'Invalid email address' });
 
 const initError = { status: false, message: '' };
 
