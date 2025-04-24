@@ -27,6 +27,7 @@
 	"dependencies": {
 		"@tanstack/react-query": "5.72.1",
 		"@tanstack/react-query-devtools": "5.72.1",
+		"@zod/mini": "4.0.0-beta.0",
 		"react": "^19",
 		"react-dom": "^19",
 		"react-error-boundary": "^5.0.0",
