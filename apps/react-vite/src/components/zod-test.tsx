@@ -2,14 +2,12 @@
 
 import type { FormEvent } from 'react';
 import { useState } from 'react';
-import { z } from 'zod';
+import type { z } from 'zod';
+import { string } from 'zod';
 
 import { Button, Input } from '@sono-repo/ui';
 
-const emailRule = z
-	.string()
-	.min(7, { message: 'Must be at least 7 characters long.' })
-	.email({ message: 'Invalid email address' });
+const emailRule = string();
 
 const initError = { status: false, message: '' };
 
