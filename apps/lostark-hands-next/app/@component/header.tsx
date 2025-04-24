@@ -73,6 +73,7 @@ const Header = () => {
 							ref={inputRef}
 							className="min-w-0 bg-transparent font-semibold"
 							placeholder="유저명을 검색해주세요."
+							autoComplete="off"
 							onChange={setSearchQuery}
 						/>
 						<LuSearch className="inline-block size-[24px] cursor-pointer" />
