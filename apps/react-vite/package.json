@@ -16,8 +16,8 @@
 		"@sono-repo/tsconfig": "workspace:^",
 		"@sono-repo/ui": "workspace:^",
 		"@tailwindcss/vite": "^4.1.4",
-		"@types/react": "18.2.12",
-		"@types/react-dom": "18.2.15",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
 		"@vitejs/plugin-react": "^4.2.1",
 		"eslint": "9.25.0",
 		"tailwindcss": "4.1.4",
@@ -27,7 +27,8 @@
 	"dependencies": {
 		"@tanstack/react-query": "5.72.1",
 		"@tanstack/react-query-devtools": "5.72.1",
-		"react": "^18.3.1",
-		"react-dom": "^18.2.0"
+		"react": "^19",
+		"react-dom": "^19",
+		"react-error-boundary": "^5.0.0"
 	}
 }
