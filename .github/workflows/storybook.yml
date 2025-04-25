@@ -1,19 +1,19 @@
-name: "Deploy Storybook"
+name: 'Deploy Storybook'
 
 on:
   pull_request:
-    branches: [ "main" ]
-    # paths:
-    #   - 'packages/ui/**/*'
+    branches: ['main']
+    paths:
+      - 'packages/ui/**/*'
 
 jobs:
   chromatic-deployment:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with: 
+        with:
           fetch-depth: 0
-          
+
       - uses: pnpm/action-setup@v2
         with:
           version: 10.6.5
@@ -26,4 +26,4 @@ jobs:
         with:
           workingDir: packages/ui
           projectToken: ${{ secrets.CHROMATIC_TOKEN }}
-          buildScriptName: "build:storybook"
+          buildScriptName: 'build:storybook'
