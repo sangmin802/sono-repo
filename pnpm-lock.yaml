@@ -83,9 +83,6 @@ importers:
       swiper:
         specifier: ^11.1.7
         version: 11.2.6
-      zod:
-        specifier: ^3.21.4
-        version: 3.24.2
     devDependencies:
       '@next/eslint-plugin-next':
         specifier: ^15.3.1
@@ -147,6 +144,9 @@ importers:
       react-error-boundary:
         specifier: ^5.0.0
         version: 5.0.0(react@19.1.0)
+      zod:
+        specifier: ^3.24.3
+        version: 3.24.3
     devDependencies:
       '@sono-repo/eslint-config':
         specifier: workspace:^
@@ -4046,8 +4046,8 @@ packages:
     engines: {node: '>=8.0.0'}
     hasBin: true
 
-  zod@3.24.2:
-    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+  zod@3.24.3:
+    resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
 
 snapshots:
 
@@ -8023,4 +8023,4 @@ snapshots:
     optionalDependencies:
       commander: 9.5.0
 
-  zod@3.24.2: {}
+  zod@3.24.3: {}
