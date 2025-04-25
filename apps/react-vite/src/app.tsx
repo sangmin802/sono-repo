@@ -1,4 +1,5 @@
 import PreWarming from './components/pre-warming';
+import ReactForget from './components/react-forget';
 import ZodTest from './components/zod-test';
 
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
 			App
 			<PreWarming />
 			<ZodTest />
+			<ReactForget />
 		</div>
 	);
 };

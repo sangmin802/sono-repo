@@ -19,6 +19,7 @@
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"@vitejs/plugin-react": "^4.2.1",
+		"babel-plugin-react-compiler": "19.1.0-rc.1",
 		"eslint": "9.25.0",
 		"tailwindcss": "4.1.4",
 		"typescript": "5.3.2",
