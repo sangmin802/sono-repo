@@ -13,6 +13,7 @@ export default defineConfig(() => {
 			}
 		},
 		build: {
+			minify: false,
 			outDir: './dist'
 		},
 		envDir: path.resolve(__dirname, './.env'),

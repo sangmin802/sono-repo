@@ -1,15 +1,31 @@
-'use client';
+/**
+ * Zod v4
+ * @see {@link https://v4.zod.dev/v4#introducing-zodmini}
+ */
 
 import type { FormEvent } from 'react';
 import { useState } from 'react';
-import { z } from 'zod';
+// import { z } from 'zod';
+import * as z from '@zod/mini';
 
 import { Button, Input } from '@sono-repo/ui';
 
+import { test } from './lib';
+
+// zod 사용 방식이 ZodString 클래스 내에 들어있는 모든 메소드들도 사용하지 않더라도 그냥 같이 번들링될꺼임
+// const emailRule = z
+// 	.string()
+// 	.min(7, { message: 'Must be at least 7 characters long.' })
+// 	.email({ message: 'Invalid email address' });
+
+// @zod/mini 사용 방식이 위에서 클래스 안에 있던것들이 다 별도사용으로 빠져서 트리셰이킹 될꺼임.
+// 근데 되도록 그냥 zod 쓰래. 번들링된 크기가 너무너무 중요한 경우에만 고려
 const emailRule = z
 	.string()
-	.min(7, { message: 'Must be at least 7 characters long.' })
-	.email({ message: 'Invalid email address' });
+	.check(
+		z.minLength(7, { error: 'Must be at least 7 characters long.' }),
+		z.email({ error: 'Invalid email address' })
+	);
 
 const initError = { status: false, message: '' };
 
@@ -20,6 +36,9 @@ const initError = { status: false, message: '' };
  * 개발환경에서 함께 타입을 체크해줄 필요가 있을 때에 zod를 사용하는것이 좋아보임.
  */
 const ZodTest = () => {
+	// treeShaking test
+	test.test2();
+
 	const [email, setEmail] = useState<z.infer<typeof emailRule>>('');
 	const [error, setError] = useState(initError);
 
@@ -35,7 +54,7 @@ const ZodTest = () => {
 		const result = emailRule.safeParse(email);
 
 		if (!result.success) {
-			setError({ status: true, message: result.error.format()._errors[0] });
+			setError({ status: true, message: result.error.issues[0].message });
 		} else {
 			setError(initError);
 		}

@@ -1,5 +1,5 @@
 import eslint from '@eslint/js';
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import eslintPluginReact from 'eslint-plugin-react';
@@ -16,6 +16,7 @@ import tseslint from 'typescript-eslint';
 
 /** @type { import("eslint").Linter.Config } */
 export default defineConfig([
+	globalIgnores(['node_modules/*', 'dist/*', 'build/*', 'out/*', '.next/*']),
 	{
 		languageOptions: {
 			ecmaVersion: 'latest',

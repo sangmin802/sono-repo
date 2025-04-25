@@ -1,10 +1,12 @@
 import PreWarming from './components/pre-warming';
+import ZodTest from './components/zod-test';
 
 const App = () => {
 	return (
-		<div className="bg-hello test-one-30 test-five-19">
+		<div>
 			App
 			<PreWarming />
+			<ZodTest />
 		</div>
 	);
 };
