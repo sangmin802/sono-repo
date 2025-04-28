@@ -1,5 +1,11 @@
+import WhatIsThreejs from './component/what-is-threejs';
+
 const App = () => {
-	return <div>three</div>;
+	return (
+		<div>
+			<WhatIsThreejs />
+		</div>
+	);
 };
 
 export default App;
