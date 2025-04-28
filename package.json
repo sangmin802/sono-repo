@@ -7,6 +7,7 @@
 		"lostark:start": "turbo run start --filter=lostark-hands-next",
 		"lostark:build": "turbo run build --filter=lostark-hands-next",
 		"react-vite:dev": "turbo run dev --filter=react-vite",
+		"three:dev": "turbo run dev --filter=play-three",
 		"storybook:dev": "turbo run dev --filter=@sono-repo/ui",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\""
 	},
