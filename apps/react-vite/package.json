@@ -6,12 +6,15 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc && vite build"
+		"build": "tsc && vite build",
+		"start": "tsc && vite preview"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"@module-federation/vite": "^1.4.0",
+		"@originjs/vite-plugin-federation": "^1.4.1",
 		"@sono-repo/eslint-config": "workspace:^",
 		"@sono-repo/tsconfig": "workspace:^",
 		"@sono-repo/ui": "workspace:^",
