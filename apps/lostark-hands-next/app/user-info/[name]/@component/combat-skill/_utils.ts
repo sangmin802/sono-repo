@@ -1,6 +1,6 @@
-import type { TElement } from '@/type/element-json';
+import type { TElement } from '@/types/element-json';
 
-import type { TData } from './types';
+import type { TData } from './_types';
 
 /**
  * @description 스킬 중 카운터, 파괴 수치만 계산하여 데이터 간소화

@@ -6,7 +6,7 @@ import GradeText from '@/client-component/grade-text';
 import ArmoryTooltipModal from '@/client-component/modal/armory-tooltip-modal';
 import Thumbnail from '@/client-component/thumbnail';
 
-import type { TData } from './types';
+import type { TData } from './_types';
 
 const SkillCard = (item: Exclude<TData, null>[0]) => {
 	const { onOpenModal } = useModal();

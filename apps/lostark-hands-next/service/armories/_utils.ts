@@ -1,27 +1,13 @@
 import { removeHtmlTag } from '@sono-repo/util/convert';
 
-import type { TElement, TElementUnionArray } from '@/type/element-json';
+import { onlyNumber } from '@/utils';
+import {
+	getIndentContent,
+	getItemPartBox,
+	getSingleTextBox
+} from '@/utils/elements';
 
-import { onlyNumber } from './selector';
-
-const SPLIT_KEY = 'splitKey';
-
-export const getIndentContent = (key: string, tooltip?: TElementUnionArray) =>
-	tooltip?.find(
-		({ type, value }) =>
-			type === 'IndentStringGroup' && value?.Element_000?.topStr?.includes(key)
-	) as TElement['IndentStringGroup'] | undefined;
-
-export const getSingleTextBox = (key: string, tooltip?: TElementUnionArray) =>
-	tooltip?.find(
-		({ type, value }) => type === 'SingleTextBox' && value?.includes(key)
-	) as TElement['SingleTextBox'] | undefined;
-
-export const getItemPartBox = (key: string, tooltip?: TElementUnionArray) =>
-	tooltip?.find(
-		({ type, value }) =>
-			type === 'ItemPartBox' && value?.Element_000.includes(key)
-	) as TElement['ItemPartBox'] | undefined;
+import type { TElementUnionArray } from '@/types/element-json';
 
 export const getElixir = (tooltip: TElementUnionArray) => {
 	const elixir = getIndentContent('엘릭서', tooltip);
@@ -29,7 +15,7 @@ export const getElixir = (tooltip: TElementUnionArray) => {
 	return elixir
 		? Object.values(elixir.value.Element_000.contentStr).map(({ contentStr }) =>
 				removeHtmlTag(contentStr.split('</FONT>')[1])
-		  )
+			)
 		: undefined;
 };
 
@@ -59,6 +45,8 @@ export const getAdvancedReinforce = (tooltip: TElementUnionArray) => {
 
 	return value;
 };
+
+const SPLIT_KEY = 'splitKey';
 
 export const getPolishingEffect = (tooltip: TElementUnionArray) => {
 	const key = '연마 효과';

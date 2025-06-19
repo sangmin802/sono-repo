@@ -1,7 +1,7 @@
 import type {
 	ISelectedArmoryEquipment,
 	TParsedArmory
-} from '@/service/armories/types';
+} from '@/service/armories/_types';
 
 export interface IEquipCardProps
 	extends TParsedArmory<ISelectedArmoryEquipment> {

@@ -6,7 +6,7 @@ import { Image } from '@sono-repo/ui';
 
 import DangerousHTML from '@/client-component/dangerous-html';
 
-import type { TElement } from '@/type/element-json';
+import type { TElement } from '@/types/element-json';
 
 const TripodSkillCustom = ({ value }: TElement['TripodSkillCustom']) => {
 	const arr = Object.values(value ?? {});

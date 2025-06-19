@@ -3,7 +3,7 @@ import axios, {
 	type InternalAxiosRequestConfig
 } from 'axios';
 
-import { API_KEY, API_URL } from '@/constant';
+import { API_KEY, API_URL } from '@/constants';
 
 const axiosInstance = axios.create({
 	baseURL: API_URL as string

@@ -3,7 +3,7 @@
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import type { IEvent } from '@/service/news/types';
+import type { IEvent } from '@/service/news/_types';
 
 import LabelLayout from '@/client-component/label-layout';
 import ThumbnailPost from '@/client-component/thumbnail-post';

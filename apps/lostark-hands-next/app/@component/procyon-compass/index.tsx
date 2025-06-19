@@ -2,7 +2,7 @@
 
 import ProcyonCompassSection from '@/app/@component/procyon-compass/section';
 
-import type { TCalendarData } from '../types';
+import type { TCalendarData } from '../_types';
 
 interface IProcyonCompassProps {
 	data: TCalendarData;

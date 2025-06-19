@@ -1,6 +1,6 @@
 import { removeHtmlTag } from '@sono-repo/util/convert';
 
-import type { IParsedGem } from '@/service/armories/types';
+import type { IParsedGem } from '@/service/armories/_types';
 
 /**
  * @description 중복된 보석의 갯수만 계산하여 데이터 간소화

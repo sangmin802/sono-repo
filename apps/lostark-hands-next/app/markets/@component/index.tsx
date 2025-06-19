@@ -5,9 +5,9 @@ import cn from 'classnames';
 
 import { Button } from '@sono-repo/ui';
 
-import type { IOptions } from '@/service/markets/types';
+import type { IOptions } from '@/service/markets/_types';
 
-import useClientRendered from '@/hook/use-client-rendered';
+import useClientRendered from '@/hooks/use-client-rendered';
 
 import List from './goods-list';
 import ListSkeleton from './goods-list/skeleton';

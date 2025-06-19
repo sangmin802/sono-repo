@@ -5,11 +5,11 @@ import NextImage from 'next/image';
 
 import { Image } from '@sono-repo/ui';
 
-import type { IArmoryProfile } from '@/service/armories/types';
+import type { IArmoryProfile } from '@/service/armories/_types';
 
 import Label from '@/client-component/label';
 
-import { TEXT_STYLE } from './constants';
+import { TEXT_STYLE } from './_constants';
 import { LevelInfo } from './level-info';
 
 interface IProfileProps {

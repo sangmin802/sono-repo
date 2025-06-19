@@ -1,4 +1,4 @@
-import type { TGrade } from '@/type';
+import type { TGrade } from '@/types';
 
 /** 캘린더 모험 섬 */
 export interface ICalendar {

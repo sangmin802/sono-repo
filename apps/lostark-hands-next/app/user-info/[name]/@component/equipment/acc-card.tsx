@@ -1,10 +1,9 @@
 import GradeText from '@/client-component/grade-text';
 import ThumbnailCard from '@/client-component/thumbnail-card';
 
-import { POLISHING_EFFECT_OPTIONS } from '@/constant/armory';
-
 import QualityChip from '../quality-chip';
-import type { IEquipCardProps } from './types';
+import { POLISHING_EFFECT_OPTIONS } from './_constants';
+import type { IEquipCardProps } from './_types';
 
 const AccCard = ({ onClick, ...item }: IEquipCardProps) => {
 	return (

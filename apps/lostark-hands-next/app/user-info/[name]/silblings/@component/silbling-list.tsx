@@ -6,11 +6,11 @@ import { useRouter } from 'next/navigation';
 
 import { Image } from '@sono-repo/ui';
 
-import type { ICharacterInfo } from '@/service/characters/types';
+import type { ICharacterInfo } from '@/service/characters/_types';
 
-import { CDN_URL } from '@/constant';
+import { CDN_URL } from '@/constants';
 
-import { CLASS } from '@/type/content';
+import { CLASS } from '@/types/content';
 
 interface ISilblingListProps {
 	list: ICharacterInfo[];

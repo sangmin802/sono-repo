@@ -1,4 +1,4 @@
-import type { GRADE } from '@/constant';
+import type { GRADE } from '@/constants';
 
 export interface ICode {
 	code: number;
@@ -26,10 +26,10 @@ export type ToIndexSignature<Interface> = {
 export type ToIndexSignatureRecursive<T> = T extends TPrimitives
 	? T
 	: T extends (infer A)[]
-	? ToIndexSignatureRecursive<A>[]
-	: ToIndexSignature<{
-			[K in keyof T]: ToIndexSignatureRecursive<T[K]>;
-	  }>;
+		? ToIndexSignatureRecursive<A>[]
+		: ToIndexSignature<{
+				[K in keyof T]: ToIndexSignatureRecursive<T[K]>;
+			}>;
 
 export type ToFirstLower<A> = A extends `${infer F}${infer S}`
 	? F extends Uppercase<F>
@@ -46,15 +46,15 @@ export type ToFirstUpper<A> = A extends `${infer F}${infer S}`
 export type ToCamelKey<T> = T extends TPrimitives
 	? T
 	: T extends (infer A)[]
-	? ToCamelKey<A>[]
-	: {
-			[K in keyof T as ToFirstLower<K>]: ToCamelKey<T[K]>;
-	  };
+		? ToCamelKey<A>[]
+		: {
+				[K in keyof T as ToFirstLower<K>]: ToCamelKey<T[K]>;
+			};
 
 export type ToPascalKey<T> = T extends TPrimitives
 	? T
 	: T extends (infer A)[]
-	? ToPascalKey<A>[]
-	: {
-			[K in keyof T as ToFirstUpper<K>]: ToPascalKey<T[K]>;
-	  };
+		? ToPascalKey<A>[]
+		: {
+				[K in keyof T as ToFirstUpper<K>]: ToPascalKey<T[K]>;
+			};

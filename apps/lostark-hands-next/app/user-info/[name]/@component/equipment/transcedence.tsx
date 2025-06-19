@@ -1,9 +1,8 @@
-import type { ISelectedArmoryEquipment } from '@/service/armories/types';
+import type { ISelectedArmoryEquipment } from '@/service/armories/_types';
 
 import ThumbnailCard from '@/client-component/thumbnail-card';
 
-import { CDN_URL } from '@/constant';
-import { EMO_IMAGE_URL } from '@/constant/armory';
+import { CDN_URL, EMO_IMAGE_URL } from '@/constants';
 
 const Transcendence = (
 	data: Exclude<ISelectedArmoryEquipment['transcendence'], undefined>

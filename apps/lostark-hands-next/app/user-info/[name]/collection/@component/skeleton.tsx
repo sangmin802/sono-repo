@@ -4,7 +4,7 @@ import LabelLayoutSkeleton from '@/client-component/label-layout/skeleton';
 import Skeleton from '@/client-component/skeleton';
 import StickyElementSkeleton from '@/client-component/sticky-element/skeleton';
 
-import { STICKY_NAV_STYLE } from './constants';
+import { STICKY_NAV_STYLE } from './_constants';
 
 const CollectionSkeleton = () => (
 	<div className="!ml-0 w-full lg:flex">

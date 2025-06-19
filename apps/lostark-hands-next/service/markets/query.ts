@@ -5,12 +5,12 @@ import type {
 import { useSuspenseInfiniteQuery } from '@tanstack/react-query';
 
 import { getItemListApi } from '@/service/markets';
-import { GET_MARKET_LIST_KEY } from '@/service/markets/query-key';
 import type {
 	IMarketsFilter,
 	IResponseItemList
-} from '@/service/markets/types';
+} from '@/service/markets/_types';
 
+export const GET_MARKET_LIST_KEY = 'GET_MARKET_LIST_KEY';
 export const useGetListQuery = (
 	params: Omit<IMarketsFilter, 'pageNo'>,
 	options?: Omit<

@@ -1,4 +1,4 @@
-import type { ICode, TGrade } from '@/type';
+import type { ICode, TGrade } from '@/types';
 
 export interface IOptions {
 	categories: ({

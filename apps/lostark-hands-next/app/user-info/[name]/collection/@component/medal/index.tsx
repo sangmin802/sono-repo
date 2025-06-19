@@ -2,7 +2,10 @@
 
 import { useModal } from '@sono-repo/ui';
 
-import type { IArmoryEquipment, TParsedArmory } from '@/service/armories/types';
+import type {
+	IArmoryEquipment,
+	TParsedArmory
+} from '@/service/armories/_types';
 
 import GradeText from '@/client-component/grade-text';
 import LabelLayout from '@/client-component/label-layout';

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import type { ModalProps } from '@sono-repo/ui';
 import { Accordion, Button, Collapse, ModalLayout } from '@sono-repo/ui';
 
-import type { ICode } from '@/type';
+import type { ICode } from '@/types';
 
 import CategoryFilter from './category-filter';
 import KeywordFilter from './keyword-filter';

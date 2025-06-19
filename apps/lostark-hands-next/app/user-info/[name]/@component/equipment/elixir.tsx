@@ -1,6 +1,6 @@
 import { Chip } from '@sono-repo/ui';
 
-import type { ISelectedArmoryEquipment } from '@/service/armories/types';
+import type { ISelectedArmoryEquipment } from '@/service/armories/_types';
 
 interface IElixirProps {
 	data: Exclude<ISelectedArmoryEquipment['elixir'], undefined>;

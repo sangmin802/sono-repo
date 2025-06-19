@@ -4,7 +4,7 @@ import NextImage from 'next/image';
 
 import { Image } from '@sono-repo/ui';
 
-import { CDN_URL } from '@/constant';
+import { CDN_URL } from '@/constants';
 
 interface IRewardIconProps {
 	name: string;

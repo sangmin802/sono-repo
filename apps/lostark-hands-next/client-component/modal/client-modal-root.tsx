@@ -2,7 +2,7 @@
 
 import { ModalRoot } from '@sono-repo/ui';
 
-import useClientRendered from '@/hook/use-client-rendered';
+import useClientRendered from '@/hooks/use-client-rendered';
 
 const ClientModalRoot = () => {
 	const value = useClientRendered();

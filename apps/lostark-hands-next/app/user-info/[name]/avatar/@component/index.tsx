@@ -1,6 +1,6 @@
 'use client';
 
-import type { IArmoryAvatar, TParsedArmory } from '@/service/armories/types';
+import type { IArmoryAvatar, TParsedArmory } from '@/service/armories/_types';
 
 import GradeText from '@/client-component/grade-text';
 import LabelLayout from '@/client-component/label-layout';
