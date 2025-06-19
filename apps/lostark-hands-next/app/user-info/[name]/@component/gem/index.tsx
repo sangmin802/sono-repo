@@ -3,13 +3,13 @@
 import { useModal } from '@sono-repo/ui';
 import { removeHtmlTag } from '@sono-repo/util/convert';
 
-import type { IParsedGem } from '@/service/armories/types';
+import type { IParsedGem } from '@/service/armories/_types';
 
 import LabelLayout from '@/client-component/label-layout';
 import ArmoryTooltipListModal from '@/client-component/modal/armory-tooltip-list-modal';
 import Thumbnail from '@/client-component/thumbnail';
 
-import { minifyData } from './utils';
+import { minifyData } from './_utils';
 
 interface IGemProps {
 	data: IParsedGem[] | null;

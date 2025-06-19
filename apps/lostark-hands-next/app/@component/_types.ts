@@ -1,7 +1,7 @@
 import type { calendarSelector } from '@/service/game-contents/selector';
-import type { ICalendar } from '@/service/game-contents/types';
+import type { ICalendar } from '@/service/game-contents/_types';
 
-import type { convertCalendarData } from '@/util/calendar';
+import type { convertCalendarData } from './_utils';
 
 export type TCalendarItem = ReturnType<typeof convertCalendarData>[0];
 

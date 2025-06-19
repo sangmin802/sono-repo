@@ -1,6 +1,6 @@
 import DangerousHTML from '@/client-component/dangerous-html';
 
-import type { TElement } from '@/type/element-json';
+import type { TElement } from '@/types/element-json';
 
 const IndentStringGroup = ({ value }: TElement['IndentStringGroup']) => {
 	const arr = Object.values(value ?? {});

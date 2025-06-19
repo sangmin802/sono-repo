@@ -7,8 +7,8 @@ import ArmoryTooltip from '@/client-component/armory-tooltip';
 import GradeText from '@/client-component/grade-text';
 import Thumbnail from '@/client-component/thumbnail';
 
-import type { TGrade } from '@/type';
-import type { TElementUnionArray } from '@/type/element-json';
+import type { TGrade } from '@/types';
+import type { TElementUnionArray } from '@/types/element-json';
 
 interface ArmoryTooltipListModalProps extends ModalProps {
 	list: {

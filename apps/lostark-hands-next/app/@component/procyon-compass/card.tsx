@@ -6,7 +6,7 @@ import NextImage from 'next/image';
 import type { OpenModal } from '@sono-repo/ui';
 import { Image } from '@sono-repo/ui';
 
-import type { IRewardItem } from '@/service/game-contents/types';
+import type { IRewardItem } from '@/service/game-contents/_types';
 
 import ItemListModal from '@/client-component/modal/item-list-modal';
 import RewardIcon from '@/client-component/reward-icon';
@@ -16,7 +16,7 @@ import {
 	CARD_PACK_ICON_URL,
 	GOLD_ICON_URL,
 	SEA_COIN_ICON_URL
-} from '@/constant';
+} from '@/constants';
 
 interface IProcyonCompassCardProps {
 	icon: string;

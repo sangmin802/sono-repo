@@ -1,5 +1,5 @@
-import type { TGrade } from '@/type';
-import type { TElementUnionArray } from '@/type/element-json';
+import type { TGrade } from '@/types';
+import type { TElementUnionArray } from '@/types/element-json';
 
 export interface IStat {
 	type: string;

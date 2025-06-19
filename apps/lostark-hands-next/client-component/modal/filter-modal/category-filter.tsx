@@ -5,7 +5,7 @@ import cn from 'classnames';
 
 import { Collapse } from '@sono-repo/ui';
 
-import type { ICode } from '@/type';
+import type { ICode } from '@/types';
 
 import type { TOnChangeFilter } from './types';
 

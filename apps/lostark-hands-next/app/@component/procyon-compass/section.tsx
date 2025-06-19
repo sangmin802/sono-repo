@@ -6,15 +6,15 @@ import useTimer from 'sono-repo-react-timer';
 import { useModal } from '@sono-repo/ui';
 import { convertDateFormat } from '@sono-repo/util/date';
 
-import useFilterTimerList from '@/hook/use-filter-timer-list';
-import useNotification from '@/hook/use-notification';
+import useFilterTimerList from '@/hooks/use-filter-timer-list';
+import useNotification from '@/hooks/use-notification';
 
-import { convertCalendarData, getValidRewardList } from '@/util/calendar';
-
+import type { ICalenderContetProps } from '@/app/@component/_types';
 import ProcyonCompassCard from '@/app/@component/procyon-compass/card';
 import TimeUnit from '@/app/@component/time-unit';
-import type { ICalenderContetProps } from '@/app/@component/types';
 import LabelLayout from '@/client-component/label-layout';
+
+import { convertCalendarData, getValidRewardList } from '../_utils';
 
 const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
 	const { onOpenModal } = useModal();

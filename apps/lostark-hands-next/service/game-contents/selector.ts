@@ -1,4 +1,4 @@
-import { type ICalendar } from '@/service/game-contents/types';
+import { type ICalendar } from '@/service/game-contents/_types';
 
 export const calendarSelector = (list: ICalendar[] | null) => {
 	const map = (list ?? []).reduce<Map<string, ICalendar[]>>((prev, cur) => {

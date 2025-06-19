@@ -4,10 +4,11 @@ import NextImage from 'next/image';
 
 import { Image } from '@sono-repo/ui';
 
-import type { IEffect } from '@/service/armories/types';
+import type { IEffect } from '@/service/armories/_types';
 
-import { CDN_URL } from '@/constant';
-import ENGRAVE_IMGAE from '@/constant/engrave';
+import { CDN_URL } from '@/constants';
+
+import ENGRAVE_IMGAE from './_constants';
 
 interface ICommonEngraveProps {
 	data: IEffect[] | null;

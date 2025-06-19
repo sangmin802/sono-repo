@@ -4,14 +4,14 @@ import NextImage from 'next/image';
 
 import { Collapse, Image, useModal } from '@sono-repo/ui';
 
-import type { IArkPassiveEffects, IEffect } from '@/service/armories/types';
+import type { IArkPassiveEffects, IEffect } from '@/service/armories/_types';
 
 import LabelLayout from '@/client-component/label-layout';
 import DescListModal from '@/client-component/modal/desc-list-modal';
 
-import { CDN_URL } from '@/constant';
-import ENGRAVE_IMGAE from '@/constant/engrave';
+import { CDN_URL } from '@/constants';
 
+import ENGRAVE_IMGAE from './_constants';
 import ArkPassiveEngrave from './ark-passive-engrave';
 import CommonEngrave from './common-engrave';
 

@@ -1,9 +1,9 @@
 import axiosInstance from '@/service/axios';
-import type { IEvent, INotice } from '@/service/news/types';
+import type { IEvent, INotice } from '@/service/news/_types';
 
-import { pascalToCamelInArray } from '@/util/selector';
+import { pascalToCamelInArray } from '@/utils';
 
-import type { ToPascalKey } from '@/type';
+import type { ToPascalKey } from '@/types';
 
 /**
  * @description get notice list on type

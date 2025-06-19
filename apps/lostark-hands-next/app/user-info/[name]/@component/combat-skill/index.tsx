@@ -4,9 +4,9 @@ import { Chip, Collapse } from '@sono-repo/ui';
 
 import LabelLayout from '@/client-component/label-layout';
 
+import type { TData } from './_types';
+import { minifySkill } from './_utils';
 import SkillCard from './card';
-import type { TData } from './types';
-import { minifySkill } from './utils';
 
 interface ICombatSkillProps {
 	data: TData;

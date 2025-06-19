@@ -2,7 +2,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { useModal } from '@sono-repo/ui';
 
-import type { IOptions } from '@/service/markets/types';
+import type { IOptions } from '@/service/markets/_types';
 
 import FilterModal from '@/client-component/modal/filter-modal';
 

@@ -2,7 +2,7 @@
 
 import { Collapse, useModal } from '@sono-repo/ui';
 
-import type { IStat } from '@/service/armories/types';
+import type { IStat } from '@/service/armories/_types';
 
 import Label from '@/client-component/label';
 import LabelLayout from '@/client-component/label-layout';

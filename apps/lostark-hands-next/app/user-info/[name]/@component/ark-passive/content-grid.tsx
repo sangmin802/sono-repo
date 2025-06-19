@@ -4,17 +4,15 @@ import NextImage from 'next/image';
 
 import { Image, useModal } from '@sono-repo/ui';
 
-import type { TArkPassiveKey } from '@/service/armories/types';
-import type { ISelectedArkPassive } from '@/service/armories/types';
+import type { TArkPassiveKey } from '@/service/armories/_types';
+import type { ISelectedArkPassive } from '@/service/armories/_types';
 
 import DangerousHTML from '@/client-component/dangerous-html';
 import DescListModal from '@/client-component/modal/desc-list-modal';
 
-import { ARK_PASSIVE } from '@/constant/armory';
+import type { TElementUnionArray } from '@/types/element-json';
 
-import type { TElementUnionArray } from '@/type/element-json';
-
-import { ARK_PASSIVE_COLOR_CONFIG } from './constants';
+import { ARK_PASSIVE, ARK_PASSIVE_COLOR_CONFIG } from './_constants';
 
 interface ContentGridProps {
 	title: string;

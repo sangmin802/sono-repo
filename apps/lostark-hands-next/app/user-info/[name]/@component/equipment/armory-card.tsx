@@ -1,6 +1,6 @@
 import { removeHtmlTag } from '@sono-repo/util/convert';
 
-import { onlyNumber } from '@/util/selector';
+import { onlyNumber } from '@/utils';
 
 import GradeText from '@/client-component/grade-text';
 import ThumbnailCard from '@/client-component/thumbnail-card';
@@ -8,7 +8,7 @@ import ThumbnailCard from '@/client-component/thumbnail-card';
 import QualityChip from '../quality-chip';
 import Elixir from './elixir';
 import Transcendence from './transcedence';
-import type { IEquipCardProps } from './types';
+import type { IEquipCardProps } from './_types';
 
 const ArmoryCard = ({ onClick, ...item }: IEquipCardProps) => {
 	return (

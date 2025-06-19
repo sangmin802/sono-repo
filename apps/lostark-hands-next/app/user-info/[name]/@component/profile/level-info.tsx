@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import cn from 'classnames';
 
-import { TEXT_STYLE } from './constants';
+import { TEXT_STYLE } from './_constants';
 
 export const LevelInfo = ({
 	label,

@@ -1,6 +1,6 @@
 import { getDateDiff } from '@sono-repo/util/date';
 
-import type { ICalendar, IRewardItem } from '@/service/game-contents/types';
+import type { ICalendar, IRewardItem } from '@/service/game-contents/_types';
 
 export const convertCalendarData = (list: ICalendar[]) =>
 	list.map(

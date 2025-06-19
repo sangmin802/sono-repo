@@ -1,6 +1,6 @@
 'use client';
 
-import type { ICharacterInfo } from '@/service/characters/types';
+import type { ICharacterInfo } from '@/service/characters/_types';
 
 import Label from '@/client-component/label';
 import LabelLayout from '@/client-component/label-layout';

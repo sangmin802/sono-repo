@@ -3,11 +3,11 @@ import type {
 	IMarketsFilter,
 	IOptions,
 	IResponseItemList
-} from '@/service/markets/types';
+} from '@/service/markets/_types';
 
-import { camelToPascal, pascalToCamel } from '@/util/selector';
+import { camelToPascal, pascalToCamel } from '@/utils';
 
-import type { ToIndexSignature, ToPascalKey } from '@/type';
+import type { ToIndexSignature, ToPascalKey } from '@/types';
 
 /**
  * @description get option

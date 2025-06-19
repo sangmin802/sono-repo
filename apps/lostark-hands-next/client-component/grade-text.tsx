@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import cn from 'classnames';
 
-import type { TGrade } from '@/type';
+import type { TGrade } from '@/types';
 
 export const GRADE_TEXT_COLOR: Record<TGrade, string> = {
 	일반: 'text-normal',

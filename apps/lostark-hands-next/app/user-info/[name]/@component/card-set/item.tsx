@@ -3,11 +3,11 @@ import NextImage from 'next/image';
 
 import { Image } from '@sono-repo/ui';
 
-import type { ICard } from '@/service/armories/types';
+import type { ICard } from '@/service/armories/_types';
 
-import { CDN_URL } from '@/constant';
+import { CDN_URL } from '@/constants';
 
-import type { TGrade } from '@/type';
+import type { TGrade } from '@/types';
 
 const cardOutline: Record<TGrade, number> = {
 	일반: 0,

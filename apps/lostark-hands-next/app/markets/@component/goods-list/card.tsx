@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import type { IItem } from '@/service/markets/types';
+import type { IItem } from '@/service/markets/_types';
 
 import Thumbnail from '@/client-component/thumbnail';
 

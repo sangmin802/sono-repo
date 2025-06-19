@@ -1,4 +1,4 @@
-import type { CLASS } from '@/type/content';
+import type { CLASS } from '@/types/content';
 
 /** 캐릭터 정보 */
 export interface ICharacterInfo {

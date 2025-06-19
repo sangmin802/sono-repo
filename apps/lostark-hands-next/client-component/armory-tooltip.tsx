@@ -5,7 +5,7 @@ import IndentStringGroup from '@/client-component/indent-string-group';
 import ItemPartBox from '@/client-component/item-part-box';
 import TripodSkillCustom from '@/client-component/tripod-skill-custom';
 
-import type { TElement } from '@/type/element-json';
+import type { TElement } from '@/types/element-json';
 
 interface IArmoryTooltipProps {
 	item: TElement[keyof TElement];

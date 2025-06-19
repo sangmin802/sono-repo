@@ -1,4 +1,4 @@
-import type { IObj, TArr, ToCamelKey, ToPascalKey } from '@/type';
+import type { IObj, TArr, ToCamelKey, ToPascalKey } from '@/types';
 
 /**
  * @description Change all pascal keys in the array to camel format

@@ -1,1 +1,0 @@
-export const GET_MARKET_LIST_KEY = 'GET_MARKET_LIST_KEY';

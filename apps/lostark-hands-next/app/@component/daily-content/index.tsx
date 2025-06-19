@@ -1,6 +1,6 @@
 'use client';
 
-import type { TCalendarData } from '../types';
+import type { TCalendarData } from '../_types';
 import DailyContentSection from './section';
 
 interface IDailyContentProps {

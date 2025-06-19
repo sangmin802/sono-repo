@@ -5,14 +5,12 @@ import cn from 'classnames';
 
 import { useResponsive } from '@sono-repo/hook';
 
-import type { ICollectible, TCollectibleType } from '@/service/armories/types';
+import type { ICollectible, TCollectibleType } from '@/service/armories/_types';
 
 import LabelLayout from '@/client-component/label-layout';
 import StickyElement from '@/client-component/sticky-element';
 
-import { COLLECTION_DESC } from '@/constant/collection';
-
-import { STICKY_NAV_STYLE } from './constants';
+import { COLLECTION_DESC, STICKY_NAV_STYLE } from './_constants';
 
 interface ICollectionProps {
 	data: ICollectible[];

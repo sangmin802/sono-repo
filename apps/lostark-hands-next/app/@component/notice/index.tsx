@@ -1,6 +1,6 @@
 'use client';
 
-import type { INotice } from '@/service/news/types';
+import type { INotice } from '@/service/news/_types';
 
 import LabelLayout from '@/client-component/label-layout';
 import MessagePost from '@/client-component/message-post';

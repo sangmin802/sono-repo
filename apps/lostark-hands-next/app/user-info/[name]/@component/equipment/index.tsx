@@ -6,7 +6,7 @@ import { removeHtmlTag } from '@sono-repo/util/convert';
 import type {
 	ISelectedArmoryEquipment,
 	TParsedArmory
-} from '@/service/armories/types';
+} from '@/service/armories/_types';
 
 import QualityChip from '@/app/user-info/[name]/@component/quality-chip';
 import LabelLayout from '@/client-component/label-layout';
