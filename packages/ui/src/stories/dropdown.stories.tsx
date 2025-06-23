@@ -1,4 +1,4 @@
-import { type ComponentProps, useEffect, useState } from 'react';
+import { type ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Dropdown } from '../index';
@@ -8,24 +8,14 @@ type TDropdownProps = ComponentProps<typeof Dropdown>;
 type Story = StoryObj<TDropdownProps>;
 
 const RenderComponent = (props: TDropdownProps) => {
-	const [container, setContainer] = useState<HTMLDivElement | null>(null);
-
-	useEffect(() => {
-		if (!container) return;
-
-		container.scrollTo({ top: 200 });
-	}, [container]);
-
 	return (
-		<div
-			className="h-[300px] overflow-y-auto bg-purple-300"
-			ref={setContainer}
-		>
+		<div>
+			<div className="ui:h-[1200px] ui:bg-amber-50"> 아래로 스크롤 </div>
 			<Dropdown
 				buttonClassName="my-[300px]"
-				boundary={container ?? undefined}
 				{...props}
 			/>
+			<div className="ui:h-[1200px] ui:bg-amber-50"></div>
 		</div>
 	);
 };
