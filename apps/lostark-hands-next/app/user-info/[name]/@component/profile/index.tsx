@@ -64,9 +64,14 @@ const Profile = ({ data }: IProfileProps) => {
 						</div>
 					</div>
 					<div className="flex gap-x-[10px] [&_div]:font-bold">
-						<LevelInfo label="전투">{data.characterLevel ?? 0}</LevelInfo>
-						<LevelInfo label="아이템">{data.itemMaxLevel ?? '0.00'}</LevelInfo>
-						<LevelInfo label="원정대">{data.expeditionLevel ?? 0}</LevelInfo>
+						<LevelInfo label="전투">Lv. {data.characterLevel ?? 0}</LevelInfo>
+						<LevelInfo label="원정대">
+							Lv. {data.expeditionLevel ?? 0}
+						</LevelInfo>
+						<LevelInfo label="아이템레벨">
+							Lv. {data.itemAvgLevel ?? 0}
+						</LevelInfo>
+						<LevelInfo label="전투력">{data.combatPower ?? 0}</LevelInfo>
 					</div>
 				</div>
 			</div>

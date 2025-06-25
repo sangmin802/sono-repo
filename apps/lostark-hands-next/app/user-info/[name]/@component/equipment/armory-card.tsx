@@ -6,9 +6,9 @@ import GradeText from '@/client-component/grade-text';
 import ThumbnailCard from '@/client-component/thumbnail-card';
 
 import QualityChip from '../quality-chip';
+import type { IEquipCardProps } from './_types';
 import Elixir from './elixir';
 import Transcendence from './transcedence';
-import type { IEquipCardProps } from './_types';
 
 const ArmoryCard = ({ onClick, ...item }: IEquipCardProps) => {
 	return (

@@ -1,5 +1,3 @@
-import cn from 'classnames';
-
 import { useModal } from '@sono-repo/ui';
 
 import GradeText from '@/client-component/grade-text';
@@ -43,19 +41,12 @@ const SkillCard = (item: Exclude<TData, null>[0]) => {
 					chip={item.level}
 				/>
 				<div className="min-w-0 grow">
-					{item.tripods.map(({ name, level }, idx) => (
+					{item.tripods.map(({ name }, idx) => (
 						<div
-							className="flex gap-x-[8px]"
 							key={idx}
+							className="truncate text-[12px] leading-[16px]"
 						>
-							<div
-								className={cn(
-									'text-[12px] font-bold leading-[16px] text-orange-500'
-								)}
-							>
-								{level}
-							</div>
-							<div className="truncate text-[12px] leading-[16px]">{name}</div>
+							{name}
 						</div>
 					))}
 				</div>

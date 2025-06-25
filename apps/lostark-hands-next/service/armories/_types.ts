@@ -24,6 +24,7 @@ interface DefaultArkPassive {
 	isArkPassive: boolean;
 	points: {
 		name: ArkPassiveType;
+		description: string;
 		value: number;
 		tooltip: string;
 	}[];
@@ -55,7 +56,6 @@ interface ISkillTripod {
 	slot: number;
 	name: string;
 	icon: string;
-	level: number;
 	isSelected: boolean;
 	tooltip: string;
 }
@@ -204,7 +204,11 @@ export interface IArmoryProfile {
 	characterLevel: number;
 	characterClassName: string;
 	itemAvgLevel: string;
-	itemMaxLevel: string;
+	combatPower: string;
+	decorations: {
+		symbol: string;
+		emblems: string[];
+	};
 }
 
 export interface IArmoryEquipment {

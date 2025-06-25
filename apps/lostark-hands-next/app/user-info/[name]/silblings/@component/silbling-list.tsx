@@ -36,7 +36,7 @@ const SilblingList = ({ list }: ISilblingListProps) => {
 				>
 					<Image
 						as={NextImage}
-						className="size-[36px]"
+						className="size-[36px] shrink-0"
 						width={36}
 						height={36}
 						src={`${CDN_URL}/2018/obt/assets/images/common/thumb/${
