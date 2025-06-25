@@ -14,7 +14,7 @@ export const getElixir = (tooltip: TElementUnionArray) => {
 
 	return elixir
 		? Object.values(elixir.value.Element_000.contentStr).map(({ contentStr }) =>
-				removeHtmlTag(contentStr.split('</FONT>')[1])
+				removeHtmlTag(contentStr.split('</FONT>')[1]).trimStart()
 			)
 		: undefined;
 };
@@ -55,6 +55,6 @@ export const getPolishingEffect = (tooltip: TElementUnionArray) => {
 	if (!polishingEffect) return undefined;
 
 	return removeHtmlTag(
-		polishingEffect.value.Element_001.replaceAll('<BR>', SPLIT_KEY)
+		polishingEffect.value.Element_001.replaceAll('<br>', SPLIT_KEY)
 	).split(SPLIT_KEY);
 };
