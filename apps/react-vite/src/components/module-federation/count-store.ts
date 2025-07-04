@@ -6,7 +6,7 @@ const createCountStore = () => {
 
 	const onSubscribe = (listener: SubscribeListener) => {
 		subscribeListeners.add(listener);
-		return () => subscribeListeners.clear();
+		return () => subscribeListeners.delete(listener);
 	};
 
 	const triggerRender = () => {

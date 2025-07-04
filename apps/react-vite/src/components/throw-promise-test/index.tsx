@@ -4,17 +4,15 @@ type SubscribeListener = () => void;
 
 const store = (function () {
 	let count = 0;
-	let subscribeListeners: SubscribeListener | null = null;
+	const subscribeListeners: Set<SubscribeListener> = new Set();
 
 	const onSubscribe = (listener: SubscribeListener) => {
-		subscribeListeners = listener;
-		return () => {
-			subscribeListeners = null;
-		};
+		subscribeListeners.add(listener);
+		return () => subscribeListeners.delete(listener);
 	};
 
 	const triggerRender = () => {
-		subscribeListeners?.();
+		subscribeListeners.forEach((listener) => listener());
 	};
 
 	const addCount = () => {
