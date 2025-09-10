@@ -2,8 +2,13 @@
 ## lostark-hands-next
 유저 정보제공 사이트
 
+`@todo` 기능단위 파일 모으기
+- service, client-component/modals: 사용하고있는 페이지 하위 폴더로 이동 필요
+
+```bash
+.
 ├── app
-│   ├── @component
+│   ├── @component // 각 페이지 별 구성하고 있는 기능에 대한 컴포넌트
 │   │   ├── _types.ts
 │   │   ├── _utils.ts
 │   │   ├── daily-content
@@ -117,7 +122,7 @@
 │       │       │   └── skeleton.tsx
 │       │       └── page.tsx
 │       └── error.tsx
-├── client-component
+├── client-component // 공통 기본 컴포넌트
 │   ├── armory-tooltip.tsx
 │   ├── dangerous-html.tsx
 │   ├── data-empty-funnel.tsx
@@ -132,7 +137,7 @@
 │   ├── message-post
 │   │   ├── index.tsx
 │   │   └── skeleton.tsx
-│   ├── modal
+│   ├── modal // 추후 사용하고 있는 기능 컴포넌트와 동일 위치로 이관 필요
 │   │   ├── armory-tooltip-list-modal.tsx
 │   │   ├── armory-tooltip-modal.tsx
 │   │   ├── client-modal-root.tsx
@@ -167,25 +172,7 @@
 ├── provider
 │   └── react-query-provider.tsx
 ├── prune.Dockerfile
-├── public
-│   ├── favicon.ico
-│   ├── googleb1233a457a6f4a36.html
-│   ├── icons
-│   │   ├── emoticon_4.png
-│   │   ├── emoticon_8.png
-│   │   ├── img_profile_awake_empty.png
-│   │   ├── img_profile_awake_fill.png
-│   │   └── logo
-│   │       ├── logo_144.png
-│   │       └── logo.png
-│   ├── naver5c7ebebaf68280a0397e1e9c96505c01.html
-│   ├── pwa-sw.js
-│   ├── robots.txt
-│   ├── sw.js
-│   ├── swe-worker-c6d9e90ca0bb3f3e.js
-│   ├── workbox-21e663c2.js
-│   └── worker-606d96c5c52423cb.js
-├── service
+├── service // 사용하고있는 위치로 이관 필요
 │   ├── armories
 │   │   ├── _constants.ts
 │   │   ├── _types.ts
@@ -218,4 +205,4 @@
 │   └── index.ts
 └── worker
     └── notification.ts
-
+```
