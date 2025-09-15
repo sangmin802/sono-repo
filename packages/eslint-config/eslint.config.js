@@ -9,9 +9,22 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 /**
- * config에 그냥 넣는 애들은 최소 { rules: 각 라이브러리 rules } 형식이 유지된 애들임
- * 이 경우, plugins: { name: 각 라이브러리 rules }가 적용되지 않은 애들은, rules를 커스텀해줄 때, 앞에 라이브러리 이름 구분이 안됨
- *   - ex) max-len 은 eslint.configs.recommended 관련인데, 얘는 plugins: { name } 이 부여되어있지 않아 전체에서 탐색함
+ * config에 그냥 넣는 애들은 최소 { name: ??, rules: 각 라이브러리 rules } 형식이 유지된 애들임
+     [ 
+  			baseConfig(plugin, parser), <- {..., plugins: {'@typescript-eslint': plugin}} 반환함
+  			{
+        name: 'typescript-eslint/recommended',
+        rules: {
+            '@typescript-eslint/ban-ts-comment': 'error',
+						...
+        },
+}]
+ * 이 경우, { plugins: { [name]: 각 라이브러리 rules가 든 플러그인 } }가 적용되지 않은 애들은, rules를 커스텀해줄 때, 앞에 라이브러리 이름 구분이 안됨
+ *   - ex) max-len 은 eslint.configs.recommended 관련인데, 얘는 plugins: { [name << 이거 없음]: ?? } 이 부여되어있지 않아 전체에서 탐색함
+ * {
+ *     plugins: { react: plugin }, << React는 이렇게 react라는 이름이 있음. 위 타입스크립트 플러그인도 존재함
+    	rules: configs.recommended.rules
+		}
  */
 
 /** @type { import("eslint").Linter.Config } */
