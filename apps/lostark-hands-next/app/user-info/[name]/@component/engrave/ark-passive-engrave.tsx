@@ -5,12 +5,13 @@ import NextImage from 'next/image';
 
 import { Image } from '@sono-repo/ui';
 
-import type { IArkPassiveEffects } from '@/service/armories/types';
+import type { IArkPassiveEffects } from '@/service/armories/_types';
 
-import { CDN_URL } from '@/constant';
-import ENGRAVE_IMGAE from '@/constant/engrave';
+import { CDN_URL } from '@/constants';
 
-import type { TGrade } from '@/type';
+import type { TGrade } from '@/types';
+
+import ENGRAVE_IMGAE from './_constants';
 
 interface IArkPassiveEffectsProps {
 	data: IArkPassiveEffects[] | null;
@@ -41,7 +42,7 @@ const ArkPassiveEngrave = ({ data }: IArkPassiveEffectsProps) => {
 						/>
 					</div>
 					<div className="ml-[8px]">
-						<div className="flex items-center space-x-2">
+						<div className="flex items-center gap-x-2">
 							<div
 								className={cn(
 									'text-[12px] leading-[12px]',

@@ -16,13 +16,14 @@ import TabList from './@component/tab-list';
  * @see{@link https://nextjs.org/docs/app/building-your-application/caching#request-memoization}
  * @returns
  */
-const Layout = ({
+const Layout = async ({
 	children,
-	params: { name }
+	params
 }: {
 	children: ReactElement;
 	params: { name: string };
 }) => {
+	const { name } = await params;
 	return (
 		<div>
 			<ServerWrapper
@@ -30,7 +31,7 @@ const Layout = ({
 				apiPromise={getProfileInfoApi(name)}
 				render={Profile}
 			/>
-			<div className="space-y-[12px] p-[16px]">
+			<div className="flex flex-col gap-y-[12px] p-[16px]">
 				<TabList />
 				{children}
 			</div>

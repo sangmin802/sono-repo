@@ -8,7 +8,7 @@ const NoticeSkeleton = () => (
 				key={idx}
 				className="min-w-0 grow basis-0"
 			>
-				<div className="space-y-[4px]">
+				<div className="flex flex-col gap-y-[4px]">
 					{Array.from({ length: 10 }).map((_, idx) => (
 						<MessagePostSkeleton key={idx} />
 					))}

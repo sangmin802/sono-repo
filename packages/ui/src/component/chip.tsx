@@ -2,9 +2,9 @@ import type { HTMLAttributes, ReactNode } from 'react';
 import cn from 'classnames';
 
 enum TChipType {
-	'primary' = 'bg-purple-500',
-	'info' = 'bg-gray-700',
-	'transparent' = 'bg-gray-950/50'
+	'primary' = 'ui:bg-purple-500',
+	'info' = 'ui:bg-gray-700',
+	'transparent' = 'ui:bg-gray-950/50'
 }
 
 interface IChipProps extends HTMLAttributes<HTMLDivElement> {
@@ -19,7 +19,7 @@ const Chip = ({ className, type, children, ...props }: IChipProps) => {
 			className={cn(
 				className,
 				TChipType[type],
-				'h-fit w-fit rounded-[4px] px-[4px] text-[12px]'
+				'ui:h-fit ui:w-fit ui:rounded-[4px] ui:px-[4px] ui:text-[12px]'
 			)}
 		>
 			{children}

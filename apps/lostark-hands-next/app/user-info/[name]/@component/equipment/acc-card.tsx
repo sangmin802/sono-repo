@@ -1,10 +1,9 @@
 import GradeText from '@/client-component/grade-text';
 import ThumbnailCard from '@/client-component/thumbnail-card';
 
-import { POLISHING_EFFECT_OPTIONS } from '@/constant/armory';
-
 import QualityChip from '../quality-chip';
-import type { IEquipCardProps } from './types';
+import { POLISHING_EFFECT_OPTIONS } from './_constants';
+import type { IEquipCardProps } from './_types';
 
 const AccCard = ({ onClick, ...item }: IEquipCardProps) => {
 	return (
@@ -17,7 +16,7 @@ const AccCard = ({ onClick, ...item }: IEquipCardProps) => {
 		>
 			{item.name && (
 				<>
-					<div className="flex space-x-[8px]">
+					<div className="flex gap-x-[8px]">
 						<QualityChip size={item.quality} />
 						<GradeText
 							className="text-[12px]"
@@ -26,7 +25,7 @@ const AccCard = ({ onClick, ...item }: IEquipCardProps) => {
 							{item.type}
 						</GradeText>
 					</div>
-					<div className="flex space-x-[8px]">
+					<div className="flex gap-x-[8px]">
 						{item.polishingEffect &&
 							item.polishingEffect.map((value) => (
 								<GradeText

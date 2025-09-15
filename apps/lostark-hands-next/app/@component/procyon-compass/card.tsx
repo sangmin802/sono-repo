@@ -6,7 +6,7 @@ import NextImage from 'next/image';
 import type { OpenModal } from '@sono-repo/ui';
 import { Image } from '@sono-repo/ui';
 
-import type { IRewardItem } from '@/service/game-contents/types';
+import type { IRewardItem } from '@/service/game-contents/_types';
 
 import ItemListModal from '@/client-component/modal/item-list-modal';
 import RewardIcon from '@/client-component/reward-icon';
@@ -16,7 +16,7 @@ import {
 	CARD_PACK_ICON_URL,
 	GOLD_ICON_URL,
 	SEA_COIN_ICON_URL
-} from '@/constant';
+} from '@/constants';
 
 interface IProcyonCompassCardProps {
 	icon: string;
@@ -58,7 +58,7 @@ const ProcyonCompassCard = ({
 
 	return (
 		<div
-			className={cn('flex items-center space-x-[8px] [&_div]:text-[12px]', {
+			className={cn('flex items-center gap-x-[8px] [&_div]:text-[12px]', {
 				'cursor-pointer': isHasReward
 			})}
 			onClick={handleOpenRewardModal}
@@ -73,12 +73,12 @@ const ProcyonCompassCard = ({
 					as={NextImage}
 				/>
 			)}
-			<div className="flex space-x-[16px]">
+			<div className="flex gap-x-[16px]">
 				<div>{name}</div>
 				{name.replaceAll(' ', '') !== desc.replaceAll(' ', '') && (
 					<div className="text-gray-400">{desc}</div>
 				)}
-				<div className="flex shrink-0 space-x-[4px]">
+				<div className="flex shrink-0 gap-x-[4px]">
 					{rewardList.map(
 						({ name }) =>
 							uniqueReward[name] && (

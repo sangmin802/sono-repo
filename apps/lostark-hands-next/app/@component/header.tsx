@@ -36,7 +36,7 @@ const Header = () => {
 
 	return (
 		<StickyElement
-			className="z-[90] bg-main-10 before:absolute before:inset-0 before:z-[-1]"
+			className="bg-main-10 z-[90] before:absolute before:inset-0 before:z-[-1]"
 			activeClassName={cn(
 				'bg-transparent shadow-[0px_10px_10px_rgba(0,0,0,.3)] before:backdrop-blur-[26px]'
 			)}
@@ -59,7 +59,7 @@ const Header = () => {
 						로아 핸즈
 					</div>
 				</div>
-				<div className="flex items-center space-x-[16px]">
+				<div className="flex items-center gap-x-[16px]">
 					<RiAuctionLine
 						className="size-[24px] translate-y-[4px] cursor-pointer"
 						onClick={handleMoveMarkets}
@@ -73,6 +73,7 @@ const Header = () => {
 							ref={inputRef}
 							className="min-w-0 bg-transparent font-semibold"
 							placeholder="유저명을 검색해주세요."
+							autoComplete="off"
 							onChange={setSearchQuery}
 						/>
 						<LuSearch className="inline-block size-[24px] cursor-pointer" />

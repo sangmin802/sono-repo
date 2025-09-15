@@ -7,13 +7,13 @@ import type { OpenModal } from '@sono-repo/ui';
 import { Chip, Image } from '@sono-repo/ui';
 import { convertDateFormat } from '@sono-repo/util/date';
 
-import useNotification from '@/hook/use-notification';
+import useNotification from '@/hooks/use-notification';
 
-import { getValidRewardList } from '@/util/calendar';
-
+import type { TCalendarItem } from '@/app/@component/_types';
 import TimeUnit from '@/app/@component/time-unit';
-import type { TCalendarItem } from '@/app/@component/types';
 import ItemListModal from '@/client-component/modal/item-list-modal';
+
+import { getValidRewardList } from '../_utils';
 
 interface IDailyContentCardProps {
 	item: TCalendarItem;

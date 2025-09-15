@@ -1,4 +1,4 @@
-import type { ICharacterInfo } from '@/service/characters/types';
+import type { ICharacterInfo } from '@/service/characters/_types';
 
 export const sliblingListSelector = (data: ICharacterInfo[] | null) => {
 	if (!data) return undefined;

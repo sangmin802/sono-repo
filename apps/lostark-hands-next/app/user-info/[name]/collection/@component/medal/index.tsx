@@ -2,7 +2,10 @@
 
 import { useModal } from '@sono-repo/ui';
 
-import type { IArmoryEquipment, TParsedArmory } from '@/service/armories/types';
+import type {
+	IArmoryEquipment,
+	TParsedArmory
+} from '@/service/armories/_types';
 
 import GradeText from '@/client-component/grade-text';
 import LabelLayout from '@/client-component/label-layout';
@@ -32,7 +35,7 @@ const CollectionMedal = ({ data }: IMedalProps) => {
 			className="my-[16px] h-fit shrink-0 lg:my-0"
 			label="수집품 보상"
 		>
-			<div className="space-y-[8px]">
+			<div className="flex flex-col gap-y-[8px]">
 				{data.col?.map((item, idx) => (
 					<ThumbnailCard
 						key={idx}

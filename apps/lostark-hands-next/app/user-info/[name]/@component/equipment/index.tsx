@@ -6,7 +6,7 @@ import { removeHtmlTag } from '@sono-repo/util/convert';
 import type {
 	ISelectedArmoryEquipment,
 	TParsedArmory
-} from '@/service/armories/types';
+} from '@/service/armories/_types';
 
 import QualityChip from '@/app/user-info/[name]/@component/quality-chip';
 import LabelLayout from '@/client-component/label-layout';
@@ -64,7 +64,7 @@ const Equipment = ({ data: { equip, acc } }: IEquipmentProps) => {
 					{accGrid.map((num, idx) => (
 						<div
 							key={idx}
-							className="flex flex-col space-y-[8px]"
+							className="flex flex-col gap-y-[8px]"
 						>
 							{acc.slice(...num).map((item, idx) => (
 								<AccCard

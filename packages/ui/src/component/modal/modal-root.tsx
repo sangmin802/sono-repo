@@ -40,7 +40,7 @@ const ModalRoot: FC = () => {
 				<AnimatePresence>
 					{isOpen && Component && (
 						<Motion.div
-							className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70"
+							className="ui:fixed ui:inset-0 ui:z-[100] ui:flex ui:items-center ui:justify-center ui:bg-black/70"
 							onClick={onCloseModal}
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}

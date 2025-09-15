@@ -5,8 +5,8 @@ import cn from 'classnames';
 
 import { Button } from '@sono-repo/ui';
 
-import useClientRendered from '@/hook/use-client-rendered';
-import useNotification from '@/hook/use-notification';
+import useClientRendered from '@/hooks/use-client-rendered';
+import useNotification from '@/hooks/use-notification';
 
 import Notification from '@/worker/notification';
 

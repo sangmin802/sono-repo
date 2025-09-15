@@ -6,15 +6,15 @@ import useTimer from 'sono-repo-react-timer';
 import { useModal } from '@sono-repo/ui';
 import { convertDateFormat } from '@sono-repo/util/date';
 
-import useFilterTimerList from '@/hook/use-filter-timer-list';
-import useNotification from '@/hook/use-notification';
+import useFilterTimerList from '@/hooks/use-filter-timer-list';
+import useNotification from '@/hooks/use-notification';
 
-import { convertCalendarData, getValidRewardList } from '@/util/calendar';
-
+import type { ICalenderContetProps } from '@/app/@component/_types';
 import ProcyonCompassCard from '@/app/@component/procyon-compass/card';
 import TimeUnit from '@/app/@component/time-unit';
-import type { ICalenderContetProps } from '@/app/@component/types';
 import LabelLayout from '@/client-component/label-layout';
+
+import { convertCalendarData, getValidRewardList } from '../_utils';
 
 const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
 	const { onOpenModal } = useModal();
@@ -45,9 +45,9 @@ const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
 	return (
 		<LabelLayout
 			label={
-				<div className="flex space-x-[12px]">
+				<div className="flex gap-x-[12px]">
 					<div>{title}</div>
-					<div className="flex space-x-[6px]">
+					<div className="flex gap-x-[6px]">
 						{firstTime && <div>{formattedTime}</div>}
 						<TimeUnit {...timerProps} />
 					</div>
@@ -58,7 +58,7 @@ const ProcyonCompassSection = ({ title, list }: ICalenderContetProps) => {
 				fallback: `오늘 등장하는 ${title}(이/가) 없어요.`
 			}}
 		>
-			<div className="hide-scrollbar mb-[-12px] max-h-[126px] space-y-[4px] overflow-y-scroll pb-[12px]">
+			<div className="hide-scrollbar mb-[-12px] flex max-h-[126px] flex-col gap-y-[4px] overflow-y-scroll pb-[12px]">
 				{timerList.map(
 					(item) =>
 						item.time[0] === firstTime && (

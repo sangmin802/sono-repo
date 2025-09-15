@@ -10,7 +10,7 @@ const EquipmentSkeleton = () => (
 			<div className="grid grid-cols-1 gap-[8px] lg:grid-cols-2">
 				{Array.from({ length: 6 }).map((_, idx) => (
 					<div
-						className="flex space-x-[6px]"
+						className="flex gap-x-[6px]"
 						key={idx}
 					>
 						<ThumbnailCardSkeleton className="h-[40px] w-[40px]" />
@@ -20,7 +20,7 @@ const EquipmentSkeleton = () => (
 		</LabelLayoutSkeleton>
 		<LabelLayoutSkeleton as="section">
 			<div className="grid grid-cols-1 gap-[8px] lg:grid-cols-2">
-				<div className="flex flex-col space-y-[8px]">
+				<div className="flex flex-col gap-y-[8px]">
 					{Array.from({ length: 5 }).map((_, idx) => (
 						<ThumbnailCardSkeleton
 							className="h-[40px] w-[40px]"
@@ -28,7 +28,7 @@ const EquipmentSkeleton = () => (
 						/>
 					))}
 				</div>
-				<div className="flex flex-col space-y-[8px]">
+				<div className="flex flex-col gap-y-[8px]">
 					{Array.from({ length: 2 }).map((_, idx) => (
 						<ThumbnailCardSkeleton
 							className="h-[40px] w-[40px]"

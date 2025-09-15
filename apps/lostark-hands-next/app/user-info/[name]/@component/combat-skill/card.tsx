@@ -1,12 +1,10 @@
-import cn from 'classnames';
-
 import { useModal } from '@sono-repo/ui';
 
 import GradeText from '@/client-component/grade-text';
 import ArmoryTooltipModal from '@/client-component/modal/armory-tooltip-modal';
 import Thumbnail from '@/client-component/thumbnail';
 
-import type { TData } from './types';
+import type { TData } from './_types';
 
 const SkillCard = (item: Exclude<TData, null>[0]) => {
 	const { onOpenModal } = useModal();
@@ -25,17 +23,17 @@ const SkillCard = (item: Exclude<TData, null>[0]) => {
 
 	return (
 		<div
-			className="flex cursor-pointer flex-col space-y-[4px]"
+			className="flex cursor-pointer flex-col gap-y-[4px]"
 			key={item.name}
 			onClick={handleOpenSkillModal}
 		>
-			<div className="flex items-center space-x-[4px]">
+			<div className="flex items-center gap-x-[4px]">
 				<div>{item.name}</div>
 				{item.rune && (
 					<GradeText grade={item.rune.grade}>{item.rune.name}</GradeText>
 				)}
 			</div>
-			<div className="flex items-center space-x-[12px]">
+			<div className="flex items-center gap-x-[12px]">
 				<Thumbnail
 					className="h-[50px] w-[50px]"
 					src={item.icon}
@@ -43,19 +41,12 @@ const SkillCard = (item: Exclude<TData, null>[0]) => {
 					chip={item.level}
 				/>
 				<div className="min-w-0 grow">
-					{item.tripods.map(({ name, level }, idx) => (
+					{item.tripods.map(({ name }, idx) => (
 						<div
-							className="flex space-x-[8px]"
 							key={idx}
+							className="truncate text-[12px] leading-[16px]"
 						>
-							<div
-								className={cn(
-									'text-[12px] font-bold leading-[16px] text-orange-500'
-								)}
-							>
-								{level}
-							</div>
-							<div className="truncate text-[12px] leading-[16px]">{name}</div>
+							{name}
 						</div>
 					))}
 				</div>

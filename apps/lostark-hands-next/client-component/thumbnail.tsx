@@ -5,9 +5,9 @@ import NextImage from 'next/image';
 
 import { Chip, Image } from '@sono-repo/ui';
 
-import { GRADE_BG_COLOR } from '@/constant';
+import { GRADE_BG_COLOR } from '@/constants';
 
-import type { TGrade } from '@/type';
+import type { TGrade } from '@/types';
 
 interface IThumbnailProps {
 	className?: string;

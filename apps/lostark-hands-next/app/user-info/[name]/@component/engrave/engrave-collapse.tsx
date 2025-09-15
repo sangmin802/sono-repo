@@ -4,14 +4,14 @@ import NextImage from 'next/image';
 
 import { Collapse, Image, useModal } from '@sono-repo/ui';
 
-import type { IArkPassiveEffects, IEffect } from '@/service/armories/types';
+import type { IArkPassiveEffects, IEffect } from '@/service/armories/_types';
 
 import LabelLayout from '@/client-component/label-layout';
 import DescListModal from '@/client-component/modal/desc-list-modal';
 
-import { CDN_URL } from '@/constant';
-import ENGRAVE_IMGAE from '@/constant/engrave';
+import { CDN_URL } from '@/constants';
 
+import ENGRAVE_IMGAE from './_constants';
 import ArkPassiveEngrave from './ark-passive-engrave';
 import CommonEngrave from './common-engrave';
 
@@ -51,7 +51,7 @@ const EngraveCollapse = ({ data }: IEngravesProps) => {
 		>
 			<LabelLayout
 				label={
-					<Collapse.Summary className="flex space-x-[4px]">
+					<Collapse.Summary className="flex gap-x-[4px]">
 						{engraveData?.map(({ name }) => (
 							<Image
 								as={NextImage}
@@ -71,7 +71,7 @@ const EngraveCollapse = ({ data }: IEngravesProps) => {
 				empty={{ status: !data, fallback: '설정된 각인이 없습니다.' }}
 			>
 				<Collapse.Content
-					className="space-y-[6px] pt-0"
+					className="flex flex-col gap-y-[6px] pt-0"
 					onClick={handleOpenModal}
 				>
 					{isArkPassive ? (

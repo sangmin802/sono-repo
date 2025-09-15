@@ -5,14 +5,12 @@ import cn from 'classnames';
 
 import { useResponsive } from '@sono-repo/hook';
 
-import type { ICollectible, TCollectibleType } from '@/service/armories/types';
+import type { ICollectible, TCollectibleType } from '@/service/armories/_types';
 
 import LabelLayout from '@/client-component/label-layout';
 import StickyElement from '@/client-component/sticky-element';
 
-import { COLLECTION_DESC } from '@/constant/collection';
-
-import { STICKY_NAV_STYLE } from './constants';
+import { COLLECTION_DESC, STICKY_NAV_STYLE } from './_constants';
 
 interface ICollectionProps {
 	data: ICollectible[];
@@ -62,7 +60,7 @@ const Collection = ({ data }: ICollectionProps) => {
 					<div
 						className={cn(
 							'flex w-[140px] shrink-0 items-center',
-							'cursor-pointer space-x-[8px] rounded-[4px] p-[4px] duration-500',
+							'cursor-pointer gap-x-[8px] rounded-[4px] p-[4px] duration-500',
 							{
 								'bg-main-30': item.type === selectCollect.type,
 								'hover:bg-main-20': item.type !== selectCollect.type
@@ -74,7 +72,7 @@ const Collection = ({ data }: ICollectionProps) => {
 						}}
 					>
 						<div
-							className="h-[22px] w-[22px] bg-collection"
+							className="bg-image-collection h-[22px] w-[22px]"
 							style={{ ...bgPosition[item.type] }}
 						/>
 						<div>
@@ -99,7 +97,7 @@ const Collection = ({ data }: ICollectionProps) => {
 				className="grow"
 				label={selectCollect.type}
 			>
-				<div className="space-y-[4px]">
+				<div className="flex flex-col gap-y-[4px]">
 					{selectCollect.collectiblePoints.map(
 						({ pointName, point, maxPoint }) => (
 							<div

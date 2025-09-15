@@ -28,7 +28,7 @@ const Tendencies = ({ data: { tendencies } }: ITendenceisProps) => {
 				<Collapse.Content className="grid grid-cols-2 gap-[6px] rounded-[6px] pt-0">
 					{tendencies.map(({ type, point }) => (
 						<div
-							className="flex items-center space-x-[4px]"
+							className="flex items-center gap-x-[4px]"
 							key={type}
 						>
 							<Label>{type}</Label>

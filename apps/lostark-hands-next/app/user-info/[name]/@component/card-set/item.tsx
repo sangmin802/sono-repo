@@ -3,11 +3,11 @@ import NextImage from 'next/image';
 
 import { Image } from '@sono-repo/ui';
 
-import type { ICard } from '@/service/armories/types';
+import type { ICard } from '@/service/armories/_types';
 
-import { CDN_URL } from '@/constant';
+import { CDN_URL } from '@/constants';
 
-import type { TGrade } from '@/type';
+import type { TGrade } from '@/types';
 
 const cardOutline: Record<TGrade, number> = {
 	일반: 0,
@@ -38,7 +38,7 @@ const CardItem = (item: ICard) => {
 			<div
 				className={cn(
 					'absolute bottom-[4px] flex h-[12%] w-full justify-center',
-					'space-x-[4px]'
+					'gap-x-[4px]'
 				)}
 			>
 				{Array.from({ length: item.awakeTotal }, (_, idx) => idx).map((idx) => (

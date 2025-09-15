@@ -1,6 +1,6 @@
 'use client';
 
-import type { TCalendarData } from '../types';
+import type { TCalendarData } from '../_types';
 import DailyContentSection from './section';
 
 interface IDailyContentProps {
@@ -9,7 +9,7 @@ interface IDailyContentProps {
 
 const DailyContent = ({ data: { daily } }: IDailyContentProps) => {
 	return (
-		<div className="space-y-[16px]">
+		<div className="flex flex-col gap-y-[16px]">
 			{Object.values(daily).map((item) => (
 				<DailyContentSection
 					key={item.title}

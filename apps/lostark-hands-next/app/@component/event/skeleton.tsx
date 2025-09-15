@@ -3,7 +3,7 @@ import ThumbnailPostSkeleton from '@/client-component/thumbnail-post/skeleton';
 
 const EventSkeleton = () => (
 	<LabelLayoutSkeleton as="section">
-		<div className="hide-scrollbar mx-[-8px] flex flex-nowrap space-x-[16px] overflow-x-scroll px-[8px]">
+		<div className="hide-scrollbar mx-[-8px] flex flex-nowrap gap-x-[16px] overflow-x-scroll px-[8px]">
 			{Array.from({ length: Math.ceil(Math.random() * 4 + 2) }).map(
 				(_, idx) => (
 					<ThumbnailPostSkeleton

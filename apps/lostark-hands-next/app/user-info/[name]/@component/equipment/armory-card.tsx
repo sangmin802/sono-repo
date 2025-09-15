@@ -1,14 +1,14 @@
 import { removeHtmlTag } from '@sono-repo/util/convert';
 
-import { onlyNumber } from '@/util/selector';
+import { onlyNumber } from '@/utils';
 
 import GradeText from '@/client-component/grade-text';
 import ThumbnailCard from '@/client-component/thumbnail-card';
 
 import QualityChip from '../quality-chip';
+import type { IEquipCardProps } from './_types';
 import Elixir from './elixir';
 import Transcendence from './transcedence';
-import type { IEquipCardProps } from './types';
 
 const ArmoryCard = ({ onClick, ...item }: IEquipCardProps) => {
 	return (
@@ -22,7 +22,7 @@ const ArmoryCard = ({ onClick, ...item }: IEquipCardProps) => {
 		>
 			{item.name && (
 				<>
-					<div className="flex space-x-[8px]">
+					<div className="flex gap-x-[8px]">
 						<GradeText
 							className="text-[12px]"
 							grade={item.grade}
@@ -38,7 +38,7 @@ const ArmoryCard = ({ onClick, ...item }: IEquipCardProps) => {
 						</GradeText>
 						<QualityChip size={item.quality} />
 					</div>
-					<div className="flex items-center space-x-[6px]">
+					<div className="flex items-center gap-x-[6px]">
 						{item.elixir && <Elixir data={item.elixir} />}
 						{item.transcendence && <Transcendence {...item.transcendence} />}
 					</div>

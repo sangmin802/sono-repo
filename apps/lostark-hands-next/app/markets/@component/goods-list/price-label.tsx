@@ -1,7 +1,7 @@
 import Label from '@/client-component/label';
 import RewardIcon from '@/client-component/reward-icon';
 
-import { GOLD_ICON_URL } from '@/constant';
+import { GOLD_ICON_URL } from '@/constants';
 
 const PriceLabel = ({ label, price }: { label: string; price: number }) => {
 	return (

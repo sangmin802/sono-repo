@@ -6,7 +6,8 @@ import { avatarSelector } from '@/service/armories/selector';
 import AvatarGrid from './@component';
 import AvatarGridSkeleton from './@component/skeleton';
 
-const Page = ({ params: { name } }: { params: { name: string } }) => {
+const Page = async ({ params }: { params: { name: string } }) => {
+	const { name } = await params;
 	return (
 		<ServerWrapper
 			fallback={<AvatarGridSkeleton />}

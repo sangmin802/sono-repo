@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import { Chip, Collapse, useModal } from '@sono-repo/ui';
 
-import type { ICard, ICardEffect } from '@/service/armories/types';
+import type { ICard, ICardEffect } from '@/service/armories/_types';
 
 import LabelLayout from '@/client-component/label-layout';
 import DescListModal from '@/client-component/modal/desc-list-modal';
@@ -42,7 +42,7 @@ const CardSet = ({ data: { cards, effects } }: ICardSetProps) => {
 		>
 			<LabelLayout
 				label={
-					<Collapse.Summary className="flex space-x-[16px]">
+					<Collapse.Summary className="flex gap-x-[16px]">
 						<div>카드</div>
 						<div>
 							{effects?.map((item, idx) => (
@@ -65,8 +65,8 @@ const CardSet = ({ data: { cards, effects } }: ICardSetProps) => {
 					>
 						{cards.map((item, idx) => (
 							<div
-								className={cn('relative w-full bg-main-10 pb-[146%]', {
-									['border border-main-40 rounded-[6px]']: !item
+								className={cn('bg-main-10 relative w-full pb-[146%]', {
+									['border-main-40 rounded-[6px] border']: !item
 								})}
 								key={idx}
 							>

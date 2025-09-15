@@ -3,13 +3,13 @@
 import { useModal } from '@sono-repo/ui';
 import { removeHtmlTag } from '@sono-repo/util/convert';
 
-import type { IParsedGem } from '@/service/armories/types';
+import type { IParsedGem } from '@/service/armories/_types';
 
 import LabelLayout from '@/client-component/label-layout';
 import ArmoryTooltipListModal from '@/client-component/modal/armory-tooltip-list-modal';
 import Thumbnail from '@/client-component/thumbnail';
 
-import { minifyData } from './utils';
+import { minifyData } from './_utils';
 
 interface IGemProps {
 	data: IParsedGem[] | null;
@@ -47,7 +47,7 @@ const Gem = ({ data }: IGemProps) => {
 			>
 				{minifiedData?.map(({ icon, name, grade, level, size }, idx) => (
 					<div
-						className="flex w-[100px] items-center space-x-[8px] pb-[8px]"
+						className="flex w-[100px] items-center gap-x-[8px] pb-[8px]"
 						key={idx}
 					>
 						<Thumbnail

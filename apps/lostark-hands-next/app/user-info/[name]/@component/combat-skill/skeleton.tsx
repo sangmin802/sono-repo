@@ -6,10 +6,10 @@ const CombatSkillSkeleton = () => (
 		<div className="grid grid-cols-2 gap-[12px] md:grid-cols-4">
 			{Array.from({ length: 8 }).map((_, idx) => (
 				<div
-					className="flex cursor-pointer flex-col space-y-[4px]"
+					className="flex cursor-pointer flex-col gap-y-[4px]"
 					key={idx}
 				>
-					<div className="flex items-center space-x-[4px]">
+					<div className="flex items-center gap-x-[4px]">
 						<Skeleton
 							className="h-[21px]"
 							randomWidth={{ max: 64, min: 48 }}
@@ -20,12 +20,12 @@ const CombatSkillSkeleton = () => (
 							type="LIGHT"
 						/>
 					</div>
-					<div className="flex items-center space-x-[12px]">
+					<div className="flex items-center gap-x-[12px]">
 						<Skeleton
 							className="h-[50px] w-[50px]"
 							type="LIGHT"
 						/>
-						<div className="flex h-full min-w-0 grow flex-col items-start space-y-[1px]">
+						<div className="flex h-full min-w-0 grow flex-col items-start gap-y-[1px]">
 							{Array.from({ length: Math.round(Math.random() * 2 + 1) }).map(
 								(_, idx) => (
 									<Skeleton

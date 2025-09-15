@@ -4,12 +4,12 @@ import cn from 'classnames';
 
 import { Collapse } from '@sono-repo/ui';
 
-import type { ISelectedArkPassive } from '@/service/armories/types';
+import type { ISelectedArkPassive } from '@/service/armories/_types';
 
 import Label from '@/client-component/label';
 import LabelLayout from '@/client-component/label-layout';
 
-import { ARK_PASSIVE_COLOR_CONFIG } from './constants';
+import { ARK_PASSIVE_COLOR_CONFIG } from './_constants';
 import ContentGrid from './content-grid';
 
 interface IStatsProps {
@@ -30,7 +30,7 @@ const ArkPassiveCollapse = ({
 		>
 			<LabelLayout
 				label={
-					<Collapse.Summary className="flex items-center space-x-[8px]">
+					<Collapse.Summary className="flex items-center gap-x-[8px]">
 						{points.map((item) => (
 							<Label
 								className={cn(

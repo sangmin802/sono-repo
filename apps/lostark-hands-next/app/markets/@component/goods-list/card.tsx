@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import type { IItem } from '@/service/markets/types';
+import type { IItem } from '@/service/markets/_types';
 
 import Thumbnail from '@/client-component/thumbnail';
 
@@ -9,11 +9,11 @@ import PriceLabel from './price-label';
 const Card = (item: IItem) => (
 	<div
 		className={cn(
-			'flex items-center justify-between space-x-[4px] p-[6px] shadow-[2px_2px_8px_rgba(0,0,0,0.32)]',
+			'flex items-center justify-between gap-x-[4px] p-[6px] shadow-[2px_2px_8px_rgba(0,0,0,0.32)]',
 			'duration-75 ease-in-out hover:scale-[1.01]'
 		)}
 	>
-		<div className="flex shrink-0 grow basis-0 items-center space-x-[8px]">
+		<div className="flex shrink-0 grow basis-0 items-center gap-x-[8px]">
 			<Thumbnail
 				className="h-[40px] w-[40px]"
 				grade={item.grade}
@@ -34,7 +34,7 @@ const Card = (item: IItem) => (
 				)}
 			</div>
 		</div>
-		<div className="shrink-0 grow basis-0 space-y-[4px]">
+		<div className="flex shrink-0 grow basis-0 flex-col gap-y-[4px]">
 			<PriceLabel
 				label="최저가"
 				price={item.currentMinPrice}

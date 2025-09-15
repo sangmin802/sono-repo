@@ -1,32 +1,40 @@
 {
-  "name": "react-vite",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@sono-repo/prettier-config": "workspace:^",
-    "@sono-repo/tsconfig": "workspace:^",
-    "@sono-repo/ui": "workspace:^",
-    "@types/react": "18.2.12",
-    "@types/react-dom": "18.2.15",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.38.0",
-    "eslint-config-sono-repo": "workspace:^",
-    "postcss": "8.4.22",
-    "prettier": "^2.8.7",
-    "tailwindcss": "^3.3.3",
-    "typescript": "5.3.2",
-    "vite": "^5.0.5"
-  },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.2.0"
-  }
+	"name": "react-vite",
+	"version": "1.0.0",
+	"type": "module",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"start": "tsc && vite preview"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@module-federation/vite": "^1.4.0",
+		"@originjs/vite-plugin-federation": "^1.4.1",
+		"@sono-repo/eslint-config": "workspace:^",
+		"@sono-repo/tsconfig": "workspace:^",
+		"@sono-repo/ui": "workspace:^",
+		"@tailwindcss/vite": "^4.1.4",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"@vitejs/plugin-react": "^4.2.1",
+		"babel-plugin-react-compiler": "19.1.0-rc.1",
+		"eslint": "9.25.0",
+		"tailwindcss": "4.1.4",
+		"typescript": "5.3.2",
+		"vite": "^5.0.5"
+	},
+	"dependencies": {
+		"@tanstack/react-query": "5.72.1",
+		"@tanstack/react-query-devtools": "5.72.1",
+		"@zod/mini": "4.0.0-beta.0",
+		"react": "^19",
+		"react-dom": "^19",
+		"react-error-boundary": "^5.0.0",
+		"zod": "^3.24.3"
+	}
 }

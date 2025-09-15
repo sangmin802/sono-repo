@@ -5,7 +5,7 @@ import { useState } from 'react';
 import type { ModalProps } from '@sono-repo/ui';
 import { Accordion, Button, Collapse, ModalLayout } from '@sono-repo/ui';
 
-import type { ICode } from '@/type';
+import type { ICode } from '@/types';
 
 import CategoryFilter from './category-filter';
 import KeywordFilter from './keyword-filter';
@@ -73,7 +73,7 @@ const FilterModal = ({
 	return (
 		<ModalLayout
 			title={title}
-			containerClassName="space-y-[8px]"
+			containerClassName="flex flex-col gap-y-[8px]"
 			confirm={{ show: true, onClick: () => onResolve(filter) }}
 		>
 			<Button onClick={handleReset}>초기화</Button>

@@ -1,4 +1,4 @@
-import type { ISelectedArkPassive } from '@/service/armories/types';
+import type { ISelectedArkPassive } from '@/service/armories/_types';
 import {
 	ArkPassiveType,
 	type IArkPassive,
@@ -14,16 +14,13 @@ import {
 	type IStat,
 	type ITendency,
 	type TParsedArmory
-} from '@/service/armories/types';
+} from '@/service/armories/_types';
 
-import {
-	getAdvancedReinforce,
-	getElixir,
-	getPolishingEffect,
-	getTranscendence
-} from '@/util/armory';
+import { CDN_URL, EMO_IMAGE_URL } from '@/constants';
 
-import { CDN_URL } from '@/constant';
+import type { IObj } from '@/types';
+import type { TElement, TElementUnionArray } from '@/types/element-json';
+
 import {
 	ACC_PARTS,
 	ARK_PASSIVE_TYPE,
@@ -31,13 +28,15 @@ import {
 	BASIC_STATS,
 	BASIC_TENDENCIES,
 	COLLECT_PARTS,
-	EMO_IMAGE_URL,
 	EQUIP_PARTS,
 	EXCLUDE_TOOLTIP_TEXT
-} from '@/constant/armory';
-
-import type { IObj } from '@/type';
-import type { TElement, TElementUnionArray } from '@/type/element-json';
+} from './_constants';
+import {
+	getAdvancedReinforce,
+	getElixir,
+	getPolishingEffect,
+	getTranscendence
+} from './_utils';
 
 /**
  * 프로필 데이터 가공
@@ -81,10 +80,10 @@ export const arkPassiveSelector = (data: IArkPassive | null) => {
 			arkPassive: {
 				isArkPassive: false,
 				points: [
-					{ name: ArkPassiveType.Enlightenment, value: 0, tooltip: '' },
-					{ name: ArkPassiveType.Evolution, value: 0, tooltip: '' },
-					{ name: ArkPassiveType.Leap, value: 0, tooltip: '' }
-				],
+					ArkPassiveType.Enlightenment,
+					ArkPassiveType.Evolution,
+					ArkPassiveType.Leap
+				].map((name) => ({ name, value: 0, tooltip: '', description: '' })),
 				effects: defaultEffect
 			}
 		};
@@ -96,14 +95,17 @@ export const arkPassiveSelector = (data: IArkPassive | null) => {
 				JSON.parse(item.toolTip)
 			) satisfies TElementUnionArray
 		}))
-		.reduce((prev, { name, ...cur }) => {
-			// ARK_PASSIVE
-			prev[ARK_PASSIVE_TYPE[name]].push({
-				...cur,
-				name
-			});
-			return prev;
-		}, defaultEffect satisfies ISelectedArkPassive['effects']);
+		.reduce(
+			(prev, { name, ...cur }) => {
+				// ARK_PASSIVE
+				prev[ARK_PASSIVE_TYPE[name]].push({
+					...cur,
+					name
+				});
+				return prev;
+			},
+			defaultEffect satisfies ISelectedArkPassive['effects']
+		);
 
 	return {
 		arkPassive: {
@@ -178,8 +180,8 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 			const key = EQUIP_PARTS.includes(cur)
 				? 'equip'
 				: ACC_PARTS.includes(cur)
-				? 'acc'
-				: 'col';
+					? 'acc'
+					: 'col';
 			const targetItemList = data?.filter(({ type }) => type === cur);
 
 			if (!targetItemList) {
@@ -196,9 +198,9 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 
 			targetItemList.forEach((targetItem) => {
 				const { tooltip: jsonToolip, ...rest } = targetItem;
-				const tooltip = Object.values(
-					JSON.parse(jsonToolip)
-				) satisfies TElementUnionArray;
+				const tooltip = (
+					Object.values(JSON.parse(jsonToolip)) satisfies TElementUnionArray
+				).filter((item) => !!item);
 
 				const itemTitle = tooltip.find(({ type }) => type === 'ItemTitle') as
 					| TElement['ItemTitle']
@@ -206,6 +208,7 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 
 				const levelInfo = itemTitle?.value.leftStr2 ?? '';
 				const quality = itemTitle?.value.qualityValue ?? 0;
+
 				const elixir = getElixir(tooltip);
 				const transcendence = getTranscendence(tooltip);
 				const advancedReinforce = getAdvancedReinforce(tooltip);
@@ -221,15 +224,17 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 					polishingEffect,
 					tooltip: (
 						Object.values(JSON.parse(jsonToolip)) satisfies TElementUnionArray
-					).map((item) => {
-						if (
-							item.type !== 'IndentStringGroup' &&
-							item.type !== 'ItemPartBox'
-						)
-							return item;
+					)
+						.filter((item) => !!item)
+						.map((item) => {
+							if (
+								item.type !== 'IndentStringGroup' &&
+								item.type !== 'ItemPartBox'
+							)
+								return item;
 
-						return changeImageUrl(item);
-					})
+							return changeImageUrl(item);
+						})
 				});
 			});
 
@@ -278,7 +283,9 @@ export const gemSelector = (data: IArmoryGem | null): IParsedGem[] | null => {
 	return data.gems
 		.map((item) => ({
 			...item,
-			tooltip: Object.values(JSON.parse(item.tooltip)) as TElementUnionArray
+			tooltip: (
+				Object.values(JSON.parse(item.tooltip)) as TElementUnionArray
+			).filter((item) => !!item)
 		}))
 		.sort((a, b) => b.level - a.level);
 };
@@ -305,7 +312,7 @@ export const avatarSelector = (data: IArmoryAvatar[]) =>
 							name: '',
 							type: cur
 						}
-				  ]
+					]
 		);
 
 		return prev;

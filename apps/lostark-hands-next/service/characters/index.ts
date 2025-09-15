@@ -1,9 +1,9 @@
 import axiosInstance from '@/service/axios';
-import type { ICharacterInfo } from '@/service/characters/types';
+import type { ICharacterInfo } from '@/service/characters/_types';
 
-import { pascalToCamelInArray } from '@/util/selector';
+import { pascalToCamelInArray } from '@/utils';
 
-import type { ToPascalKey } from '@/type';
+import type { ToPascalKey } from '@/types';
 
 /**
  * @description get silblings info

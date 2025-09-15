@@ -1,6 +1,6 @@
 'use client';
 
-import type { IArmoryAvatar, TParsedArmory } from '@/service/armories/types';
+import type { IArmoryAvatar, TParsedArmory } from '@/service/armories/_types';
 
 import GradeText from '@/client-component/grade-text';
 import LabelLayout from '@/client-component/label-layout';
@@ -15,7 +15,7 @@ const AvatarGrid = ({ data }: IAvatarGridProps) => (
 		label="아바타"
 		as="section"
 	>
-		<div className="space-y-[8px]">
+		<div className="flex flex-col gap-y-[8px]">
 			{data.map((list) => (
 				<div
 					className="grid grid-cols-2 gap-[4px]"

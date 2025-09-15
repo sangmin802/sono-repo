@@ -14,7 +14,7 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
 
 		return (
 			<input
-				className={cn('rounded-[6px] p-[4px] outline-none', className)}
+				className={cn('ui:rounded-[6px] ui:p-[4px] ui:outline-none', className)}
 				spellCheck="false"
 				onChange={handleChangeInput}
 				ref={ref}

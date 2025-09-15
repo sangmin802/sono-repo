@@ -8,13 +8,13 @@ import type {
 	IArmoryProfile,
 	IArmorySkill,
 	ICollectible
-} from '@/service/armories/types';
-import type { IArmoryEngraving } from '@/service/armories/types';
+} from '@/service/armories/_types';
+import type { IArmoryEngraving } from '@/service/armories/_types';
 import axiosInstance from '@/service/axios';
 
-import { pascalToCamel, pascalToCamelInArray } from '@/util/selector';
+import { pascalToCamel, pascalToCamelInArray } from '@/utils';
 
-import type { ToPascalKey } from '@/type';
+import type { ToPascalKey } from '@/types';
 
 /**
  * @description get armories info
@@ -73,9 +73,9 @@ export const getEquipmentApi = async (
 ): Promise<IArmoryEquipment[] | null> =>
 	(
 		await axiosInstance
-			.get<ToPascalKey<IArmoryEquipment>[] | null>(
-				`armories/characters/${name}/equipment`
-			)
+			.get<
+				ToPascalKey<IArmoryEquipment>[] | null
+			>(`armories/characters/${name}/equipment`)
 			.then(({ data, ...resolve }) => ({
 				...resolve,
 				data: data ? pascalToCamelInArray(data) : data
@@ -103,9 +103,9 @@ export const getSkillApi = async (
 ): Promise<IArmorySkill[] | null> =>
 	(
 		await axiosInstance
-			.get<ToPascalKey<IArmorySkill>[] | null>(
-				`armories/characters/${name}/combat-skills`
-			)
+			.get<
+				ToPascalKey<IArmorySkill>[] | null
+			>(`armories/characters/${name}/combat-skills`)
 			.then(({ data, ...resolve }) => ({
 				...resolve,
 				data: data ? pascalToCamelInArray(data) : data
@@ -133,9 +133,9 @@ export const getCollectibleApi = async (
 ): Promise<ICollectible[]> =>
 	(
 		await axiosInstance
-			.get<ToPascalKey<ICollectible>[]>(
-				`armories/characters/${name}/collectibles`
-			)
+			.get<
+				ToPascalKey<ICollectible>[]
+			>(`armories/characters/${name}/collectibles`)
 			.then((resolve) => ({
 				...resolve,
 				data: pascalToCamelInArray(resolve.data ?? [])

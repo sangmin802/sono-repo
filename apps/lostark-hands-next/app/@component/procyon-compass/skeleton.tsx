@@ -9,13 +9,13 @@ const ProcyonCompassSkeleton = () => (
 				key={idx}
 				className="h-[177px]"
 			>
-				<div className="space-y-[4px] pb-[12px]">
+				<div className="flex flex-col gap-y-[4px] pb-[12px]">
 					{Array.from({ length: Math.ceil(Math.random() * 4 + 1) }).map(
 						(_, idx) => (
 							<div
 								key={idx}
 								style={{ width: Math.random() * 100 + 40 }}
-								className="h-[18px] animate-pulse rounded-[2px] bg-main-30"
+								className="bg-main-30 h-[18px] animate-pulse rounded-[2px]"
 							/>
 						)
 					)}

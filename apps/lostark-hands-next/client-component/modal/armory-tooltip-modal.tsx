@@ -9,8 +9,8 @@ import ArmoryTooltip from '@/client-component/armory-tooltip';
 import GradeText from '@/client-component/grade-text';
 import Thumbnail from '@/client-component/thumbnail';
 
-import type { TGrade } from '@/type';
-import type { TElementUnionArray } from '@/type/element-json';
+import type { TGrade } from '@/types';
+import type { TElementUnionArray } from '@/types/element-json';
 
 interface ArmoryTooltipModalProps extends ModalProps {
 	name: string;
@@ -35,7 +35,7 @@ const ArmoryTooltipModal = ({
 
 	return (
 		<ModalLayout confirm={{ show: true }}>
-			<div className="mb-[18px] flex space-x-[8px]">
+			<div className="mb-[18px] flex gap-x-[8px]">
 				<Thumbnail
 					className="h-[60px] w-[60px]"
 					src={icon}
@@ -44,7 +44,7 @@ const ArmoryTooltipModal = ({
 					chip={chip}
 				/>
 				<div className="flex flex-col justify-center">
-					<div className="flex items-center space-x-[4px]">
+					<div className="flex items-center gap-x-[4px]">
 						{subTitle && <div className="text-[12px]">{subTitle}</div>}
 						{afterSubTitle}
 					</div>
@@ -56,7 +56,7 @@ const ArmoryTooltipModal = ({
 					</GradeText>
 				</div>
 			</div>
-			<div className="space-y-[16px]">
+			<div className="flex flex-col gap-y-[16px]">
 				{contents.map((item, idx) => (
 					<ArmoryTooltip
 						key={idx}

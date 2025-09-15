@@ -6,9 +6,9 @@ import NextImage from 'next/image';
 import type { ModalProps } from '@sono-repo/ui';
 import { Image, ModalLayout } from '@sono-repo/ui';
 
-import { GRADE_BG_COLOR } from '@/constant';
+import { GRADE_BG_COLOR } from '@/constants';
 
-import type { TGrade } from '@/type';
+import type { TGrade } from '@/types';
 
 interface ItemListModalProps extends ModalProps {
 	title: string;
@@ -25,7 +25,7 @@ const ItemListModal = ({ title, list }: ItemListModalProps) => {
 				{list.map(({ icon, name, grade }, idx) => (
 					<div
 						key={idx}
-						className="relative flex items-center rounded-[6px] bg-main-30 p-[6px]"
+						className="bg-main-30 relative flex items-center rounded-[6px] p-[6px]"
 					>
 						<Image
 							as={NextImage}

@@ -1,31 +1,48 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css');
+@import 'tailwindcss';
+@import '@sono-repo/ui/theme';
+@import '@sono-repo/ui/style';
 
-@tailwind base;
-@layer base {
-  * :not(.dangerousHTML *) {
-    @apply text-white;
-  }
+@theme {
+	--bg-image-normal: linear-gradient(135deg, #232323, #575757);
+	--bg-image-advanced: linear-gradient(135deg, #18220b, #304911);
+	--bg-image-rare: linear-gradient(135deg, #111f2c, #113d5d);
+	--bg-image-epic: linear-gradient(135deg, #261331, #480d5d);
+	--bg-image-legendary: linear-gradient(135deg, #362003, #9e5f04);
+	--bg-image-relic: linear-gradient(135deg, #341a09, #a24006);
+	--bg-image-ancient: linear-gradient(135deg, #3d3325, #dcc999);
+	--bg-image-esther: linear-gradient(135deg, #0c2e2c, #2faba8);
 
-  * {
-    @apply font-['Pretendard'];
-    @apply text-[14px];
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
+	--bg-image-collection: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/sprite/sprite_profile.png);
 
-  .dangerousHTML font, .dangerousHTML img {
-    @apply inline;
-  }
+	--color-normal: #929292;
+	--color-advanced: #74a33c;
+	--color-rare: #00b5ff;
+	--color-epic: #c200c2;
+	--color-legendary: #fb923c;
+	--color-relic: #ff6000;
+	--color-ancient: #dcc999;
+	--color-esther: #2faba8;
+	--color-white: #efefef;
 }
 
-@tailwind components;
-@tailwind utilities;
-@layer utilities {
-  .hide-scrollbar::-webkit-scrollbar {
-		display: none;
+@utility bg-image-* {
+	background-image: --value(--bg-image- *);
+}
+
+@layer base {
+	* :not(.dangerousHTML *) {
+		@apply text-white;
 	}
 
-	.hide-scrollbar {
-		-ms-overflow-style: none;
-		scrollbar-width: none;
+	* {
+		@apply font-['Pretendard'];
+		@apply text-[14px];
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+
+	.dangerousHTML font,
+	.dangerousHTML img {
+		@apply inline;
 	}
 }
