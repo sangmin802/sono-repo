@@ -209,6 +209,7 @@ export interface IArmoryProfile {
 		symbol: string;
 		emblems: string[];
 	};
+	honorPoint: number;
 }
 
 export interface IArmoryEquipment {
@@ -316,4 +317,33 @@ export interface IArmoriesInfo {
 	armorySkills: IArmorySkill[];
 	collectibles: ICollectible[];
 	colosseumInfo: IColosseumInfo;
+}
+
+export interface ArkGridGem {
+	index: number;
+	icon: string;
+	isActive: true;
+	grade: TGrade;
+	tooltip: string;
+}
+
+export interface ArkGridSlot {
+	index: number;
+	icon: string;
+	name: string;
+	point: number;
+	grade: TGrade;
+	tooltip: string;
+	gems: ArkGridGem[];
+}
+
+export interface ArkGridEffect {
+	name: string;
+	level: number;
+	tooltip: string;
+}
+
+export interface ArkGrid {
+	slots: ArkGridSlot[] | null;
+	effects: ArkGridEffect[] | null;
 }
