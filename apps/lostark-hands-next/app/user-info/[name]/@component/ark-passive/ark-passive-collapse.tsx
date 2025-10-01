@@ -31,6 +31,7 @@ const ArkPassiveCollapse = ({
 			<LabelLayout
 				label={
 					<Collapse.Summary className="flex items-center gap-x-[8px]">
+						아크 패시브
 						{points.map((item) => (
 							<Label
 								className={cn(

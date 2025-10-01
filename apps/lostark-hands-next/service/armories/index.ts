@@ -1,4 +1,5 @@
 import type {
+	ArkGrid,
 	IArkPassive,
 	IArmoriesInfo,
 	IArmoryAvatar,
@@ -162,6 +163,19 @@ export const getArkPassiveApi = async (name: string): Promise<IArkPassive> =>
 	(
 		await axiosInstance
 			.get<ToPascalKey<IArkPassive>>(`armories/characters/${name}/arkPassive`)
+			.then((resolve) => ({
+				...resolve,
+				data: pascalToCamel(resolve.data)
+			}))
+	).data;
+
+/**
+ * @description 아크그리드 정보
+ */
+export const getArkGridApi = async (name: string): Promise<ArkGrid> =>
+	(
+		await axiosInstance
+			.get<ToPascalKey<ArkGrid>>(`armories/characters/${name}/arkGrid`)
 			.then((resolve) => ({
 				...resolve,
 				data: pascalToCamel(resolve.data)

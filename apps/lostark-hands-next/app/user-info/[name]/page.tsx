@@ -1,6 +1,7 @@
 import ServerWrapper from '@/app/server-wrapper';
 
 import {
+	getArkGridApi,
 	getArkPassiveApi,
 	getCardApi,
 	getEngravesInfoApi,
@@ -10,6 +11,7 @@ import {
 	getSkillApi
 } from '@/service/armories';
 import {
+	arkGridSelector,
 	arkPassiveSelector,
 	cardSelector,
 	engraveSelector,
@@ -28,6 +30,7 @@ import {
 	EngraveSkeleton
 } from '@/app/user-info/[name]/@component/engrave';
 
+import ArkGrid from './@component/ark-grid';
 import CardSet from './@component/card-set';
 import CardSetSkeleton from './@component/card-set/skeleton';
 import CombatSkill from './@component/combat-skill';
@@ -65,7 +68,7 @@ const Page = async ({ params }: { params: { name: string } }) => {
 					render={Tendencies}
 				/>
 			</div>
-			<div className="flex w-full flex-col gap-y-[16px] md:w-auto md:grow">
+			<div className="flex w-full flex-col gap-y-[16px] md:w-auto md:min-w-0 md:grow">
 				<ServerWrapper
 					fallback={<EquipmentSkeleton />}
 					apiPromise={getEquipmentApi(name)}
@@ -83,6 +86,12 @@ const Page = async ({ params }: { params: { name: string } }) => {
 					apiPromise={getArkPassiveApi(name)}
 					selector={arkPassiveSelector}
 					render={ArkPassiveCollapse}
+				/>
+				<ServerWrapper
+					fallback={<ArkPassiveSkeleton />}
+					apiPromise={getArkGridApi(name)}
+					selector={arkGridSelector}
+					render={ArkGrid}
 				/>
 				<ServerWrapper
 					fallback={<CombatSkillSkeleton />}

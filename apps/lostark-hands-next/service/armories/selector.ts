@@ -1,4 +1,4 @@
-import type { ISelectedArkPassive } from '@/service/armories/_types';
+import type { ArkGrid, ISelectedArkPassive } from '@/service/armories/_types';
 import {
 	ArkPassiveType,
 	type IArkPassive,
@@ -37,6 +37,31 @@ import {
 	getPolishingEffect,
 	getTranscendence
 } from './_utils';
+
+const changeImageUrl = <T extends IObj>(item: T): T => {
+	return Object.entries(item).reduce((prev, [key, val]) => {
+		const isObject = typeof val === 'object' && val;
+
+		if (typeof val === 'string') {
+			return {
+				...prev,
+				[key]: Object.keys(EMO_IMAGE_URL).reduce(
+					(prev, cur) =>
+						EMO_IMAGE_URL[cur]
+							? prev.replaceAll(cur, `${CDN_URL}${EMO_IMAGE_URL[cur]}`)
+							: prev,
+					val
+				)
+			};
+		}
+
+		// object
+		if (isObject && !Array.isArray(val))
+			return { ...prev, [key]: changeImageUrl(val) };
+
+		return { ...prev, [key]: val };
+	}, Object());
+};
 
 /**
  * 프로필 데이터 가공
@@ -115,6 +140,27 @@ export const arkPassiveSelector = (data: IArkPassive | null) => {
 	};
 };
 
+export const arkGridSelector = (data: ArkGrid) => {
+	const { slots, effects } = data;
+	if (!slots || !effects) return { slots: null, effects: null };
+
+	const selectedSlots = slots.map((item) => ({
+		...item,
+		tooltip: (
+			Object.values(JSON.parse(item.tooltip)) satisfies TElementUnionArray
+		)
+			.filter((item) => !!item)
+			.map((item) => {
+				if (item.type !== 'IndentStringGroup' && item.type !== 'ItemPartBox')
+					return item;
+
+				return changeImageUrl(item);
+			})
+	}));
+
+	return { slots: selectedSlots, effects };
+};
+
 /**
  * 각인 데이터 가공
  */
@@ -142,31 +188,6 @@ export const engraveSelector = (args: IArmoryEngraving | null) => {
 		}) ?? null;
 
 	return { mappedEffects, arkPassiveEffects };
-};
-
-const changeImageUrl = <T extends IObj>(item: T): T => {
-	return Object.entries(item).reduce((prev, [key, val]) => {
-		const isObject = typeof val === 'object' && val;
-
-		if (typeof val === 'string') {
-			return {
-				...prev,
-				[key]: Object.keys(EMO_IMAGE_URL).reduce(
-					(prev, cur) =>
-						EMO_IMAGE_URL[cur]
-							? prev.replaceAll(cur, `${CDN_URL}${EMO_IMAGE_URL[cur]}`)
-							: prev,
-					val
-				)
-			};
-		}
-
-		// object
-		if (isObject && !Array.isArray(val))
-			return { ...prev, [key]: changeImageUrl(val) };
-
-		return { ...prev, [key]: val };
-	}, Object());
 };
 
 /**
