@@ -3,10 +3,9 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 
-import Head from '@/app/head';
+import Head from '@/app/(index)/head';
 
-import Header from '@/app/@component/header';
-import ClientModalRoot from '@/client-component/modal/client-modal-root';
+import Header from '@/app/(index)/_components/header';
 
 import 'swiper/css';
 import '@/style/main.css';
@@ -35,7 +34,6 @@ const Layout = ({ children }: PropsWithChildren) => {
 			<body className="hide-scrollbar bg-main-10">
 				<ReactQueryProvider>
 					<Header />
-					<ClientModalRoot />
 					<main className="lg:mx-auto lg:w-[1024px]">{children}</main>
 				</ReactQueryProvider>
 				<Analytics />
