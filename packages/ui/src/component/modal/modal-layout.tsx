@@ -6,7 +6,6 @@ import { motion as Motion } from 'framer-motion';
 import { useResponsive } from '@sono-repo/hook';
 
 import Button from '../button';
-import { useModal } from './use-modal';
 
 type TButtonProps = Partial<{
 	show: boolean;
@@ -49,7 +48,6 @@ const ModalLayout = ({
 	children
 }: IModalLayout) => {
 	const { isMd } = useResponsive();
-	const { onCloseModal, onResolve, onReject } = useModal();
 
 	return (
 		<Motion.div
@@ -79,10 +77,7 @@ const ModalLayout = ({
 				{cancel?.show && (
 					<Button
 						className={cn('ui:bg-main-20', buttonStyle, cancel.className)}
-						onClick={(e) => {
-							cancel.onClick ? cancel.onClick(e) : onReject?.();
-							onCloseModal();
-						}}
+						onClick={cancel.onClick}
 					>
 						{cancel.label ?? '취소'}
 					</Button>
@@ -90,10 +85,7 @@ const ModalLayout = ({
 				{confirm?.show && (
 					<Button
 						className={cn('ui:bg-main-40', buttonStyle, confirm.className)}
-						onClick={(e) => {
-							confirm.onClick ? confirm.onClick(e) : onResolve?.();
-							onCloseModal();
-						}}
+						onClick={confirm.onClick}
 					>
 						{confirm.label ?? '확인'}
 					</Button>
