@@ -11,9 +11,7 @@ interface ModalProps extends PropsWithChildren {
 const MODAL_ROOT_CLASS = 'sm-modal-root';
 
 const Modal = ({ isOpen, children, onClickOutside }: ModalProps) => {
-	const [modalRootEl, setModalRootEl] = useState(
-		document.body.getElementsByClassName(MODAL_ROOT_CLASS)[0]
-	);
+	const [modalRootEl, setModalRootEl] = useState<HTMLDivElement>();
 
 	useEffect(() => {
 		if (modalRootEl) return;
@@ -34,7 +32,10 @@ const Modal = ({ isOpen, children, onClickOutside }: ModalProps) => {
 					{isOpen && children && (
 						<Motion.div
 							className="ui:fixed ui:inset-0 ui:z-[100] ui:flex ui:items-center ui:justify-center ui:bg-black/70"
-							onClick={onClickOutside}
+							onClick={(e) => {
+								e.stopPropagation();
+								onClickOutside();
+							}}
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
