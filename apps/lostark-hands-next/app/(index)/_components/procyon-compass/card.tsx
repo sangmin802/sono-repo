@@ -7,7 +7,7 @@ import { Image } from '@sono-repo/ui';
 
 import type { IRewardItem } from '@/service/game-contents/_types';
 
-import RewardIcon from '@/client-component/reward-icon';
+import CDNIcon from '@/client-component/reward-icon';
 
 import {
 	CARD_EXP_ICON_URL,
@@ -69,7 +69,7 @@ const ProcyonCompassCard = ({
 					{rewardList.map(
 						({ name }) =>
 							uniqueReward[name] && (
-								<RewardIcon
+								<CDNIcon
 									key={name}
 									name={name}
 									path={uniqueReward[name]}

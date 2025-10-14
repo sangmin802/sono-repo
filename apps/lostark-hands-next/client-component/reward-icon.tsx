@@ -6,12 +6,12 @@ import { Image } from '@sono-repo/ui';
 
 import { CDN_URL } from '@/constants';
 
-interface IRewardIconProps {
+interface CDNIconProps {
 	name: string;
 	path: string;
 }
 
-const RewardIcon = ({ name, path }: IRewardIconProps) => {
+const CDNIcon = ({ name, path }: CDNIconProps) => {
 	return (
 		<Image
 			as={NextImage}
@@ -24,4 +24,4 @@ const RewardIcon = ({ name, path }: IRewardIconProps) => {
 	);
 };
 
-export default RewardIcon;
+export default CDNIcon;
