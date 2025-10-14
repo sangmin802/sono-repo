@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Chip } from '../index';
+import { Chip } from '../component/index';
 
 type TChipProps = ComponentProps<typeof Chip> & { fontColor?: string };
 
