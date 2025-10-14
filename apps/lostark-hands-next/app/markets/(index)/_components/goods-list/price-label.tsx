@@ -1,5 +1,5 @@
 import Label from '@/client-component/label';
-import RewardIcon from '@/client-component/reward-icon';
+import CDNIcon from '@/client-component/reward-icon';
 
 import { GOLD_ICON_URL } from '@/constants';
 
@@ -9,7 +9,7 @@ const PriceLabel = ({ label, price }: { label: string; price: number }) => {
 			<Label className="mr-[4px] w-[68px] shrink-0 text-[12px]">{label}</Label>
 			<div className="flex shrink-0 grow justify-end text-[12px]">
 				{price.toLocaleString()}
-				<RewardIcon
+				<CDNIcon
 					name="골드"
 					path={GOLD_ICON_URL}
 				/>
