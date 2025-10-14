@@ -117,6 +117,10 @@ const FilterButton = ({ data }: FilterButtonProps) => {
 		search: { ...(itemName && { itemName }) }
 	};
 
+	const handleClose = () => {
+		setIsOpen(false);
+	};
+
 	const handleClickConfirm = ({
 		category,
 		keyword,
@@ -139,10 +143,8 @@ const FilterButton = ({ data }: FilterButtonProps) => {
 		const searchQuery = current.toString();
 
 		router.replace(`${pathname}${searchQuery ? `?${searchQuery}` : ''}`);
-	};
 
-	const handleClickCancel = () => {
-		setIsOpen(false);
+		handleClose();
 	};
 
 	return (
@@ -156,7 +158,7 @@ const FilterButton = ({ data }: FilterButtonProps) => {
 			+필터
 			<Modal
 				isOpen={isOpen}
-				onClickOutside={handleClickCancel}
+				onClickOutside={handleClose}
 			>
 				<FilterModal
 					title="거래소 필터"
