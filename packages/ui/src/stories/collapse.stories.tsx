@@ -6,7 +6,7 @@ import { type ComponentProps, Fragment } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import cn from 'classnames';
 
-import { Accordion, Collapse } from '../index';
+import { Accordion, Collapse } from '../component/index';
 
 type TCollapseProps = ComponentProps<typeof Collapse>;
 type TSummaryProps = ComponentProps<typeof Collapse.Summary>;

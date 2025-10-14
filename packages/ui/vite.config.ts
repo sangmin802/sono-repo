@@ -1,40 +1,50 @@
 import resolve from '@rollup/plugin-node-resolve';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
+import glob from 'fast-glob';
 import path from 'path';
+import type { UserConfig } from 'vite';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
-export default defineConfig({
-	plugins: [
-		react(),
-		dts({
-			outDir: 'dist',
-			exclude: ['vite.config.ts', '.storybook/**/*', 'src/stories/**/*']
-		}),
-		tailwindcss()
-	],
-	define: {
-		outerEnv: 'process.env'
-	},
-	build: {
-		minify: false,
-		lib: {
-			entry: {
-				/**
-				 * @THINK build entry를 분리하여, exports field에서 path로 구분해줄 수 있으면 좋지 않을까
-				 */
-				index: path.resolve(__dirname, 'src/index.ts'),
-				'fast-food/index': path.resolve(__dirname, 'src/fast-food/index.ts'),
-				'fruit/index': path.resolve(__dirname, 'src/fruit/index.ts')
-			},
-			formats: ['cjs', 'es'],
-			fileName: (format, entry) =>
-				`${entry}.${format === 'es' ? 'mjs' : format}`
+export default defineConfig(async () => {
+	const entryFiles = await glob('*/index.ts', { cwd: 'src' });
+	const libEntry = entryFiles.reduce<Record<string, string>>(
+		(entryObj, entry) => {
+			const newEntryObj = { ...entryObj };
+			newEntryObj[entry.replace('.ts', '')] = path.resolve(
+				__dirname,
+				`src/${entry}`
+			);
+			return newEntryObj;
 		},
-		rollupOptions: {
-			external: ['react', 'react-dom', 'tailwindcss'],
-			plugins: [resolve()]
+		{}
+	);
+
+	return {
+		plugins: [
+			react(),
+			dts({
+				outDir: 'dist',
+				exclude: ['vite.config.ts', '.storybook/**/*', 'src/stories/**/*']
+			}),
+			tailwindcss()
+		],
+		define: {
+			outerEnv: 'process.env'
+		},
+		build: {
+			minify: false,
+			lib: {
+				entry: libEntry,
+				formats: ['cjs', 'es'],
+				fileName: (format, entry) =>
+					`${entry}.${format === 'es' ? 'mjs' : format}`
+			},
+			rollupOptions: {
+				external: ['react', 'react-dom', 'tailwindcss'],
+				plugins: [resolve()]
+			}
 		}
-	}
+	} satisfies UserConfig;
 });

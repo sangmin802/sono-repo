@@ -17,9 +17,9 @@
 	},
 	"exports": {
 		".": {
-			"require": "./dist/index.cjs",
-			"import": "./dist/index.mjs",
-			"types": "./dist/index.d.ts"
+			"require": "./dist/component/index.cjs",
+			"import": "./dist/component/index.mjs",
+			"types": "./dist/component/index.d.ts"
 		},
 		"./fruit": {
 			"require": "./dist/fruit/index.cjs",
@@ -58,6 +58,7 @@
 		"classnames": "^2.5.1",
 		"eslint": "9.25.0",
 		"eslint-plugin-storybook": "^0.12.0",
+		"fast-glob": "^3.3.3",
 		"framer-motion": "^11.0.8",
 		"react": "19.1.0",
 		"react-dom": "19.1.0",

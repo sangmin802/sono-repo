@@ -1,7 +1,7 @@
 import { type ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Dropdown } from '../index';
+import { Dropdown } from '../component/index';
 
 type TDropdownProps = ComponentProps<typeof Dropdown>;
 

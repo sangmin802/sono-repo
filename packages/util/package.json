@@ -6,7 +6,8 @@
 	"exports": {
 		"./date": "./date.ts",
 		"./number": "./number.ts",
-		"./convert": "./convert.ts"
+		"./convert": "./convert.ts",
+		"./helper": "./helper.ts"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
