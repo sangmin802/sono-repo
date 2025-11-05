@@ -1,8 +1,4 @@
 const fetchSomething = async () => {
-	setInterval(() => {
-		self.navigator.setAppBadge(Math.ceil(Math.random() * 10));
-	});
-
 	self.registration.showNotification('ServiceWorker Cookbook', {
 		body: '로아핸즈'
 	});
