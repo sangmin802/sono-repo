@@ -12,8 +12,6 @@ import ThumbnailCard from '@/client-component/thumbnail-card';
 
 import TooltipModalCardContainer from '../../../_components/tooltip-modal-card-container';
 import QualityChip from '../quality-chip';
-import Elixir from './elixir';
-import Transcendence from './transcedence';
 
 const ArmoryCard = (item: TParsedArmory<ISelectedArmoryEquipment>) => {
 	return (
@@ -48,10 +46,6 @@ const ArmoryCard = (item: TParsedArmory<ISelectedArmoryEquipment>) => {
 								{` [+${item.advancedReinforce ?? 0}]`}
 							</GradeText>
 							<QualityChip size={item.quality} />
-						</div>
-						<div className="flex items-center gap-x-[6px]">
-							{item.elixir && <Elixir data={item.elixir} />}
-							{item.transcendence && <Transcendence {...item.transcendence} />}
 						</div>
 					</>
 				)}

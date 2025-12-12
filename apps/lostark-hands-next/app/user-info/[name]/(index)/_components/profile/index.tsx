@@ -56,12 +56,6 @@ const Profile = ({ data }: IProfileProps) => {
 									: '-'}
 							</div>
 						</div>
-						<div className="flex items-center">
-							<Label className={TEXT_STYLE}>pvp</Label>
-							<div className="ml-[4px] text-[12px] md:text-[16px]">
-								{data.pvpGradeName ?? '-'}
-							</div>
-						</div>
 					</div>
 					<div className="flex gap-x-[10px] [&_div]:font-bold">
 						<LevelInfo label="전투">Lv. {data.characterLevel ?? 0}</LevelInfo>

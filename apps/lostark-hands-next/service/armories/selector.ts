@@ -31,12 +31,7 @@ import {
 	EQUIP_PARTS,
 	EXCLUDE_TOOLTIP_TEXT
 } from './_constants';
-import {
-	getAdvancedReinforce,
-	getElixir,
-	getPolishingEffect,
-	getTranscendence
-} from './_utils';
+import { getAdvancedReinforce, getPolishingEffect } from './_utils';
 
 const changeImageUrl = <T extends IObj>(item: T): T => {
 	return Object.entries(item).reduce((prev, [key, val]) => {
@@ -230,8 +225,6 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 				const levelInfo = itemTitle?.value.leftStr2 ?? '';
 				const quality = itemTitle?.value.qualityValue ?? 0;
 
-				const elixir = getElixir(tooltip);
-				const transcendence = getTranscendence(tooltip);
 				const advancedReinforce = getAdvancedReinforce(tooltip);
 				const polishingEffect = getPolishingEffect(tooltip);
 
@@ -239,8 +232,6 @@ export const equipmentSelector = (data: IArmoryEquipment[] | null) =>
 					...rest,
 					levelInfo,
 					quality,
-					elixir,
-					transcendence,
 					advancedReinforce,
 					polishingEffect,
 					tooltip: (

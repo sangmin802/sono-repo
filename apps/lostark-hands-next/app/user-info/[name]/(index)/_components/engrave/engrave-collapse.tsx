@@ -30,6 +30,7 @@ const createModalData = (effects: IArkPassiveEffects[] | null) => {
 };
 
 const EngraveCollapse = ({ data }: IEngravesProps) => {
+	console.log(data.arkPassiveEffects);
 	return (
 		<Collapse
 			id="engraves"

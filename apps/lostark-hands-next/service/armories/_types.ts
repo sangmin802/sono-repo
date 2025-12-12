@@ -189,7 +189,6 @@ export interface ICollectiblePoint {
 export interface IArmoryProfile {
 	characterImage?: string;
 	expeditionLevel: number;
-	pvpGradeName: string;
 	townLevel: number | null;
 	townName: string;
 	title: string;
@@ -223,12 +222,7 @@ export interface IArmoryEquipment {
 export interface ISelectedArmoryEquipment extends IArmoryEquipment {
 	levelInfo: string;
 	quality: number;
-	elixir?: string[];
 	advancedReinforce?: string;
-	transcendence?: {
-		grade: string;
-		total: string;
-	};
 	polishingEffect?: string[];
 }
 
@@ -281,10 +275,7 @@ export interface IArmoryGem {
 }
 
 interface IColosseumInfo {
-	rank: number;
-	preRank: number;
-	exp: number;
-	colosseums: IColosseum;
+	colosseums: IColosseum[];
 }
 
 export type TCollectibleType =
